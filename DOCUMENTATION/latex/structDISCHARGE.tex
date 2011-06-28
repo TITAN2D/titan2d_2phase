@@ -1,0 +1,111 @@
+\hypertarget{structDISCHARGE}{
+\section{DISCHARGE Struct Reference}
+\label{structDISCHARGE}\index{DISCHARGE@{DISCHARGE}}
+}
+this structure is for the calculation of volume that flows through user specified discharge planes. The sign of the volume indicates which direction the flow went and follows the right hand rule convention. velocity cross (point b-point a) is the sign of the flow through planes. This means if you surround the only pile, specify the points defining the discharge planes in counter clockwise order, the flow \char`\"{}out of the box\char`\"{} will be positive. if you specify the points in clockwise order flow \char`\"{}out of the box\char`\"{} will be negative.  
+
+
+{\tt \#include $<$properties.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{structDISCHARGE_a0}{DISCHARGE} ()
+\begin{CompactList}\small\item\em this constructor initializes the number of planes to zero \item\end{CompactList}\item 
+\hyperlink{structDISCHARGE_a1}{$\sim$DISCHARGE} ()
+\begin{CompactList}\small\item\em this destructor deallocates the planes information \item\end{CompactList}\item 
+void \hyperlink{structDISCHARGE_a2}{init} (int num\_\-planes\_\-in, double $\ast$$\ast$planes\_\-in)
+\begin{CompactList}\small\item\em this function initializes the planes information (to zero flux through the planes) and precomputes a number of quantities to make updating the flux through the planes fast \item\end{CompactList}\item 
+void \hyperlink{structDISCHARGE_a3}{update} (double nodes\mbox{[}9\mbox{]}\mbox{[}2\mbox{]}, double $\ast$statevars, double dt)
+\begin{CompactList}\small\item\em this function updates the flux through the discharge planes \item\end{CompactList}\item 
+void \hyperlink{structDISCHARGE_a4}{dealloc} ()
+\begin{CompactList}\small\item\em this function deallocates the array holding the information about the discharge planes \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int \hyperlink{structDISCHARGE_o0}{num\_\-planes}
+\begin{CompactList}\small\item\em the number of discharge planes \item\end{CompactList}\item 
+double $\ast$$\ast$ \hyperlink{structDISCHARGE_o1}{planes}
+\begin{CompactList}\small\item\em the discharge planes are lines (with planes normal to the surface intersecting the surface passing through the lines), this holds a lot of information associated with each planes, a lot of precomputed quantities to make updating the flux through the planes fast. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+this structure is for the calculation of volume that flows through user specified discharge planes. The sign of the volume indicates which direction the flow went and follows the right hand rule convention. velocity cross (point b-point a) is the sign of the flow through planes. This means if you surround the only pile, specify the points defining the discharge planes in counter clockwise order, the flow \char`\"{}out of the box\char`\"{} will be positive. if you specify the points in clockwise order flow \char`\"{}out of the box\char`\"{} will be negative. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structDISCHARGE_a0}{
+\index{DISCHARGE@{DISCHARGE}!DISCHARGE@{DISCHARGE}}
+\index{DISCHARGE@{DISCHARGE}!DISCHARGE@{DISCHARGE}}
+\subsubsection[DISCHARGE]{\setlength{\rightskip}{0pt plus 5cm}DISCHARGE::DISCHARGE ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structDISCHARGE_a0}
+
+
+this constructor initializes the number of planes to zero 
+
+\hypertarget{structDISCHARGE_a1}{
+\index{DISCHARGE@{DISCHARGE}!~DISCHARGE@{$\sim$DISCHARGE}}
+\index{~DISCHARGE@{$\sim$DISCHARGE}!DISCHARGE@{DISCHARGE}}
+\subsubsection[$\sim$DISCHARGE]{\setlength{\rightskip}{0pt plus 5cm}DISCHARGE::$\sim$\hyperlink{structDISCHARGE}{DISCHARGE} ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structDISCHARGE_a1}
+
+
+this destructor deallocates the planes information 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structDISCHARGE_a4}{
+\index{DISCHARGE@{DISCHARGE}!dealloc@{dealloc}}
+\index{dealloc@{dealloc}!DISCHARGE@{DISCHARGE}}
+\subsubsection[dealloc]{\setlength{\rightskip}{0pt plus 5cm}void DISCHARGE::dealloc ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structDISCHARGE_a4}
+
+
+this function deallocates the array holding the information about the discharge planes 
+
+\hypertarget{structDISCHARGE_a2}{
+\index{DISCHARGE@{DISCHARGE}!init@{init}}
+\index{init@{init}!DISCHARGE@{DISCHARGE}}
+\subsubsection[init]{\setlength{\rightskip}{0pt plus 5cm}void DISCHARGE::init (int {\em num\_\-planes\_\-in}, double $\ast$$\ast$ {\em planes\_\-in})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structDISCHARGE_a2}
+
+
+this function initializes the planes information (to zero flux through the planes) and precomputes a number of quantities to make updating the flux through the planes fast 
+
+\hypertarget{structDISCHARGE_a3}{
+\index{DISCHARGE@{DISCHARGE}!update@{update}}
+\index{update@{update}!DISCHARGE@{DISCHARGE}}
+\subsubsection[update]{\setlength{\rightskip}{0pt plus 5cm}void DISCHARGE::update (double {\em nodes}\mbox{[}9\mbox{]}\mbox{[}2\mbox{]}, double $\ast$ {\em statevars}, double {\em dt})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structDISCHARGE_a3}
+
+
+this function updates the flux through the discharge planes 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structDISCHARGE_o0}{
+\index{DISCHARGE@{DISCHARGE}!num_planes@{num\_\-planes}}
+\index{num_planes@{num\_\-planes}!DISCHARGE@{DISCHARGE}}
+\subsubsection[num\_\-planes]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structDISCHARGE_o0}{DISCHARGE::num\_\-planes}}}
+\label{structDISCHARGE_o0}
+
+
+the number of discharge planes 
+
+\hypertarget{structDISCHARGE_o1}{
+\index{DISCHARGE@{DISCHARGE}!planes@{planes}}
+\index{planes@{planes}!DISCHARGE@{DISCHARGE}}
+\subsubsection[planes]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$$\ast$ \hyperlink{structDISCHARGE_o1}{DISCHARGE::planes}}}
+\label{structDISCHARGE_o1}
+
+
+the discharge planes are lines (with planes normal to the surface intersecting the surface passing through the lines), this holds a lot of information associated with each planes, a lot of precomputed quantities to make updating the flux through the planes fast. 
+
+
+
+The documentation for this struct was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{properties_8h}{properties.h}\end{CompactItemize}

@@ -1,0 +1,23 @@
+\hypertarget{BSFC__combine__elements_8C}{
+\section{BSFC\_\-combine\_\-elements.C File Reference}
+\label{BSFC__combine__elements_8C}\index{BSFC_combine_elements.C@{BSFC\_\-combine\_\-elements.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+{\tt \#include \char`\"{}./repartition\_\-BSFC.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{BSFC__combine__elements_8C_a0}{BSFC\_\-combine\_\-elements} (int side, \hyperlink{classElement}{Element} $\ast$Em\-Temp, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int destination\_\-proc)
+\begin{CompactList}\small\item\em this function figures out how to \char`\"{}bunch\char`\"{} together elements that cannot be put on different processors because of a constrained node, B stands for bunch SFC stands for space filling curve \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{BSFC__combine__elements_8C_a0}{
+\index{BSFC_combine_elements.C@{BSFC\_\-combine\_\-elements.C}!BSFC_combine_elements@{BSFC\_\-combine\_\-elements}}
+\index{BSFC_combine_elements@{BSFC\_\-combine\_\-elements}!BSFC_combine_elements.C@{BSFC\_\-combine\_\-elements.C}}
+\subsubsection[BSFC\_\-combine\_\-elements]{\setlength{\rightskip}{0pt plus 5cm}void BSFC\_\-combine\_\-elements (int {\em side}, \hyperlink{classElement}{Element} $\ast$ {\em Em\-Temp}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em destination\_\-proc})}}
+\label{BSFC__combine__elements_8C_a0}
+
+
+this function figures out how to \char`\"{}bunch\char`\"{} together elements that cannot be put on different processors because of a constrained node, B stands for bunch SFC stands for space filling curve 
+

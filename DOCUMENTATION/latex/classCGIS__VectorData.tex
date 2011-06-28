@@ -1,0 +1,214 @@
+\hypertarget{classCGIS__VectorData}{
+\section{CGIS\_\-Vector\-Data Class Reference}
+\label{classCGIS__VectorData}\index{CGIS_VectorData@{CGIS\_\-VectorData}}
+}
+{\tt \#include $<$cgis\_\-vectordata.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classCGIS__VectorData_a0}{CGIS\_\-Vector\-Data} ()
+\item 
+\hyperlink{classCGIS__VectorData_a1}{CGIS\_\-Vector\-Data} (double res, double xmin, double xmax, double ymin, double ymax, int rows, int cols, char $\ast$GIS\_\-Dbase, char $\ast$GIS\_\-Maplocation, char $\ast$GIS\_\-Mapset, char $\ast$GIS\_\-Vector\-File)
+\item 
+\hyperlink{classCGIS__VectorData_a2}{$\sim$CGIS\_\-Vector\-Data} ()
+\item 
+int \hyperlink{classCGIS__VectorData_a3}{Read\-Vector\-Data} ()
+\item 
+int \hyperlink{classCGIS__VectorData_a4}{Project\-On2DGrid} ()
+\item 
+int \hyperlink{classCGIS__VectorData_a5}{Store\-In\-File} ()
+\item 
+int \hyperlink{classCGIS__VectorData_a6}{Read\-From\-File} ()
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+vector$<$ \hyperlink{classCPolyLine}{CPoly\-Line} $\ast$ $>$ \hyperlink{classCGIS__VectorData_r0}{\_\-polylines}
+\item 
+double \hyperlink{classCGIS__VectorData_r1}{\_\-res}
+\item 
+double \hyperlink{classCGIS__VectorData_r2}{\_\-xmin}
+\item 
+double \hyperlink{classCGIS__VectorData_r3}{\_\-xmax}
+\item 
+double \hyperlink{classCGIS__VectorData_r4}{\_\-ymin}
+\item 
+double \hyperlink{classCGIS__VectorData_r5}{\_\-ymax}
+\item 
+int \hyperlink{classCGIS__VectorData_r6}{\_\-npolylines}
+\item 
+int \hyperlink{classCGIS__VectorData_r7}{\_\-rows}
+\item 
+int \hyperlink{classCGIS__VectorData_r8}{\_\-cols}
+\item 
+char \hyperlink{classCGIS__VectorData_r9}{\_\-gis\-DBase} \mbox{[}256\mbox{]}
+\item 
+char \hyperlink{classCGIS__VectorData_r10}{\_\-gis\-Maplocation} \mbox{[}256\mbox{]}
+\item 
+char \hyperlink{classCGIS__VectorData_r11}{\_\-gis\-Mapset} \mbox{[}256\mbox{]}
+\item 
+char \hyperlink{classCGIS__VectorData_r12}{\_\-gis\-Vector\-File} \mbox{[}256\mbox{]}
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This class holds a vector of Poly\-Line objects. \begin{Desc}
+\item[Author:]Amrita Chanda \end{Desc}
+
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classCGIS__VectorData_a0}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!CGIS_VectorData@{CGIS\_\-VectorData}}
+\index{CGIS_VectorData@{CGIS\_\-VectorData}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[CGIS\_\-VectorData]{\setlength{\rightskip}{0pt plus 5cm}CGIS\_\-Vector\-Data::CGIS\_\-Vector\-Data ()}}
+\label{classCGIS__VectorData_a0}
+
+
+\hypertarget{classCGIS__VectorData_a1}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!CGIS_VectorData@{CGIS\_\-VectorData}}
+\index{CGIS_VectorData@{CGIS\_\-VectorData}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[CGIS\_\-VectorData]{\setlength{\rightskip}{0pt plus 5cm}CGIS\_\-Vector\-Data::CGIS\_\-Vector\-Data (double {\em res}, double {\em xmin}, double {\em xmax}, double {\em ymin}, double {\em ymax}, int {\em rows}, int {\em cols}, char $\ast$ {\em GIS\_\-Dbase}, char $\ast$ {\em GIS\_\-Maplocation}, char $\ast$ {\em GIS\_\-Mapset}, char $\ast$ {\em GIS\_\-Vector\-File})}}
+\label{classCGIS__VectorData_a1}
+
+
+\hypertarget{classCGIS__VectorData_a2}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!~CGIS_VectorData@{$\sim$CGIS\_\-VectorData}}
+\index{~CGIS_VectorData@{$\sim$CGIS\_\-VectorData}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[$\sim$CGIS\_\-VectorData]{\setlength{\rightskip}{0pt plus 5cm}CGIS\_\-Vector\-Data::$\sim$\hyperlink{classCGIS__VectorData}{CGIS\_\-Vector\-Data} ()}}
+\label{classCGIS__VectorData_a2}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classCGIS__VectorData_a4}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!ProjectOn2DGrid@{ProjectOn2DGrid}}
+\index{ProjectOn2DGrid@{ProjectOn2DGrid}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[ProjectOn2DGrid]{\setlength{\rightskip}{0pt plus 5cm}int CGIS\_\-Vector\-Data::Project\-On2DGrid ()}}
+\label{classCGIS__VectorData_a4}
+
+
+This method takes each polyline and projects it on a 2D field. Intersections of each segment making up a polyline, with X \& Y axes and the diagonals in the 2D field are noted. \hypertarget{classCGIS__VectorData_a6}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!ReadFromFile@{ReadFromFile}}
+\index{ReadFromFile@{ReadFromFile}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[ReadFromFile]{\setlength{\rightskip}{0pt plus 5cm}int CGIS\_\-Vector\-Data::Read\-From\-File ()}}
+\label{classCGIS__VectorData_a6}
+
+
+\hypertarget{classCGIS__VectorData_a3}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!ReadVectorData@{ReadVectorData}}
+\index{ReadVectorData@{ReadVectorData}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[ReadVectorData]{\setlength{\rightskip}{0pt plus 5cm}int CGIS\_\-Vector\-Data::Read\-Vector\-Data ()}}
+\label{classCGIS__VectorData_a3}
+
+
+\hypertarget{classCGIS__VectorData_a5}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!StoreInFile@{StoreInFile}}
+\index{StoreInFile@{StoreInFile}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[StoreInFile]{\setlength{\rightskip}{0pt plus 5cm}int CGIS\_\-Vector\-Data::Store\-In\-File ()}}
+\label{classCGIS__VectorData_a5}
+
+
+Stores XY values of 2D projected polylines in file \char`\"{}Vector\-Data\-Output.dat\char`\"{} 
+
+\subsection{Member Data Documentation}
+\hypertarget{classCGIS__VectorData_r8}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!_cols@{\_\-cols}}
+\index{_cols@{\_\-cols}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[\_\-cols]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classCGIS__VectorData_r8}{CGIS\_\-Vector\-Data::\_\-cols}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classCGIS__VectorData_r8}
+
+
+\hypertarget{classCGIS__VectorData_r9}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!_gisDBase@{\_\-gisDBase}}
+\index{_gisDBase@{\_\-gisDBase}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[\_\-gisDBase]{\setlength{\rightskip}{0pt plus 5cm}char \hyperlink{classCGIS__VectorData_r9}{CGIS\_\-Vector\-Data::\_\-gis\-DBase}\mbox{[}256\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classCGIS__VectorData_r9}
+
+
+\hypertarget{classCGIS__VectorData_r10}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!_gisMaplocation@{\_\-gisMaplocation}}
+\index{_gisMaplocation@{\_\-gisMaplocation}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[\_\-gisMaplocation]{\setlength{\rightskip}{0pt plus 5cm}char \hyperlink{classCGIS__VectorData_r10}{CGIS\_\-Vector\-Data::\_\-gis\-Maplocation}\mbox{[}256\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classCGIS__VectorData_r10}
+
+
+\hypertarget{classCGIS__VectorData_r11}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!_gisMapset@{\_\-gisMapset}}
+\index{_gisMapset@{\_\-gisMapset}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[\_\-gisMapset]{\setlength{\rightskip}{0pt plus 5cm}char \hyperlink{classCGIS__VectorData_r11}{CGIS\_\-Vector\-Data::\_\-gis\-Mapset}\mbox{[}256\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classCGIS__VectorData_r11}
+
+
+\hypertarget{classCGIS__VectorData_r12}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!_gisVectorFile@{\_\-gisVectorFile}}
+\index{_gisVectorFile@{\_\-gisVectorFile}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[\_\-gisVectorFile]{\setlength{\rightskip}{0pt plus 5cm}char \hyperlink{classCGIS__VectorData_r12}{CGIS\_\-Vector\-Data::\_\-gis\-Vector\-File}\mbox{[}256\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classCGIS__VectorData_r12}
+
+
+\hypertarget{classCGIS__VectorData_r6}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!_npolylines@{\_\-npolylines}}
+\index{_npolylines@{\_\-npolylines}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[\_\-npolylines]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classCGIS__VectorData_r6}{CGIS\_\-Vector\-Data::\_\-npolylines}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classCGIS__VectorData_r6}
+
+
+\hypertarget{classCGIS__VectorData_r0}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!_polylines@{\_\-polylines}}
+\index{_polylines@{\_\-polylines}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[\_\-polylines]{\setlength{\rightskip}{0pt plus 5cm}vector$<$\hyperlink{classCPolyLine}{CPoly\-Line} $\ast$$>$ \hyperlink{classCGIS__VectorData_r0}{CGIS\_\-Vector\-Data::\_\-polylines}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classCGIS__VectorData_r0}
+
+
+\hypertarget{classCGIS__VectorData_r1}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!_res@{\_\-res}}
+\index{_res@{\_\-res}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[\_\-res]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classCGIS__VectorData_r1}{CGIS\_\-Vector\-Data::\_\-res}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classCGIS__VectorData_r1}
+
+
+\hypertarget{classCGIS__VectorData_r7}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!_rows@{\_\-rows}}
+\index{_rows@{\_\-rows}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[\_\-rows]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classCGIS__VectorData_r7}{CGIS\_\-Vector\-Data::\_\-rows}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classCGIS__VectorData_r7}
+
+
+\hypertarget{classCGIS__VectorData_r3}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!_xmax@{\_\-xmax}}
+\index{_xmax@{\_\-xmax}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[\_\-xmax]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classCGIS__VectorData_r3}{CGIS\_\-Vector\-Data::\_\-xmax}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classCGIS__VectorData_r3}
+
+
+\hypertarget{classCGIS__VectorData_r2}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!_xmin@{\_\-xmin}}
+\index{_xmin@{\_\-xmin}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[\_\-xmin]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classCGIS__VectorData_r2}{CGIS\_\-Vector\-Data::\_\-xmin}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classCGIS__VectorData_r2}
+
+
+\hypertarget{classCGIS__VectorData_r5}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!_ymax@{\_\-ymax}}
+\index{_ymax@{\_\-ymax}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[\_\-ymax]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classCGIS__VectorData_r5}{CGIS\_\-Vector\-Data::\_\-ymax}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classCGIS__VectorData_r5}
+
+
+\hypertarget{classCGIS__VectorData_r4}{
+\index{CGIS_VectorData@{CGIS\_\-Vector\-Data}!_ymin@{\_\-ymin}}
+\index{_ymin@{\_\-ymin}!CGIS_VectorData@{CGIS\_\-Vector\-Data}}
+\subsubsection[\_\-ymin]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classCGIS__VectorData_r4}{CGIS\_\-Vector\-Data::\_\-ymin}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classCGIS__VectorData_r4}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{cgis__vectordata_8h}{cgis\_\-vectordata.h}\item 
+\hyperlink{cgis__vectordata_8cpp}{cgis\_\-vectordata.cpp}\end{CompactItemize}

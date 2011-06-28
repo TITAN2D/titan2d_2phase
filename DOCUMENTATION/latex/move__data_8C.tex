@@ -1,0 +1,44 @@
+\hypertarget{move__data_8C}{
+\section{move\_\-data.C File Reference}
+\label{move__data_8C}\index{move_data.C@{move\_\-data.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+{\tt \#include \char`\"{}../header/exvar.h\char`\"{}}\par
+{\tt \#include \char`\"{}../header/geoflow.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{move__data_8C_a0}{move\_\-data} (int numprocs, int myid, \hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr)
+\begin{CompactList}\small\item\em this function transfers information during events such as ghost element data exchange and repartitioning \item\end{CompactList}\item 
+void \hyperlink{move__data_8C_a1}{delete\_\-ghost\_\-elms} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, int myid)
+\begin{CompactList}\small\item\em this function deletes the current ghost elements \item\end{CompactList}\item 
+void \hyperlink{move__data_8C_a2}{create\_\-delete\_\-memory} ()
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{move__data_8C_a2}{
+\index{move_data.C@{move\_\-data.C}!create_delete_memory@{create\_\-delete\_\-memory}}
+\index{create_delete_memory@{create\_\-delete\_\-memory}!move_data.C@{move\_\-data.C}}
+\subsubsection[create\_\-delete\_\-memory]{\setlength{\rightskip}{0pt plus 5cm}void create\_\-delete\_\-memory ()}}
+\label{move__data_8C_a2}
+
+
+\hypertarget{move__data_8C_a1}{
+\index{move_data.C@{move\_\-data.C}!delete_ghost_elms@{delete\_\-ghost\_\-elms}}
+\index{delete_ghost_elms@{delete\_\-ghost\_\-elms}!move_data.C@{move\_\-data.C}}
+\subsubsection[delete\_\-ghost\_\-elms]{\setlength{\rightskip}{0pt plus 5cm}void delete\_\-ghost\_\-elms (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, int {\em myid})}}
+\label{move__data_8C_a1}
+
+
+this function deletes the current ghost elements 
+
+\hypertarget{move__data_8C_a0}{
+\index{move_data.C@{move\_\-data.C}!move_data@{move\_\-data}}
+\index{move_data@{move\_\-data}!move_data.C@{move\_\-data.C}}
+\subsubsection[move\_\-data]{\setlength{\rightskip}{0pt plus 5cm}void move\_\-data (int {\em numprocs}, int {\em myid}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr})}}
+\label{move__data_8C_a0}
+
+
+this function transfers information during events such as ghost element data exchange and repartitioning 
+

@@ -1,0 +1,165 @@
+\hypertarget{classGisLabels}{
+\section{Gis\-Labels Class Reference}
+\label{classGisLabels}\index{GisLabels@{GisLabels}}
+}
+{\tt \#include $<$Gis\-Labels.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classGisLabels_a0}{Gis\-Labels} (const string \&name)
+\item 
+virtual \hyperlink{classGisLabels_a1}{$\sim$Gis\-Labels} ()
+\item 
+bool \hyperlink{classGisLabels_a2}{good} ()
+\item 
+int \hyperlink{classGisLabels_a3}{number\-Of\-Labels} ()
+\item 
+bool \hyperlink{classGisLabels_a4}{get\-Label} (int nlabel, string \&label\-String, double \&x, double \&y)
+\item 
+int \hyperlink{classGisLabels_a5}{get\-Index} (string \&label\-Str)
+\item 
+void \hyperlink{classGisLabels_a6}{print} ()
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+bool \hyperlink{classGisLabels_p0}{\_\-status}
+\item 
+int \hyperlink{classGisLabels_p1}{\_\-nlabels}
+\item 
+vector$<$ string $>$ \hyperlink{classGisLabels_p2}{\_\-label\-Strings}
+\item 
+vector$<$ double $>$ \hyperlink{classGisLabels_p3}{\_\-label\-Xs}
+\item 
+vector$<$ double $>$ \hyperlink{classGisLabels_p4}{\_\-label\-Ys}
+\item 
+map$<$ string, int $>$ \hyperlink{classGisLabels_p5}{\_\-label\-Indxs}
+\end{CompactItemize}
+\subsection*{Private Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classGisLabels_d0}{Gis\-Labels} (const \hyperlink{classGisLabels}{Gis\-Labels} \&)
+\item 
+\hyperlink{classGisLabels}{Gis\-Labels} \& \hyperlink{classGisLabels_d1}{operator=} (const \hyperlink{classGisLabels}{Gis\-Labels} \&)
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGisLabels_a0}{
+\index{GisLabels@{Gis\-Labels}!GisLabels@{GisLabels}}
+\index{GisLabels@{GisLabels}!GisLabels@{Gis\-Labels}}
+\subsubsection[GisLabels]{\setlength{\rightskip}{0pt plus 5cm}Gis\-Labels::Gis\-Labels (const string \& {\em name})}}
+\label{classGisLabels_a0}
+
+
+\hypertarget{classGisLabels_a1}{
+\index{GisLabels@{Gis\-Labels}!~GisLabels@{$\sim$GisLabels}}
+\index{~GisLabels@{$\sim$GisLabels}!GisLabels@{Gis\-Labels}}
+\subsubsection[$\sim$GisLabels]{\setlength{\rightskip}{0pt plus 5cm}virtual Gis\-Labels::$\sim$\hyperlink{classGisLabels}{Gis\-Labels} ()\hspace{0.3cm}{\tt  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classGisLabels_a1}
+
+
+\hypertarget{classGisLabels_d0}{
+\index{GisLabels@{Gis\-Labels}!GisLabels@{GisLabels}}
+\index{GisLabels@{GisLabels}!GisLabels@{Gis\-Labels}}
+\subsubsection[GisLabels]{\setlength{\rightskip}{0pt plus 5cm}Gis\-Labels::Gis\-Labels (const \hyperlink{classGisLabels}{Gis\-Labels} \&)\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classGisLabels_d0}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGisLabels_a5}{
+\index{GisLabels@{Gis\-Labels}!getIndex@{getIndex}}
+\index{getIndex@{getIndex}!GisLabels@{Gis\-Labels}}
+\subsubsection[getIndex]{\setlength{\rightskip}{0pt plus 5cm}int Gis\-Labels::get\-Index (string \& {\em label\-Str})}}
+\label{classGisLabels_a5}
+
+
+\hypertarget{classGisLabels_a4}{
+\index{GisLabels@{Gis\-Labels}!getLabel@{getLabel}}
+\index{getLabel@{getLabel}!GisLabels@{Gis\-Labels}}
+\subsubsection[getLabel]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-Labels::get\-Label (int {\em nlabel}, string \& {\em label\-String}, double \& {\em x}, double \& {\em y})}}
+\label{classGisLabels_a4}
+
+
+\hypertarget{classGisLabels_a2}{
+\index{GisLabels@{Gis\-Labels}!good@{good}}
+\index{good@{good}!GisLabels@{Gis\-Labels}}
+\subsubsection[good]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-Labels::good ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisLabels_a2}
+
+
+\hypertarget{classGisLabels_a3}{
+\index{GisLabels@{Gis\-Labels}!numberOfLabels@{numberOfLabels}}
+\index{numberOfLabels@{numberOfLabels}!GisLabels@{Gis\-Labels}}
+\subsubsection[numberOfLabels]{\setlength{\rightskip}{0pt plus 5cm}int Gis\-Labels::number\-Of\-Labels ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisLabels_a3}
+
+
+\hypertarget{classGisLabels_d1}{
+\index{GisLabels@{Gis\-Labels}!operator=@{operator=}}
+\index{operator=@{operator=}!GisLabels@{Gis\-Labels}}
+\subsubsection[operator=]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{classGisLabels}{Gis\-Labels}\& Gis\-Labels::operator= (const \hyperlink{classGisLabels}{Gis\-Labels} \&)\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classGisLabels_d1}
+
+
+\hypertarget{classGisLabels_a6}{
+\index{GisLabels@{Gis\-Labels}!print@{print}}
+\index{print@{print}!GisLabels@{Gis\-Labels}}
+\subsubsection[print]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Labels::print ()}}
+\label{classGisLabels_a6}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classGisLabels_p5}{
+\index{GisLabels@{Gis\-Labels}!_labelIndxs@{\_\-labelIndxs}}
+\index{_labelIndxs@{\_\-labelIndxs}!GisLabels@{Gis\-Labels}}
+\subsubsection[\_\-labelIndxs]{\setlength{\rightskip}{0pt plus 5cm}map$<$string,int$>$ \hyperlink{classGisLabels_p5}{Gis\-Labels::\_\-label\-Indxs}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisLabels_p5}
+
+
+\hypertarget{classGisLabels_p2}{
+\index{GisLabels@{Gis\-Labels}!_labelStrings@{\_\-labelStrings}}
+\index{_labelStrings@{\_\-labelStrings}!GisLabels@{Gis\-Labels}}
+\subsubsection[\_\-labelStrings]{\setlength{\rightskip}{0pt plus 5cm}vector$<$string$>$ \hyperlink{classGisLabels_p2}{Gis\-Labels::\_\-label\-Strings}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisLabels_p2}
+
+
+\hypertarget{classGisLabels_p3}{
+\index{GisLabels@{Gis\-Labels}!_labelXs@{\_\-labelXs}}
+\index{_labelXs@{\_\-labelXs}!GisLabels@{Gis\-Labels}}
+\subsubsection[\_\-labelXs]{\setlength{\rightskip}{0pt plus 5cm}vector$<$double$>$ \hyperlink{classGisLabels_p3}{Gis\-Labels::\_\-label\-Xs}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisLabels_p3}
+
+
+\hypertarget{classGisLabels_p4}{
+\index{GisLabels@{Gis\-Labels}!_labelYs@{\_\-labelYs}}
+\index{_labelYs@{\_\-labelYs}!GisLabels@{Gis\-Labels}}
+\subsubsection[\_\-labelYs]{\setlength{\rightskip}{0pt plus 5cm}vector$<$double$>$ \hyperlink{classGisLabels_p4}{Gis\-Labels::\_\-label\-Ys}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisLabels_p4}
+
+
+\hypertarget{classGisLabels_p1}{
+\index{GisLabels@{Gis\-Labels}!_nlabels@{\_\-nlabels}}
+\index{_nlabels@{\_\-nlabels}!GisLabels@{Gis\-Labels}}
+\subsubsection[\_\-nlabels]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classGisLabels_p1}{Gis\-Labels::\_\-nlabels}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisLabels_p1}
+
+
+\hypertarget{classGisLabels_p0}{
+\index{GisLabels@{Gis\-Labels}!_status@{\_\-status}}
+\index{_status@{\_\-status}!GisLabels@{Gis\-Labels}}
+\subsubsection[\_\-status]{\setlength{\rightskip}{0pt plus 5cm}bool \hyperlink{classGisLabels_p0}{Gis\-Labels::\_\-status}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisLabels_p0}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{GisLabels_8h}{Gis\-Labels.h}\item 
+\hyperlink{GisLabels_8C}{Gis\-Labels.C}\end{CompactItemize}

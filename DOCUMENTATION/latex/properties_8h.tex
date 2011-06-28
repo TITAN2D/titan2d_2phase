@@ -1,0 +1,31 @@
+\hypertarget{properties_8h}{
+\section{properties.h File Reference}
+\label{properties_8h}\index{properties.h@{properties.h}}
+}
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include \char`\"{}../useful/useful\_\-lib.h\char`\"{}}\par
+{\tt \#include $<$time.h$>$}\par
+{\tt \#include $<$math.h$>$}\par
+{\tt \#include \char`\"{}../gisapi/Gis\-Api.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{structLHS__Props}{LHS\_\-Props}
+\begin{CompactList}\small\item\em LHS stands for Latin Hypercube Sampling, it is a constrained sampling method whose convergence can be much faster than monte carlo. \item\end{CompactList}\item 
+struct \hyperlink{structStatProps}{Stat\-Props}
+\begin{CompactList}\small\item\em the Stat\-Props structure holds statistics about the flow \item\end{CompactList}\item 
+struct \hyperlink{structPileProps}{Pile\-Props}
+\begin{CompactList}\small\item\em the Pile\-Props structure holds the pile properties read in in \hyperlink{extfun_8h_a16}{Read\_\-data()} so the pile can be placed at the proper locations shortly thereafter in \hyperlink{extfun_8h_a20}{init\_\-piles()} \item\end{CompactList}\item 
+struct \hyperlink{structMapNames}{Map\-Names}
+\begin{CompactList}\small\item\em this structure holds the path to and name of the GIS map and also a flag to say if there are any extra maps, such as a material properties map, associated with the DEM \item\end{CompactList}\item 
+struct \hyperlink{structTimeProps}{Time\-Props}
+\begin{CompactList}\small\item\em this structure holds all the information about time and timestepping \item\end{CompactList}\item 
+struct \hyperlink{structMatProps}{Mat\-Props}
+\begin{CompactList}\small\item\em this struct holds constants for material properties as well as other constants note that the material id tag (used as the indice for material properties... matname, bedfrict) as returned by \hyperlink{GisApi_8C_a69}{Get\_\-raster\_\-id()} (a GIS function call) starts from 1 and not from 0 so arrays must be one element larger \item\end{CompactList}\item 
+struct \hyperlink{structOutLine}{Out\-Line}
+\begin{CompactList}\small\item\em the Out\-Line Structure holds the maximum throughout time flow depth at every spatial point \item\end{CompactList}\item 
+struct \hyperlink{structDISCHARGE}{DISCHARGE}
+\begin{CompactList}\small\item\em this structure is for the calculation of volume that flows through user specified discharge planes. The sign of the volume indicates which direction the flow went and follows the right hand rule convention. velocity cross (point b-point a) is the sign of the flow through planes. This means if you surround the only pile, specify the points defining the discharge planes in counter clockwise order, the flow \char`\"{}out of the box\char`\"{} will be positive. if you specify the points in clockwise order flow \char`\"{}out of the box\char`\"{} will be negative. \item\end{CompactList}\item 
+struct \hyperlink{structFluxProps}{Flux\-Props}
+\begin{CompactList}\small\item\em The Flux\-Props Structure holds all the data about extrusion flux sources (material flowing out of the ground) they can become active and later deactivate at any time during the simulation. There must be at least 1 initial pile or one flux source that is active at time zero, otherwise the timestep will be set to zero and the simulation will never advance. \item\end{CompactList}\end{CompactItemize}

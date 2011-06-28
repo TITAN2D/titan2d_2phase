@@ -1,0 +1,54 @@
+\section{Titan Class List}
+Here are the classes, structs, unions and interfaces with brief descriptions:\begin{CompactList}
+\item\contentsline{section}{\hyperlink{structBC}{BC} (BC structure contains members: \char`\"{}type\mbox{[}4\mbox{]}\char`\"{} identifying type of boundary condition as essential=1, natural=2, or both=3; and \char`\"{}value\mbox{[}4\mbox{]}\mbox{[}2\mbox{]}\mbox{[}2\mbox{]}\char`\"{}: identifying the element-side, type (0=natural, 1=essential), and load component (0=x, 1=y) comprising the boundary condition )}{\pageref{structBC}}{}
+\item\contentsline{section}{\hyperlink{structcellinfo}{cellinfo} }{\pageref{structcellinfo}}{}
+\item\contentsline{section}{\hyperlink{classCGIS__TriGrid}{CGIS\_\-Tri\-Grid} }{\pageref{classCGIS__TriGrid}}{}
+\item\contentsline{section}{\hyperlink{classCGIS__VectorData}{CGIS\_\-Vector\-Data} }{\pageref{classCGIS__VectorData}}{}
+\item\contentsline{section}{\hyperlink{classContour}{Contour} }{\pageref{classContour}}{}
+\item\contentsline{section}{\hyperlink{classCPolyLine}{CPoly\-Line} }{\pageref{classCPolyLine}}{}
+\item\contentsline{section}{\hyperlink{classcurve}{curve} }{\pageref{classcurve}}{}
+\item\contentsline{section}{\hyperlink{structDISCHARGE}{DISCHARGE} (This structure is for the calculation of volume that flows through user specified discharge planes. The sign of the volume indicates which direction the flow went and follows the right hand rule convention. velocity cross (point b-point a) is the sign of the flow through planes. This means if you surround the only pile, specify the points defining the discharge planes in counter clockwise order, the flow \char`\"{}out of the box\char`\"{} will be positive. if you specify the points in clockwise order flow \char`\"{}out of the box\char`\"{} will be negative )}{\pageref{structDISCHARGE}}{}
+\item\contentsline{section}{\hyperlink{unioneightbytes}{eightbytes} }{\pageref{unioneightbytes}}{}
+\item\contentsline{section}{\hyperlink{classElement}{Element} (Data structure designed to hold all the information need for an h (cell edge length) p (polynomial order) adaptive finite element. Titan doesn't use p adaptation because it is a finite difference/volume code, hence many of the members are legacy from afeapi (adaptive finite element application programmers interface) which serves as the core of titan. There is a seperate Discontinuous Galerkin Method (finite elements + finite volumes) version of titan and the polynomial information is not legacy there. However in this version of Titan elements function simply as finite volume cells )}{\pageref{classElement}}{}
+\item\contentsline{section}{\hyperlink{structElementLink}{Element\-Link} }{\pageref{structElementLink}}{}
+\item\contentsline{section}{\hyperlink{structElemPack}{Elem\-Pack} (Elem\-Pack is a smaller (memory spacewise) version of \hyperlink{classElement}{Element} that can be sent from one processor to another via MPI calls )}{\pageref{structElemPack}}{}
+\item\contentsline{section}{\hyperlink{classElemPtrList}{Elem\-Ptr\-List} (Basically just a \char`\"{}smart array\char`\"{} of pointers to Elements, by smart I mean it keeps track of its size and number of Elements in the list and expands/reallocates itself whenever you add an element ptr to the list when you've run out of space, it also keeps a record of the index of the first \char`\"{}new\char`\"{} element pointer you've added in the current series, which is useful for the intended purpose... Elem\-List was designed for use in refinement and unrefinement to replace fixed sized arrays (length=297200) of pointers to Elements. The reason for this upgrade was it was causing valgrind to issue all kinds of warnings about the \char`\"{}client switching stacks\char`\"{} and \char`\"{}invalid write/read of size blah blah blah\char`\"{} because the stacksize was too large. My 20061121 rewrite of \hyperlink{constant_8h_a21}{hadapt.C} and \hyperlink{constant_8h_a21}{unrefine.C} to make them \char`\"{}fast\char`\"{} caused this problem because I added a second (large) fixed sized array to both of them so I could reduce the number of hashtable scans by only revisiting the \char`\"{}new\char`\"{} additions to the array of pointers of Elements. --Keith wrote this on 20061124, i.e. the day after Thanksgiving, and I'm very thankful for having the inspiration to figure out the cause of valgrid warning )}{\pageref{classElemPtrList}}{}
+\item\contentsline{section}{\hyperlink{structFluxProps}{Flux\-Props} (The Flux\-Props Structure holds all the data about extrusion flux sources (material flowing out of the ground) they can become active and later deactivate at any time during the simulation. There must be at least 1 initial pile or one flux source that is active at time zero, otherwise the timestep will be set to zero and the simulation will never advance )}{\pageref{structFluxProps}}{}
+\item\contentsline{section}{\hyperlink{unionfourbytes}{fourbytes} }{\pageref{unionfourbytes}}{}
+\item\contentsline{section}{\hyperlink{structGis__Grid}{Gis\_\-Grid} (Structure holding the GIS terrain elevation data )}{\pageref{structGis__Grid}}{}
+\item\contentsline{section}{\hyperlink{structGis__Head}{Gis\_\-Head} (Structure holding the GIS header )}{\pageref{structGis__Head}}{}
+\item\contentsline{section}{\hyperlink{structGis__Image}{Gis\_\-Image} (Structure holding information about a matching GIS image, for the gmfg viewer )}{\pageref{structGis__Image}}{}
+\item\contentsline{section}{\hyperlink{structGis__Raster}{Gis\_\-Raster} (Structure holding the GIS material map )}{\pageref{structGis__Raster}}{}
+\item\contentsline{section}{\hyperlink{structGis__Vector}{Gis\_\-Vector} (Structure holding information about GIS vector data (putting roads, bridges, buildings etc on the image map), for the gmfg viewer )}{\pageref{structGis__Vector}}{}
+\item\contentsline{section}{\hyperlink{classGisAscFile}{Gis\-Asc\-File} }{\pageref{classGisAscFile}}{}
+\item\contentsline{section}{\hyperlink{classGisBinFile}{Gis\-Bin\-File} }{\pageref{classGisBinFile}}{}
+\item\contentsline{section}{\hyperlink{classGisCats}{Gis\-Cats} }{\pageref{classGisCats}}{}
+\item\contentsline{section}{\hyperlink{classGisColors}{Gis\-Colors} }{\pageref{classGisColors}}{}
+\item\contentsline{section}{\hyperlink{classGisGrid}{Gis\-Grid} }{\pageref{classGisGrid}}{}
+\item\contentsline{section}{\hyperlink{classGisLabels}{Gis\-Labels} }{\pageref{classGisLabels}}{}
+\item\contentsline{section}{\hyperlink{classGisLine}{Gis\-Line} }{\pageref{classGisLine}}{}
+\item\contentsline{section}{\hyperlink{classGisLines}{Gis\-Lines} }{\pageref{classGisLines}}{}
+\item\contentsline{section}{\hyperlink{classGisRasterHdr}{Gis\-Raster\-Hdr} }{\pageref{classGisRasterHdr}}{}
+\item\contentsline{section}{\hyperlink{classGisSPRFile}{Gis\-SPRFile} }{\pageref{classGisSPRFile}}{}
+\item\contentsline{section}{\hyperlink{classGisTriFile}{Gis\-Tri\-File} }{\pageref{classGisTriFile}}{}
+\item\contentsline{section}{\hyperlink{classGisTriOut}{Gis\-Tri\-Out} }{\pageref{classGisTriOut}}{}
+\item\contentsline{section}{\hyperlink{structHashEntry}{Hash\-Entry} }{\pageref{structHashEntry}}{}
+\item\contentsline{section}{\hyperlink{classHashTable}{Hash\-Table} (Hashtables store pointers to each \hyperlink{classElement}{Element} or \hyperlink{classNode}{Node} (of which Hash\-Table is a friend class), these pointers can be accessed by giving the hashtable the \char`\"{}key\char`\"{} of the element number you want to \char`\"{}lookup.\char`\"{} The keys are ordered sequentially by a space filling curve that ensures that the pointers to elements (or nodes) that are located close to each other in physical space will usually be located close to each other in memory, which speeds up access time. Each key is a single number that spans several unsigned variables (elements of an array) )}{\pageref{classHashTable}}{}
+\item\contentsline{section}{\hyperlink{structLHS__Props}{LHS\_\-Props} (LHS stands for Latin Hypercube Sampling, it is a constrained sampling method whose convergence can be much faster than monte carlo )}{\pageref{structLHS__Props}}{}
+\item\contentsline{section}{\hyperlink{structMapNames}{Map\-Names} (This structure holds the path to and name of the GIS map and also a flag to say if there are any extra maps, such as a material properties map, associated with the DEM )}{\pageref{structMapNames}}{}
+\item\contentsline{section}{\hyperlink{structMatProps}{Mat\-Props} (This struct holds constants for material properties as well as other constants note that the material id tag (used as the indice for material properties... matname, bedfrict) as returned by \hyperlink{GisApi_8C_a69}{Get\_\-raster\_\-id()} (a GIS function call) starts from 1 and not from 0 so arrays must be one element larger )}{\pageref{structMatProps}}{}
+\item\contentsline{section}{\hyperlink{structNeigh__Sol__Pack}{Neigh\_\-Sol\_\-Pack} }{\pageref{structNeigh__Sol__Pack}}{}
+\item\contentsline{section}{\hyperlink{structNeighborPack}{Neighbor\-Pack} }{\pageref{structNeighborPack}}{}
+\item\contentsline{section}{\hyperlink{structnode}{node} }{\pageref{structnode}}{}
+\item\contentsline{section}{\hyperlink{classNode}{Node} }{\pageref{classNode}}{}
+\item\contentsline{section}{\hyperlink{structOutLine}{Out\-Line} (Out\-Line Structure holds the maximum throughout time flow depth at every spatial point )}{\pageref{structOutLine}}{}
+\item\contentsline{section}{\hyperlink{structPileProps}{Pile\-Props} (Pile\-Props structure holds the pile properties read in in \hyperlink{extfun_8h_a16}{Read\_\-data()} so the pile can be placed at the proper locations shortly thereafter in \hyperlink{extfun_8h_a20}{init\_\-piles()} )}{\pageref{structPileProps}}{}
+\item\contentsline{section}{\hyperlink{classRecv}{Recv} }{\pageref{classRecv}}{}
+\item\contentsline{section}{\hyperlink{structrefined__neighbor}{refined\_\-neighbor} }{\pageref{structrefined__neighbor}}{}
+\item\contentsline{section}{\hyperlink{structrefined__neighbor__pack}{refined\_\-neighbor\_\-pack} }{\pageref{structrefined__neighbor__pack}}{}
+\item\contentsline{section}{\hyperlink{structScaleValues}{Scale\-Values} }{\pageref{structScaleValues}}{}
+\item\contentsline{section}{\hyperlink{structsfc__vertex}{sfc\_\-vertex} }{\pageref{structsfc__vertex}}{}
+\item\contentsline{section}{\hyperlink{structStatProps}{Stat\-Props} (Stat\-Props structure holds statistics about the flow )}{\pageref{structStatProps}}{}
+\item\contentsline{section}{\hyperlink{structTimeProps}{Time\-Props} (This structure holds all the information about time and timestepping )}{\pageref{structTimeProps}}{}
+\item\contentsline{section}{\hyperlink{structunstructured__communication}{unstructured\_\-communication} }{\pageref{structunstructured__communication}}{}
+\end{CompactList}

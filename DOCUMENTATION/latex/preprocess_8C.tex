@@ -1,0 +1,162 @@
+\hypertarget{preprocess_8C}{
+\section{preprocess.C File Reference}
+\label{preprocess_8C}\index{preprocess.C@{preprocess.C}}
+}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$iostream.h$>$}\par
+{\tt \#include $<$fstream.h$>$}\par
+{\tt \#include $<$math.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include \char`\"{}boundary.h\char`\"{}}\par
+{\tt \#include \char`\"{}element.h\char`\"{}}\par
+{\tt \#include \char`\"{}../header/File\-Format.h\char`\"{}}\par
+{\tt \#include \char`\"{}node.h\char`\"{}}\par
+{\tt \#include \char`\"{}useful\_\-lib.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{preprocess_8C_a1}{createfunky} (int ny, char $\ast$GISDbase, char $\ast$location, char $\ast$mapset, char $\ast$topomap, int havelimits, double limits\mbox{[}4\mbox{]}, int $\ast$node\_\-count, \hyperlink{classNode}{Node} $\ast$$\ast$\hyperlink{structnode}{node}, int $\ast$element\_\-count, \hyperlink{classElement}{Element} $\ast$$\ast$element, int $\ast$force\_\-count, int $\ast$constraint\_\-count, \hyperlink{classBoundary}{Boundary} $\ast$$\ast$boundary, int $\ast$material\_\-count, char $\ast$$\ast$$\ast$materialnames, double $\ast$$\ast$lambda, double $\ast$$\ast$mu)
+\item 
+int \hyperlink{preprocess_8C_a2}{Read\_\-no\_\-of\_\-objects} (int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, long $\ast$)
+\item 
+void \hyperlink{preprocess_8C_a3}{Read\_\-node\_\-data} (int $\ast$, \hyperlink{classNode}{Node} $\ast$, long $\ast$)
+\item 
+void \hyperlink{preprocess_8C_a4}{Read\_\-element\_\-data} (int $\ast$, \hyperlink{classNode}{Node} $\ast$, \hyperlink{classElement}{Element} $\ast$, long $\ast$)
+\item 
+void \hyperlink{preprocess_8C_a5}{Read\_\-boundary\_\-data} (int $\ast$, int $\ast$, \hyperlink{classNode}{Node} $\ast$, \hyperlink{classBoundary}{Boundary} $\ast$, long $\ast$)
+\item 
+void \hyperlink{preprocess_8C_a6}{Read\_\-material\_\-data} (int $\ast$material\_\-count, char $\ast$$\ast$$\ast$materialnames, double $\ast$$\ast$lambda, double $\ast$$\ast$mu)
+\item 
+void \hyperlink{preprocess_8C_a7}{Write\_\-data} (int, int, int, int, int, \hyperlink{classNode}{Node} $\ast$, \hyperlink{classElement}{Element} $\ast$$\ast$, \hyperlink{classBoundary}{Boundary} $\ast$, unsigned $\ast$, unsigned $\ast$, double $\ast$, double $\ast$, char $\ast$$\ast$, double $\ast$, double $\ast$)
+\item 
+void \hyperlink{preprocess_8C_a8}{Determine\_\-neighbors} (int, \hyperlink{classElement}{Element} $\ast$, int, \hyperlink{classNode}{Node} $\ast$)
+\item 
+int \hyperlink{preprocess_8C_a9}{compare\_\-key\_\-fn} (const void $\ast$elem1, const void $\ast$elem2)
+\item 
+int \hyperlink{preprocess_8C_a10}{main} (int argc, char $\ast$$\ast$argv)
+\item 
+void \hyperlink{preprocess_8C_a11}{Read\_\-node\_\-data} (int $\ast$nc, \hyperlink{classNode}{Node} n\mbox{[}$\,$\mbox{]}, long $\ast$loc)
+\item 
+void \hyperlink{preprocess_8C_a12}{Read\_\-element\_\-data} (int $\ast$ec, \hyperlink{classNode}{Node} n\mbox{[}$\,$\mbox{]}, \hyperlink{classElement}{Element} e\mbox{[}$\,$\mbox{]}, long $\ast$loc)
+\item 
+void \hyperlink{preprocess_8C_a13}{Read\_\-boundary\_\-data} (int $\ast$fc, int $\ast$cc, \hyperlink{classNode}{Node} n\mbox{[}$\,$\mbox{]}, \hyperlink{classBoundary}{Boundary} b\mbox{[}$\,$\mbox{]}, long $\ast$loc)
+\item 
+void \hyperlink{preprocess_8C_a14}{Write\_\-data} (int np, int nc, int ec, int bc, int mc, \hyperlink{classNode}{Node} n\mbox{[}$\,$\mbox{]}, \hyperlink{classElement}{Element} $\ast$o\mbox{[}$\,$\mbox{]}, \hyperlink{classBoundary}{Boundary} b\mbox{[}$\,$\mbox{]}, unsigned maxk\mbox{[}$\,$\mbox{]}, unsigned mink\mbox{[}$\,$\mbox{]}, double min\mbox{[}$\,$\mbox{]}, double max\mbox{[}$\,$\mbox{]}, char $\ast$$\ast$materialnames, double $\ast$lambda, double $\ast$mu)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+const int \hyperlink{preprocess_8C_a0}{material\_\-length} = 80
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{preprocess_8C_a9}{
+\index{preprocess.C@{preprocess.C}!compare_key_fn@{compare\_\-key\_\-fn}}
+\index{compare_key_fn@{compare\_\-key\_\-fn}!preprocess.C@{preprocess.C}}
+\subsubsection[compare\_\-key\_\-fn]{\setlength{\rightskip}{0pt plus 5cm}int compare\_\-key\_\-fn (const void $\ast$ {\em elem1}, const void $\ast$ {\em elem2})}}
+\label{preprocess_8C_a9}
+
+
+\hypertarget{preprocess_8C_a1}{
+\index{preprocess.C@{preprocess.C}!createfunky@{createfunky}}
+\index{createfunky@{createfunky}!preprocess.C@{preprocess.C}}
+\subsubsection[createfunky]{\setlength{\rightskip}{0pt plus 5cm}void createfunky (int {\em ny}, char $\ast$ {\em GISDbase}, char $\ast$ {\em location}, char $\ast$ {\em mapset}, char $\ast$ {\em topomap}, int {\em havelimits}, double {\em limits}\mbox{[}4\mbox{]}, int $\ast$ {\em node\_\-count}, \hyperlink{classNode}{Node} $\ast$$\ast$ {\em node}, int $\ast$ {\em element\_\-count}, \hyperlink{classElement}{Element} $\ast$$\ast$ {\em element}, int $\ast$ {\em force\_\-count}, int $\ast$ {\em constraint\_\-count}, \hyperlink{classBoundary}{Boundary} $\ast$$\ast$ {\em boundary}, int $\ast$ {\em material\_\-count}, char $\ast$$\ast$$\ast$ {\em materialnames}, double $\ast$$\ast$ {\em lambda}, double $\ast$$\ast$ {\em mu})}}
+\label{preprocess_8C_a1}
+
+
+\hypertarget{preprocess_8C_a8}{
+\index{preprocess.C@{preprocess.C}!Determine_neighbors@{Determine\_\-neighbors}}
+\index{Determine_neighbors@{Determine\_\-neighbors}!preprocess.C@{preprocess.C}}
+\subsubsection[Determine\_\-neighbors]{\setlength{\rightskip}{0pt plus 5cm}void Determine\_\-neighbors (int, \hyperlink{classElement}{Element} $\ast$, int, \hyperlink{classNode}{Node} $\ast$)}}
+\label{preprocess_8C_a8}
+
+
+\hypertarget{preprocess_8C_a10}{
+\index{preprocess.C@{preprocess.C}!main@{main}}
+\index{main@{main}!preprocess.C@{preprocess.C}}
+\subsubsection[main]{\setlength{\rightskip}{0pt plus 5cm}int main (int {\em argc}, char $\ast$$\ast$ {\em argv})}}
+\label{preprocess_8C_a10}
+
+
+\hypertarget{preprocess_8C_a13}{
+\index{preprocess.C@{preprocess.C}!Read_boundary_data@{Read\_\-boundary\_\-data}}
+\index{Read_boundary_data@{Read\_\-boundary\_\-data}!preprocess.C@{preprocess.C}}
+\subsubsection[Read\_\-boundary\_\-data]{\setlength{\rightskip}{0pt plus 5cm}void Read\_\-boundary\_\-data (int $\ast$ {\em fc}, int $\ast$ {\em cc}, \hyperlink{classNode}{Node} {\em n}\mbox{[}$\,$\mbox{]}, \hyperlink{classBoundary}{Boundary} {\em b}\mbox{[}$\,$\mbox{]}, long $\ast$ {\em loc})}}
+\label{preprocess_8C_a13}
+
+
+\hypertarget{preprocess_8C_a5}{
+\index{preprocess.C@{preprocess.C}!Read_boundary_data@{Read\_\-boundary\_\-data}}
+\index{Read_boundary_data@{Read\_\-boundary\_\-data}!preprocess.C@{preprocess.C}}
+\subsubsection[Read\_\-boundary\_\-data]{\setlength{\rightskip}{0pt plus 5cm}void Read\_\-boundary\_\-data (int $\ast$, int $\ast$, \hyperlink{classNode}{Node} $\ast$, \hyperlink{classBoundary}{Boundary} $\ast$, long $\ast$)}}
+\label{preprocess_8C_a5}
+
+
+\hypertarget{preprocess_8C_a12}{
+\index{preprocess.C@{preprocess.C}!Read_element_data@{Read\_\-element\_\-data}}
+\index{Read_element_data@{Read\_\-element\_\-data}!preprocess.C@{preprocess.C}}
+\subsubsection[Read\_\-element\_\-data]{\setlength{\rightskip}{0pt plus 5cm}void Read\_\-element\_\-data (int $\ast$ {\em ec}, \hyperlink{classNode}{Node} {\em n}\mbox{[}$\,$\mbox{]}, \hyperlink{classElement}{Element} {\em e}\mbox{[}$\,$\mbox{]}, long $\ast$ {\em loc})}}
+\label{preprocess_8C_a12}
+
+
+\hypertarget{preprocess_8C_a4}{
+\index{preprocess.C@{preprocess.C}!Read_element_data@{Read\_\-element\_\-data}}
+\index{Read_element_data@{Read\_\-element\_\-data}!preprocess.C@{preprocess.C}}
+\subsubsection[Read\_\-element\_\-data]{\setlength{\rightskip}{0pt plus 5cm}void Read\_\-element\_\-data (int $\ast$, \hyperlink{classNode}{Node} $\ast$, \hyperlink{classElement}{Element} $\ast$, long $\ast$)}}
+\label{preprocess_8C_a4}
+
+
+\hypertarget{preprocess_8C_a6}{
+\index{preprocess.C@{preprocess.C}!Read_material_data@{Read\_\-material\_\-data}}
+\index{Read_material_data@{Read\_\-material\_\-data}!preprocess.C@{preprocess.C}}
+\subsubsection[Read\_\-material\_\-data]{\setlength{\rightskip}{0pt plus 5cm}void Read\_\-material\_\-data (int $\ast$ {\em material\_\-count}, char $\ast$$\ast$$\ast$ {\em materialnames}, double $\ast$$\ast$ {\em lambda}, double $\ast$$\ast$ {\em mu})}}
+\label{preprocess_8C_a6}
+
+
+\hypertarget{preprocess_8C_a2}{
+\index{preprocess.C@{preprocess.C}!Read_no_of_objects@{Read\_\-no\_\-of\_\-objects}}
+\index{Read_no_of_objects@{Read\_\-no\_\-of\_\-objects}!preprocess.C@{preprocess.C}}
+\subsubsection[Read\_\-no\_\-of\_\-objects]{\setlength{\rightskip}{0pt plus 5cm}int Read\_\-no\_\-of\_\-objects (int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, long $\ast$)}}
+\label{preprocess_8C_a2}
+
+
+\hypertarget{preprocess_8C_a11}{
+\index{preprocess.C@{preprocess.C}!Read_node_data@{Read\_\-node\_\-data}}
+\index{Read_node_data@{Read\_\-node\_\-data}!preprocess.C@{preprocess.C}}
+\subsubsection[Read\_\-node\_\-data]{\setlength{\rightskip}{0pt plus 5cm}void Read\_\-node\_\-data (int $\ast$ {\em nc}, \hyperlink{classNode}{Node} {\em n}\mbox{[}$\,$\mbox{]}, long $\ast$ {\em loc})}}
+\label{preprocess_8C_a11}
+
+
+\hypertarget{preprocess_8C_a3}{
+\index{preprocess.C@{preprocess.C}!Read_node_data@{Read\_\-node\_\-data}}
+\index{Read_node_data@{Read\_\-node\_\-data}!preprocess.C@{preprocess.C}}
+\subsubsection[Read\_\-node\_\-data]{\setlength{\rightskip}{0pt plus 5cm}void Read\_\-node\_\-data (int $\ast$, \hyperlink{classNode}{Node} $\ast$, long $\ast$)}}
+\label{preprocess_8C_a3}
+
+
+\hypertarget{preprocess_8C_a14}{
+\index{preprocess.C@{preprocess.C}!Write_data@{Write\_\-data}}
+\index{Write_data@{Write\_\-data}!preprocess.C@{preprocess.C}}
+\subsubsection[Write\_\-data]{\setlength{\rightskip}{0pt plus 5cm}void Write\_\-data (int {\em np}, int {\em nc}, int {\em ec}, int {\em bc}, int {\em mc}, \hyperlink{classNode}{Node} {\em n}\mbox{[}$\,$\mbox{]}, \hyperlink{classElement}{Element} $\ast$ {\em o}\mbox{[}$\,$\mbox{]}, \hyperlink{classBoundary}{Boundary} {\em b}\mbox{[}$\,$\mbox{]}, unsigned {\em maxk}\mbox{[}$\,$\mbox{]}, unsigned {\em mink}\mbox{[}$\,$\mbox{]}, double {\em min}\mbox{[}$\,$\mbox{]}, double {\em max}\mbox{[}$\,$\mbox{]}, char $\ast$$\ast$ {\em materialnames}, double $\ast$ {\em lambda}, double $\ast$ {\em mu})}}
+\label{preprocess_8C_a14}
+
+
+\hypertarget{preprocess_8C_a7}{
+\index{preprocess.C@{preprocess.C}!Write_data@{Write\_\-data}}
+\index{Write_data@{Write\_\-data}!preprocess.C@{preprocess.C}}
+\subsubsection[Write\_\-data]{\setlength{\rightskip}{0pt plus 5cm}void Write\_\-data (int, int, int, int, int, \hyperlink{classNode}{Node} $\ast$, \hyperlink{classElement}{Element} $\ast$$\ast$, \hyperlink{classBoundary}{Boundary} $\ast$, unsigned $\ast$, unsigned $\ast$, double $\ast$, double $\ast$, char $\ast$$\ast$, double $\ast$, double $\ast$)}}
+\label{preprocess_8C_a7}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{preprocess_8C_a0}{
+\index{preprocess.C@{preprocess.C}!material_length@{material\_\-length}}
+\index{material_length@{material\_\-length}!preprocess.C@{preprocess.C}}
+\subsubsection[material\_\-length]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{preprocess_8C_a0}{material\_\-length} = 80}}
+\label{preprocess_8C_a0}
+
+

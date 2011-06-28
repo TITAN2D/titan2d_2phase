@@ -1,0 +1,70 @@
+\hypertarget{step_8C}{
+\section{step.C File Reference}
+\label{step_8C}\index{step.C@{step.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{step_8C_a0}{APPLY\_\-BC}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{step_8C_a1}{step} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid, int nump, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, \hyperlink{structPileProps}{Pile\-Props} $\ast$pileprops\_\-ptr, \hyperlink{structFluxProps}{Flux\-Props} $\ast$fluxprops, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops\_\-ptr, int $\ast$order\_\-flag, \hyperlink{structOutLine}{Out\-Line} $\ast$outline\_\-ptr, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$discharge, int adaptflag)
+\begin{CompactList}\small\item\em this function implements 1 time step which consists of (by calling other functions) computing spatial derivatives of state variables, computing k active/passive and wave speeds and therefore timestep size, does a finite difference predictor step, followed by a finite volume corrector step, and lastly computing statistics from the current timestep's data. \item\end{CompactList}\item 
+void \hyperlink{step_8C_a2}{calc\_\-volume} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, int myid, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, double d\_\-time, double $\ast$v\_\-star, double $\ast$nz\_\-star)
+\begin{CompactList}\small\item\em \hyperlink{step_8C_a2}{calc\_\-volume()} has been replaced by \hyperlink{stats_8C_a1}{calc\_\-stats()}, \hyperlink{step_8C_a2}{calc\_\-volume()} is out of date legacy code, the function is still defined in \hyperlink{constant_8h_a21}{step.C} but it is not called. \item\end{CompactList}\item 
+double \hyperlink{step_8C_a3}{get\_\-max\_\-momentum} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr)
+\begin{CompactList}\small\item\em \hyperlink{step_8C_a3}{get\_\-max\_\-momentum()} is legacy, it has been replaced by \hyperlink{stats_8C_a1}{calc\_\-stats()} \item\end{CompactList}\item 
+void \hyperlink{step_8C_a4}{sim\_\-end\_\-warning} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, double v\_\-star)
+\begin{CompactList}\small\item\em this function prints a warning message at end of the simulation to say if the flow is still moving and thus should be run longer before using the data to make decisions \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{step_8C_a0}{
+\index{step.C@{step.C}!APPLY_BC@{APPLY\_\-BC}}
+\index{APPLY_BC@{APPLY\_\-BC}!step.C@{step.C}}
+\subsubsection[APPLY\_\-BC]{\setlength{\rightskip}{0pt plus 5cm}\#define APPLY\_\-BC}}
+\label{step_8C_a0}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{step_8C_a2}{
+\index{step.C@{step.C}!calc_volume@{calc\_\-volume}}
+\index{calc_volume@{calc\_\-volume}!step.C@{step.C}}
+\subsubsection[calc\_\-volume]{\setlength{\rightskip}{0pt plus 5cm}void calc\_\-volume (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, int {\em myid}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, double {\em d\_\-time}, double $\ast$ {\em v\_\-star}, double $\ast$ {\em nz\_\-star})}}
+\label{step_8C_a2}
+
+
+\hyperlink{step_8C_a2}{calc\_\-volume()} has been replaced by \hyperlink{stats_8C_a1}{calc\_\-stats()}, \hyperlink{step_8C_a2}{calc\_\-volume()} is out of date legacy code, the function is still defined in \hyperlink{constant_8h_a21}{step.C} but it is not called. 
+
+\hypertarget{step_8C_a3}{
+\index{step.C@{step.C}!get_max_momentum@{get\_\-max\_\-momentum}}
+\index{get_max_momentum@{get\_\-max\_\-momentum}!step.C@{step.C}}
+\subsubsection[get\_\-max\_\-momentum]{\setlength{\rightskip}{0pt plus 5cm}double get\_\-max\_\-momentum (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr})}}
+\label{step_8C_a3}
+
+
+\hyperlink{step_8C_a3}{get\_\-max\_\-momentum()} is legacy, it has been replaced by \hyperlink{stats_8C_a1}{calc\_\-stats()} 
+
+\hypertarget{step_8C_a4}{
+\index{step.C@{step.C}!sim_end_warning@{sim\_\-end\_\-warning}}
+\index{sim_end_warning@{sim\_\-end\_\-warning}!step.C@{step.C}}
+\subsubsection[sim\_\-end\_\-warning]{\setlength{\rightskip}{0pt plus 5cm}void sim\_\-end\_\-warning (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, double {\em v\_\-star})}}
+\label{step_8C_a4}
+
+
+this function prints a warning message at end of the simulation to say if the flow is still moving and thus should be run longer before using the data to make decisions 
+
+\hypertarget{step_8C_a1}{
+\index{step.C@{step.C}!step@{step}}
+\index{step@{step}!step.C@{step.C}}
+\subsubsection[step]{\setlength{\rightskip}{0pt plus 5cm}void step (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, int {\em nump}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, \hyperlink{structPileProps}{Pile\-Props} $\ast$ {\em pileprops\_\-ptr}, \hyperlink{structFluxProps}{Flux\-Props} $\ast$ {\em fluxprops}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops\_\-ptr}, int $\ast$ {\em order\_\-flag}, \hyperlink{structOutLine}{Out\-Line} $\ast$ {\em outline\_\-ptr}, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$ {\em discharge}, int {\em adaptflag})}}
+\label{step_8C_a1}
+
+
+this function implements 1 time step which consists of (by calling other functions) computing spatial derivatives of state variables, computing k active/passive and wave speeds and therefore timestep size, does a finite difference predictor step, followed by a finite volume corrector step, and lastly computing statistics from the current timestep's data. 
+

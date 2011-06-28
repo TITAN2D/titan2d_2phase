@@ -1,0 +1,144 @@
+\hypertarget{classGisSPRFile}{
+\section{Gis\-SPRFile Class Reference}
+\label{classGisSPRFile}\index{GisSPRFile@{GisSPRFile}}
+}
+{\tt \#include $<$Gis\-SPRFile.h$>$}
+
+Inheritance diagram for Gis\-SPRFile::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classGisSPRFile}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classGisSPRFile_a0}{Gis\-SPRFile} (const string \&name, const char $\ast$mode=\char`\"{}r\char`\"{})
+\item 
+virtual \hyperlink{classGisSPRFile_a1}{$\sim$Gis\-SPRFile} ()
+\item 
+bool \hyperlink{classGisSPRFile_a2}{goto\-POINTSSection} ()
+\item 
+bool \hyperlink{classGisSPRFile_a3}{goto\-LINESSection} ()
+\item 
+bool \hyperlink{classGisSPRFile_a4}{read\-Labels} (vector$<$ double $>$ \&x, vector$<$ double $>$ \&y, vector$<$ string $>$ \&label\-Str)
+\item 
+bool \hyperlink{classGisSPRFile_a5}{read\-First\-Line} (vector$<$ double $>$ \&x, vector$<$ double $>$ \&y)
+\item 
+bool \hyperlink{classGisSPRFile_a6}{read\-Next\-Line} (vector$<$ double $>$ \&x, vector$<$ double $>$ \&y)
+\item 
+bool \hyperlink{classGisSPRFile_a7}{read\-INFOSection} ()
+\item 
+bool \hyperlink{classGisSPRFile_a8}{goto\-Section} (string \&section\-Name)
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+string \hyperlink{classGisSPRFile_p0}{\_\-sep\-Str}
+\end{CompactItemize}
+\subsection*{Private Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classGisSPRFile_d0}{Gis\-SPRFile} (const \hyperlink{classGisSPRFile}{Gis\-SPRFile} \&)
+\item 
+\hyperlink{classGisSPRFile}{Gis\-SPRFile} \& \hyperlink{classGisSPRFile_d1}{operator=} (const \hyperlink{classGisSPRFile}{Gis\-SPRFile} \&)
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGisSPRFile_a0}{
+\index{GisSPRFile@{Gis\-SPRFile}!GisSPRFile@{GisSPRFile}}
+\index{GisSPRFile@{GisSPRFile}!GisSPRFile@{Gis\-SPRFile}}
+\subsubsection[GisSPRFile]{\setlength{\rightskip}{0pt plus 5cm}Gis\-SPRFile::Gis\-SPRFile (const string \& {\em name}, const char $\ast$ {\em mode} = {\tt \char`\"{}r\char`\"{}})}}
+\label{classGisSPRFile_a0}
+
+
+\hypertarget{classGisSPRFile_a1}{
+\index{GisSPRFile@{Gis\-SPRFile}!~GisSPRFile@{$\sim$GisSPRFile}}
+\index{~GisSPRFile@{$\sim$GisSPRFile}!GisSPRFile@{Gis\-SPRFile}}
+\subsubsection[$\sim$GisSPRFile]{\setlength{\rightskip}{0pt plus 5cm}virtual Gis\-SPRFile::$\sim$\hyperlink{classGisSPRFile}{Gis\-SPRFile} ()\hspace{0.3cm}{\tt  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classGisSPRFile_a1}
+
+
+\hypertarget{classGisSPRFile_d0}{
+\index{GisSPRFile@{Gis\-SPRFile}!GisSPRFile@{GisSPRFile}}
+\index{GisSPRFile@{GisSPRFile}!GisSPRFile@{Gis\-SPRFile}}
+\subsubsection[GisSPRFile]{\setlength{\rightskip}{0pt plus 5cm}Gis\-SPRFile::Gis\-SPRFile (const \hyperlink{classGisSPRFile}{Gis\-SPRFile} \&)\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classGisSPRFile_d0}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGisSPRFile_a3}{
+\index{GisSPRFile@{Gis\-SPRFile}!gotoLINESSection@{gotoLINESSection}}
+\index{gotoLINESSection@{gotoLINESSection}!GisSPRFile@{Gis\-SPRFile}}
+\subsubsection[gotoLINESSection]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-SPRFile::goto\-LINESSection ()}}
+\label{classGisSPRFile_a3}
+
+
+\hypertarget{classGisSPRFile_a2}{
+\index{GisSPRFile@{Gis\-SPRFile}!gotoPOINTSSection@{gotoPOINTSSection}}
+\index{gotoPOINTSSection@{gotoPOINTSSection}!GisSPRFile@{Gis\-SPRFile}}
+\subsubsection[gotoPOINTSSection]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-SPRFile::goto\-POINTSSection ()}}
+\label{classGisSPRFile_a2}
+
+
+\hypertarget{classGisSPRFile_a8}{
+\index{GisSPRFile@{Gis\-SPRFile}!gotoSection@{gotoSection}}
+\index{gotoSection@{gotoSection}!GisSPRFile@{Gis\-SPRFile}}
+\subsubsection[gotoSection]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-SPRFile::goto\-Section (string \& {\em section\-Name})}}
+\label{classGisSPRFile_a8}
+
+
+\hypertarget{classGisSPRFile_d1}{
+\index{GisSPRFile@{Gis\-SPRFile}!operator=@{operator=}}
+\index{operator=@{operator=}!GisSPRFile@{Gis\-SPRFile}}
+\subsubsection[operator=]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{classGisSPRFile}{Gis\-SPRFile}\& Gis\-SPRFile::operator= (const \hyperlink{classGisSPRFile}{Gis\-SPRFile} \&)\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classGisSPRFile_d1}
+
+
+\hypertarget{classGisSPRFile_a5}{
+\index{GisSPRFile@{Gis\-SPRFile}!readFirstLine@{readFirstLine}}
+\index{readFirstLine@{readFirstLine}!GisSPRFile@{Gis\-SPRFile}}
+\subsubsection[readFirstLine]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-SPRFile::read\-First\-Line (vector$<$ double $>$ \& {\em x}, vector$<$ double $>$ \& {\em y})}}
+\label{classGisSPRFile_a5}
+
+
+\hypertarget{classGisSPRFile_a7}{
+\index{GisSPRFile@{Gis\-SPRFile}!readINFOSection@{readINFOSection}}
+\index{readINFOSection@{readINFOSection}!GisSPRFile@{Gis\-SPRFile}}
+\subsubsection[readINFOSection]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-SPRFile::read\-INFOSection ()}}
+\label{classGisSPRFile_a7}
+
+
+\hypertarget{classGisSPRFile_a4}{
+\index{GisSPRFile@{Gis\-SPRFile}!readLabels@{readLabels}}
+\index{readLabels@{readLabels}!GisSPRFile@{Gis\-SPRFile}}
+\subsubsection[readLabels]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-SPRFile::read\-Labels (vector$<$ double $>$ \& {\em x}, vector$<$ double $>$ \& {\em y}, vector$<$ string $>$ \& {\em label\-Str})}}
+\label{classGisSPRFile_a4}
+
+
+\hypertarget{classGisSPRFile_a6}{
+\index{GisSPRFile@{Gis\-SPRFile}!readNextLine@{readNextLine}}
+\index{readNextLine@{readNextLine}!GisSPRFile@{Gis\-SPRFile}}
+\subsubsection[readNextLine]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-SPRFile::read\-Next\-Line (vector$<$ double $>$ \& {\em x}, vector$<$ double $>$ \& {\em y})}}
+\label{classGisSPRFile_a6}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classGisSPRFile_p0}{
+\index{GisSPRFile@{Gis\-SPRFile}!_sepStr@{\_\-sepStr}}
+\index{_sepStr@{\_\-sepStr}!GisSPRFile@{Gis\-SPRFile}}
+\subsubsection[\_\-sepStr]{\setlength{\rightskip}{0pt plus 5cm}string \hyperlink{classGisSPRFile_p0}{Gis\-SPRFile::\_\-sep\-Str}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisSPRFile_p0}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{GisSPRFile_8h}{Gis\-SPRFile.h}\item 
+\hyperlink{GisSPRFile_8C}{Gis\-SPRFile.C}\end{CompactItemize}

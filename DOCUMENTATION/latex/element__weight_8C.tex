@@ -1,0 +1,23 @@
+\hypertarget{element__weight_8C}{
+\section{element\_\-weight.C File Reference}
+\label{element__weight_8C}\index{element_weight.C@{element\_\-weight.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+double \hyperlink{element__weight_8C_a0}{element\_\-weight} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid, int nump)
+\begin{CompactList}\small\item\em This function assigns a global\_\-weight to the collection of elements based on the sum of their element\_\-weight. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{element__weight_8C_a0}{
+\index{element_weight.C@{element\_\-weight.C}!element_weight@{element\_\-weight}}
+\index{element_weight@{element\_\-weight}!element_weight.C@{element\_\-weight.C}}
+\subsubsection[element\_\-weight]{\setlength{\rightskip}{0pt plus 5cm}double element\_\-weight (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, int {\em nump})}}
+\label{element__weight_8C_a0}
+
+
+This function assigns a global\_\-weight to the collection of elements based on the sum of their element\_\-weight. 
+
+\hyperlink{element__weight_8C_a0}{element\_\-weight()} cycles through the element Hashtable (listing of all elements) and for each element (that has not been refined this iteration and is not a ghost\_\-element) calls \hyperlink{classElement}{Element} member function \hyperlink{classElement_a94}{Element::calc\_\-flux\_\-balance()} (which returns a double precision value representing the weight that an element is assigned based on the magnitude of its net mass/momentum fluxes). Note that this value is adjusted to give non-zero weight even to elements with zero pile-heights The cumulative weights (along with a count of the evaluated elements) are stored in sub\_\-weight\mbox{[}\mbox{]}; based on this, the return value for this function is calculated and stored in global\_\-weight\mbox{[}\mbox{]} (i.e. the sum of sub\_\-weight\mbox{[}\mbox{]} from all processors). 

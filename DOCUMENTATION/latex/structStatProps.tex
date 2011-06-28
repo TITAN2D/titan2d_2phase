@@ -1,0 +1,361 @@
+\hypertarget{structStatProps}{
+\section{Stat\-Props Struct Reference}
+\label{structStatProps}\index{StatProps@{StatProps}}
+}
+the Stat\-Props structure holds statistics about the flow  
+
+
+{\tt \#include $<$properties.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{structStatProps_a0}{Stat\-Props} ()
+\begin{CompactList}\small\item\em the constructor initializes a few statistics \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int \hyperlink{structStatProps_o0}{runid}
+\begin{CompactList}\small\item\em job number for monte carlo or lhs simulations \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o1}{xcen}
+\begin{CompactList}\small\item\em x coordinate of pile centroid \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o2}{ycen}
+\begin{CompactList}\small\item\em y coordinate of pile centroid \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o3}{xvar}
+\begin{CompactList}\small\item\em variance of location of pile material in the x direction \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o4}{yvar}
+\begin{CompactList}\small\item\em variance of location of pile material in the y direction \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o5}{rmean}
+\begin{CompactList}\small\item\em mean distance from the point (0,0), this was the mean pile starting point for the ordered reduced number of runs monte carlo method validation \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o6}{area}
+\begin{CompactList}\small\item\em area covered by pile of thickness greater than cutoffheight \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o7}{vmean}
+\begin{CompactList}\small\item\em mean speed \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o8}{vxmean}
+\begin{CompactList}\small\item\em mean x velocity \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o9}{vymean}
+\begin{CompactList}\small\item\em mean y velocity \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o10}{slopemean}
+\begin{CompactList}\small\item\em mean slope in the direction of velocity a negative number indicates the flow is heading uphill \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o11}{vstar}
+\begin{CompactList}\small\item\em nondimensionalized mean speed \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o12}{realvolume}
+\begin{CompactList}\small\item\em volume of ALL material, NOT used for other statistics \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o13}{statvolume}
+\begin{CompactList}\small\item\em STAT\_\-VOL\_\-FRAC$\ast$realvolume, all statistics computed in ../geoflow/stats.C are based on statvolume not realvolume. \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o14}{outflowvol}
+\begin{CompactList}\small\item\em volume of material that have flown off the map \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o15}{erodedvol}
+\begin{CompactList}\small\item\em volume of material that has been eroded \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o16}{depositedvol}
+\begin{CompactList}\small\item\em volume of material that is currently deposited \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o17}{cutoffheight}
+\begin{CompactList}\small\item\em pile height of contour line that encloses statvolume \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o18}{piler}
+\begin{CompactList}\small\item\em an estimate of the radius of the pile \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o19}{hmax}
+\begin{CompactList}\small\item\em current spatial maximum of pile height \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o20}{vmax}
+\begin{CompactList}\small\item\em current spatial maximum of speed \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o21}{forceint}
+\begin{CompactList}\small\item\em the integrated magnitude of acceleration due to internal friction force (based on realvolume not statvolume) \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o22}{forcebed}
+\begin{CompactList}\small\item\em the same thing but for bed friction \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o23}{heightifreach}
+\begin{CompactList}\small\item\em check if a flow of height heightifreach reaches the point xyifreach and record the first time it does in timereached, if the value is -1 the flow has not reached the point with the specified height. \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o24}{xyifreach} \mbox{[}2\mbox{]}
+\begin{CompactList}\small\item\em check if a flow of height heightifreach reaches the point xyifreach and record the first time it does in timereached, if the value is -1 the flow has not reached the point with the specified height. \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o25}{timereached}
+\begin{CompactList}\small\item\em check if a flow of height heightifreach reaches the point xyifreach and record the first time it does in timereached, if the value is -1 the flow has not reached the point with the specified height. \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o26}{xyminmax} \mbox{[}4\mbox{]}
+\begin{CompactList}\small\item\em xyminmax holds the minimum and maximum x and y coordinates where the pile height is greater than hxyminmax \item\end{CompactList}\item 
+double \hyperlink{structStatProps_o27}{hxyminmax}
+\begin{CompactList}\small\item\em xyminmax holds the minimum and maximum x and y coordinates where the pile height is greater than hxyminmax \item\end{CompactList}\item 
+\hyperlink{structLHS__Props}{LHS\_\-Props} \hyperlink{structStatProps_o28}{lhs}
+\begin{CompactList}\small\item\em the latin hypercube sampling specific stats \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+the Stat\-Props structure holds statistics about the flow 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structStatProps_a0}{
+\index{StatProps@{Stat\-Props}!StatProps@{StatProps}}
+\index{StatProps@{StatProps}!StatProps@{Stat\-Props}}
+\subsubsection[StatProps]{\setlength{\rightskip}{0pt plus 5cm}Stat\-Props::Stat\-Props ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structStatProps_a0}
+
+
+the constructor initializes a few statistics 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structStatProps_o6}{
+\index{StatProps@{Stat\-Props}!area@{area}}
+\index{area@{area}!StatProps@{Stat\-Props}}
+\subsubsection[area]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o6}{Stat\-Props::area}}}
+\label{structStatProps_o6}
+
+
+area covered by pile of thickness greater than cutoffheight 
+
+\hypertarget{structStatProps_o17}{
+\index{StatProps@{Stat\-Props}!cutoffheight@{cutoffheight}}
+\index{cutoffheight@{cutoffheight}!StatProps@{Stat\-Props}}
+\subsubsection[cutoffheight]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o17}{Stat\-Props::cutoffheight}}}
+\label{structStatProps_o17}
+
+
+pile height of contour line that encloses statvolume 
+
+\hypertarget{structStatProps_o16}{
+\index{StatProps@{Stat\-Props}!depositedvol@{depositedvol}}
+\index{depositedvol@{depositedvol}!StatProps@{Stat\-Props}}
+\subsubsection[depositedvol]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o16}{Stat\-Props::depositedvol}}}
+\label{structStatProps_o16}
+
+
+volume of material that is currently deposited 
+
+\hypertarget{structStatProps_o15}{
+\index{StatProps@{Stat\-Props}!erodedvol@{erodedvol}}
+\index{erodedvol@{erodedvol}!StatProps@{Stat\-Props}}
+\subsubsection[erodedvol]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o15}{Stat\-Props::erodedvol}}}
+\label{structStatProps_o15}
+
+
+volume of material that has been eroded 
+
+\hypertarget{structStatProps_o22}{
+\index{StatProps@{Stat\-Props}!forcebed@{forcebed}}
+\index{forcebed@{forcebed}!StatProps@{Stat\-Props}}
+\subsubsection[forcebed]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o22}{Stat\-Props::forcebed}}}
+\label{structStatProps_o22}
+
+
+the same thing but for bed friction 
+
+\hypertarget{structStatProps_o21}{
+\index{StatProps@{Stat\-Props}!forceint@{forceint}}
+\index{forceint@{forceint}!StatProps@{Stat\-Props}}
+\subsubsection[forceint]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o21}{Stat\-Props::forceint}}}
+\label{structStatProps_o21}
+
+
+the integrated magnitude of acceleration due to internal friction force (based on realvolume not statvolume) 
+
+\hypertarget{structStatProps_o23}{
+\index{StatProps@{Stat\-Props}!heightifreach@{heightifreach}}
+\index{heightifreach@{heightifreach}!StatProps@{Stat\-Props}}
+\subsubsection[heightifreach]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o23}{Stat\-Props::heightifreach}}}
+\label{structStatProps_o23}
+
+
+check if a flow of height heightifreach reaches the point xyifreach and record the first time it does in timereached, if the value is -1 the flow has not reached the point with the specified height. 
+
+\hypertarget{structStatProps_o19}{
+\index{StatProps@{Stat\-Props}!hmax@{hmax}}
+\index{hmax@{hmax}!StatProps@{Stat\-Props}}
+\subsubsection[hmax]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o19}{Stat\-Props::hmax}}}
+\label{structStatProps_o19}
+
+
+current spatial maximum of pile height 
+
+\hypertarget{structStatProps_o27}{
+\index{StatProps@{Stat\-Props}!hxyminmax@{hxyminmax}}
+\index{hxyminmax@{hxyminmax}!StatProps@{Stat\-Props}}
+\subsubsection[hxyminmax]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o27}{Stat\-Props::hxyminmax}}}
+\label{structStatProps_o27}
+
+
+xyminmax holds the minimum and maximum x and y coordinates where the pile height is greater than hxyminmax 
+
+\hypertarget{structStatProps_o28}{
+\index{StatProps@{Stat\-Props}!lhs@{lhs}}
+\index{lhs@{lhs}!StatProps@{Stat\-Props}}
+\subsubsection[lhs]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{structLHS__Props}{LHS\_\-Props} \hyperlink{structStatProps_o28}{Stat\-Props::lhs}}}
+\label{structStatProps_o28}
+
+
+the latin hypercube sampling specific stats 
+
+\hypertarget{structStatProps_o14}{
+\index{StatProps@{Stat\-Props}!outflowvol@{outflowvol}}
+\index{outflowvol@{outflowvol}!StatProps@{Stat\-Props}}
+\subsubsection[outflowvol]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o14}{Stat\-Props::outflowvol}}}
+\label{structStatProps_o14}
+
+
+volume of material that have flown off the map 
+
+\hypertarget{structStatProps_o18}{
+\index{StatProps@{Stat\-Props}!piler@{piler}}
+\index{piler@{piler}!StatProps@{Stat\-Props}}
+\subsubsection[piler]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o18}{Stat\-Props::piler}}}
+\label{structStatProps_o18}
+
+
+an estimate of the radius of the pile 
+
+\hypertarget{structStatProps_o12}{
+\index{StatProps@{Stat\-Props}!realvolume@{realvolume}}
+\index{realvolume@{realvolume}!StatProps@{Stat\-Props}}
+\subsubsection[realvolume]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o12}{Stat\-Props::realvolume}}}
+\label{structStatProps_o12}
+
+
+volume of ALL material, NOT used for other statistics 
+
+\hypertarget{structStatProps_o5}{
+\index{StatProps@{Stat\-Props}!rmean@{rmean}}
+\index{rmean@{rmean}!StatProps@{Stat\-Props}}
+\subsubsection[rmean]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o5}{Stat\-Props::rmean}}}
+\label{structStatProps_o5}
+
+
+mean distance from the point (0,0), this was the mean pile starting point for the ordered reduced number of runs monte carlo method validation 
+
+\hypertarget{structStatProps_o0}{
+\index{StatProps@{Stat\-Props}!runid@{runid}}
+\index{runid@{runid}!StatProps@{Stat\-Props}}
+\subsubsection[runid]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structStatProps_o0}{Stat\-Props::runid}}}
+\label{structStatProps_o0}
+
+
+job number for monte carlo or lhs simulations 
+
+\hypertarget{structStatProps_o10}{
+\index{StatProps@{Stat\-Props}!slopemean@{slopemean}}
+\index{slopemean@{slopemean}!StatProps@{Stat\-Props}}
+\subsubsection[slopemean]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o10}{Stat\-Props::slopemean}}}
+\label{structStatProps_o10}
+
+
+mean slope in the direction of velocity a negative number indicates the flow is heading uphill 
+
+\hypertarget{structStatProps_o13}{
+\index{StatProps@{Stat\-Props}!statvolume@{statvolume}}
+\index{statvolume@{statvolume}!StatProps@{Stat\-Props}}
+\subsubsection[statvolume]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o13}{Stat\-Props::statvolume}}}
+\label{structStatProps_o13}
+
+
+STAT\_\-VOL\_\-FRAC$\ast$realvolume, all statistics computed in ../geoflow/stats.C are based on statvolume not realvolume. 
+
+\hypertarget{structStatProps_o25}{
+\index{StatProps@{Stat\-Props}!timereached@{timereached}}
+\index{timereached@{timereached}!StatProps@{Stat\-Props}}
+\subsubsection[timereached]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o25}{Stat\-Props::timereached}}}
+\label{structStatProps_o25}
+
+
+check if a flow of height heightifreach reaches the point xyifreach and record the first time it does in timereached, if the value is -1 the flow has not reached the point with the specified height. 
+
+\hypertarget{structStatProps_o20}{
+\index{StatProps@{Stat\-Props}!vmax@{vmax}}
+\index{vmax@{vmax}!StatProps@{Stat\-Props}}
+\subsubsection[vmax]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o20}{Stat\-Props::vmax}}}
+\label{structStatProps_o20}
+
+
+current spatial maximum of speed 
+
+\hypertarget{structStatProps_o7}{
+\index{StatProps@{Stat\-Props}!vmean@{vmean}}
+\index{vmean@{vmean}!StatProps@{Stat\-Props}}
+\subsubsection[vmean]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o7}{Stat\-Props::vmean}}}
+\label{structStatProps_o7}
+
+
+mean speed 
+
+\hypertarget{structStatProps_o11}{
+\index{StatProps@{Stat\-Props}!vstar@{vstar}}
+\index{vstar@{vstar}!StatProps@{Stat\-Props}}
+\subsubsection[vstar]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o11}{Stat\-Props::vstar}}}
+\label{structStatProps_o11}
+
+
+nondimensionalized mean speed 
+
+\hypertarget{structStatProps_o8}{
+\index{StatProps@{Stat\-Props}!vxmean@{vxmean}}
+\index{vxmean@{vxmean}!StatProps@{Stat\-Props}}
+\subsubsection[vxmean]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o8}{Stat\-Props::vxmean}}}
+\label{structStatProps_o8}
+
+
+mean x velocity 
+
+\hypertarget{structStatProps_o9}{
+\index{StatProps@{Stat\-Props}!vymean@{vymean}}
+\index{vymean@{vymean}!StatProps@{Stat\-Props}}
+\subsubsection[vymean]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o9}{Stat\-Props::vymean}}}
+\label{structStatProps_o9}
+
+
+mean y velocity 
+
+\hypertarget{structStatProps_o1}{
+\index{StatProps@{Stat\-Props}!xcen@{xcen}}
+\index{xcen@{xcen}!StatProps@{Stat\-Props}}
+\subsubsection[xcen]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o1}{Stat\-Props::xcen}}}
+\label{structStatProps_o1}
+
+
+x coordinate of pile centroid 
+
+\hypertarget{structStatProps_o3}{
+\index{StatProps@{Stat\-Props}!xvar@{xvar}}
+\index{xvar@{xvar}!StatProps@{Stat\-Props}}
+\subsubsection[xvar]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o3}{Stat\-Props::xvar}}}
+\label{structStatProps_o3}
+
+
+variance of location of pile material in the x direction 
+
+\hypertarget{structStatProps_o24}{
+\index{StatProps@{Stat\-Props}!xyifreach@{xyifreach}}
+\index{xyifreach@{xyifreach}!StatProps@{Stat\-Props}}
+\subsubsection[xyifreach]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o24}{Stat\-Props::xyifreach}\mbox{[}2\mbox{]}}}
+\label{structStatProps_o24}
+
+
+check if a flow of height heightifreach reaches the point xyifreach and record the first time it does in timereached, if the value is -1 the flow has not reached the point with the specified height. 
+
+\hypertarget{structStatProps_o26}{
+\index{StatProps@{Stat\-Props}!xyminmax@{xyminmax}}
+\index{xyminmax@{xyminmax}!StatProps@{Stat\-Props}}
+\subsubsection[xyminmax]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o26}{Stat\-Props::xyminmax}\mbox{[}4\mbox{]}}}
+\label{structStatProps_o26}
+
+
+xyminmax holds the minimum and maximum x and y coordinates where the pile height is greater than hxyminmax 
+
+\hypertarget{structStatProps_o2}{
+\index{StatProps@{Stat\-Props}!ycen@{ycen}}
+\index{ycen@{ycen}!StatProps@{Stat\-Props}}
+\subsubsection[ycen]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o2}{Stat\-Props::ycen}}}
+\label{structStatProps_o2}
+
+
+y coordinate of pile centroid 
+
+\hypertarget{structStatProps_o4}{
+\index{StatProps@{Stat\-Props}!yvar@{yvar}}
+\index{yvar@{yvar}!StatProps@{Stat\-Props}}
+\subsubsection[yvar]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structStatProps_o4}{Stat\-Props::yvar}}}
+\label{structStatProps_o4}
+
+
+variance of location of pile material in the y direction 
+
+
+
+The documentation for this struct was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{properties_8h}{properties.h}\end{CompactItemize}

@@ -1,0 +1,59 @@
+\hypertarget{stats_8C}{
+\section{stats.C File Reference}
+\label{stats_8C}\index{stats.C@{stats.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{stats_8C_a0}{STAT\_\-VOL\_\-FRAC}\ 0.95
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{stats_8C_a1}{calc\_\-stats} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$discharge, double d\_\-time)
+\begin{CompactList}\small\item\em This function calculates the vast majority of statistics used for output, including most of what appears in output\_\-summary.\#\#\#\#\#\#, the friction body forces however are not calculated in here, Keith wrote this to replace \hyperlink{step_8C_a2}{calc\_\-volume()}. \item\end{CompactList}\item 
+void \hyperlink{stats_8C_a2}{out\_\-final\_\-stats} (\hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops)
+\begin{CompactList}\small\item\em this function outputs final stats for one run in a collection of stochastic/probabilistic runs \item\end{CompactList}\item 
+void \hyperlink{stats_8C_a3}{Insanity\-Check} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, int nump, int myid, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr)
+\begin{CompactList}\small\item\em only used in debugging \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{stats_8C_a0}{
+\index{stats.C@{stats.C}!STAT_VOL_FRAC@{STAT\_\-VOL\_\-FRAC}}
+\index{STAT_VOL_FRAC@{STAT\_\-VOL\_\-FRAC}!stats.C@{stats.C}}
+\subsubsection[STAT\_\-VOL\_\-FRAC]{\setlength{\rightskip}{0pt plus 5cm}\#define STAT\_\-VOL\_\-FRAC\ 0.95}}
+\label{stats_8C_a0}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{stats_8C_a1}{
+\index{stats.C@{stats.C}!calc_stats@{calc\_\-stats}}
+\index{calc_stats@{calc\_\-stats}!stats.C@{stats.C}}
+\subsubsection[calc\_\-stats]{\setlength{\rightskip}{0pt plus 5cm}void calc\_\-stats (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops}, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$ {\em discharge}, double {\em d\_\-time})}}
+\label{stats_8C_a1}
+
+
+This function calculates the vast majority of statistics used for output, including most of what appears in output\_\-summary.\#\#\#\#\#\#, the friction body forces however are not calculated in here, Keith wrote this to replace \hyperlink{step_8C_a2}{calc\_\-volume()}. 
+
+\hypertarget{stats_8C_a3}{
+\index{stats.C@{stats.C}!InsanityCheck@{InsanityCheck}}
+\index{InsanityCheck@{InsanityCheck}!stats.C@{stats.C}}
+\subsubsection[InsanityCheck]{\setlength{\rightskip}{0pt plus 5cm}void Insanity\-Check (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, int {\em nump}, int {\em myid}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr})}}
+\label{stats_8C_a3}
+
+
+only used in debugging 
+
+\hypertarget{stats_8C_a2}{
+\index{stats.C@{stats.C}!out_final_stats@{out\_\-final\_\-stats}}
+\index{out_final_stats@{out\_\-final\_\-stats}!stats.C@{stats.C}}
+\subsubsection[out\_\-final\_\-stats]{\setlength{\rightskip}{0pt plus 5cm}void out\_\-final\_\-stats (\hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops})}}
+\label{stats_8C_a2}
+
+
+this function outputs final stats for one run in a collection of stochastic/probabilistic runs 
+

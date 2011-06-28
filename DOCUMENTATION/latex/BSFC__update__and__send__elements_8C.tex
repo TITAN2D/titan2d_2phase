@@ -1,0 +1,42 @@
+\hypertarget{BSFC__update__and__send__elements_8C}{
+\section{BSFC\_\-update\_\-and\_\-send\_\-elements.C File Reference}
+\label{BSFC__update__and__send__elements_8C}\index{BSFC_update_and_send_elements.C@{BSFC\_\-update\_\-and\_\-send\_\-elements.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+{\tt \#include \char`\"{}../header/exvar.h\char`\"{}}\par
+{\tt \#include \char`\"{}./repartition\_\-BSFC.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{BSFC__update__and__send__elements_8C_a0}{create\_\-element} (\hyperlink{structElemPack}{Elem\-Pack} $\ast$elem2, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int myid)
+\item 
+void \hyperlink{BSFC__update__and__send__elements_8C_a1}{BSFC\_\-update\_\-and\_\-send\_\-elements} (int myid, int numprocs, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int time\_\-step)
+\item 
+void \hyperlink{BSFC__update__and__send__elements_8C_a2}{delete\_\-unused\_\-elements\_\-nodes} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int myid)
+\begin{CompactList}\small\item\em this function deletes unused elements and nodes, this is called durring grid adaptation in \hyperlink{constant_8h_a21}{hadpt.C} \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{BSFC__update__and__send__elements_8C_a1}{
+\index{BSFC_update_and_send_elements.C@{BSFC\_\-update\_\-and\_\-send\_\-elements.C}!BSFC_update_and_send_elements@{BSFC\_\-update\_\-and\_\-send\_\-elements}}
+\index{BSFC_update_and_send_elements@{BSFC\_\-update\_\-and\_\-send\_\-elements}!BSFC_update_and_send_elements.C@{BSFC\_\-update\_\-and\_\-send\_\-elements.C}}
+\subsubsection[BSFC\_\-update\_\-and\_\-send\_\-elements]{\setlength{\rightskip}{0pt plus 5cm}void BSFC\_\-update\_\-and\_\-send\_\-elements (int {\em myid}, int {\em numprocs}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em time\_\-step})}}
+\label{BSFC__update__and__send__elements_8C_a1}
+
+
+\hypertarget{BSFC__update__and__send__elements_8C_a0}{
+\index{BSFC_update_and_send_elements.C@{BSFC\_\-update\_\-and\_\-send\_\-elements.C}!create_element@{create\_\-element}}
+\index{create_element@{create\_\-element}!BSFC_update_and_send_elements.C@{BSFC\_\-update\_\-and\_\-send\_\-elements.C}}
+\subsubsection[create\_\-element]{\setlength{\rightskip}{0pt plus 5cm}void create\_\-element (\hyperlink{structElemPack}{Elem\-Pack} $\ast$ {\em elem2}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em myid})}}
+\label{BSFC__update__and__send__elements_8C_a0}
+
+
+\hypertarget{BSFC__update__and__send__elements_8C_a2}{
+\index{BSFC_update_and_send_elements.C@{BSFC\_\-update\_\-and\_\-send\_\-elements.C}!delete_unused_elements_nodes@{delete\_\-unused\_\-elements\_\-nodes}}
+\index{delete_unused_elements_nodes@{delete\_\-unused\_\-elements\_\-nodes}!BSFC_update_and_send_elements.C@{BSFC\_\-update\_\-and\_\-send\_\-elements.C}}
+\subsubsection[delete\_\-unused\_\-elements\_\-nodes]{\setlength{\rightskip}{0pt plus 5cm}void delete\_\-unused\_\-elements\_\-nodes (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em myid})}}
+\label{BSFC__update__and__send__elements_8C_a2}
+
+
+this function deletes unused elements and nodes, this is called durring grid adaptation in \hyperlink{constant_8h_a21}{hadpt.C} 
+

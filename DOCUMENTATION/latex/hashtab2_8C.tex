@@ -1,0 +1,44 @@
+\hypertarget{hashtab2_8C}{
+\section{hashtab2.C File Reference}
+\label{hashtab2_8C}\index{hashtab2.C@{hashtab2.C}}
+}
+{\tt \#include $<$iostream.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$fstream.h$>$}\par
+{\tt \#include $<$assert.h$>$}\par
+{\tt \#include \char`\"{}../header/hashtab.h\char`\"{}}\par
+{\tt \#include $<$mpi.h$>$}\par
+{\tt \#include $<$limits.h$>$}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{hashtab2_8C_a0}{HASHTABLE\_\-EXTENDER}\ 1000000
+\item 
+\#define \hyperlink{hashtab2_8C_a1}{Max\-Bits}\ ( sizeof(unsigned) $\ast$ CHAR\_\-BIT )
+\item 
+\#define \hyperlink{hashtab2_8C_a2}{IScale}\ ((unsigned)((Max\-Bits $<$= 32) ? $\sim$(0u) : (0xffffffff $<$$<$ (Max\-Bits - 32))))
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{hashtab2_8C_a0}{
+\index{hashtab2.C@{hashtab2.C}!HASHTABLE_EXTENDER@{HASHTABLE\_\-EXTENDER}}
+\index{HASHTABLE_EXTENDER@{HASHTABLE\_\-EXTENDER}!hashtab2.C@{hashtab2.C}}
+\subsubsection[HASHTABLE\_\-EXTENDER]{\setlength{\rightskip}{0pt plus 5cm}\#define HASHTABLE\_\-EXTENDER\ 1000000}}
+\label{hashtab2_8C_a0}
+
+
+\hypertarget{hashtab2_8C_a2}{
+\index{hashtab2.C@{hashtab2.C}!IScale@{IScale}}
+\index{IScale@{IScale}!hashtab2.C@{hashtab2.C}}
+\subsubsection[IScale]{\setlength{\rightskip}{0pt plus 5cm}\#define IScale\ ((unsigned)((Max\-Bits $<$= 32) ? $\sim$(0u) : (0xffffffff $<$$<$ (Max\-Bits - 32))))}}
+\label{hashtab2_8C_a2}
+
+
+\hypertarget{hashtab2_8C_a1}{
+\index{hashtab2.C@{hashtab2.C}!MaxBits@{MaxBits}}
+\index{MaxBits@{MaxBits}!hashtab2.C@{hashtab2.C}}
+\subsubsection[MaxBits]{\setlength{\rightskip}{0pt plus 5cm}\#define Max\-Bits\ ( sizeof(unsigned) $\ast$ CHAR\_\-BIT )}}
+\label{hashtab2_8C_a1}
+
+

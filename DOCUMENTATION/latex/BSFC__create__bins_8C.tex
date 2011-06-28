@@ -1,0 +1,49 @@
+\hypertarget{BSFC__create__bins_8C}{
+\section{BSFC\_\-create\_\-bins.C File Reference}
+\label{BSFC__create__bins_8C}\index{BSFC_create_bins.C@{BSFC\_\-create\_\-bins.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+{\tt \#include \char`\"{}../header/exvar.h\char`\"{}}\par
+{\tt \#include \char`\"{}./repartition\_\-BSFC.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int \hyperlink{BSFC__create__bins_8C_a0}{BSFC\_\-pow} (int intbase, int intexp)
+\item 
+void \hyperlink{BSFC__create__bins_8C_a1}{BSFC\_\-create\_\-bins} (int num\_\-local\_\-objects, \hyperlink{structsfc__vertex}{BSFC\_\-VERTEX\_\-PTR} sfc\_\-vert\_\-ptr, int $\ast$amount\_\-of\_\-bits\_\-used, int size\_\-of\_\-unsigned, float $\ast$global\_\-actual\_\-work\_\-allocated, float $\ast$work\_\-percent\_\-array, float $\ast$total\_\-weight\_\-ptr, int $\ast$balanced\_\-flag, \hyperlink{structunstructured__communication}{unstructured\_\-communication} $\ast$verts\_\-in\_\-cut\_\-info, int $\ast$number\_\-of\_\-cuts, int bins\_\-per\_\-proc, int myid, int numprocs)
+\item 
+int \hyperlink{BSFC__create__bins_8C_a2}{BSFC\_\-get\_\-array\_\-location} (int number\_\-of\_\-bins, int number\_\-of\_\-bits, int prev\_\-used\_\-bits, \hyperlink{structsfc__vertex}{BSFC\_\-VERTEX\_\-PTR} sfc\_\-vert\_\-ptr)
+\item 
+int \hyperlink{BSFC__create__bins_8C_a3}{BSFC\_\-find\_\-imbalance} (float $\ast$work\_\-percent\_\-array, float cumulative\_\-work, float total\_\-work, int which\_\-proc, int numprocs)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{BSFC__create__bins_8C_a1}{
+\index{BSFC_create_bins.C@{BSFC\_\-create\_\-bins.C}!BSFC_create_bins@{BSFC\_\-create\_\-bins}}
+\index{BSFC_create_bins@{BSFC\_\-create\_\-bins}!BSFC_create_bins.C@{BSFC\_\-create\_\-bins.C}}
+\subsubsection[BSFC\_\-create\_\-bins]{\setlength{\rightskip}{0pt plus 5cm}void BSFC\_\-create\_\-bins (int {\em num\_\-local\_\-objects}, \hyperlink{structsfc__vertex}{BSFC\_\-VERTEX\_\-PTR} {\em sfc\_\-vert\_\-ptr}, int $\ast$ {\em amount\_\-of\_\-bits\_\-used}, int {\em size\_\-of\_\-unsigned}, float $\ast$ {\em global\_\-actual\_\-work\_\-allocated}, float $\ast$ {\em work\_\-percent\_\-array}, float $\ast$ {\em total\_\-weight\_\-ptr}, int $\ast$ {\em balanced\_\-flag}, \hyperlink{structunstructured__communication}{unstructured\_\-communication} $\ast$ {\em verts\_\-in\_\-cut\_\-info}, int $\ast$ {\em number\_\-of\_\-cuts}, int {\em bins\_\-per\_\-proc}, int {\em myid}, int {\em numprocs})}}
+\label{BSFC__create__bins_8C_a1}
+
+
+\hypertarget{BSFC__create__bins_8C_a3}{
+\index{BSFC_create_bins.C@{BSFC\_\-create\_\-bins.C}!BSFC_find_imbalance@{BSFC\_\-find\_\-imbalance}}
+\index{BSFC_find_imbalance@{BSFC\_\-find\_\-imbalance}!BSFC_create_bins.C@{BSFC\_\-create\_\-bins.C}}
+\subsubsection[BSFC\_\-find\_\-imbalance]{\setlength{\rightskip}{0pt plus 5cm}int BSFC\_\-find\_\-imbalance (float $\ast$ {\em work\_\-percent\_\-array}, float {\em cumulative\_\-work}, float {\em total\_\-work}, int {\em which\_\-proc}, int {\em numprocs})}}
+\label{BSFC__create__bins_8C_a3}
+
+
+\hypertarget{BSFC__create__bins_8C_a2}{
+\index{BSFC_create_bins.C@{BSFC\_\-create\_\-bins.C}!BSFC_get_array_location@{BSFC\_\-get\_\-array\_\-location}}
+\index{BSFC_get_array_location@{BSFC\_\-get\_\-array\_\-location}!BSFC_create_bins.C@{BSFC\_\-create\_\-bins.C}}
+\subsubsection[BSFC\_\-get\_\-array\_\-location]{\setlength{\rightskip}{0pt plus 5cm}int BSFC\_\-get\_\-array\_\-location (int {\em number\_\-of\_\-bins}, int {\em number\_\-of\_\-bits}, int {\em prev\_\-used\_\-bits}, \hyperlink{structsfc__vertex}{BSFC\_\-VERTEX\_\-PTR} {\em sfc\_\-vert\_\-ptr})}}
+\label{BSFC__create__bins_8C_a2}
+
+
+\hypertarget{BSFC__create__bins_8C_a0}{
+\index{BSFC_create_bins.C@{BSFC\_\-create\_\-bins.C}!BSFC_pow@{BSFC\_\-pow}}
+\index{BSFC_pow@{BSFC\_\-pow}!BSFC_create_bins.C@{BSFC\_\-create\_\-bins.C}}
+\subsubsection[BSFC\_\-pow]{\setlength{\rightskip}{0pt plus 5cm}int BSFC\_\-pow (int {\em intbase}, int {\em intexp})}}
+\label{BSFC__create__bins_8C_a0}
+
+

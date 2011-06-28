@@ -1,0 +1,167 @@
+\hypertarget{hadpt_8C}{
+\section{hadpt.C File Reference}
+\label{hadpt_8C}\index{hadpt.C@{hadpt.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{hadpt_8C_a0}{TARGETPROC}\ -1
+\item 
+\#define \hyperlink{hadpt_8C_a1}{REFINE\_\-THRESHOLD1}\ 5$\ast$GEOFLOW\_\-TINY
+\item 
+\#define \hyperlink{hadpt_8C_a2}{REFINE\_\-THRESHOLD2}\ 15$\ast$GEOFLOW\_\-TINY
+\item 
+\#define \hyperlink{hadpt_8C_a3}{REFINE\_\-THRESHOLD}\ 40$\ast$GEOFLOW\_\-TINY
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{hadpt_8C_a4}{refinewrapper} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{classElemPtrList}{Elem\-Ptr\-List} $\ast$Refined\-List, \hyperlink{classElement}{Element} $\ast$Em\-Temp)
+\item 
+void \hyperlink{hadpt_8C_a5}{refine} (\hyperlink{classElement}{Element} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr)
+\item 
+void \hyperlink{hadpt_8C_a6}{depchk} (\hyperlink{classElement}{Element} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, int $\ast$, \hyperlink{classElemPtrList}{Elem\-Ptr\-List} $\ast$)
+\item 
+void \hyperlink{hadpt_8C_a7}{update\_\-neighbor\_\-info} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classElemPtrList}{Elem\-Ptr\-List} $\ast$Refined\-List, int myid, int numprocs, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int h\_\-count)
+\item 
+void \hyperlink{hadpt_8C_a8}{data\_\-com} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int myid, int numprocs, int h\_\-count)
+\item 
+void \hyperlink{hadpt_8C_a9}{htflush} (\hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, int)
+\item 
+void \hyperlink{hadpt_8C_a10}{test\_\-h\_\-refine} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, int myid, int h\_\-count)
+\item 
+void \hyperlink{hadpt_8C_a11}{all\_\-check} (\hyperlink{classHashTable}{Hash\-Table} $\ast$eltab, \hyperlink{classHashTable}{Hash\-Table} $\ast$ndtab, int myid, int m, double TARGET)
+\item 
+void \hyperlink{hadpt_8C_a12}{H\_\-adapt} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int h\_\-count, double target, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structFluxProps}{Flux\-Props} $\ast$fluxprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, int num\_\-buffer\_\-layer)
+\begin{CompactList}\small\item\em this is the normal grid adaptive refinement function it also refreshes the flux sources \item\end{CompactList}\item 
+void \hyperlink{hadpt_8C_a13}{elliptical\_\-pile\_\-height} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, \hyperlink{classElement}{Element} $\ast$Em\-Temp, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structPileProps}{Pile\-Props} $\ast$pileprops\_\-ptr)
+\item 
+void \hyperlink{hadpt_8C_a14}{initial\_\-H\_\-adapt} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int h\_\-count, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structPileProps}{Pile\-Props} $\ast$pileprops\_\-ptr, \hyperlink{structFluxProps}{Flux\-Props} $\ast$fluxprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, int num\_\-buffer\_\-layer)
+\begin{CompactList}\small\item\em this function performs adaptive refinement at timestep zero for refining initial piles and whenever a flux source is activated. \item\end{CompactList}\item 
+void \hyperlink{hadpt_8C_a15}{H\_\-adapt\_\-to\_\-level} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structPileProps}{Pile\-Props} $\ast$pileprops\_\-ptr, \hyperlink{structFluxProps}{Flux\-Props} $\ast$fluxprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, int refinelevel)
+\begin{CompactList}\small\item\em this function refines all elements whos generation is less than refinelevel, until they are of generation refinelevel and then places the flux sources and, if it is at timestep zero, initial piles. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{hadpt_8C_a3}{
+\index{hadpt.C@{hadpt.C}!REFINE_THRESHOLD@{REFINE\_\-THRESHOLD}}
+\index{REFINE_THRESHOLD@{REFINE\_\-THRESHOLD}!hadpt.C@{hadpt.C}}
+\subsubsection[REFINE\_\-THRESHOLD]{\setlength{\rightskip}{0pt plus 5cm}\#define REFINE\_\-THRESHOLD\ 40$\ast$GEOFLOW\_\-TINY}}
+\label{hadpt_8C_a3}
+
+
+\hypertarget{hadpt_8C_a1}{
+\index{hadpt.C@{hadpt.C}!REFINE_THRESHOLD1@{REFINE\_\-THRESHOLD1}}
+\index{REFINE_THRESHOLD1@{REFINE\_\-THRESHOLD1}!hadpt.C@{hadpt.C}}
+\subsubsection[REFINE\_\-THRESHOLD1]{\setlength{\rightskip}{0pt plus 5cm}\#define REFINE\_\-THRESHOLD1\ 5$\ast$GEOFLOW\_\-TINY}}
+\label{hadpt_8C_a1}
+
+
+\hypertarget{hadpt_8C_a2}{
+\index{hadpt.C@{hadpt.C}!REFINE_THRESHOLD2@{REFINE\_\-THRESHOLD2}}
+\index{REFINE_THRESHOLD2@{REFINE\_\-THRESHOLD2}!hadpt.C@{hadpt.C}}
+\subsubsection[REFINE\_\-THRESHOLD2]{\setlength{\rightskip}{0pt plus 5cm}\#define REFINE\_\-THRESHOLD2\ 15$\ast$GEOFLOW\_\-TINY}}
+\label{hadpt_8C_a2}
+
+
+\hypertarget{hadpt_8C_a0}{
+\index{hadpt.C@{hadpt.C}!TARGETPROC@{TARGETPROC}}
+\index{TARGETPROC@{TARGETPROC}!hadpt.C@{hadpt.C}}
+\subsubsection[TARGETPROC]{\setlength{\rightskip}{0pt plus 5cm}\#define TARGETPROC\ -1}}
+\label{hadpt_8C_a0}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{hadpt_8C_a11}{
+\index{hadpt.C@{hadpt.C}!all_check@{all\_\-check}}
+\index{all_check@{all\_\-check}!hadpt.C@{hadpt.C}}
+\subsubsection[all\_\-check]{\setlength{\rightskip}{0pt plus 5cm}void all\_\-check (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em eltab}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em ndtab}, int {\em myid}, int {\em m}, double {\em TARGET})}}
+\label{hadpt_8C_a11}
+
+
+\hypertarget{hadpt_8C_a8}{
+\index{hadpt.C@{hadpt.C}!data_com@{data\_\-com}}
+\index{data_com@{data\_\-com}!hadpt.C@{hadpt.C}}
+\subsubsection[data\_\-com]{\setlength{\rightskip}{0pt plus 5cm}void data\_\-com (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em myid}, int {\em numprocs}, int {\em h\_\-count})}}
+\label{hadpt_8C_a8}
+
+
+\hypertarget{hadpt_8C_a6}{
+\index{hadpt.C@{hadpt.C}!depchk@{depchk}}
+\index{depchk@{depchk}!hadpt.C@{hadpt.C}}
+\subsubsection[depchk]{\setlength{\rightskip}{0pt plus 5cm}void depchk (\hyperlink{classElement}{Element} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, int $\ast$, \hyperlink{classElemPtrList}{Elem\-Ptr\-List} $\ast$)}}
+\label{hadpt_8C_a6}
+
+
+\hypertarget{hadpt_8C_a13}{
+\index{hadpt.C@{hadpt.C}!elliptical_pile_height@{elliptical\_\-pile\_\-height}}
+\index{elliptical_pile_height@{elliptical\_\-pile\_\-height}!hadpt.C@{hadpt.C}}
+\subsubsection[elliptical\_\-pile\_\-height]{\setlength{\rightskip}{0pt plus 5cm}void elliptical\_\-pile\_\-height (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, \hyperlink{classElement}{Element} $\ast$ {\em Em\-Temp}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structPileProps}{Pile\-Props} $\ast$ {\em pileprops\_\-ptr})}}
+\label{hadpt_8C_a13}
+
+
+\hypertarget{hadpt_8C_a12}{
+\index{hadpt.C@{hadpt.C}!H_adapt@{H\_\-adapt}}
+\index{H_adapt@{H\_\-adapt}!hadpt.C@{hadpt.C}}
+\subsubsection[H\_\-adapt]{\setlength{\rightskip}{0pt plus 5cm}void H\_\-adapt (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em h\_\-count}, double {\em target}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structFluxProps}{Flux\-Props} $\ast$ {\em fluxprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, int {\em num\_\-buffer\_\-layer})}}
+\label{hadpt_8C_a12}
+
+
+this is the normal grid adaptive refinement function it also refreshes the flux sources 
+
+\hypertarget{hadpt_8C_a15}{
+\index{hadpt.C@{hadpt.C}!H_adapt_to_level@{H\_\-adapt\_\-to\_\-level}}
+\index{H_adapt_to_level@{H\_\-adapt\_\-to\_\-level}!hadpt.C@{hadpt.C}}
+\subsubsection[H\_\-adapt\_\-to\_\-level]{\setlength{\rightskip}{0pt plus 5cm}void H\_\-adapt\_\-to\_\-level (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structPileProps}{Pile\-Props} $\ast$ {\em pileprops\_\-ptr}, \hyperlink{structFluxProps}{Flux\-Props} $\ast$ {\em fluxprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, int {\em refinelevel})}}
+\label{hadpt_8C_a15}
+
+
+this function refines all elements whos generation is less than refinelevel, until they are of generation refinelevel and then places the flux sources and, if it is at timestep zero, initial piles. 
+
+\hypertarget{hadpt_8C_a9}{
+\index{hadpt.C@{hadpt.C}!htflush@{htflush}}
+\index{htflush@{htflush}!hadpt.C@{hadpt.C}}
+\subsubsection[htflush]{\setlength{\rightskip}{0pt plus 5cm}void htflush (\hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, int)}}
+\label{hadpt_8C_a9}
+
+
+\hypertarget{hadpt_8C_a14}{
+\index{hadpt.C@{hadpt.C}!initial_H_adapt@{initial\_\-H\_\-adapt}}
+\index{initial_H_adapt@{initial\_\-H\_\-adapt}!hadpt.C@{hadpt.C}}
+\subsubsection[initial\_\-H\_\-adapt]{\setlength{\rightskip}{0pt plus 5cm}void initial\_\-H\_\-adapt (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em h\_\-count}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structPileProps}{Pile\-Props} $\ast$ {\em pileprops\_\-ptr}, \hyperlink{structFluxProps}{Flux\-Props} $\ast$ {\em fluxprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, int {\em num\_\-buffer\_\-layer})}}
+\label{hadpt_8C_a14}
+
+
+this function performs adaptive refinement at timestep zero for refining initial piles and whenever a flux source is activated. 
+
+\hypertarget{hadpt_8C_a5}{
+\index{hadpt.C@{hadpt.C}!refine@{refine}}
+\index{refine@{refine}!hadpt.C@{hadpt.C}}
+\subsubsection[refine]{\setlength{\rightskip}{0pt plus 5cm}void refine (\hyperlink{classElement}{Element} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr})}}
+\label{hadpt_8C_a5}
+
+
+\hypertarget{hadpt_8C_a4}{
+\index{hadpt.C@{hadpt.C}!refinewrapper@{refinewrapper}}
+\index{refinewrapper@{refinewrapper}!hadpt.C@{hadpt.C}}
+\subsubsection[refinewrapper]{\setlength{\rightskip}{0pt plus 5cm}void refinewrapper (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{classElemPtrList}{Elem\-Ptr\-List} $\ast$ {\em Refined\-List}, \hyperlink{classElement}{Element} $\ast$ {\em Em\-Temp})}}
+\label{hadpt_8C_a4}
+
+
+\hypertarget{hadpt_8C_a10}{
+\index{hadpt.C@{hadpt.C}!test_h_refine@{test\_\-h\_\-refine}}
+\index{test_h_refine@{test\_\-h\_\-refine}!hadpt.C@{hadpt.C}}
+\subsubsection[test\_\-h\_\-refine]{\setlength{\rightskip}{0pt plus 5cm}void test\_\-h\_\-refine (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, int {\em myid}, int {\em h\_\-count})}}
+\label{hadpt_8C_a10}
+
+
+\hypertarget{hadpt_8C_a7}{
+\index{hadpt.C@{hadpt.C}!update_neighbor_info@{update\_\-neighbor\_\-info}}
+\index{update_neighbor_info@{update\_\-neighbor\_\-info}!hadpt.C@{hadpt.C}}
+\subsubsection[update\_\-neighbor\_\-info]{\setlength{\rightskip}{0pt plus 5cm}void update\_\-neighbor\_\-info (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classElemPtrList}{Elem\-Ptr\-List} $\ast$ {\em Refined\-List}, int {\em myid}, int {\em numprocs}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em h\_\-count})}}
+\label{hadpt_8C_a7}
+
+

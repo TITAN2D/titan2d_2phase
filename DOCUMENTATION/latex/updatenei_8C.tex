@@ -1,0 +1,132 @@
+\hypertarget{updatenei_8C}{
+\section{updatenei.C File Reference}
+\label{updatenei_8C}\index{updatenei.C@{updatenei.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+{\tt \#include \char`\"{}../header/refined\_\-neighbor\_\-info.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{updatenei_8C_a0}{TARGETPROC}\ -1
+\item 
+\#define \hyperlink{updatenei_8C_a1}{Assert\-Mesh\-Node\-Check}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{updatenei_8C_a2}{Elem\-Background\-Check} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, unsigned $\ast$debugkey, FILE $\ast$fp)
+\begin{CompactList}\small\item\em investigate an \hyperlink{classElement}{Element}, question his \char`\"{}friends and family\char`\"{} about him. \item\end{CompactList}\item 
+void \hyperlink{updatenei_8C_a3}{Elem\-Background\-Check2} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, void $\ast$Em\-Debug\_\-in, FILE $\ast$fp)
+\item 
+void \hyperlink{updatenei_8C_a4}{Node\-Background\-Check} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, unsigned $\ast$nodedbkey, FILE $\ast$fp)
+\begin{CompactList}\small\item\em investigate a \hyperlink{classNode}{Node} question his \char`\"{}friends and family\char`\"{} about him. \item\end{CompactList}\item 
+int \hyperlink{updatenei_8C_a5}{if\-Node\-Info\-Change} (\hyperlink{classNode}{Node} $\ast$Nd\-Debug, int $\ast$Nd\-Debug\-Info)
+\item 
+int \hyperlink{updatenei_8C_a6}{if\-Check\-Node} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int Nd\-Debug\-Info, int checkstate, unsigned $\ast$elemdbkey, \hyperlink{classElement}{Element} $\ast$Em\-Father, \hyperlink{classElement}{Element} $\ast$Em\-Son\-A, \hyperlink{classElement}{Element} $\ast$Em\-Son\-B, \hyperlink{classElement}{Element} $\ast$Em\-Neigh\-New\mbox{[}4\mbox{]})
+\item 
+void \hyperlink{updatenei_8C_a7}{Assert\-Mesh\-Error\-Free} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int numprocs, int myid, double loc)
+\begin{CompactList}\small\item\em this function checks for any and all possible mesh errors, i.e. it checks if the mesh is legal, it says nothing about the quality of a legal mesh, you must have ghost information present before performing this check, WARNING THIS CHECK TAKES A LOT OF TIME, ONLY USE IT TO DEBUG. \item\end{CompactList}\item 
+int \hyperlink{updatenei_8C_a8}{If\-Neigh\-Proc\-Change} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid, \hyperlink{classElement}{Element} $\ast$Em\-Debug, \hyperlink{classElement}{Element} $\ast$Em\-Temp)
+\item 
+void \hyperlink{updatenei_8C_a9}{update\_\-neighbor\_\-info} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classElemPtrList}{Elem\-Ptr\-List} $\ast$Refined\-List, int myid, int numprocs, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int h\_\-count)
+\item 
+void \hyperlink{updatenei_8C_a10}{refine\_\-neigh\_\-update} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int nump, int myid, void $\ast$RL, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr)
+\item 
+void \hyperlink{updatenei_8C_a11}{update\_\-neighbor\_\-interprocessor} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, \hyperlink{structrefined__neighbor}{refined\_\-neighbor} $\ast$refined\_\-start, int myid, int nump)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{updatenei_8C_a1}{
+\index{updatenei.C@{updatenei.C}!AssertMeshNodeCheck@{AssertMeshNodeCheck}}
+\index{AssertMeshNodeCheck@{AssertMeshNodeCheck}!updatenei.C@{updatenei.C}}
+\subsubsection[AssertMeshNodeCheck]{\setlength{\rightskip}{0pt plus 5cm}\#define Assert\-Mesh\-Node\-Check}}
+\label{updatenei_8C_a1}
+
+
+\hypertarget{updatenei_8C_a0}{
+\index{updatenei.C@{updatenei.C}!TARGETPROC@{TARGETPROC}}
+\index{TARGETPROC@{TARGETPROC}!updatenei.C@{updatenei.C}}
+\subsubsection[TARGETPROC]{\setlength{\rightskip}{0pt plus 5cm}\#define TARGETPROC\ -1}}
+\label{updatenei_8C_a0}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{updatenei_8C_a7}{
+\index{updatenei.C@{updatenei.C}!AssertMeshErrorFree@{AssertMeshErrorFree}}
+\index{AssertMeshErrorFree@{AssertMeshErrorFree}!updatenei.C@{updatenei.C}}
+\subsubsection[AssertMeshErrorFree]{\setlength{\rightskip}{0pt plus 5cm}void Assert\-Mesh\-Error\-Free (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em numprocs}, int {\em myid}, double {\em loc})}}
+\label{updatenei_8C_a7}
+
+
+this function checks for any and all possible mesh errors, i.e. it checks if the mesh is legal, it says nothing about the quality of a legal mesh, you must have ghost information present before performing this check, WARNING THIS CHECK TAKES A LOT OF TIME, ONLY USE IT TO DEBUG. 
+
+\hypertarget{updatenei_8C_a2}{
+\index{updatenei.C@{updatenei.C}!ElemBackgroundCheck@{ElemBackgroundCheck}}
+\index{ElemBackgroundCheck@{ElemBackgroundCheck}!updatenei.C@{updatenei.C}}
+\subsubsection[ElemBackgroundCheck]{\setlength{\rightskip}{0pt plus 5cm}void Elem\-Background\-Check (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, unsigned $\ast$ {\em debugkey}, FILE $\ast$ {\em fp})}}
+\label{updatenei_8C_a2}
+
+
+investigate an \hyperlink{classElement}{Element}, question his \char`\"{}friends and family\char`\"{} about him. 
+
+\hypertarget{updatenei_8C_a3}{
+\index{updatenei.C@{updatenei.C}!ElemBackgroundCheck2@{ElemBackgroundCheck2}}
+\index{ElemBackgroundCheck2@{ElemBackgroundCheck2}!updatenei.C@{updatenei.C}}
+\subsubsection[ElemBackgroundCheck2]{\setlength{\rightskip}{0pt plus 5cm}void Elem\-Background\-Check2 (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, void $\ast$ {\em Em\-Debug\_\-in}, FILE $\ast$ {\em fp})}}
+\label{updatenei_8C_a3}
+
+
+\hypertarget{updatenei_8C_a6}{
+\index{updatenei.C@{updatenei.C}!ifCheckNode@{ifCheckNode}}
+\index{ifCheckNode@{ifCheckNode}!updatenei.C@{updatenei.C}}
+\subsubsection[ifCheckNode]{\setlength{\rightskip}{0pt plus 5cm}int if\-Check\-Node (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em Nd\-Debug\-Info}, int {\em checkstate}, unsigned $\ast$ {\em elemdbkey}, \hyperlink{classElement}{Element} $\ast$ {\em Em\-Father}, \hyperlink{classElement}{Element} $\ast$ {\em Em\-Son\-A}, \hyperlink{classElement}{Element} $\ast$ {\em Em\-Son\-B}, \hyperlink{classElement}{Element} $\ast$ {\em Em\-Neigh\-New}\mbox{[}4\mbox{]})}}
+\label{updatenei_8C_a6}
+
+
+\hypertarget{updatenei_8C_a8}{
+\index{updatenei.C@{updatenei.C}!IfNeighProcChange@{IfNeighProcChange}}
+\index{IfNeighProcChange@{IfNeighProcChange}!updatenei.C@{updatenei.C}}
+\subsubsection[IfNeighProcChange]{\setlength{\rightskip}{0pt plus 5cm}int If\-Neigh\-Proc\-Change (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, \hyperlink{classElement}{Element} $\ast$ {\em Em\-Debug}, \hyperlink{classElement}{Element} $\ast$ {\em Em\-Temp})}}
+\label{updatenei_8C_a8}
+
+
+\hypertarget{updatenei_8C_a5}{
+\index{updatenei.C@{updatenei.C}!ifNodeInfoChange@{ifNodeInfoChange}}
+\index{ifNodeInfoChange@{ifNodeInfoChange}!updatenei.C@{updatenei.C}}
+\subsubsection[ifNodeInfoChange]{\setlength{\rightskip}{0pt plus 5cm}int if\-Node\-Info\-Change (\hyperlink{classNode}{Node} $\ast$ {\em Nd\-Debug}, int $\ast$ {\em Nd\-Debug\-Info})}}
+\label{updatenei_8C_a5}
+
+
+\hypertarget{updatenei_8C_a4}{
+\index{updatenei.C@{updatenei.C}!NodeBackgroundCheck@{NodeBackgroundCheck}}
+\index{NodeBackgroundCheck@{NodeBackgroundCheck}!updatenei.C@{updatenei.C}}
+\subsubsection[NodeBackgroundCheck]{\setlength{\rightskip}{0pt plus 5cm}void Node\-Background\-Check (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, unsigned $\ast$ {\em nodedbkey}, FILE $\ast$ {\em fp})}}
+\label{updatenei_8C_a4}
+
+
+investigate a \hyperlink{classNode}{Node} question his \char`\"{}friends and family\char`\"{} about him. 
+
+\hypertarget{updatenei_8C_a10}{
+\index{updatenei.C@{updatenei.C}!refine_neigh_update@{refine\_\-neigh\_\-update}}
+\index{refine_neigh_update@{refine\_\-neigh\_\-update}!updatenei.C@{updatenei.C}}
+\subsubsection[refine\_\-neigh\_\-update]{\setlength{\rightskip}{0pt plus 5cm}void refine\_\-neigh\_\-update (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em nump}, int {\em myid}, void $\ast$ {\em RL}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr})}}
+\label{updatenei_8C_a10}
+
+
+\hypertarget{updatenei_8C_a9}{
+\index{updatenei.C@{updatenei.C}!update_neighbor_info@{update\_\-neighbor\_\-info}}
+\index{update_neighbor_info@{update\_\-neighbor\_\-info}!updatenei.C@{updatenei.C}}
+\subsubsection[update\_\-neighbor\_\-info]{\setlength{\rightskip}{0pt plus 5cm}void update\_\-neighbor\_\-info (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classElemPtrList}{Elem\-Ptr\-List} $\ast$ {\em Refined\-List}, int {\em myid}, int {\em numprocs}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em h\_\-count})}}
+\label{updatenei_8C_a9}
+
+
+\hypertarget{updatenei_8C_a11}{
+\index{updatenei.C@{updatenei.C}!update_neighbor_interprocessor@{update\_\-neighbor\_\-interprocessor}}
+\index{update_neighbor_interprocessor@{update\_\-neighbor\_\-interprocessor}!updatenei.C@{updatenei.C}}
+\subsubsection[update\_\-neighbor\_\-interprocessor]{\setlength{\rightskip}{0pt plus 5cm}void update\_\-neighbor\_\-interprocessor (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, \hyperlink{structrefined__neighbor}{refined\_\-neighbor} $\ast$ {\em refined\_\-start}, int {\em myid}, int {\em nump})}}
+\label{updatenei_8C_a11}
+
+

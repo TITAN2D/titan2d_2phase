@@ -1,0 +1,174 @@
+\hypertarget{classGisLines}{
+\section{Gis\-Lines Class Reference}
+\label{classGisLines}\index{GisLines@{GisLines}}
+}
+{\tt \#include $<$Gis\-Lines.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classGisLines_a0}{Gis\-Lines} (const string \&name)
+\item 
+virtual \hyperlink{classGisLines_a1}{$\sim$Gis\-Lines} ()
+\item 
+bool \hyperlink{classGisLines_a2}{good} ()
+\item 
+int \hyperlink{classGisLines_a3}{number\-Of\-Lines} ()
+\item 
+void \hyperlink{classGisLines_a4}{insert\-Line} (const \hyperlink{classGisLine}{Gis\-Line} \&read\-Line)
+\item 
+int \hyperlink{classGisLines_a5}{get\-Line\-Size} (int n\-Line, int $\ast$line\-Size)
+\item 
+int \hyperlink{classGisLines_a6}{get\-Index} (int n\-Line, int $\ast$line\-Index)
+\item 
+int \hyperlink{classGisLines_a7}{get\-Label} (int n\-Line, string $\ast$line\-Str)
+\item 
+int \hyperlink{classGisLines_a8}{get\-Line} (int n\-Line, double $\ast$x, double $\ast$y)
+\item 
+void \hyperlink{classGisLines_a9}{set\-Indices} (\hyperlink{classGisLabels}{Gis\-Labels} \&labels, double scale)
+\item 
+void \hyperlink{classGisLines_a10}{print} ()
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+bool \hyperlink{classGisLines_p0}{\_\-status}
+\item 
+int \hyperlink{classGisLines_p1}{\_\-n\-Lines}
+\item 
+vector$<$ \hyperlink{classGisLine}{Gis\-Line} $>$ \hyperlink{classGisLines_p2}{\_\-lines}
+\end{CompactItemize}
+\subsection*{Private Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classGisLines_d0}{Gis\-Lines} (const \hyperlink{classGisLines}{Gis\-Lines} \&)
+\item 
+\hyperlink{classGisLines}{Gis\-Lines} \& \hyperlink{classGisLines_d1}{operator=} (const \hyperlink{classGisLines}{Gis\-Lines} \&)
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGisLines_a0}{
+\index{GisLines@{Gis\-Lines}!GisLines@{GisLines}}
+\index{GisLines@{GisLines}!GisLines@{Gis\-Lines}}
+\subsubsection[GisLines]{\setlength{\rightskip}{0pt plus 5cm}Gis\-Lines::Gis\-Lines (const string \& {\em name})}}
+\label{classGisLines_a0}
+
+
+\hypertarget{classGisLines_a1}{
+\index{GisLines@{Gis\-Lines}!~GisLines@{$\sim$GisLines}}
+\index{~GisLines@{$\sim$GisLines}!GisLines@{Gis\-Lines}}
+\subsubsection[$\sim$GisLines]{\setlength{\rightskip}{0pt plus 5cm}virtual Gis\-Lines::$\sim$\hyperlink{classGisLines}{Gis\-Lines} ()\hspace{0.3cm}{\tt  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classGisLines_a1}
+
+
+\hypertarget{classGisLines_d0}{
+\index{GisLines@{Gis\-Lines}!GisLines@{GisLines}}
+\index{GisLines@{GisLines}!GisLines@{Gis\-Lines}}
+\subsubsection[GisLines]{\setlength{\rightskip}{0pt plus 5cm}Gis\-Lines::Gis\-Lines (const \hyperlink{classGisLines}{Gis\-Lines} \&)\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classGisLines_d0}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGisLines_a6}{
+\index{GisLines@{Gis\-Lines}!getIndex@{getIndex}}
+\index{getIndex@{getIndex}!GisLines@{Gis\-Lines}}
+\subsubsection[getIndex]{\setlength{\rightskip}{0pt plus 5cm}int Gis\-Lines::get\-Index (int {\em n\-Line}, int $\ast$ {\em line\-Index})}}
+\label{classGisLines_a6}
+
+
+\hypertarget{classGisLines_a7}{
+\index{GisLines@{Gis\-Lines}!getLabel@{getLabel}}
+\index{getLabel@{getLabel}!GisLines@{Gis\-Lines}}
+\subsubsection[getLabel]{\setlength{\rightskip}{0pt plus 5cm}int Gis\-Lines::get\-Label (int {\em n\-Line}, string $\ast$ {\em line\-Str})}}
+\label{classGisLines_a7}
+
+
+\hypertarget{classGisLines_a8}{
+\index{GisLines@{Gis\-Lines}!getLine@{getLine}}
+\index{getLine@{getLine}!GisLines@{Gis\-Lines}}
+\subsubsection[getLine]{\setlength{\rightskip}{0pt plus 5cm}int Gis\-Lines::get\-Line (int {\em n\-Line}, double $\ast$ {\em x}, double $\ast$ {\em y})}}
+\label{classGisLines_a8}
+
+
+\hypertarget{classGisLines_a5}{
+\index{GisLines@{Gis\-Lines}!getLineSize@{getLineSize}}
+\index{getLineSize@{getLineSize}!GisLines@{Gis\-Lines}}
+\subsubsection[getLineSize]{\setlength{\rightskip}{0pt plus 5cm}int Gis\-Lines::get\-Line\-Size (int {\em n\-Line}, int $\ast$ {\em line\-Size})}}
+\label{classGisLines_a5}
+
+
+\hypertarget{classGisLines_a2}{
+\index{GisLines@{Gis\-Lines}!good@{good}}
+\index{good@{good}!GisLines@{Gis\-Lines}}
+\subsubsection[good]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-Lines::good ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisLines_a2}
+
+
+\hypertarget{classGisLines_a4}{
+\index{GisLines@{Gis\-Lines}!insertLine@{insertLine}}
+\index{insertLine@{insertLine}!GisLines@{Gis\-Lines}}
+\subsubsection[insertLine]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Lines::insert\-Line (const \hyperlink{classGisLine}{Gis\-Line} \& {\em read\-Line})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisLines_a4}
+
+
+\hypertarget{classGisLines_a3}{
+\index{GisLines@{Gis\-Lines}!numberOfLines@{numberOfLines}}
+\index{numberOfLines@{numberOfLines}!GisLines@{Gis\-Lines}}
+\subsubsection[numberOfLines]{\setlength{\rightskip}{0pt plus 5cm}int Gis\-Lines::number\-Of\-Lines ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisLines_a3}
+
+
+\hypertarget{classGisLines_d1}{
+\index{GisLines@{Gis\-Lines}!operator=@{operator=}}
+\index{operator=@{operator=}!GisLines@{Gis\-Lines}}
+\subsubsection[operator=]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{classGisLines}{Gis\-Lines}\& Gis\-Lines::operator= (const \hyperlink{classGisLines}{Gis\-Lines} \&)\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classGisLines_d1}
+
+
+\hypertarget{classGisLines_a10}{
+\index{GisLines@{Gis\-Lines}!print@{print}}
+\index{print@{print}!GisLines@{Gis\-Lines}}
+\subsubsection[print]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Lines::print ()}}
+\label{classGisLines_a10}
+
+
+\hypertarget{classGisLines_a9}{
+\index{GisLines@{Gis\-Lines}!setIndices@{setIndices}}
+\index{setIndices@{setIndices}!GisLines@{Gis\-Lines}}
+\subsubsection[setIndices]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Lines::set\-Indices (\hyperlink{classGisLabels}{Gis\-Labels} \& {\em labels}, double {\em scale})}}
+\label{classGisLines_a9}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classGisLines_p2}{
+\index{GisLines@{Gis\-Lines}!_lines@{\_\-lines}}
+\index{_lines@{\_\-lines}!GisLines@{Gis\-Lines}}
+\subsubsection[\_\-lines]{\setlength{\rightskip}{0pt plus 5cm}vector$<$\hyperlink{classGisLine}{Gis\-Line}$>$ \hyperlink{classGisLines_p2}{Gis\-Lines::\_\-lines}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisLines_p2}
+
+
+\hypertarget{classGisLines_p1}{
+\index{GisLines@{Gis\-Lines}!_nLines@{\_\-nLines}}
+\index{_nLines@{\_\-nLines}!GisLines@{Gis\-Lines}}
+\subsubsection[\_\-nLines]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classGisLines_p1}{Gis\-Lines::\_\-n\-Lines}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisLines_p1}
+
+
+\hypertarget{classGisLines_p0}{
+\index{GisLines@{Gis\-Lines}!_status@{\_\-status}}
+\index{_status@{\_\-status}!GisLines@{Gis\-Lines}}
+\subsubsection[\_\-status]{\setlength{\rightskip}{0pt plus 5cm}bool \hyperlink{classGisLines_p0}{Gis\-Lines::\_\-status}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisLines_p0}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{GisLines_8h}{Gis\-Lines.h}\item 
+\hyperlink{GisLines_8C}{Gis\-Lines.C}\end{CompactItemize}

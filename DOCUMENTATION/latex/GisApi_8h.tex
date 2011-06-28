@@ -1,0 +1,680 @@
+\hypertarget{GisApi_8h}{
+\section{Gis\-Api.h File Reference}
+\label{GisApi_8h}\index{GisApi.h@{GisApi.h}}
+}
+{\tt \#include $<$string$>$}\par
+\subsection*{Namespaces}
+\begin{CompactItemize}
+\item 
+namespace \hyperlink{namespacestd}{std}
+\end{CompactItemize}
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{structGis__Head}{Gis\_\-Head}
+\begin{CompactList}\small\item\em structure holding the GIS header \item\end{CompactList}\item 
+struct \hyperlink{structGis__Grid}{Gis\_\-Grid}
+\begin{CompactList}\small\item\em structure holding the GIS terrain elevation data \item\end{CompactList}\item 
+struct \hyperlink{structGis__Raster}{Gis\_\-Raster}
+\begin{CompactList}\small\item\em structure holding the GIS material map \item\end{CompactList}\item 
+struct \hyperlink{structGis__Image}{Gis\_\-Image}
+\begin{CompactList}\small\item\em structure holding information about a matching GIS image, for the gmfg viewer \item\end{CompactList}\item 
+struct \hyperlink{structGis__Vector}{Gis\_\-Vector}
+\begin{CompactList}\small\item\em structure holding information about GIS vector data (putting roads, bridges, buildings etc on the image map), for the gmfg viewer \item\end{CompactList}\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{GisApi_8h_a0}{G\_\-API\_\-MAXFLOAT}\ 1.0e31
+\item 
+\#define \hyperlink{GisApi_8h_a1}{G\_\-API\_\-BIGFLOAT}\ 1.0e32
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int \hyperlink{GisApi_8h_a2}{Initialize\_\-GIS\_\-data} (char $\ast$GISDbase, char $\ast$location, char $\ast$mapset, char $\ast$raster\_\-file)
+\begin{CompactList}\small\item\em initialize the GIS digital elevation map \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a3}{Initialize\_\-Raster\_\-data} (char $\ast$GISDbase, char $\ast$location, char $\ast$mapset, char $\ast$raster\_\-file)
+\begin{CompactList}\small\item\em initialize the GIS material map \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a4}{Initialize\_\-Image\_\-data} (char $\ast$GISDbase, char $\ast$location, char $\ast$mapset, char $\ast$raster\_\-file)
+\begin{CompactList}\small\item\em initialize the matching visual image map to cover the terrain (texture wrapping) for the gmfg viewer \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a5}{Initialize\_\-Vector\_\-data} (char $\ast$GISDbase, char $\ast$location, char $\ast$mapset, char $\ast$vector\_\-file)
+\begin{CompactList}\small\item\em initialize the matching vector data (where do you put symbols representing roads, bridges, buildings etc on the map) for the gmfg viewer \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a6}{Delete\_\-GIS\_\-data} ()
+\begin{CompactList}\small\item\em deletes the GIS elevation map data \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a7}{Delete\_\-Raster\_\-data} ()
+\begin{CompactList}\small\item\em deletes the GIS material map data \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a8}{Delete\_\-Image\_\-data} ()
+\begin{CompactList}\small\item\em deletes the image map (for texture wrapping the terrain in the gmfg viewer) data \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a9}{Delete\_\-Vector\_\-data} ()
+\begin{CompactList}\small\item\em delets the vector data (where to put symbols on the map representing roads, bridges, buildings, etc in the gmfg viewer) \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a10}{Get\_\-raster\_\-categories} (int $\ast$n\_\-categories)
+\begin{CompactList}\small\item\em Return number of categories in a raster map Input: none, Output: n\_\-categories - number of categories, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a11}{Get\_\-vector\_\-n\_\-lines} (int $\ast$n\_\-lines)
+\begin{CompactList}\small\item\em Return number of lines in a vector map, Input: none, Output: n\_\-lines - number of lines, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a12}{Get\_\-vector\_\-line\_\-type} (int line\_\-index, int $\ast$line\_\-type)
+\begin{CompactList}\small\item\em Return line type for line with index line\_\-index, Input: line\_\-index - index of line, Output: line\_\-type - line type, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a13}{Get\_\-vector\_\-line\_\-label} (int line\_\-index, string $\ast$line\_\-str)
+\begin{CompactList}\small\item\em Return line label for line with index line\_\-index, Input: line\_\-index - index of line, Output: line\_\-str - line label, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a14}{Get\_\-vector\_\-line\_\-size} (int line\_\-index, int $\ast$line\_\-size)
+\begin{CompactList}\small\item\em Return number of elements for line with index line\_\-index, Input: line\_\-index - index of line, Output: line\_\-size - number of line elements, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a15}{Get\_\-vector\_\-line} (int line\_\-index, double $\ast$line\_\-x, double $\ast$line\_\-y)
+\begin{CompactList}\small\item\em Return number of lines in a vector map, Input: line\_\-index - index of line, Output: line\_\-x - line elements x coordinate, line\_\-y - line elements y coordinate, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a16}{Get\_\-raster\_\-category\_\-name} (int category\_\-id, char $\ast$category\_\-name)
+\begin{CompactList}\small\item\em Return category name the given category number, Input: category\_\-id - category number, Output: category\_\-name - category name, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a17}{Get\_\-xmax} (double resolution, double $\ast$xmax)
+\begin{CompactList}\small\item\em Return extents of original elevation data grid, Input: resolution - resolution, Output: xmax - maximum X coordinate of original grid, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a18}{Get\_\-raster\_\-xmax} (double resolution, double $\ast$xmax)
+\begin{CompactList}\small\item\em Return extents of original raster (material map) grid, Input: resolution - resolution, Output: xmax - maximum X coordinate of original grid, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a19}{Get\_\-image\_\-xmax} (double resolution, double $\ast$xmax)
+\begin{CompactList}\small\item\em Return extents of original image (for texture wrapping) grid, Input: resolution - resolution, Output: xmax - maximum X coordinate of original grid, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a20}{Get\_\-xmin} (double resolution, double $\ast$xmin)
+\begin{CompactList}\small\item\em Return extents of original elevation map grid, Input: resolution - resolution, Output: xmin - minimum X coordinate of original grid, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a21}{Get\_\-raster\_\-xmin} (double resolution, double $\ast$xmin)
+\begin{CompactList}\small\item\em Return extents of original raster (material map) grid, Input: resolution - resolution, Output: xmin - minimum X coordinate of original grid, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a22}{Get\_\-image\_\-xmin} (double resolution, double $\ast$xmin)
+\begin{CompactList}\small\item\em Return extents of original image (for texture wrapping) grid, Input: resolution - resolution, Output: xmin - minimum X coordinate of original grid, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a23}{Get\_\-ymax} (double resolution, double $\ast$ymax)
+\begin{CompactList}\small\item\em Return extents of original elevatio map grid, Input: resolution - resolution, Output: ymax - maximum Y coordinate of original grid, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a24}{Get\_\-raster\_\-ymax} (double resolution, double $\ast$ymax)
+\begin{CompactList}\small\item\em Return extents of original raster (material map) grid, Input: resolution - resolution, Output: ymax - maximum Y coordinate of original grid, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a25}{Get\_\-image\_\-ymax} (double resolution, double $\ast$ymax)
+\begin{CompactList}\small\item\em Return extents of original image (for texture wrapping) grid, Input: resolution - resolution, Output: ymax - maximum Y coordinate of original grid, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a26}{Get\_\-ymin} (double resolution, double $\ast$ymin)
+\begin{CompactList}\small\item\em Return extents of original elevation map grid, Input: resolution - resolution, Output: ymin - minimum Y coordinate of original grid, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a27}{Get\_\-raster\_\-ymin} (double resolution, double $\ast$ymin)
+\begin{CompactList}\small\item\em Return extents of original raster (material map) grid, Input: resolution - resolution, Output: ymin - minimum Y coordinate of original grid, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a28}{Get\_\-image\_\-ymin} (double resolution, double $\ast$ymin)
+\begin{CompactList}\small\item\em Return extents of original image (for texture wrapping) grid, Input: resolution - resolution, Output: ymin - minimum Y coordinate of original grid, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a29}{Get\_\-elev\_\-min} (double resolution, double $\ast$elevmin)
+\begin{CompactList}\small\item\em Return minimum elevation of original grid, Input: resolution - resolution, Output: elevmin - minimum elevation of original grid, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a30}{Get\_\-elev\_\-max} (double resolution, double $\ast$elevmax)
+\begin{CompactList}\small\item\em Return maximum elevation of original grid, Input: resolution - resolution, Output: elevmax - maximum elevation of original grid, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a31}{Get\_\-window} (double $\ast$xmin, double $\ast$xmax, double $\ast$ymin, double $\ast$ymax)
+\begin{CompactList}\small\item\em Return extents of active window of the elevation map, Input: none, Output: xmin - minimum X coordinate of active region, xmax - maximum X coordinate of active region, ymin - minimum Y coordinate of active region, ymax - maximum Y coordinate of active region, Return: 0 if error, 1 otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a32}{Get\_\-raster\_\-window} (double $\ast$xmin, double $\ast$xmax, double $\ast$ymin, double $\ast$ymax)
+\begin{CompactList}\small\item\em Return extents of active window of the raster (material) map, Input: none, Output: xmin - minimum X coordinate of active region, xmax - maximum X coordinate of active region, ymin - minimum Y coordinate of active region, ymax - maximum Y coordinate of active region, Return: 0 if error, 1 otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a33}{Get\_\-image\_\-window} (double $\ast$xmin, double $\ast$xmax, double $\ast$ymin, double $\ast$ymax)
+\begin{CompactList}\small\item\em Return extents of active window of the image (for texture wrapping), Input: none, Output: xmin - minimum X coordinate of active region, xmax - maximum X coordinate of active region, ymin - minimum Y coordinate of active region, ymax - maximum Y coordinate of active region, Return: 0 if error, 1 otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a34}{Get\_\-max\_\-resolution} (double $\ast$resolution)
+\begin{CompactList}\small\item\em Return original resolution of elevation map grid, Input: none, Output: resolution - resolution, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a35}{Get\_\-raster\_\-resolution} (double $\ast$resolution)
+\begin{CompactList}\small\item\em Return original resolution of raster (material) map grid, Input: none, Output: resolution - resolution, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a36}{Get\_\-image\_\-resolution} (double $\ast$resolution)
+\begin{CompactList}\small\item\em Return original resolution of image (for texture wrapping) grid, Input: none, Output: resolution - resolution, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a37}{Get\_\-number\_\-of\_\-rows} (int $\ast$rows)
+\begin{CompactList}\small\item\em Return number of rows of original elevation map grid, Input: none, Output: rows - number of rows of original grid, Return: 0 if error, 1 otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a38}{Get\_\-raster\_\-nrows} (int $\ast$rows)
+\begin{CompactList}\small\item\em Return number of rows of original raster (material) map grid, Input: none, Output: rows - number of rows of original grid, Return: 0 if error, 1 otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a39}{Get\_\-image\_\-nrows} (int $\ast$rows)
+\begin{CompactList}\small\item\em Return number of rows of original image (for texture wrapping) grid, Input: none, Output: rows - number of rows of original grid, Return: 0 if error, 1 otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a40}{Get\_\-number\_\-of\_\-columns} (int $\ast$cols)
+\begin{CompactList}\small\item\em Return number of columns of original elevation map grid, Input: none, Output: cols - number of columns of original grid, Return: 0 if error, 1 otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a41}{Get\_\-raster\_\-ncols} (int $\ast$cols)
+\begin{CompactList}\small\item\em Return number of columns of original raster (material) map grid, Input: none, Output: cols - number of columns of original grid, Return: 0 if error, 1 otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a42}{Get\_\-image\_\-ncols} (int $\ast$cols)
+\begin{CompactList}\small\item\em Return number of columns of original image (for texture wrapping) grid, Input: none, Output: cols - number of columns of original grid, Return: 0 if error, 1 otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a43}{Get\_\-elevation} (double resolution, double x, double y, double $\ast$elev)
+\begin{CompactList}\small\item\em Return elevation at point XY of original grid, Input: resolution - resolution, x - point X coordinate, y - Point Y coordinate, Output: elev - elevation at point XY of original grid, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a44}{Get\_\-slope} (double resolution, double x, double y, double $\ast$xslope, double $\ast$yslope)
+\begin{CompactList}\small\item\em Return slope at point XY of original grid, Input: resolution - resolution, x - point X coordinate, y - Point Y coordinate, Output: xslope - slope at point XY of original grid in X direction, yslope - slope at point XY of original grid in Y direction, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a45}{Get\_\-curvature} (double resolution, double x, double y, double $\ast$xcurv, double $\ast$ycurv)
+\begin{CompactList}\small\item\em Return curvature at point XY of original grid, Input: resolution - resolution, x - point X coordinate, y - Point Y coordinate, Output: xcurv - curvature at point XY of original grid in X direction, ycurv - curvature at point XY of original grid in Y direction, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a46}{Get\_\-raster\_\-id} (double resolution, double x, double y, int $\ast$category\_\-id)
+\begin{CompactList}\small\item\em Return category number at point XY of raster map, Input: resolution - resolution, x - point X coordinate, y - Point Y coordinate, Output: category\_\-id - category number at point XY of raster map, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a47}{Get\_\-image} (double resolution, double x, double y, unsigned char $\ast$\hyperlink{hdfdefs_8h_a25}{r}, unsigned char $\ast$g, unsigned char $\ast$b)
+\begin{CompactList}\small\item\em Return RGB at point XY of image, Input: resolution - resolution, x - point X coordinate, y - Point Y coordinate, Output: r - R component at point XY of image, g - G component at point XY of image, b - B component at point XY of image, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a48}{Get\_\-elevation\_\-array} (double $\ast$resolution, double $\ast$x, double $\ast$y, double $\ast$elev, int number\_\-of\_\-locations)
+\begin{CompactList}\small\item\em Return elevation at points XY of original grid, Input: resolution - resolution, x - array with points X coordinate, y - array with points Y coordinate, number\_\-of\_\-locations - number of points, Output: elev - elevation at points XY of original grid, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a49}{Get\_\-slope\_\-array} (double $\ast$resolution, double $\ast$x, double $\ast$y, double $\ast$xslope, double $\ast$yslope, int number\_\-of\_\-locations)
+\begin{CompactList}\small\item\em Return slope at points XY of original grid, Input: resolution - resolution, x - array with points X coordinate, y - array with points Y coordinate, number\_\-of\_\-locations - number of points, Output: xslope - slopes at points XY of original grid in X direction, yslope - slopes at points XY of original grid in Y direction, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a50}{Get\_\-curvature\_\-array} (double $\ast$resolution, double $\ast$x, double $\ast$y, double $\ast$xcurv, double $\ast$ycurv, int number\_\-of\_\-locations)
+\begin{CompactList}\small\item\em Return curvature at points XY of original grid, Input: resolution - resolution, x - array with points X coordinate, y - array with points Y coordinate, number\_\-of\_\-locations - number of points, Output: xcurv - curvature at point XY of original grid in X direction, ycurv - curvature at point XY of original grid in Y direction, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a51}{Get\_\-raster\_\-id\_\-array} (double $\ast$resolution, double $\ast$x, double $\ast$y, int $\ast$category\_\-id, int number\_\-of\_\-locations)
+\begin{CompactList}\small\item\em Return category number at points XY of raster map, Input: resolution - resolution, x - array with points X coordinate, y - array with points Y coordinate, number\_\-of\_\-locations - number of points, Output: category\_\-id - category number at points XY of raster map, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a52}{Get\_\-image\_\-array} (double $\ast$resolution, double $\ast$x, double $\ast$y, unsigned char $\ast$\hyperlink{hdfdefs_8h_a25}{r}, unsigned char $\ast$g, unsigned char $\ast$b, int number\_\-of\_\-locations)
+\begin{CompactList}\small\item\em Return RGB at point XY of image, Input: resolution - resolution, x - array with points X coordinate, y - array with points Y coordinate, number\_\-of\_\-locations - number of points, Output: r - R component at points XY of image, g - G component at points XY of image, b - B component at points XY of image, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a53}{Get\_\-elevation\_\-grid} (double resolution, double xmin, double xmax, double ymin, double ymax, double $\ast$elev)
+\begin{CompactList}\small\item\em Return elevation at points XY of original grid, Input: resolution - resolution, xmin - minimum X coordinate of points window, xmax - maximum X coordinate of points window, ymin - minimum Y coordinate of points window, ymax - maximum Y coordinate of points window, Output: elev - elevation at points XY of selected window, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a54}{Get\_\-slope\_\-grid} (double resolution, double xmin, double xmax, double ymin, double ymax, double $\ast$slope)
+\begin{CompactList}\small\item\em Return elevation at points XY of original grid, Input: resolution - resolution, xmin - minimum X coordinate of points window, xmax - maximum X coordinate of points window, ymin - minimum Y coordinate of points window, ymax - maximum Y coordinate of points window, Output: elev - elevation at points XY of selected window, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a55}{Get\_\-curvature\_\-grid} (double resolution, double xmin, double xmax, double ymin, double ymax, double $\ast$xcurv, double $\ast$ycurv)
+\begin{CompactList}\small\item\em Return elevation at points XY of original grid, Input: resolution - resolution, xmin - minimum X coordinate of points window, xmax - maximum X coordinate of points window, ymin - minimum Y coordinate of points window, ymax - maximum Y coordinate of points window, Output: elev - elevation at points XY of selected window, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a56}{Get\_\-raster\_\-id\_\-grid} (double resolution, double xmin, double xmax, double ymin, double ymax, int $\ast$category\_\-id)
+\begin{CompactList}\small\item\em Return category number at points XY of original grid, Input: resolution - resolution, xmin - minimum X coordinate of points window, xmax - maximum X coordinate of points window, ymin - minimum Y coordinate of points window, ymax - maximum Y coordinate of points window, Output: category\_\-id - category number at points XY of selected window, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+int \hyperlink{GisApi_8h_a57}{Get\_\-image\_\-grid} (double resolution, double xmin, double xmax, double ymin, double ymax, unsigned char $\ast$\hyperlink{hdfdefs_8h_a25}{r}, unsigned char $\ast$g, unsigned char $\ast$b)
+\begin{CompactList}\small\item\em Return RGB at points XY of original grid, Input: resolution - resolution, xmin - minimum X coordinate of points window, xmax - maximum X coordinate of points window, ymin - minimum Y coordinate of points window, ymax - maximum Y coordinate of points window, Output: r - R component at points XY of selected window, g - G component at points XY of selected window, b - B component at points XY of selected window, Return: 0 if OK, see table otherwise. \item\end{CompactList}\item 
+void \hyperlink{GisApi_8h_a58}{Set\_\-vector\_\-scale} (double scale)
+\begin{CompactList}\small\item\em Set vector scale, used to calculate precision, Input: scale - Scale of the vector data, ex.: 10000, API pre-defines scale at 50000. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{GisApi_8h_a1}{
+\index{GisApi.h@{Gis\-Api.h}!G_API_BIGFLOAT@{G\_\-API\_\-BIGFLOAT}}
+\index{G_API_BIGFLOAT@{G\_\-API\_\-BIGFLOAT}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[G\_\-API\_\-BIGFLOAT]{\setlength{\rightskip}{0pt plus 5cm}\#define G\_\-API\_\-BIGFLOAT\ 1.0e32}}
+\label{GisApi_8h_a1}
+
+
+\hypertarget{GisApi_8h_a0}{
+\index{GisApi.h@{Gis\-Api.h}!G_API_MAXFLOAT@{G\_\-API\_\-MAXFLOAT}}
+\index{G_API_MAXFLOAT@{G\_\-API\_\-MAXFLOAT}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[G\_\-API\_\-MAXFLOAT]{\setlength{\rightskip}{0pt plus 5cm}\#define G\_\-API\_\-MAXFLOAT\ 1.0e31}}
+\label{GisApi_8h_a0}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{GisApi_8h_a6}{
+\index{GisApi.h@{Gis\-Api.h}!Delete_GIS_data@{Delete\_\-GIS\_\-data}}
+\index{Delete_GIS_data@{Delete\_\-GIS\_\-data}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Delete\_\-GIS\_\-data]{\setlength{\rightskip}{0pt plus 5cm}int Delete\_\-GIS\_\-data ()}}
+\label{GisApi_8h_a6}
+
+
+deletes the GIS elevation map data 
+
+\hypertarget{GisApi_8h_a8}{
+\index{GisApi.h@{Gis\-Api.h}!Delete_Image_data@{Delete\_\-Image\_\-data}}
+\index{Delete_Image_data@{Delete\_\-Image\_\-data}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Delete\_\-Image\_\-data]{\setlength{\rightskip}{0pt plus 5cm}int Delete\_\-Image\_\-data ()}}
+\label{GisApi_8h_a8}
+
+
+deletes the image map (for texture wrapping the terrain in the gmfg viewer) data 
+
+\hypertarget{GisApi_8h_a7}{
+\index{GisApi.h@{Gis\-Api.h}!Delete_Raster_data@{Delete\_\-Raster\_\-data}}
+\index{Delete_Raster_data@{Delete\_\-Raster\_\-data}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Delete\_\-Raster\_\-data]{\setlength{\rightskip}{0pt plus 5cm}int Delete\_\-Raster\_\-data ()}}
+\label{GisApi_8h_a7}
+
+
+deletes the GIS material map data 
+
+\hypertarget{GisApi_8h_a9}{
+\index{GisApi.h@{Gis\-Api.h}!Delete_Vector_data@{Delete\_\-Vector\_\-data}}
+\index{Delete_Vector_data@{Delete\_\-Vector\_\-data}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Delete\_\-Vector\_\-data]{\setlength{\rightskip}{0pt plus 5cm}int Delete\_\-Vector\_\-data ()}}
+\label{GisApi_8h_a9}
+
+
+delets the vector data (where to put symbols on the map representing roads, bridges, buildings, etc in the gmfg viewer) 
+
+\hypertarget{GisApi_8h_a45}{
+\index{GisApi.h@{Gis\-Api.h}!Get_curvature@{Get\_\-curvature}}
+\index{Get_curvature@{Get\_\-curvature}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-curvature]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-curvature (double {\em resolution}, double {\em x}, double {\em y}, double $\ast$ {\em xcurv}, double $\ast$ {\em ycurv})}}
+\label{GisApi_8h_a45}
+
+
+Return curvature at point XY of original grid, Input: resolution - resolution, x - point X coordinate, y - Point Y coordinate, Output: xcurv - curvature at point XY of original grid in X direction, ycurv - curvature at point XY of original grid in Y direction, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a50}{
+\index{GisApi.h@{Gis\-Api.h}!Get_curvature_array@{Get\_\-curvature\_\-array}}
+\index{Get_curvature_array@{Get\_\-curvature\_\-array}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-curvature\_\-array]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-curvature\_\-array (double $\ast$ {\em resolution}, double $\ast$ {\em x}, double $\ast$ {\em y}, double $\ast$ {\em xcurv}, double $\ast$ {\em ycurv}, int {\em number\_\-of\_\-locations})}}
+\label{GisApi_8h_a50}
+
+
+Return curvature at points XY of original grid, Input: resolution - resolution, x - array with points X coordinate, y - array with points Y coordinate, number\_\-of\_\-locations - number of points, Output: xcurv - curvature at point XY of original grid in X direction, ycurv - curvature at point XY of original grid in Y direction, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a55}{
+\index{GisApi.h@{Gis\-Api.h}!Get_curvature_grid@{Get\_\-curvature\_\-grid}}
+\index{Get_curvature_grid@{Get\_\-curvature\_\-grid}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-curvature\_\-grid]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-curvature\_\-grid (double {\em resolution}, double {\em xmin}, double {\em xmax}, double {\em ymin}, double {\em ymax}, double $\ast$ {\em xcurv}, double $\ast$ {\em ycurv})}}
+\label{GisApi_8h_a55}
+
+
+Return elevation at points XY of original grid, Input: resolution - resolution, xmin - minimum X coordinate of points window, xmax - maximum X coordinate of points window, ymin - minimum Y coordinate of points window, ymax - maximum Y coordinate of points window, Output: elev - elevation at points XY of selected window, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a30}{
+\index{GisApi.h@{Gis\-Api.h}!Get_elev_max@{Get\_\-elev\_\-max}}
+\index{Get_elev_max@{Get\_\-elev\_\-max}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-elev\_\-max]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-elev\_\-max (double {\em resolution}, double $\ast$ {\em elevmax})}}
+\label{GisApi_8h_a30}
+
+
+Return maximum elevation of original grid, Input: resolution - resolution, Output: elevmax - maximum elevation of original grid, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a29}{
+\index{GisApi.h@{Gis\-Api.h}!Get_elev_min@{Get\_\-elev\_\-min}}
+\index{Get_elev_min@{Get\_\-elev\_\-min}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-elev\_\-min]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-elev\_\-min (double {\em resolution}, double $\ast$ {\em elevmin})}}
+\label{GisApi_8h_a29}
+
+
+Return minimum elevation of original grid, Input: resolution - resolution, Output: elevmin - minimum elevation of original grid, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a43}{
+\index{GisApi.h@{Gis\-Api.h}!Get_elevation@{Get\_\-elevation}}
+\index{Get_elevation@{Get\_\-elevation}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-elevation]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-elevation (double {\em resolution}, double {\em x}, double {\em y}, double $\ast$ {\em elev})}}
+\label{GisApi_8h_a43}
+
+
+Return elevation at point XY of original grid, Input: resolution - resolution, x - point X coordinate, y - Point Y coordinate, Output: elev - elevation at point XY of original grid, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a48}{
+\index{GisApi.h@{Gis\-Api.h}!Get_elevation_array@{Get\_\-elevation\_\-array}}
+\index{Get_elevation_array@{Get\_\-elevation\_\-array}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-elevation\_\-array]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-elevation\_\-array (double $\ast$ {\em resolution}, double $\ast$ {\em x}, double $\ast$ {\em y}, double $\ast$ {\em elev}, int {\em number\_\-of\_\-locations})}}
+\label{GisApi_8h_a48}
+
+
+Return elevation at points XY of original grid, Input: resolution - resolution, x - array with points X coordinate, y - array with points Y coordinate, number\_\-of\_\-locations - number of points, Output: elev - elevation at points XY of original grid, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a53}{
+\index{GisApi.h@{Gis\-Api.h}!Get_elevation_grid@{Get\_\-elevation\_\-grid}}
+\index{Get_elevation_grid@{Get\_\-elevation\_\-grid}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-elevation\_\-grid]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-elevation\_\-grid (double {\em resolution}, double {\em xmin}, double {\em xmax}, double {\em ymin}, double {\em ymax}, double $\ast$ {\em elev})}}
+\label{GisApi_8h_a53}
+
+
+Return elevation at points XY of original grid, Input: resolution - resolution, xmin - minimum X coordinate of points window, xmax - maximum X coordinate of points window, ymin - minimum Y coordinate of points window, ymax - maximum Y coordinate of points window, Output: elev - elevation at points XY of selected window, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a47}{
+\index{GisApi.h@{Gis\-Api.h}!Get_image@{Get\_\-image}}
+\index{Get_image@{Get\_\-image}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-image]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-image (double {\em resolution}, double {\em x}, double {\em y}, unsigned char $\ast$ {\em r}, unsigned char $\ast$ {\em g}, unsigned char $\ast$ {\em b})}}
+\label{GisApi_8h_a47}
+
+
+Return RGB at point XY of image, Input: resolution - resolution, x - point X coordinate, y - Point Y coordinate, Output: r - R component at point XY of image, g - G component at point XY of image, b - B component at point XY of image, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a52}{
+\index{GisApi.h@{Gis\-Api.h}!Get_image_array@{Get\_\-image\_\-array}}
+\index{Get_image_array@{Get\_\-image\_\-array}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-image\_\-array]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-image\_\-array (double $\ast$ {\em resolution}, double $\ast$ {\em x}, double $\ast$ {\em y}, unsigned char $\ast$ {\em r}, unsigned char $\ast$ {\em g}, unsigned char $\ast$ {\em b}, int {\em number\_\-of\_\-locations})}}
+\label{GisApi_8h_a52}
+
+
+Return RGB at point XY of image, Input: resolution - resolution, x - array with points X coordinate, y - array with points Y coordinate, number\_\-of\_\-locations - number of points, Output: r - R component at points XY of image, g - G component at points XY of image, b - B component at points XY of image, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a57}{
+\index{GisApi.h@{Gis\-Api.h}!Get_image_grid@{Get\_\-image\_\-grid}}
+\index{Get_image_grid@{Get\_\-image\_\-grid}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-image\_\-grid]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-image\_\-grid (double {\em resolution}, double {\em xmin}, double {\em xmax}, double {\em ymin}, double {\em ymax}, unsigned char $\ast$ {\em r}, unsigned char $\ast$ {\em g}, unsigned char $\ast$ {\em b})}}
+\label{GisApi_8h_a57}
+
+
+Return RGB at points XY of original grid, Input: resolution - resolution, xmin - minimum X coordinate of points window, xmax - maximum X coordinate of points window, ymin - minimum Y coordinate of points window, ymax - maximum Y coordinate of points window, Output: r - R component at points XY of selected window, g - G component at points XY of selected window, b - B component at points XY of selected window, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a42}{
+\index{GisApi.h@{Gis\-Api.h}!Get_image_ncols@{Get\_\-image\_\-ncols}}
+\index{Get_image_ncols@{Get\_\-image\_\-ncols}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-image\_\-ncols]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-image\_\-ncols (int $\ast$ {\em cols})}}
+\label{GisApi_8h_a42}
+
+
+Return number of columns of original image (for texture wrapping) grid, Input: none, Output: cols - number of columns of original grid, Return: 0 if error, 1 otherwise. 
+
+\hypertarget{GisApi_8h_a39}{
+\index{GisApi.h@{Gis\-Api.h}!Get_image_nrows@{Get\_\-image\_\-nrows}}
+\index{Get_image_nrows@{Get\_\-image\_\-nrows}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-image\_\-nrows]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-image\_\-nrows (int $\ast$ {\em rows})}}
+\label{GisApi_8h_a39}
+
+
+Return number of rows of original image (for texture wrapping) grid, Input: none, Output: rows - number of rows of original grid, Return: 0 if error, 1 otherwise. 
+
+\hypertarget{GisApi_8h_a36}{
+\index{GisApi.h@{Gis\-Api.h}!Get_image_resolution@{Get\_\-image\_\-resolution}}
+\index{Get_image_resolution@{Get\_\-image\_\-resolution}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-image\_\-resolution]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-image\_\-resolution (double $\ast$ {\em resolution})}}
+\label{GisApi_8h_a36}
+
+
+Return original resolution of image (for texture wrapping) grid, Input: none, Output: resolution - resolution, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a33}{
+\index{GisApi.h@{Gis\-Api.h}!Get_image_window@{Get\_\-image\_\-window}}
+\index{Get_image_window@{Get\_\-image\_\-window}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-image\_\-window]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-image\_\-window (double $\ast$ {\em xmin}, double $\ast$ {\em xmax}, double $\ast$ {\em ymin}, double $\ast$ {\em ymax})}}
+\label{GisApi_8h_a33}
+
+
+Return extents of active window of the image (for texture wrapping), Input: none, Output: xmin - minimum X coordinate of active region, xmax - maximum X coordinate of active region, ymin - minimum Y coordinate of active region, ymax - maximum Y coordinate of active region, Return: 0 if error, 1 otherwise. 
+
+\hypertarget{GisApi_8h_a19}{
+\index{GisApi.h@{Gis\-Api.h}!Get_image_xmax@{Get\_\-image\_\-xmax}}
+\index{Get_image_xmax@{Get\_\-image\_\-xmax}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-image\_\-xmax]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-image\_\-xmax (double {\em resolution}, double $\ast$ {\em xmax})}}
+\label{GisApi_8h_a19}
+
+
+Return extents of original image (for texture wrapping) grid, Input: resolution - resolution, Output: xmax - maximum X coordinate of original grid, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a22}{
+\index{GisApi.h@{Gis\-Api.h}!Get_image_xmin@{Get\_\-image\_\-xmin}}
+\index{Get_image_xmin@{Get\_\-image\_\-xmin}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-image\_\-xmin]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-image\_\-xmin (double {\em resolution}, double $\ast$ {\em xmin})}}
+\label{GisApi_8h_a22}
+
+
+Return extents of original image (for texture wrapping) grid, Input: resolution - resolution, Output: xmin - minimum X coordinate of original grid, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a25}{
+\index{GisApi.h@{Gis\-Api.h}!Get_image_ymax@{Get\_\-image\_\-ymax}}
+\index{Get_image_ymax@{Get\_\-image\_\-ymax}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-image\_\-ymax]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-image\_\-ymax (double {\em resolution}, double $\ast$ {\em ymax})}}
+\label{GisApi_8h_a25}
+
+
+Return extents of original image (for texture wrapping) grid, Input: resolution - resolution, Output: ymax - maximum Y coordinate of original grid, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a28}{
+\index{GisApi.h@{Gis\-Api.h}!Get_image_ymin@{Get\_\-image\_\-ymin}}
+\index{Get_image_ymin@{Get\_\-image\_\-ymin}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-image\_\-ymin]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-image\_\-ymin (double {\em resolution}, double $\ast$ {\em ymin})}}
+\label{GisApi_8h_a28}
+
+
+Return extents of original image (for texture wrapping) grid, Input: resolution - resolution, Output: ymin - minimum Y coordinate of original grid, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a34}{
+\index{GisApi.h@{Gis\-Api.h}!Get_max_resolution@{Get\_\-max\_\-resolution}}
+\index{Get_max_resolution@{Get\_\-max\_\-resolution}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-max\_\-resolution]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-max\_\-resolution (double $\ast$ {\em resolution})}}
+\label{GisApi_8h_a34}
+
+
+Return original resolution of elevation map grid, Input: none, Output: resolution - resolution, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a40}{
+\index{GisApi.h@{Gis\-Api.h}!Get_number_of_columns@{Get\_\-number\_\-of\_\-columns}}
+\index{Get_number_of_columns@{Get\_\-number\_\-of\_\-columns}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-number\_\-of\_\-columns]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-number\_\-of\_\-columns (int $\ast$ {\em cols})}}
+\label{GisApi_8h_a40}
+
+
+Return number of columns of original elevation map grid, Input: none, Output: cols - number of columns of original grid, Return: 0 if error, 1 otherwise. 
+
+\hypertarget{GisApi_8h_a37}{
+\index{GisApi.h@{Gis\-Api.h}!Get_number_of_rows@{Get\_\-number\_\-of\_\-rows}}
+\index{Get_number_of_rows@{Get\_\-number\_\-of\_\-rows}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-number\_\-of\_\-rows]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-number\_\-of\_\-rows (int $\ast$ {\em rows})}}
+\label{GisApi_8h_a37}
+
+
+Return number of rows of original elevation map grid, Input: none, Output: rows - number of rows of original grid, Return: 0 if error, 1 otherwise. 
+
+\hypertarget{GisApi_8h_a10}{
+\index{GisApi.h@{Gis\-Api.h}!Get_raster_categories@{Get\_\-raster\_\-categories}}
+\index{Get_raster_categories@{Get\_\-raster\_\-categories}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-raster\_\-categories]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-raster\_\-categories (int $\ast$ {\em n\_\-categories})}}
+\label{GisApi_8h_a10}
+
+
+Return number of categories in a raster map Input: none, Output: n\_\-categories - number of categories, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a16}{
+\index{GisApi.h@{Gis\-Api.h}!Get_raster_category_name@{Get\_\-raster\_\-category\_\-name}}
+\index{Get_raster_category_name@{Get\_\-raster\_\-category\_\-name}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-raster\_\-category\_\-name]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-raster\_\-category\_\-name (int {\em category\_\-id}, char $\ast$ {\em category\_\-name})}}
+\label{GisApi_8h_a16}
+
+
+Return category name the given category number, Input: category\_\-id - category number, Output: category\_\-name - category name, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a46}{
+\index{GisApi.h@{Gis\-Api.h}!Get_raster_id@{Get\_\-raster\_\-id}}
+\index{Get_raster_id@{Get\_\-raster\_\-id}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-raster\_\-id]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-raster\_\-id (double {\em resolution}, double {\em x}, double {\em y}, int $\ast$ {\em category\_\-id})}}
+\label{GisApi_8h_a46}
+
+
+Return category number at point XY of raster map, Input: resolution - resolution, x - point X coordinate, y - Point Y coordinate, Output: category\_\-id - category number at point XY of raster map, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a51}{
+\index{GisApi.h@{Gis\-Api.h}!Get_raster_id_array@{Get\_\-raster\_\-id\_\-array}}
+\index{Get_raster_id_array@{Get\_\-raster\_\-id\_\-array}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-raster\_\-id\_\-array]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-raster\_\-id\_\-array (double $\ast$ {\em resolution}, double $\ast$ {\em x}, double $\ast$ {\em y}, int $\ast$ {\em category\_\-id}, int {\em number\_\-of\_\-locations})}}
+\label{GisApi_8h_a51}
+
+
+Return category number at points XY of raster map, Input: resolution - resolution, x - array with points X coordinate, y - array with points Y coordinate, number\_\-of\_\-locations - number of points, Output: category\_\-id - category number at points XY of raster map, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a56}{
+\index{GisApi.h@{Gis\-Api.h}!Get_raster_id_grid@{Get\_\-raster\_\-id\_\-grid}}
+\index{Get_raster_id_grid@{Get\_\-raster\_\-id\_\-grid}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-raster\_\-id\_\-grid]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-raster\_\-id\_\-grid (double {\em resolution}, double {\em xmin}, double {\em xmax}, double {\em ymin}, double {\em ymax}, int $\ast$ {\em category\_\-id})}}
+\label{GisApi_8h_a56}
+
+
+Return category number at points XY of original grid, Input: resolution - resolution, xmin - minimum X coordinate of points window, xmax - maximum X coordinate of points window, ymin - minimum Y coordinate of points window, ymax - maximum Y coordinate of points window, Output: category\_\-id - category number at points XY of selected window, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a41}{
+\index{GisApi.h@{Gis\-Api.h}!Get_raster_ncols@{Get\_\-raster\_\-ncols}}
+\index{Get_raster_ncols@{Get\_\-raster\_\-ncols}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-raster\_\-ncols]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-raster\_\-ncols (int $\ast$ {\em cols})}}
+\label{GisApi_8h_a41}
+
+
+Return number of columns of original raster (material) map grid, Input: none, Output: cols - number of columns of original grid, Return: 0 if error, 1 otherwise. 
+
+\hypertarget{GisApi_8h_a38}{
+\index{GisApi.h@{Gis\-Api.h}!Get_raster_nrows@{Get\_\-raster\_\-nrows}}
+\index{Get_raster_nrows@{Get\_\-raster\_\-nrows}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-raster\_\-nrows]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-raster\_\-nrows (int $\ast$ {\em rows})}}
+\label{GisApi_8h_a38}
+
+
+Return number of rows of original raster (material) map grid, Input: none, Output: rows - number of rows of original grid, Return: 0 if error, 1 otherwise. 
+
+\hypertarget{GisApi_8h_a35}{
+\index{GisApi.h@{Gis\-Api.h}!Get_raster_resolution@{Get\_\-raster\_\-resolution}}
+\index{Get_raster_resolution@{Get\_\-raster\_\-resolution}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-raster\_\-resolution]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-raster\_\-resolution (double $\ast$ {\em resolution})}}
+\label{GisApi_8h_a35}
+
+
+Return original resolution of raster (material) map grid, Input: none, Output: resolution - resolution, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a32}{
+\index{GisApi.h@{Gis\-Api.h}!Get_raster_window@{Get\_\-raster\_\-window}}
+\index{Get_raster_window@{Get\_\-raster\_\-window}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-raster\_\-window]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-raster\_\-window (double $\ast$ {\em xmin}, double $\ast$ {\em xmax}, double $\ast$ {\em ymin}, double $\ast$ {\em ymax})}}
+\label{GisApi_8h_a32}
+
+
+Return extents of active window of the raster (material) map, Input: none, Output: xmin - minimum X coordinate of active region, xmax - maximum X coordinate of active region, ymin - minimum Y coordinate of active region, ymax - maximum Y coordinate of active region, Return: 0 if error, 1 otherwise. 
+
+\hypertarget{GisApi_8h_a18}{
+\index{GisApi.h@{Gis\-Api.h}!Get_raster_xmax@{Get\_\-raster\_\-xmax}}
+\index{Get_raster_xmax@{Get\_\-raster\_\-xmax}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-raster\_\-xmax]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-raster\_\-xmax (double {\em resolution}, double $\ast$ {\em xmax})}}
+\label{GisApi_8h_a18}
+
+
+Return extents of original raster (material map) grid, Input: resolution - resolution, Output: xmax - maximum X coordinate of original grid, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a21}{
+\index{GisApi.h@{Gis\-Api.h}!Get_raster_xmin@{Get\_\-raster\_\-xmin}}
+\index{Get_raster_xmin@{Get\_\-raster\_\-xmin}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-raster\_\-xmin]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-raster\_\-xmin (double {\em resolution}, double $\ast$ {\em xmin})}}
+\label{GisApi_8h_a21}
+
+
+Return extents of original raster (material map) grid, Input: resolution - resolution, Output: xmin - minimum X coordinate of original grid, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a24}{
+\index{GisApi.h@{Gis\-Api.h}!Get_raster_ymax@{Get\_\-raster\_\-ymax}}
+\index{Get_raster_ymax@{Get\_\-raster\_\-ymax}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-raster\_\-ymax]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-raster\_\-ymax (double {\em resolution}, double $\ast$ {\em ymax})}}
+\label{GisApi_8h_a24}
+
+
+Return extents of original raster (material map) grid, Input: resolution - resolution, Output: ymax - maximum Y coordinate of original grid, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a27}{
+\index{GisApi.h@{Gis\-Api.h}!Get_raster_ymin@{Get\_\-raster\_\-ymin}}
+\index{Get_raster_ymin@{Get\_\-raster\_\-ymin}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-raster\_\-ymin]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-raster\_\-ymin (double {\em resolution}, double $\ast$ {\em ymin})}}
+\label{GisApi_8h_a27}
+
+
+Return extents of original raster (material map) grid, Input: resolution - resolution, Output: ymin - minimum Y coordinate of original grid, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a44}{
+\index{GisApi.h@{Gis\-Api.h}!Get_slope@{Get\_\-slope}}
+\index{Get_slope@{Get\_\-slope}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-slope]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-slope (double {\em resolution}, double {\em x}, double {\em y}, double $\ast$ {\em xslope}, double $\ast$ {\em yslope})}}
+\label{GisApi_8h_a44}
+
+
+Return slope at point XY of original grid, Input: resolution - resolution, x - point X coordinate, y - Point Y coordinate, Output: xslope - slope at point XY of original grid in X direction, yslope - slope at point XY of original grid in Y direction, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a49}{
+\index{GisApi.h@{Gis\-Api.h}!Get_slope_array@{Get\_\-slope\_\-array}}
+\index{Get_slope_array@{Get\_\-slope\_\-array}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-slope\_\-array]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-slope\_\-array (double $\ast$ {\em resolution}, double $\ast$ {\em x}, double $\ast$ {\em y}, double $\ast$ {\em xslope}, double $\ast$ {\em yslope}, int {\em number\_\-of\_\-locations})}}
+\label{GisApi_8h_a49}
+
+
+Return slope at points XY of original grid, Input: resolution - resolution, x - array with points X coordinate, y - array with points Y coordinate, number\_\-of\_\-locations - number of points, Output: xslope - slopes at points XY of original grid in X direction, yslope - slopes at points XY of original grid in Y direction, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a54}{
+\index{GisApi.h@{Gis\-Api.h}!Get_slope_grid@{Get\_\-slope\_\-grid}}
+\index{Get_slope_grid@{Get\_\-slope\_\-grid}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-slope\_\-grid]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-slope\_\-grid (double {\em resolution}, double {\em xmin}, double {\em xmax}, double {\em ymin}, double {\em ymax}, double $\ast$ {\em slope})}}
+\label{GisApi_8h_a54}
+
+
+Return elevation at points XY of original grid, Input: resolution - resolution, xmin - minimum X coordinate of points window, xmax - maximum X coordinate of points window, ymin - minimum Y coordinate of points window, ymax - maximum Y coordinate of points window, Output: elev - elevation at points XY of selected window, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a15}{
+\index{GisApi.h@{Gis\-Api.h}!Get_vector_line@{Get\_\-vector\_\-line}}
+\index{Get_vector_line@{Get\_\-vector\_\-line}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-vector\_\-line]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-vector\_\-line (int {\em line\_\-index}, double $\ast$ {\em line\_\-x}, double $\ast$ {\em line\_\-y})}}
+\label{GisApi_8h_a15}
+
+
+Return number of lines in a vector map, Input: line\_\-index - index of line, Output: line\_\-x - line elements x coordinate, line\_\-y - line elements y coordinate, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a13}{
+\index{GisApi.h@{Gis\-Api.h}!Get_vector_line_label@{Get\_\-vector\_\-line\_\-label}}
+\index{Get_vector_line_label@{Get\_\-vector\_\-line\_\-label}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-vector\_\-line\_\-label]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-vector\_\-line\_\-label (int {\em line\_\-index}, string $\ast$ {\em line\_\-str})}}
+\label{GisApi_8h_a13}
+
+
+Return line label for line with index line\_\-index, Input: line\_\-index - index of line, Output: line\_\-str - line label, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a14}{
+\index{GisApi.h@{Gis\-Api.h}!Get_vector_line_size@{Get\_\-vector\_\-line\_\-size}}
+\index{Get_vector_line_size@{Get\_\-vector\_\-line\_\-size}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-vector\_\-line\_\-size]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-vector\_\-line\_\-size (int {\em line\_\-index}, int $\ast$ {\em line\_\-size})}}
+\label{GisApi_8h_a14}
+
+
+Return number of elements for line with index line\_\-index, Input: line\_\-index - index of line, Output: line\_\-size - number of line elements, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a12}{
+\index{GisApi.h@{Gis\-Api.h}!Get_vector_line_type@{Get\_\-vector\_\-line\_\-type}}
+\index{Get_vector_line_type@{Get\_\-vector\_\-line\_\-type}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-vector\_\-line\_\-type]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-vector\_\-line\_\-type (int {\em line\_\-index}, int $\ast$ {\em line\_\-type})}}
+\label{GisApi_8h_a12}
+
+
+Return line type for line with index line\_\-index, Input: line\_\-index - index of line, Output: line\_\-type - line type, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a11}{
+\index{GisApi.h@{Gis\-Api.h}!Get_vector_n_lines@{Get\_\-vector\_\-n\_\-lines}}
+\index{Get_vector_n_lines@{Get\_\-vector\_\-n\_\-lines}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-vector\_\-n\_\-lines]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-vector\_\-n\_\-lines (int $\ast$ {\em n\_\-lines})}}
+\label{GisApi_8h_a11}
+
+
+Return number of lines in a vector map, Input: none, Output: n\_\-lines - number of lines, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a31}{
+\index{GisApi.h@{Gis\-Api.h}!Get_window@{Get\_\-window}}
+\index{Get_window@{Get\_\-window}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-window]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-window (double $\ast$ {\em xmin}, double $\ast$ {\em xmax}, double $\ast$ {\em ymin}, double $\ast$ {\em ymax})}}
+\label{GisApi_8h_a31}
+
+
+Return extents of active window of the elevation map, Input: none, Output: xmin - minimum X coordinate of active region, xmax - maximum X coordinate of active region, ymin - minimum Y coordinate of active region, ymax - maximum Y coordinate of active region, Return: 0 if error, 1 otherwise. 
+
+\hypertarget{GisApi_8h_a17}{
+\index{GisApi.h@{Gis\-Api.h}!Get_xmax@{Get\_\-xmax}}
+\index{Get_xmax@{Get\_\-xmax}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-xmax]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-xmax (double {\em resolution}, double $\ast$ {\em xmax})}}
+\label{GisApi_8h_a17}
+
+
+Return extents of original elevation data grid, Input: resolution - resolution, Output: xmax - maximum X coordinate of original grid, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a20}{
+\index{GisApi.h@{Gis\-Api.h}!Get_xmin@{Get\_\-xmin}}
+\index{Get_xmin@{Get\_\-xmin}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-xmin]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-xmin (double {\em resolution}, double $\ast$ {\em xmin})}}
+\label{GisApi_8h_a20}
+
+
+Return extents of original elevation map grid, Input: resolution - resolution, Output: xmin - minimum X coordinate of original grid, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a23}{
+\index{GisApi.h@{Gis\-Api.h}!Get_ymax@{Get\_\-ymax}}
+\index{Get_ymax@{Get\_\-ymax}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-ymax]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-ymax (double {\em resolution}, double $\ast$ {\em ymax})}}
+\label{GisApi_8h_a23}
+
+
+Return extents of original elevatio map grid, Input: resolution - resolution, Output: ymax - maximum Y coordinate of original grid, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a26}{
+\index{GisApi.h@{Gis\-Api.h}!Get_ymin@{Get\_\-ymin}}
+\index{Get_ymin@{Get\_\-ymin}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Get\_\-ymin]{\setlength{\rightskip}{0pt plus 5cm}int Get\_\-ymin (double {\em resolution}, double $\ast$ {\em ymin})}}
+\label{GisApi_8h_a26}
+
+
+Return extents of original elevation map grid, Input: resolution - resolution, Output: ymin - minimum Y coordinate of original grid, Return: 0 if OK, see table otherwise. 
+
+\hypertarget{GisApi_8h_a2}{
+\index{GisApi.h@{Gis\-Api.h}!Initialize_GIS_data@{Initialize\_\-GIS\_\-data}}
+\index{Initialize_GIS_data@{Initialize\_\-GIS\_\-data}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Initialize\_\-GIS\_\-data]{\setlength{\rightskip}{0pt plus 5cm}int Initialize\_\-GIS\_\-data (char $\ast$ {\em GISDbase}, char $\ast$ {\em location}, char $\ast$ {\em mapset}, char $\ast$ {\em raster\_\-file})}}
+\label{GisApi_8h_a2}
+
+
+initialize the GIS digital elevation map 
+
+\hypertarget{GisApi_8h_a4}{
+\index{GisApi.h@{Gis\-Api.h}!Initialize_Image_data@{Initialize\_\-Image\_\-data}}
+\index{Initialize_Image_data@{Initialize\_\-Image\_\-data}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Initialize\_\-Image\_\-data]{\setlength{\rightskip}{0pt plus 5cm}int Initialize\_\-Image\_\-data (char $\ast$ {\em GISDbase}, char $\ast$ {\em location}, char $\ast$ {\em mapset}, char $\ast$ {\em raster\_\-file})}}
+\label{GisApi_8h_a4}
+
+
+initialize the matching visual image map to cover the terrain (texture wrapping) for the gmfg viewer 
+
+\hypertarget{GisApi_8h_a3}{
+\index{GisApi.h@{Gis\-Api.h}!Initialize_Raster_data@{Initialize\_\-Raster\_\-data}}
+\index{Initialize_Raster_data@{Initialize\_\-Raster\_\-data}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Initialize\_\-Raster\_\-data]{\setlength{\rightskip}{0pt plus 5cm}int Initialize\_\-Raster\_\-data (char $\ast$ {\em GISDbase}, char $\ast$ {\em location}, char $\ast$ {\em mapset}, char $\ast$ {\em raster\_\-file})}}
+\label{GisApi_8h_a3}
+
+
+initialize the GIS material map 
+
+\hypertarget{GisApi_8h_a5}{
+\index{GisApi.h@{Gis\-Api.h}!Initialize_Vector_data@{Initialize\_\-Vector\_\-data}}
+\index{Initialize_Vector_data@{Initialize\_\-Vector\_\-data}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Initialize\_\-Vector\_\-data]{\setlength{\rightskip}{0pt plus 5cm}int Initialize\_\-Vector\_\-data (char $\ast$ {\em GISDbase}, char $\ast$ {\em location}, char $\ast$ {\em mapset}, char $\ast$ {\em vector\_\-file})}}
+\label{GisApi_8h_a5}
+
+
+initialize the matching vector data (where do you put symbols representing roads, bridges, buildings etc on the map) for the gmfg viewer 
+
+\hypertarget{GisApi_8h_a58}{
+\index{GisApi.h@{Gis\-Api.h}!Set_vector_scale@{Set\_\-vector\_\-scale}}
+\index{Set_vector_scale@{Set\_\-vector\_\-scale}!GisApi.h@{Gis\-Api.h}}
+\subsubsection[Set\_\-vector\_\-scale]{\setlength{\rightskip}{0pt plus 5cm}void Set\_\-vector\_\-scale (double {\em scale})}}
+\label{GisApi_8h_a58}
+
+
+Set vector scale, used to calculate precision, Input: scale - Scale of the vector data, ex.: 10000, API pre-defines scale at 50000. 
+

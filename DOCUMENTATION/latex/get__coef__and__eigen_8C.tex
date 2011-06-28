@@ -1,0 +1,23 @@
+\hypertarget{get__coef__and__eigen_8C}{
+\section{get\_\-coef\_\-and\_\-eigen.C File Reference}
+\label{get__coef__and__eigen_8C}\index{get_coef_and_eigen.C@{get\_\-coef\_\-and\_\-eigen.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+{\tt \#include \char`\"{}../header/geoflow.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+double \hyperlink{get__coef__and__eigen_8C_a0}{get\_\-coef\_\-and\_\-eigen} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structFluxProps}{Flux\-Props} $\ast$fluxprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, int ghost\_\-flag)
+\begin{CompactList}\small\item\em this function computes k active/passive (which is necessary because of the use of the Coulomb friction model) calculates the wave speeds (eigen values of the flux jacobians) and based on them determines the maximum allowable timestep for this iteration. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{get__coef__and__eigen_8C_a0}{
+\index{get_coef_and_eigen.C@{get\_\-coef\_\-and\_\-eigen.C}!get_coef_and_eigen@{get\_\-coef\_\-and\_\-eigen}}
+\index{get_coef_and_eigen@{get\_\-coef\_\-and\_\-eigen}!get_coef_and_eigen.C@{get\_\-coef\_\-and\_\-eigen.C}}
+\subsubsection[get\_\-coef\_\-and\_\-eigen]{\setlength{\rightskip}{0pt plus 5cm}double get\_\-coef\_\-and\_\-eigen (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structFluxProps}{Flux\-Props} $\ast$ {\em fluxprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, int {\em ghost\_\-flag})}}
+\label{get__coef__and__eigen_8C_a0}
+
+
+this function computes k active/passive (which is necessary because of the use of the Coulomb friction model) calculates the wave speeds (eigen values of the flux jacobians) and based on them determines the maximum allowable timestep for this iteration. 
+

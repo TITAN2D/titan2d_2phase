@@ -1,0 +1,255 @@
+\hypertarget{classcurve}{
+\section{curve Class Reference}
+\label{classcurve}\index{curve@{curve}}
+}
+{\tt \#include $<$curvedef.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{classcurve_a0}{added} (double, double, double, double, double)
+\item 
+void \hyperlink{classcurve_a1}{arrange} (double, double, double, double, double)
+\item 
+void \hyperlink{classcurve_a2}{reorder} (void)
+\item 
+void \hyperlink{classcurve_a3}{merge} (\hyperlink{classcurve}{curve})
+\item 
+void \hyperlink{classcurve_a4}{remove} (double, double, double)
+\item 
+void \hyperlink{classcurve_a5}{deloc} (int)
+\item 
+void \hyperlink{classcurve_a6}{writeout} (void)
+\item 
+void \hyperlink{classcurve_a7}{getlength} (int \&)
+\item 
+void \hyperlink{classcurve_a8}{getinfo} (int \&)
+\item 
+void \hyperlink{classcurve_a9}{getinfo} (void)
+\item 
+void \hyperlink{classcurve_a10}{getextents} (double $\ast$, double $\ast$, double $\ast$, double $\ast$)
+\item 
+\hyperlink{classcurve_a11}{curve} (void)
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{structnode}{Node\-Ptr} \hyperlink{classcurve_o0}{head}
+\end{CompactItemize}
+\subsection*{Private Member Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{classcurve_d0}{updatelength} ()
+\item 
+void \hyperlink{classcurve_d1}{push} (double, double, double, double, double)
+\item 
+void \hyperlink{classcurve_d2}{push} (double, double, double, double, double, int)
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+double \hyperlink{classcurve_r0}{xbounds} \mbox{[}2\mbox{]}
+\item 
+double \hyperlink{classcurve_r1}{ybounds} \mbox{[}2\mbox{]}
+\item 
+double \hyperlink{classcurve_r2}{zbounds} \mbox{[}2\mbox{]}
+\item 
+double \hyperlink{classcurve_r3}{phbounds} \mbox{[}2\mbox{]}
+\item 
+int \hyperlink{classcurve_r4}{length}
+\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+\hyperlink{classcurve}{curve} \hyperlink{classcurve_n0}{getnearest} (\hyperlink{classcurve}{curve} \&megalist, double entry, double error)
+\item 
+void \hyperlink{classcurve_n1}{Set\-Pile} (\hyperlink{classcurve}{curve} \&megalist, \hyperlink{structnode}{node}\mbox{[}$\,$\mbox{]}\mbox{[}100\mbox{]}, int, int)
+\item 
+double \hyperlink{classcurve_n2}{Get\-Distance} (double X1, double Y1, double, double)
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classcurve_a11}{
+\index{curve@{curve}!curve@{curve}}
+\index{curve@{curve}!curve@{curve}}
+\subsubsection[curve]{\setlength{\rightskip}{0pt plus 5cm}curve::curve (void)}}
+\label{classcurve_a11}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classcurve_a0}{
+\index{curve@{curve}!added@{added}}
+\index{added@{added}!curve@{curve}}
+\subsubsection[added]{\setlength{\rightskip}{0pt plus 5cm}void curve::added (double, double, double, double, double)}}
+\label{classcurve_a0}
+
+
+\hypertarget{classcurve_a1}{
+\index{curve@{curve}!arrange@{arrange}}
+\index{arrange@{arrange}!curve@{curve}}
+\subsubsection[arrange]{\setlength{\rightskip}{0pt plus 5cm}void curve::arrange (double, double, double, double, double)}}
+\label{classcurve_a1}
+
+
+\hypertarget{classcurve_a5}{
+\index{curve@{curve}!deloc@{deloc}}
+\index{deloc@{deloc}!curve@{curve}}
+\subsubsection[deloc]{\setlength{\rightskip}{0pt plus 5cm}void curve::deloc (int)}}
+\label{classcurve_a5}
+
+
+\hypertarget{classcurve_a10}{
+\index{curve@{curve}!getextents@{getextents}}
+\index{getextents@{getextents}!curve@{curve}}
+\subsubsection[getextents]{\setlength{\rightskip}{0pt plus 5cm}void curve::getextents (double $\ast$, double $\ast$, double $\ast$, double $\ast$)}}
+\label{classcurve_a10}
+
+
+\hypertarget{classcurve_a9}{
+\index{curve@{curve}!getinfo@{getinfo}}
+\index{getinfo@{getinfo}!curve@{curve}}
+\subsubsection[getinfo]{\setlength{\rightskip}{0pt plus 5cm}void curve::getinfo (void)}}
+\label{classcurve_a9}
+
+
+\hypertarget{classcurve_a8}{
+\index{curve@{curve}!getinfo@{getinfo}}
+\index{getinfo@{getinfo}!curve@{curve}}
+\subsubsection[getinfo]{\setlength{\rightskip}{0pt plus 5cm}void curve::getinfo (int \&)}}
+\label{classcurve_a8}
+
+
+\hypertarget{classcurve_a7}{
+\index{curve@{curve}!getlength@{getlength}}
+\index{getlength@{getlength}!curve@{curve}}
+\subsubsection[getlength]{\setlength{\rightskip}{0pt plus 5cm}void curve::getlength (int \&)}}
+\label{classcurve_a7}
+
+
+\hypertarget{classcurve_a3}{
+\index{curve@{curve}!merge@{merge}}
+\index{merge@{merge}!curve@{curve}}
+\subsubsection[merge]{\setlength{\rightskip}{0pt plus 5cm}void curve::merge (\hyperlink{classcurve}{curve})}}
+\label{classcurve_a3}
+
+
+\hypertarget{classcurve_d2}{
+\index{curve@{curve}!push@{push}}
+\index{push@{push}!curve@{curve}}
+\subsubsection[push]{\setlength{\rightskip}{0pt plus 5cm}void curve::push (double, double, double, double, double, int)\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classcurve_d2}
+
+
+\hypertarget{classcurve_d1}{
+\index{curve@{curve}!push@{push}}
+\index{push@{push}!curve@{curve}}
+\subsubsection[push]{\setlength{\rightskip}{0pt plus 5cm}void curve::push (double, double, double, double, double)\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classcurve_d1}
+
+
+\hypertarget{classcurve_a4}{
+\index{curve@{curve}!remove@{remove}}
+\index{remove@{remove}!curve@{curve}}
+\subsubsection[remove]{\setlength{\rightskip}{0pt plus 5cm}void curve::remove (double, double, double)}}
+\label{classcurve_a4}
+
+
+\hypertarget{classcurve_a2}{
+\index{curve@{curve}!reorder@{reorder}}
+\index{reorder@{reorder}!curve@{curve}}
+\subsubsection[reorder]{\setlength{\rightskip}{0pt plus 5cm}void curve::reorder (void)}}
+\label{classcurve_a2}
+
+
+\hypertarget{classcurve_d0}{
+\index{curve@{curve}!updatelength@{updatelength}}
+\index{updatelength@{updatelength}!curve@{curve}}
+\subsubsection[updatelength]{\setlength{\rightskip}{0pt plus 5cm}void curve::updatelength ()\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classcurve_d0}
+
+
+\hypertarget{classcurve_a6}{
+\index{curve@{curve}!writeout@{writeout}}
+\index{writeout@{writeout}!curve@{curve}}
+\subsubsection[writeout]{\setlength{\rightskip}{0pt plus 5cm}void curve::writeout (void)}}
+\label{classcurve_a6}
+
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classcurve_n2}{
+\index{curve@{curve}!GetDistance@{GetDistance}}
+\index{GetDistance@{GetDistance}!curve@{curve}}
+\subsubsection[GetDistance]{\setlength{\rightskip}{0pt plus 5cm}double Get\-Distance (double {\em X1}, double {\em Y1}, double {\em X2}, double {\em Y2})\hspace{0.3cm}{\tt  \mbox{[}friend\mbox{]}}}}
+\label{classcurve_n2}
+
+
+\hypertarget{classcurve_n0}{
+\index{curve@{curve}!getnearest@{getnearest}}
+\index{getnearest@{getnearest}!curve@{curve}}
+\subsubsection[getnearest]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{classcurve}{curve} getnearest (\hyperlink{classcurve}{curve} \& {\em megalist}, double {\em entry}, double {\em error})\hspace{0.3cm}{\tt  \mbox{[}friend\mbox{]}}}}
+\label{classcurve_n0}
+
+
+\hypertarget{classcurve_n1}{
+\index{curve@{curve}!SetPile@{SetPile}}
+\index{SetPile@{SetPile}!curve@{curve}}
+\subsubsection[SetPile]{\setlength{\rightskip}{0pt plus 5cm}void Set\-Pile (\hyperlink{classcurve}{curve} \& {\em megalist}, \hyperlink{structnode}{node}\mbox{[}$\,$\mbox{]}\mbox{[}100\mbox{]}, int, int)\hspace{0.3cm}{\tt  \mbox{[}friend\mbox{]}}}}
+\label{classcurve_n1}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classcurve_o0}{
+\index{curve@{curve}!head@{head}}
+\index{head@{head}!curve@{curve}}
+\subsubsection[head]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{structnode}{Node\-Ptr} \hyperlink{classcurve_o0}{curve::head}}}
+\label{classcurve_o0}
+
+
+\hypertarget{classcurve_r4}{
+\index{curve@{curve}!length@{length}}
+\index{length@{length}!curve@{curve}}
+\subsubsection[length]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classcurve_r4}{curve::length}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classcurve_r4}
+
+
+\hypertarget{classcurve_r3}{
+\index{curve@{curve}!phbounds@{phbounds}}
+\index{phbounds@{phbounds}!curve@{curve}}
+\subsubsection[phbounds]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classcurve_r3}{curve::phbounds}\mbox{[}2\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classcurve_r3}
+
+
+\hypertarget{classcurve_r0}{
+\index{curve@{curve}!xbounds@{xbounds}}
+\index{xbounds@{xbounds}!curve@{curve}}
+\subsubsection[xbounds]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classcurve_r0}{curve::xbounds}\mbox{[}2\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classcurve_r0}
+
+
+\hypertarget{classcurve_r1}{
+\index{curve@{curve}!ybounds@{ybounds}}
+\index{ybounds@{ybounds}!curve@{curve}}
+\subsubsection[ybounds]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classcurve_r1}{curve::ybounds}\mbox{[}2\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classcurve_r1}
+
+
+\hypertarget{classcurve_r2}{
+\index{curve@{curve}!zbounds@{zbounds}}
+\index{zbounds@{zbounds}!curve@{curve}}
+\subsubsection[zbounds]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classcurve_r2}{curve::zbounds}\mbox{[}2\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classcurve_r2}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{curvedef_8h}{curvedef.h}\item 
+\hyperlink{curve_8C}{curve.C}\end{CompactItemize}

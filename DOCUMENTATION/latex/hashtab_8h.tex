@@ -1,0 +1,31 @@
+\hypertarget{hashtab_8h}{
+\section{hashtab.h File Reference}
+\label{hashtab_8h}\index{hashtab.h@{hashtab.h}}
+}
+{\tt \#include $<$fstream.h$>$}\par
+{\tt \#include $<$iostream.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include \char`\"{}constant.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{structHashEntry}{Hash\-Entry}
+\item 
+class \hyperlink{classHashTable}{Hash\-Table}
+\begin{CompactList}\small\item\em Hashtables store pointers to each \hyperlink{classElement}{Element} or \hyperlink{classNode}{Node} (of which Hash\-Table is a friend class), these pointers can be accessed by giving the hashtable the \char`\"{}key\char`\"{} of the element number you want to \char`\"{}lookup.\char`\"{} The keys are ordered sequentially by a space filling curve that ensures that the pointers to elements (or nodes) that are located close to each other in physical space will usually be located close to each other in memory, which speeds up access time. Each key is a single number that spans several unsigned variables (elements of an array). \item\end{CompactList}\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef \hyperlink{structHashEntry}{Hash\-Entry} $\ast$ \hyperlink{hashtab_8h_a0}{Hash\-Entry\-Ptr}
+\end{CompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{hashtab_8h_a0}{
+\index{hashtab.h@{hashtab.h}!HashEntryPtr@{HashEntryPtr}}
+\index{HashEntryPtr@{HashEntryPtr}!hashtab.h@{hashtab.h}}
+\subsubsection[HashEntryPtr]{\setlength{\rightskip}{0pt plus 5cm}typedef \hyperlink{structHashEntry}{Hash\-Entry}$\ast$ \hyperlink{structHashEntry}{Hash\-Entry\-Ptr}}}
+\label{hashtab_8h_a0}
+
+

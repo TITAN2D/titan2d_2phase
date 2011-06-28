@@ -1,0 +1,262 @@
+\hypertarget{structMatProps}{
+\section{Mat\-Props Struct Reference}
+\label{structMatProps}\index{MatProps@{MatProps}}
+}
+this struct holds constants for material properties as well as other constants note that the material id tag (used as the indice for material properties... matname, bedfrict) as returned by \hyperlink{GisApi_8C_a69}{Get\_\-raster\_\-id()} (a GIS function call) starts from 1 and not from 0 so arrays must be one element larger  
+
+
+{\tt \#include $<$properties.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{structMatProps_a0}{Mat\-Props} (int material\_\-countin, char $\ast$$\ast$matnamesin, double intfrictin, double $\ast$bedfrictin, double porosityin, double muin, double rhoin, double epsilonin, double gammain, double frict\_\-tinyin, double lscale, double hscale, double gscale)
+\begin{CompactList}\small\item\em this constructor allocates initial properties unfortunately the properties aren't known at the time this is called so dummy values are fed in instead for many if not all of these \item\end{CompactList}\item 
+\hyperlink{structMatProps_a1}{$\sim$Mat\-Props} ()
+\begin{CompactList}\small\item\em this destructor deallocates the arrays of bed friction angles and their tangents \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int \hyperlink{structMatProps_o0}{number\_\-of\_\-cells\_\-across\_\-axis}
+\begin{CompactList}\small\item\em the \char`\"{}maximum\char`\"{} number of cells across the smallest pile/flux-source minor axis \item\end{CompactList}\item 
+double \hyperlink{structMatProps_o1}{smallest\_\-axis}
+\begin{CompactList}\small\item\em the smallest minor radius \item\end{CompactList}\item 
+int \hyperlink{structMatProps_o2}{material\_\-count}
+\begin{CompactList}\small\item\em the number of different materials on the map \item\end{CompactList}\item 
+char $\ast$$\ast$ \hyperlink{structMatProps_o3}{matnames}
+\begin{CompactList}\small\item\em the names of each material \item\end{CompactList}\item 
+double \hyperlink{structMatProps_o4}{intfrict}
+\begin{CompactList}\small\item\em phi\_\-\{int\}, the internal friction angle (must be GREATER than the bedfriction angle) \item\end{CompactList}\item 
+double \hyperlink{structMatProps_o5}{tanintfrict}
+\begin{CompactList}\small\item\em tan(phi\_\-\{int\}), tangent of the internal friction angle \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structMatProps_o6}{bedfrict}
+\begin{CompactList}\small\item\em phi\_\-\{bed\}, the bed friction angle, must be LESS than the internal friction angle and should be greater than about 8 degrees, this minimum angle may change once Keith's local stopping criteria is enforced \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structMatProps_o7}{tanbedfrict}
+\begin{CompactList}\small\item\em tan(phi\_\-\{bed\}), tangent of the bed friction angle \item\end{CompactList}\item 
+double \hyperlink{structMatProps_o8}{porosity}
+\begin{CompactList}\small\item\em v\_\-f, legacy not used \item\end{CompactList}\item 
+double \hyperlink{structMatProps_o9}{mu}
+\begin{CompactList}\small\item\em pore fluid viscosity, legacy not used \item\end{CompactList}\item 
+double \hyperlink{structMatProps_o10}{rho}
+\begin{CompactList}\small\item\em density \item\end{CompactList}\item 
+double \hyperlink{structMatProps_o11}{epsilon}
+\begin{CompactList}\small\item\em scaling value, ratio of HEIGHT\_\-SCALE to LENGTH\_\-SCALE \item\end{CompactList}\item 
+double \hyperlink{structMatProps_o12}{gamma}
+\begin{CompactList}\small\item\em slope limiting stuff \item\end{CompactList}\item 
+double \hyperlink{structMatProps_o13}{LENGTH\_\-SCALE}
+\begin{CompactList}\small\item\em length scaling factor \item\end{CompactList}\item 
+double \hyperlink{structMatProps_o14}{HEIGHT\_\-SCALE}
+\begin{CompactList}\small\item\em height scaling factor \item\end{CompactList}\item 
+double \hyperlink{structMatProps_o15}{GRAVITY\_\-SCALE}
+\begin{CompactList}\small\item\em gravity scaling factor \item\end{CompactList}\item 
+double \hyperlink{structMatProps_o16}{MAX\_\-NEGLIGIBLE\_\-HEIGHT}
+\begin{CompactList}\small\item\em cells with flow below this height are neglected for purposes of calculating statistics \item\end{CompactList}\item 
+double \hyperlink{structMatProps_o17}{Vslump}
+\begin{CompactList}\small\item\em Used in Bin Yu's legacy global stopping criteria, this never worked right except for initially cylindrical piles on a horizontal plane that were released and slumped... there Bin Yu's global stopping criteria worked great. \item\end{CompactList}\item 
+double \hyperlink{structMatProps_o18}{frict\_\-tiny}
+\begin{CompactList}\small\item\em to get the flow to start moving you have to decrease the friction angles, this variable is used to do that \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+this struct holds constants for material properties as well as other constants note that the material id tag (used as the indice for material properties... matname, bedfrict) as returned by \hyperlink{GisApi_8C_a69}{Get\_\-raster\_\-id()} (a GIS function call) starts from 1 and not from 0 so arrays must be one element larger 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structMatProps_a0}{
+\index{MatProps@{Mat\-Props}!MatProps@{MatProps}}
+\index{MatProps@{MatProps}!MatProps@{Mat\-Props}}
+\subsubsection[MatProps]{\setlength{\rightskip}{0pt plus 5cm}Mat\-Props::Mat\-Props (int {\em material\_\-countin}, char $\ast$$\ast$ {\em matnamesin}, double {\em intfrictin}, double $\ast$ {\em bedfrictin}, double {\em porosityin}, double {\em muin}, double {\em rhoin}, double {\em epsilonin}, double {\em gammain}, double {\em frict\_\-tinyin}, double {\em lscale}, double {\em hscale}, double {\em gscale})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structMatProps_a0}
+
+
+this constructor allocates initial properties unfortunately the properties aren't known at the time this is called so dummy values are fed in instead for many if not all of these 
+
+\hypertarget{structMatProps_a1}{
+\index{MatProps@{Mat\-Props}!~MatProps@{$\sim$MatProps}}
+\index{~MatProps@{$\sim$MatProps}!MatProps@{Mat\-Props}}
+\subsubsection[$\sim$MatProps]{\setlength{\rightskip}{0pt plus 5cm}Mat\-Props::$\sim$\hyperlink{structMatProps}{Mat\-Props} ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structMatProps_a1}
+
+
+this destructor deallocates the arrays of bed friction angles and their tangents 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structMatProps_o6}{
+\index{MatProps@{Mat\-Props}!bedfrict@{bedfrict}}
+\index{bedfrict@{bedfrict}!MatProps@{Mat\-Props}}
+\subsubsection[bedfrict]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structMatProps_o6}{Mat\-Props::bedfrict}}}
+\label{structMatProps_o6}
+
+
+phi\_\-\{bed\}, the bed friction angle, must be LESS than the internal friction angle and should be greater than about 8 degrees, this minimum angle may change once Keith's local stopping criteria is enforced 
+
+\hypertarget{structMatProps_o11}{
+\index{MatProps@{Mat\-Props}!epsilon@{epsilon}}
+\index{epsilon@{epsilon}!MatProps@{Mat\-Props}}
+\subsubsection[epsilon]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structMatProps_o11}{Mat\-Props::epsilon}}}
+\label{structMatProps_o11}
+
+
+scaling value, ratio of HEIGHT\_\-SCALE to LENGTH\_\-SCALE 
+
+\hypertarget{structMatProps_o18}{
+\index{MatProps@{Mat\-Props}!frict_tiny@{frict\_\-tiny}}
+\index{frict_tiny@{frict\_\-tiny}!MatProps@{Mat\-Props}}
+\subsubsection[frict\_\-tiny]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structMatProps_o18}{Mat\-Props::frict\_\-tiny}}}
+\label{structMatProps_o18}
+
+
+to get the flow to start moving you have to decrease the friction angles, this variable is used to do that 
+
+\hypertarget{structMatProps_o12}{
+\index{MatProps@{Mat\-Props}!gamma@{gamma}}
+\index{gamma@{gamma}!MatProps@{Mat\-Props}}
+\subsubsection[gamma]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structMatProps_o12}{Mat\-Props::gamma}}}
+\label{structMatProps_o12}
+
+
+slope limiting stuff 
+
+\hypertarget{structMatProps_o15}{
+\index{MatProps@{Mat\-Props}!GRAVITY_SCALE@{GRAVITY\_\-SCALE}}
+\index{GRAVITY_SCALE@{GRAVITY\_\-SCALE}!MatProps@{Mat\-Props}}
+\subsubsection[GRAVITY\_\-SCALE]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structMatProps_o15}{Mat\-Props::GRAVITY\_\-SCALE}}}
+\label{structMatProps_o15}
+
+
+gravity scaling factor 
+
+\hypertarget{structMatProps_o14}{
+\index{MatProps@{Mat\-Props}!HEIGHT_SCALE@{HEIGHT\_\-SCALE}}
+\index{HEIGHT_SCALE@{HEIGHT\_\-SCALE}!MatProps@{Mat\-Props}}
+\subsubsection[HEIGHT\_\-SCALE]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structMatProps_o14}{Mat\-Props::HEIGHT\_\-SCALE}}}
+\label{structMatProps_o14}
+
+
+height scaling factor 
+
+\hypertarget{structMatProps_o4}{
+\index{MatProps@{Mat\-Props}!intfrict@{intfrict}}
+\index{intfrict@{intfrict}!MatProps@{Mat\-Props}}
+\subsubsection[intfrict]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structMatProps_o4}{Mat\-Props::intfrict}}}
+\label{structMatProps_o4}
+
+
+phi\_\-\{int\}, the internal friction angle (must be GREATER than the bedfriction angle) 
+
+\hypertarget{structMatProps_o13}{
+\index{MatProps@{Mat\-Props}!LENGTH_SCALE@{LENGTH\_\-SCALE}}
+\index{LENGTH_SCALE@{LENGTH\_\-SCALE}!MatProps@{Mat\-Props}}
+\subsubsection[LENGTH\_\-SCALE]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structMatProps_o13}{Mat\-Props::LENGTH\_\-SCALE}}}
+\label{structMatProps_o13}
+
+
+length scaling factor 
+
+\hypertarget{structMatProps_o2}{
+\index{MatProps@{Mat\-Props}!material_count@{material\_\-count}}
+\index{material_count@{material\_\-count}!MatProps@{Mat\-Props}}
+\subsubsection[material\_\-count]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structMatProps_o2}{Mat\-Props::material\_\-count}}}
+\label{structMatProps_o2}
+
+
+the number of different materials on the map 
+
+\hypertarget{structMatProps_o3}{
+\index{MatProps@{Mat\-Props}!matnames@{matnames}}
+\index{matnames@{matnames}!MatProps@{Mat\-Props}}
+\subsubsection[matnames]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ \hyperlink{structMatProps_o3}{Mat\-Props::matnames}}}
+\label{structMatProps_o3}
+
+
+the names of each material 
+
+\hypertarget{structMatProps_o16}{
+\index{MatProps@{Mat\-Props}!MAX_NEGLIGIBLE_HEIGHT@{MAX\_\-NEGLIGIBLE\_\-HEIGHT}}
+\index{MAX_NEGLIGIBLE_HEIGHT@{MAX\_\-NEGLIGIBLE\_\-HEIGHT}!MatProps@{Mat\-Props}}
+\subsubsection[MAX\_\-NEGLIGIBLE\_\-HEIGHT]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structMatProps_o16}{Mat\-Props::MAX\_\-NEGLIGIBLE\_\-HEIGHT}}}
+\label{structMatProps_o16}
+
+
+cells with flow below this height are neglected for purposes of calculating statistics 
+
+\hypertarget{structMatProps_o9}{
+\index{MatProps@{Mat\-Props}!mu@{mu}}
+\index{mu@{mu}!MatProps@{Mat\-Props}}
+\subsubsection[mu]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structMatProps_o9}{Mat\-Props::mu}}}
+\label{structMatProps_o9}
+
+
+pore fluid viscosity, legacy not used 
+
+\hypertarget{structMatProps_o0}{
+\index{MatProps@{Mat\-Props}!number_of_cells_across_axis@{number\_\-of\_\-cells\_\-across\_\-axis}}
+\index{number_of_cells_across_axis@{number\_\-of\_\-cells\_\-across\_\-axis}!MatProps@{Mat\-Props}}
+\subsubsection[number\_\-of\_\-cells\_\-across\_\-axis]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structMatProps_o0}{Mat\-Props::number\_\-of\_\-cells\_\-across\_\-axis}}}
+\label{structMatProps_o0}
+
+
+the \char`\"{}maximum\char`\"{} number of cells across the smallest pile/flux-source minor axis 
+
+\hypertarget{structMatProps_o8}{
+\index{MatProps@{Mat\-Props}!porosity@{porosity}}
+\index{porosity@{porosity}!MatProps@{Mat\-Props}}
+\subsubsection[porosity]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structMatProps_o8}{Mat\-Props::porosity}}}
+\label{structMatProps_o8}
+
+
+v\_\-f, legacy not used 
+
+\hypertarget{structMatProps_o10}{
+\index{MatProps@{Mat\-Props}!rho@{rho}}
+\index{rho@{rho}!MatProps@{Mat\-Props}}
+\subsubsection[rho]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structMatProps_o10}{Mat\-Props::rho}}}
+\label{structMatProps_o10}
+
+
+density 
+
+\hypertarget{structMatProps_o1}{
+\index{MatProps@{Mat\-Props}!smallest_axis@{smallest\_\-axis}}
+\index{smallest_axis@{smallest\_\-axis}!MatProps@{Mat\-Props}}
+\subsubsection[smallest\_\-axis]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structMatProps_o1}{Mat\-Props::smallest\_\-axis}}}
+\label{structMatProps_o1}
+
+
+the smallest minor radius 
+
+\hypertarget{structMatProps_o7}{
+\index{MatProps@{Mat\-Props}!tanbedfrict@{tanbedfrict}}
+\index{tanbedfrict@{tanbedfrict}!MatProps@{Mat\-Props}}
+\subsubsection[tanbedfrict]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structMatProps_o7}{Mat\-Props::tanbedfrict}}}
+\label{structMatProps_o7}
+
+
+tan(phi\_\-\{bed\}), tangent of the bed friction angle 
+
+\hypertarget{structMatProps_o5}{
+\index{MatProps@{Mat\-Props}!tanintfrict@{tanintfrict}}
+\index{tanintfrict@{tanintfrict}!MatProps@{Mat\-Props}}
+\subsubsection[tanintfrict]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structMatProps_o5}{Mat\-Props::tanintfrict}}}
+\label{structMatProps_o5}
+
+
+tan(phi\_\-\{int\}), tangent of the internal friction angle 
+
+\hypertarget{structMatProps_o17}{
+\index{MatProps@{Mat\-Props}!Vslump@{Vslump}}
+\index{Vslump@{Vslump}!MatProps@{Mat\-Props}}
+\subsubsection[Vslump]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structMatProps_o17}{Mat\-Props::Vslump}}}
+\label{structMatProps_o17}
+
+
+Used in Bin Yu's legacy global stopping criteria, this never worked right except for initially cylindrical piles on a horizontal plane that were released and slumped... there Bin Yu's global stopping criteria worked great. 
+
+
+
+The documentation for this struct was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{properties_8h}{properties.h}\end{CompactItemize}

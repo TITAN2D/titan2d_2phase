@@ -1,0 +1,360 @@
+\hypertarget{classGisBinFile}{
+\section{Gis\-Bin\-File Class Reference}
+\label{classGisBinFile}\index{GisBinFile@{GisBinFile}}
+}
+{\tt \#include $<$Gis\-Bin\-File.h$>$}
+
+Inheritance diagram for Gis\-Bin\-File::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classGisBinFile}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classGisBinFile_a0}{Gis\-Bin\-File} (const string \&name, const char $\ast$mode=\char`\"{}r\char`\"{})
+\item 
+virtual \hyperlink{classGisBinFile_a1}{$\sim$Gis\-Bin\-File} ()
+\item 
+void \hyperlink{classGisBinFile_a2}{set\-Endian} (const char $\ast$mode=\char`\"{}little\char`\"{})
+\item 
+void \hyperlink{classGisBinFile_a3}{set\-Word\-Size} (int word\-Size)
+\item 
+void \hyperlink{classGisBinFile_a4}{set\-Data\-Size} (int data\-Size)
+\item 
+void \hyperlink{classGisBinFile_a5}{set\-Is\-Integer} (bool true\-False)
+\item 
+bool \hyperlink{classGisBinFile_a6}{read\-Row} (int row, float $\ast$float\-Values)
+\item 
+bool \hyperlink{classGisBinFile_a7}{read\-Row} (int row, char $\ast$char\-Values)
+\item 
+bool \hyperlink{classGisBinFile_a8}{read\-Compressd\-Row} (int row, float $\ast$float\-Values)
+\item 
+bool \hyperlink{classGisBinFile_a9}{read\-Compressd\-Row} (int row, char $\ast$char\-Values)
+\item 
+bool \hyperlink{classGisBinFile_a10}{read} (float $\ast$float\-Value)
+\item 
+bool \hyperlink{classGisBinFile_a11}{read} (int $\ast$int\-Value)
+\item 
+bool \hyperlink{classGisBinFile_a12}{read} (short $\ast$short\-Value)
+\item 
+bool \hyperlink{classGisBinFile_a13}{read4Bytes} (char $\ast$char4Values)
+\item 
+bool \hyperlink{classGisBinFile_a14}{read\-NChar} (char $\ast$char\-Values, int n\-Values)
+\item 
+bool \hyperlink{classGisBinFile_a15}{good} ()
+\item 
+int \hyperlink{classGisBinFile_a16}{n\-Rows} ()
+\item 
+int \hyperlink{classGisBinFile_a17}{n\-Cols} ()
+\item 
+void \hyperlink{classGisBinFile_a18}{n\-Rows} (int nrows)
+\item 
+void \hyperlink{classGisBinFile_a19}{n\-Cols} (int ncols)
+\item 
+bool \hyperlink{classGisBinFile_a20}{is\-Compressed} ()
+\item 
+void \hyperlink{classGisBinFile_a21}{is\-Compressed} (bool comp\-Flag)
+\item 
+void \hyperlink{classGisBinFile_a22}{goto\-Pos} (long new\-Pos)
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+fstream \hyperlink{classGisBinFile_p0}{file\_\-}
+\item 
+string \hyperlink{classGisBinFile_p1}{file\-Name\_\-}
+\item 
+string \hyperlink{classGisBinFile_p2}{mode\_\-}
+\item 
+bool \hyperlink{classGisBinFile_p3}{swapp\-Mode\_\-}
+\item 
+int \hyperlink{classGisBinFile_p4}{word\-Size\_\-}
+\item 
+int \hyperlink{classGisBinFile_p5}{data\-Size\_\-}
+\item 
+bool \hyperlink{classGisBinFile_p6}{is\-Integer\_\-}
+\item 
+char \hyperlink{classGisBinFile_p7}{temp\-Store\_\-} \mbox{[}4\mbox{]}
+\item 
+int \hyperlink{classGisBinFile_p8}{n\-Rows\_\-}
+\item 
+int \hyperlink{classGisBinFile_p9}{n\-Cols\_\-}
+\item 
+bool \hyperlink{classGisBinFile_p10}{compressed\_\-}
+\end{CompactItemize}
+\subsection*{Private Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classGisBinFile_d0}{Gis\-Bin\-File} (const \hyperlink{classGisBinFile}{Gis\-Bin\-File} \&)
+\item 
+\hyperlink{classGisBinFile}{Gis\-Bin\-File} \& \hyperlink{classGisBinFile_d1}{operator=} (const \hyperlink{classGisBinFile}{Gis\-Bin\-File} \&)
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGisBinFile_a0}{
+\index{GisBinFile@{Gis\-Bin\-File}!GisBinFile@{GisBinFile}}
+\index{GisBinFile@{GisBinFile}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[GisBinFile]{\setlength{\rightskip}{0pt plus 5cm}Gis\-Bin\-File::Gis\-Bin\-File (const string \& {\em name}, const char $\ast$ {\em mode} = {\tt \char`\"{}r\char`\"{}})}}
+\label{classGisBinFile_a0}
+
+
+\hypertarget{classGisBinFile_a1}{
+\index{GisBinFile@{Gis\-Bin\-File}!~GisBinFile@{$\sim$GisBinFile}}
+\index{~GisBinFile@{$\sim$GisBinFile}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[$\sim$GisBinFile]{\setlength{\rightskip}{0pt plus 5cm}virtual Gis\-Bin\-File::$\sim$\hyperlink{classGisBinFile}{Gis\-Bin\-File} ()\hspace{0.3cm}{\tt  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classGisBinFile_a1}
+
+
+\hypertarget{classGisBinFile_d0}{
+\index{GisBinFile@{Gis\-Bin\-File}!GisBinFile@{GisBinFile}}
+\index{GisBinFile@{GisBinFile}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[GisBinFile]{\setlength{\rightskip}{0pt plus 5cm}Gis\-Bin\-File::Gis\-Bin\-File (const \hyperlink{classGisBinFile}{Gis\-Bin\-File} \&)\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classGisBinFile_d0}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGisBinFile_a15}{
+\index{GisBinFile@{Gis\-Bin\-File}!good@{good}}
+\index{good@{good}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[good]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-Bin\-File::good ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisBinFile_a15}
+
+
+\hypertarget{classGisBinFile_a22}{
+\index{GisBinFile@{Gis\-Bin\-File}!gotoPos@{gotoPos}}
+\index{gotoPos@{gotoPos}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[gotoPos]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Bin\-File::goto\-Pos (long {\em new\-Pos})}}
+\label{classGisBinFile_a22}
+
+
+\hypertarget{classGisBinFile_a21}{
+\index{GisBinFile@{Gis\-Bin\-File}!isCompressed@{isCompressed}}
+\index{isCompressed@{isCompressed}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[isCompressed]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Bin\-File::is\-Compressed (bool {\em comp\-Flag})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisBinFile_a21}
+
+
+\hypertarget{classGisBinFile_a20}{
+\index{GisBinFile@{Gis\-Bin\-File}!isCompressed@{isCompressed}}
+\index{isCompressed@{isCompressed}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[isCompressed]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-Bin\-File::is\-Compressed ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisBinFile_a20}
+
+
+\hypertarget{classGisBinFile_a19}{
+\index{GisBinFile@{Gis\-Bin\-File}!nCols@{nCols}}
+\index{nCols@{nCols}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[nCols]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Bin\-File::n\-Cols (int {\em ncols})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisBinFile_a19}
+
+
+\hypertarget{classGisBinFile_a17}{
+\index{GisBinFile@{Gis\-Bin\-File}!nCols@{nCols}}
+\index{nCols@{nCols}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[nCols]{\setlength{\rightskip}{0pt plus 5cm}int Gis\-Bin\-File::n\-Cols ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisBinFile_a17}
+
+
+\hypertarget{classGisBinFile_a18}{
+\index{GisBinFile@{Gis\-Bin\-File}!nRows@{nRows}}
+\index{nRows@{nRows}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[nRows]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Bin\-File::n\-Rows (int {\em nrows})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisBinFile_a18}
+
+
+\hypertarget{classGisBinFile_a16}{
+\index{GisBinFile@{Gis\-Bin\-File}!nRows@{nRows}}
+\index{nRows@{nRows}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[nRows]{\setlength{\rightskip}{0pt plus 5cm}int Gis\-Bin\-File::n\-Rows ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisBinFile_a16}
+
+
+\hypertarget{classGisBinFile_d1}{
+\index{GisBinFile@{Gis\-Bin\-File}!operator=@{operator=}}
+\index{operator=@{operator=}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[operator=]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{classGisBinFile}{Gis\-Bin\-File}\& Gis\-Bin\-File::operator= (const \hyperlink{classGisBinFile}{Gis\-Bin\-File} \&)\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classGisBinFile_d1}
+
+
+\hypertarget{classGisBinFile_a12}{
+\index{GisBinFile@{Gis\-Bin\-File}!read@{read}}
+\index{read@{read}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[read]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-Bin\-File::read (short $\ast$ {\em short\-Value})}}
+\label{classGisBinFile_a12}
+
+
+\hypertarget{classGisBinFile_a11}{
+\index{GisBinFile@{Gis\-Bin\-File}!read@{read}}
+\index{read@{read}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[read]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-Bin\-File::read (int $\ast$ {\em int\-Value})}}
+\label{classGisBinFile_a11}
+
+
+\hypertarget{classGisBinFile_a10}{
+\index{GisBinFile@{Gis\-Bin\-File}!read@{read}}
+\index{read@{read}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[read]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-Bin\-File::read (float $\ast$ {\em float\-Value})}}
+\label{classGisBinFile_a10}
+
+
+\hypertarget{classGisBinFile_a13}{
+\index{GisBinFile@{Gis\-Bin\-File}!read4Bytes@{read4Bytes}}
+\index{read4Bytes@{read4Bytes}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[read4Bytes]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-Bin\-File::read4Bytes (char $\ast$ {\em char4Values})}}
+\label{classGisBinFile_a13}
+
+
+\hypertarget{classGisBinFile_a9}{
+\index{GisBinFile@{Gis\-Bin\-File}!readCompressdRow@{readCompressdRow}}
+\index{readCompressdRow@{readCompressdRow}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[readCompressdRow]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-Bin\-File::read\-Compressd\-Row (int {\em row}, char $\ast$ {\em char\-Values})}}
+\label{classGisBinFile_a9}
+
+
+\hypertarget{classGisBinFile_a8}{
+\index{GisBinFile@{Gis\-Bin\-File}!readCompressdRow@{readCompressdRow}}
+\index{readCompressdRow@{readCompressdRow}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[readCompressdRow]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-Bin\-File::read\-Compressd\-Row (int {\em row}, float $\ast$ {\em float\-Values})}}
+\label{classGisBinFile_a8}
+
+
+\hypertarget{classGisBinFile_a14}{
+\index{GisBinFile@{Gis\-Bin\-File}!readNChar@{readNChar}}
+\index{readNChar@{readNChar}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[readNChar]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-Bin\-File::read\-NChar (char $\ast$ {\em char\-Values}, int {\em n\-Values})}}
+\label{classGisBinFile_a14}
+
+
+\hypertarget{classGisBinFile_a7}{
+\index{GisBinFile@{Gis\-Bin\-File}!readRow@{readRow}}
+\index{readRow@{readRow}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[readRow]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-Bin\-File::read\-Row (int {\em row}, char $\ast$ {\em char\-Values})}}
+\label{classGisBinFile_a7}
+
+
+\hypertarget{classGisBinFile_a6}{
+\index{GisBinFile@{Gis\-Bin\-File}!readRow@{readRow}}
+\index{readRow@{readRow}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[readRow]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-Bin\-File::read\-Row (int {\em row}, float $\ast$ {\em float\-Values})}}
+\label{classGisBinFile_a6}
+
+
+\hypertarget{classGisBinFile_a4}{
+\index{GisBinFile@{Gis\-Bin\-File}!setDataSize@{setDataSize}}
+\index{setDataSize@{setDataSize}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[setDataSize]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Bin\-File::set\-Data\-Size (int {\em data\-Size})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisBinFile_a4}
+
+
+\hypertarget{classGisBinFile_a2}{
+\index{GisBinFile@{Gis\-Bin\-File}!setEndian@{setEndian}}
+\index{setEndian@{setEndian}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[setEndian]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Bin\-File::set\-Endian (const char $\ast$ {\em mode} = {\tt \char`\"{}little\char`\"{}})}}
+\label{classGisBinFile_a2}
+
+
+\hypertarget{classGisBinFile_a5}{
+\index{GisBinFile@{Gis\-Bin\-File}!setIsInteger@{setIsInteger}}
+\index{setIsInteger@{setIsInteger}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[setIsInteger]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Bin\-File::set\-Is\-Integer (bool {\em true\-False})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisBinFile_a5}
+
+
+\hypertarget{classGisBinFile_a3}{
+\index{GisBinFile@{Gis\-Bin\-File}!setWordSize@{setWordSize}}
+\index{setWordSize@{setWordSize}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[setWordSize]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Bin\-File::set\-Word\-Size (int {\em word\-Size})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisBinFile_a3}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classGisBinFile_p10}{
+\index{GisBinFile@{Gis\-Bin\-File}!compressed_@{compressed\_\-}}
+\index{compressed_@{compressed\_\-}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[compressed\_\-]{\setlength{\rightskip}{0pt plus 5cm}bool \hyperlink{classGisBinFile_p10}{Gis\-Bin\-File::compressed\_\-}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisBinFile_p10}
+
+
+\hypertarget{classGisBinFile_p5}{
+\index{GisBinFile@{Gis\-Bin\-File}!dataSize_@{dataSize\_\-}}
+\index{dataSize_@{dataSize\_\-}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[dataSize\_\-]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classGisBinFile_p5}{Gis\-Bin\-File::data\-Size\_\-}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisBinFile_p5}
+
+
+\hypertarget{classGisBinFile_p0}{
+\index{GisBinFile@{Gis\-Bin\-File}!file_@{file\_\-}}
+\index{file_@{file\_\-}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[file\_\-]{\setlength{\rightskip}{0pt plus 5cm}fstream \hyperlink{classGisBinFile_p0}{Gis\-Bin\-File::file\_\-}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisBinFile_p0}
+
+
+\hypertarget{classGisBinFile_p1}{
+\index{GisBinFile@{Gis\-Bin\-File}!fileName_@{fileName\_\-}}
+\index{fileName_@{fileName\_\-}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[fileName\_\-]{\setlength{\rightskip}{0pt plus 5cm}string \hyperlink{classGisBinFile_p1}{Gis\-Bin\-File::file\-Name\_\-}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisBinFile_p1}
+
+
+\hypertarget{classGisBinFile_p6}{
+\index{GisBinFile@{Gis\-Bin\-File}!isInteger_@{isInteger\_\-}}
+\index{isInteger_@{isInteger\_\-}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[isInteger\_\-]{\setlength{\rightskip}{0pt plus 5cm}bool \hyperlink{classGisBinFile_p6}{Gis\-Bin\-File::is\-Integer\_\-}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisBinFile_p6}
+
+
+\hypertarget{classGisBinFile_p2}{
+\index{GisBinFile@{Gis\-Bin\-File}!mode_@{mode\_\-}}
+\index{mode_@{mode\_\-}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[mode\_\-]{\setlength{\rightskip}{0pt plus 5cm}string \hyperlink{classGisBinFile_p2}{Gis\-Bin\-File::mode\_\-}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisBinFile_p2}
+
+
+\hypertarget{classGisBinFile_p9}{
+\index{GisBinFile@{Gis\-Bin\-File}!nCols_@{nCols\_\-}}
+\index{nCols_@{nCols\_\-}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[nCols\_\-]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classGisBinFile_p9}{Gis\-Bin\-File::n\-Cols\_\-}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisBinFile_p9}
+
+
+\hypertarget{classGisBinFile_p8}{
+\index{GisBinFile@{Gis\-Bin\-File}!nRows_@{nRows\_\-}}
+\index{nRows_@{nRows\_\-}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[nRows\_\-]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classGisBinFile_p8}{Gis\-Bin\-File::n\-Rows\_\-}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisBinFile_p8}
+
+
+\hypertarget{classGisBinFile_p3}{
+\index{GisBinFile@{Gis\-Bin\-File}!swappMode_@{swappMode\_\-}}
+\index{swappMode_@{swappMode\_\-}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[swappMode\_\-]{\setlength{\rightskip}{0pt plus 5cm}bool \hyperlink{classGisBinFile_p3}{Gis\-Bin\-File::swapp\-Mode\_\-}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisBinFile_p3}
+
+
+\hypertarget{classGisBinFile_p7}{
+\index{GisBinFile@{Gis\-Bin\-File}!tempStore_@{tempStore\_\-}}
+\index{tempStore_@{tempStore\_\-}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[tempStore\_\-]{\setlength{\rightskip}{0pt plus 5cm}char \hyperlink{classGisBinFile_p7}{Gis\-Bin\-File::temp\-Store\_\-}\mbox{[}4\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisBinFile_p7}
+
+
+\hypertarget{classGisBinFile_p4}{
+\index{GisBinFile@{Gis\-Bin\-File}!wordSize_@{wordSize\_\-}}
+\index{wordSize_@{wordSize\_\-}!GisBinFile@{Gis\-Bin\-File}}
+\subsubsection[wordSize\_\-]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classGisBinFile_p4}{Gis\-Bin\-File::word\-Size\_\-}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisBinFile_p4}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{GisBinFile_8h}{Gis\-Bin\-File.h}\item 
+\hyperlink{GisBinFile_8C}{Gis\-Bin\-File.C}\end{CompactItemize}

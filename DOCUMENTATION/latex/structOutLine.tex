@@ -1,0 +1,199 @@
+\hypertarget{structOutLine}{
+\section{Out\-Line Struct Reference}
+\label{structOutLine}\index{OutLine@{OutLine}}
+}
+the Out\-Line Structure holds the maximum throughout time flow depth at every spatial point  
+
+
+{\tt \#include $<$properties.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{structOutLine_a0}{Out\-Line} ()
+\begin{CompactList}\small\item\em this is the Out\-Line constructor it initializes the number of cells to zero \item\end{CompactList}\item 
+\hyperlink{structOutLine_a1}{$\sim$Out\-Line} ()
+\begin{CompactList}\small\item\em this is the Out\-Line it deallocates the 2 dimensional array holding maximum throughout time pileheight in every cell on the map \item\end{CompactList}\item 
+void \hyperlink{structOutLine_a2}{init} (double $\ast$dxy, int power, double $\ast$XRange, double $\ast$YRange)
+\begin{CompactList}\small\item\em this function initializes the Out\-Line map/2-dimensional array \item\end{CompactList}\item 
+void \hyperlink{structOutLine_a3}{init2} (double $\ast$dxy, double $\ast$XRange, double $\ast$YRange)
+\begin{CompactList}\small\item\em this function reinitializes the Out\-Line map/2-dimensional array during restart \item\end{CompactList}\item 
+void \hyperlink{structOutLine_a4}{update} (double xstart, double xstop, double ystart, double ystop, double height, double h2\mbox{[}6\mbox{]})
+\begin{CompactList}\small\item\em this function updates the maximum throughout time pileheight in every cell covered by an arbitrary element \item\end{CompactList}\item 
+void \hyperlink{structOutLine_a5}{output} (\hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops\_\-ptr)
+\begin{CompactList}\small\item\em this function outputs the maximum throughout time map of pileheights to the file pileheightrecord.xxxxxx \item\end{CompactList}\item 
+void \hyperlink{structOutLine_a6}{reload} (\hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops\_\-ptr)
+\begin{CompactList}\small\item\em this function reads in the previous map of maximum throughout time pileheight stored in the file pileheightrecord.xxxxxx during restart \item\end{CompactList}\item 
+void \hyperlink{structOutLine_a7}{dealloc} ()
+\begin{CompactList}\small\item\em this function deallocates the 2 dimensional array of maximum throughout time pileheights \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int \hyperlink{structOutLine_o0}{Nx}
+\begin{CompactList}\small\item\em number of cells in the x direction on the map \item\end{CompactList}\item 
+int \hyperlink{structOutLine_o1}{Ny}
+\begin{CompactList}\small\item\em number of cells in the y direction on the map \item\end{CompactList}\item 
+double \hyperlink{structOutLine_o2}{dx}
+\begin{CompactList}\small\item\em length of a cell in the x direction \item\end{CompactList}\item 
+double \hyperlink{structOutLine_o3}{dy}
+\begin{CompactList}\small\item\em length of a cell in the y direction \item\end{CompactList}\item 
+double \hyperlink{structOutLine_o4}{xminmax} \mbox{[}2\mbox{]}
+\begin{CompactList}\small\item\em min and max x coordinate on the map \item\end{CompactList}\item 
+double \hyperlink{structOutLine_o5}{yminmax} \mbox{[}2\mbox{]}
+\begin{CompactList}\small\item\em min and max y coordinate on the map \item\end{CompactList}\item 
+double $\ast$$\ast$ \hyperlink{structOutLine_o6}{pileheight}
+\begin{CompactList}\small\item\em dynamically allocated 2 dimensional array holding the maximum throughout time pileheight at every point \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+the Out\-Line Structure holds the maximum throughout time flow depth at every spatial point 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structOutLine_a0}{
+\index{OutLine@{Out\-Line}!OutLine@{OutLine}}
+\index{OutLine@{OutLine}!OutLine@{Out\-Line}}
+\subsubsection[OutLine]{\setlength{\rightskip}{0pt plus 5cm}Out\-Line::Out\-Line ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structOutLine_a0}
+
+
+this is the Out\-Line constructor it initializes the number of cells to zero 
+
+\hypertarget{structOutLine_a1}{
+\index{OutLine@{Out\-Line}!~OutLine@{$\sim$OutLine}}
+\index{~OutLine@{$\sim$OutLine}!OutLine@{Out\-Line}}
+\subsubsection[$\sim$OutLine]{\setlength{\rightskip}{0pt plus 5cm}Out\-Line::$\sim$\hyperlink{structOutLine}{Out\-Line} ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structOutLine_a1}
+
+
+this is the Out\-Line it deallocates the 2 dimensional array holding maximum throughout time pileheight in every cell on the map 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structOutLine_a7}{
+\index{OutLine@{Out\-Line}!dealloc@{dealloc}}
+\index{dealloc@{dealloc}!OutLine@{Out\-Line}}
+\subsubsection[dealloc]{\setlength{\rightskip}{0pt plus 5cm}void Out\-Line::dealloc ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structOutLine_a7}
+
+
+this function deallocates the 2 dimensional array of maximum throughout time pileheights 
+
+\hypertarget{structOutLine_a2}{
+\index{OutLine@{Out\-Line}!init@{init}}
+\index{init@{init}!OutLine@{Out\-Line}}
+\subsubsection[init]{\setlength{\rightskip}{0pt plus 5cm}void Out\-Line::init (double $\ast$ {\em dxy}, int {\em power}, double $\ast$ {\em XRange}, double $\ast$ {\em YRange})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structOutLine_a2}
+
+
+this function initializes the Out\-Line map/2-dimensional array 
+
+\hypertarget{structOutLine_a3}{
+\index{OutLine@{Out\-Line}!init2@{init2}}
+\index{init2@{init2}!OutLine@{Out\-Line}}
+\subsubsection[init2]{\setlength{\rightskip}{0pt plus 5cm}void Out\-Line::init2 (double $\ast$ {\em dxy}, double $\ast$ {\em XRange}, double $\ast$ {\em YRange})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structOutLine_a3}
+
+
+this function reinitializes the Out\-Line map/2-dimensional array during restart 
+
+\hypertarget{structOutLine_a5}{
+\index{OutLine@{Out\-Line}!output@{output}}
+\index{output@{output}!OutLine@{Out\-Line}}
+\subsubsection[output]{\setlength{\rightskip}{0pt plus 5cm}void Out\-Line::output (\hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops\_\-ptr})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structOutLine_a5}
+
+
+this function outputs the maximum throughout time map of pileheights to the file pileheightrecord.xxxxxx 
+
+\hypertarget{structOutLine_a6}{
+\index{OutLine@{Out\-Line}!reload@{reload}}
+\index{reload@{reload}!OutLine@{Out\-Line}}
+\subsubsection[reload]{\setlength{\rightskip}{0pt plus 5cm}void Out\-Line::reload (\hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops\_\-ptr})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structOutLine_a6}
+
+
+this function reads in the previous map of maximum throughout time pileheight stored in the file pileheightrecord.xxxxxx during restart 
+
+\hypertarget{structOutLine_a4}{
+\index{OutLine@{Out\-Line}!update@{update}}
+\index{update@{update}!OutLine@{Out\-Line}}
+\subsubsection[update]{\setlength{\rightskip}{0pt plus 5cm}void Out\-Line::update (double {\em xstart}, double {\em xstop}, double {\em ystart}, double {\em ystop}, double {\em height}, double {\em h2}\mbox{[}6\mbox{]})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structOutLine_a4}
+
+
+this function updates the maximum throughout time pileheight in every cell covered by an arbitrary element 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structOutLine_o2}{
+\index{OutLine@{Out\-Line}!dx@{dx}}
+\index{dx@{dx}!OutLine@{Out\-Line}}
+\subsubsection[dx]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structOutLine_o2}{Out\-Line::dx}}}
+\label{structOutLine_o2}
+
+
+length of a cell in the x direction 
+
+\hypertarget{structOutLine_o3}{
+\index{OutLine@{Out\-Line}!dy@{dy}}
+\index{dy@{dy}!OutLine@{Out\-Line}}
+\subsubsection[dy]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structOutLine_o3}{Out\-Line::dy}}}
+\label{structOutLine_o3}
+
+
+length of a cell in the y direction 
+
+\hypertarget{structOutLine_o0}{
+\index{OutLine@{Out\-Line}!Nx@{Nx}}
+\index{Nx@{Nx}!OutLine@{Out\-Line}}
+\subsubsection[Nx]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structOutLine_o0}{Out\-Line::Nx}}}
+\label{structOutLine_o0}
+
+
+number of cells in the x direction on the map 
+
+\hypertarget{structOutLine_o1}{
+\index{OutLine@{Out\-Line}!Ny@{Ny}}
+\index{Ny@{Ny}!OutLine@{Out\-Line}}
+\subsubsection[Ny]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structOutLine_o1}{Out\-Line::Ny}}}
+\label{structOutLine_o1}
+
+
+number of cells in the y direction on the map 
+
+\hypertarget{structOutLine_o6}{
+\index{OutLine@{Out\-Line}!pileheight@{pileheight}}
+\index{pileheight@{pileheight}!OutLine@{Out\-Line}}
+\subsubsection[pileheight]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$$\ast$ \hyperlink{structOutLine_o6}{Out\-Line::pileheight}}}
+\label{structOutLine_o6}
+
+
+dynamically allocated 2 dimensional array holding the maximum throughout time pileheight at every point 
+
+\hypertarget{structOutLine_o4}{
+\index{OutLine@{Out\-Line}!xminmax@{xminmax}}
+\index{xminmax@{xminmax}!OutLine@{Out\-Line}}
+\subsubsection[xminmax]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structOutLine_o4}{Out\-Line::xminmax}\mbox{[}2\mbox{]}}}
+\label{structOutLine_o4}
+
+
+min and max x coordinate on the map 
+
+\hypertarget{structOutLine_o5}{
+\index{OutLine@{Out\-Line}!yminmax@{yminmax}}
+\index{yminmax@{yminmax}!OutLine@{Out\-Line}}
+\subsubsection[yminmax]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structOutLine_o5}{Out\-Line::yminmax}\mbox{[}2\mbox{]}}}
+\label{structOutLine_o5}
+
+
+min and max y coordinate on the map 
+
+
+
+The documentation for this struct was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{properties_8h}{properties.h}\end{CompactItemize}

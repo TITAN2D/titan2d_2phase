@@ -1,0 +1,70 @@
+\hypertarget{outsum_8C}{
+\section{outsum.C File Reference}
+\label{outsum_8C}\index{outsum.C@{outsum.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{outsum_8C_a0}{ADAM\_\-HEIGHT\_\-FRAC}\ 0.02
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{outsum_8C_a1}{output\_\-summary} (\hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops, int savefileflag)
+\begin{CompactList}\small\item\em at every output interval this function writes a line of revelant statistics about the flow to a file named output\_\-summary.\#\#\#\#\#\#, among the information contained in the file is which times of output match with which timestep numbers (which are used in the file names of the tecplot output files). Keith wrote this. \item\end{CompactList}\item 
+void \hyperlink{outsum_8C_a2}{output\_\-stoch\_\-stats} (\hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops)
+\begin{CompactList}\small\item\em this function outputs statistics for with a collection of probabilistic runs, this output should probably be combined with the finalstats.\#\#\#\#\#\# file, Keith wrote this \item\end{CompactList}\item 
+void \hyperlink{outsum_8C_a3}{output\_\-discharge} (\hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$discharge, int myid)
+\begin{CompactList}\small\item\em titan now has the capability to caclulate the flux through discharge planes, the sign of the flux follows a righthand rule convention, net v cross ds is non negative for a series os segments \char`\"{}ds\char`\"{} drawn counter clockwise surrounding the pile(s) (out of the box is positive into the box in negative), Keith wrote this \item\end{CompactList}\item 
+void \hyperlink{outsum_8C_a4}{OUTPUT\_\-ADAM\_\-STATS} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops\_\-ptr)
+\begin{CompactList}\small\item\em Adam Stinton wanted some particular outputs, such as coordinates, speed, an pile height at locations of pile centroid, maximum pileheight and maximum flow speed, so I (Keith) wrote this for him. The function writes to a file named \char`\"{}flow\_\-dynamics.stats\char`\"{} (Adam's choice of file name). The information is useful enough that I included it in the mainline version of the code but we are getting too many output files, it's about time to combine a bunch of them into one file (prefereably output\_\-summary.\#\#\#\#\#\#). \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{outsum_8C_a0}{
+\index{outsum.C@{outsum.C}!ADAM_HEIGHT_FRAC@{ADAM\_\-HEIGHT\_\-FRAC}}
+\index{ADAM_HEIGHT_FRAC@{ADAM\_\-HEIGHT\_\-FRAC}!outsum.C@{outsum.C}}
+\subsubsection[ADAM\_\-HEIGHT\_\-FRAC]{\setlength{\rightskip}{0pt plus 5cm}\#define ADAM\_\-HEIGHT\_\-FRAC\ 0.02}}
+\label{outsum_8C_a0}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{outsum_8C_a4}{
+\index{outsum.C@{outsum.C}!OUTPUT_ADAM_STATS@{OUTPUT\_\-ADAM\_\-STATS}}
+\index{OUTPUT_ADAM_STATS@{OUTPUT\_\-ADAM\_\-STATS}!outsum.C@{outsum.C}}
+\subsubsection[OUTPUT\_\-ADAM\_\-STATS]{\setlength{\rightskip}{0pt plus 5cm}void OUTPUT\_\-ADAM\_\-STATS (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops\_\-ptr})}}
+\label{outsum_8C_a4}
+
+
+Adam Stinton wanted some particular outputs, such as coordinates, speed, an pile height at locations of pile centroid, maximum pileheight and maximum flow speed, so I (Keith) wrote this for him. The function writes to a file named \char`\"{}flow\_\-dynamics.stats\char`\"{} (Adam's choice of file name). The information is useful enough that I included it in the mainline version of the code but we are getting too many output files, it's about time to combine a bunch of them into one file (prefereably output\_\-summary.\#\#\#\#\#\#). 
+
+\hypertarget{outsum_8C_a3}{
+\index{outsum.C@{outsum.C}!output_discharge@{output\_\-discharge}}
+\index{output_discharge@{output\_\-discharge}!outsum.C@{outsum.C}}
+\subsubsection[output\_\-discharge]{\setlength{\rightskip}{0pt plus 5cm}void output\_\-discharge (\hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$ {\em discharge}, int {\em myid})}}
+\label{outsum_8C_a3}
+
+
+titan now has the capability to caclulate the flux through discharge planes, the sign of the flux follows a righthand rule convention, net v cross ds is non negative for a series os segments \char`\"{}ds\char`\"{} drawn counter clockwise surrounding the pile(s) (out of the box is positive into the box in negative), Keith wrote this 
+
+\hypertarget{outsum_8C_a2}{
+\index{outsum.C@{outsum.C}!output_stoch_stats@{output\_\-stoch\_\-stats}}
+\index{output_stoch_stats@{output\_\-stoch\_\-stats}!outsum.C@{outsum.C}}
+\subsubsection[output\_\-stoch\_\-stats]{\setlength{\rightskip}{0pt plus 5cm}void output\_\-stoch\_\-stats (\hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops})}}
+\label{outsum_8C_a2}
+
+
+this function outputs statistics for with a collection of probabilistic runs, this output should probably be combined with the finalstats.\#\#\#\#\#\# file, Keith wrote this 
+
+\hypertarget{outsum_8C_a1}{
+\index{outsum.C@{outsum.C}!output_summary@{output\_\-summary}}
+\index{output_summary@{output\_\-summary}!outsum.C@{outsum.C}}
+\subsubsection[output\_\-summary]{\setlength{\rightskip}{0pt plus 5cm}void output\_\-summary (\hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops}, int {\em savefileflag})}}
+\label{outsum_8C_a1}
+
+
+at every output interval this function writes a line of revelant statistics about the flow to a file named output\_\-summary.\#\#\#\#\#\#, among the information contained in the file is which times of output match with which timestep numbers (which are used in the file names of the tecplot output files). Keith wrote this. 
+

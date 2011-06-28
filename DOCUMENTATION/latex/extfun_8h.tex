@@ -1,0 +1,750 @@
+\hypertarget{extfun_8h}{
+\section{extfun.h File Reference}
+\label{extfun_8h}\index{extfun.h@{extfun.h}}
+}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{extfun_8h_a0}{DEBUG\_\-HEADER}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{extfun_8h_a2}{Assert\-Mesh\-Error\-Free} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int numprocs, int myid, double loc)
+\begin{CompactList}\small\item\em this function checks for any and all possible mesh errors, i.e. it checks if the mesh is legal, it says nothing about the quality of a legal mesh, you must have ghost information present before performing this check, WARNING THIS CHECK TAKES A LOT OF TIME, ONLY USE IT TO DEBUG. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a3}{Elem\-Background\-Check} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, unsigned $\ast$debugkey, FILE $\ast$fp)
+\begin{CompactList}\small\item\em investigate an \hyperlink{classElement}{Element}, question his \char`\"{}friends and family\char`\"{} about him. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a4}{Elem\-Background\-Check2} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, void $\ast$Em\-Debug, FILE $\ast$fp)
+\item 
+void \hyperlink{extfun_8h_a5}{Node\-Background\-Check} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, unsigned $\ast$debugkey, FILE $\ast$fp)
+\begin{CompactList}\small\item\em investigate a \hyperlink{classNode}{Node} question his \char`\"{}friends and family\char`\"{} about him. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a6}{unrefine} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, double target, int myid, int nump, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr)
+\begin{CompactList}\small\item\em this function loops through all the elements on this processor and (by calling other functions) checks which elements satisfy criteria for being okay to unrefine, if they can be it unrefines them. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a7}{delete\_\-oldsons} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid, void $\ast$Em\-Father)
+\item 
+void \hyperlink{extfun_8h_a8}{refine\_\-neigh\_\-update} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int numprocs, int myid, void $\ast$Refined\-List, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr)
+\item 
+void \hyperlink{extfun_8h_a9}{unrefine\_\-neigh\_\-update} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid, void $\ast$New\-Father\-List)
+\item 
+void \hyperlink{extfun_8h_a10}{unrefine\_\-interp\_\-neigh\_\-update} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int nump, int myid, void $\ast$Other\-Proc\-Update)
+\item 
+int \hyperlink{extfun_8h_a11}{If\-Missing\-Elem} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, int myid, int iter, int isearch)
+\begin{CompactList}\small\item\em only used in debugging \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a12}{Insanity\-Check} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, int nump, int myid, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr)
+\begin{CompactList}\small\item\em only used in debugging \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a13}{step} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid, int nump, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, \hyperlink{structPileProps}{Pile\-Props} $\ast$pileprops\_\-ptr, \hyperlink{structFluxProps}{Flux\-Props} $\ast$fluxprops, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops\_\-ptr, int $\ast$order\_\-flag, \hyperlink{structOutLine}{Out\-Line} $\ast$outline\_\-ptr, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$discharge, int adaptflag)
+\begin{CompactList}\small\item\em this function implements 1 time step which consists of (by calling other functions) computing spatial derivatives of state variables, computing k active/passive and wave speeds and therefore timestep size, does a finite difference predictor step, followed by a finite volume corrector step, and lastly computing statistics from the current timestep's data. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a14}{delete\_\-unused\_\-elements\_\-nodes} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int myid)
+\begin{CompactList}\small\item\em this function deletes unused elements and nodes, this is called durring grid adaptation in \hyperlink{constant_8h_a21}{hadpt.C} \item\end{CompactList}\item 
+int \hyperlink{extfun_8h_a15}{update\_\-topo} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int myid, int nump, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, \hyperlink{structMapNames}{Map\-Names} $\ast$mapnames)
+\begin{CompactList}\small\item\em this function is used for dynamic replacement of a GIS digital elevation map, for example, when you're running a large simulation on multiple processors about a real life scenario you're expecting to occur soon and a channel collapses. If in the simulation the flow has not yet a gotten to the channel this could allow you to replace the DEM with another one in which the channel has collapsed and continue running the simulation without having to restart from the beginning. while this code updates the map, the logic and external programs used to in real time decide if the map should be updated have not been fully developed, this is the damd (data manager daemon, area of research in which Dr. Matt Jones is Participating). \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a16}{Read\_\-data} (int imat, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structPileProps}{Pile\-Props} $\ast$pileprops\_\-ptr, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, \hyperlink{structFluxProps}{Flux\-Props} $\ast$fluxprops, int $\ast$adaptflag\_\-ptr, int $\ast$viz\_\-flag\_\-ptr, int $\ast$order\_\-flag\_\-ptr, \hyperlink{structMapNames}{Map\-Names} $\ast$mapnames\_\-ptr, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$discharge\_\-ptr, \hyperlink{structOutLine}{Out\-Line} $\ast$outline\_\-ptr, int $\ast$srctype)
+\begin{CompactList}\small\item\em this function reads in the input data (excluding the \char`\"{}funky\char`\"{} grid) at the start of a run, whether or not run is a restart. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a17}{Read\_\-grid} (int myid, int numprocs, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$Node\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$Elem\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structOutLine}{Out\-Line} $\ast$outline\_\-ptr)
+\begin{CompactList}\small\item\em this function reads in the \char`\"{}funky\char`\"{} grid at the start of an original run but not during restart. This used to be part of \hyperlink{extfun_8h_a16}{Read\_\-data()} before Keith seperated them when adding the restart capability. It is my (Keith's) opinion that this should be torn out and along with the preprocessor rewritten into a new format that is a lot more like what happens during the restart, this would significantly reduce the startup time for large runs. \item\end{CompactList}\item 
+int \hyperlink{extfun_8h_a18}{loadrun} (int myid, int numprocs, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$Node\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$Elem\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, \hyperlink{structMapNames}{Map\-Names} $\ast$mapnames\_\-ptr, int $\ast$adaptflag\_\-ptr, int $\ast$order\_\-flag\_\-ptr, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops\_\-ptr, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$discharge\_\-ptr, \hyperlink{structOutLine}{Out\-Line} $\ast$outline\_\-ptr)
+\begin{CompactList}\small\item\em this function loads the restart file, recreates the hashtables and restores the saved nodes and elements. Only one readstatement per \hyperlink{classNode}{Node} is performed and one or two per \hyperlink{classElement}{Element} depending upon the Element's boundary conditions so it is very fast. Keith, who wrote this, believes a slightly cleaner solution is to add/move functionality to \hyperlink{useful__lib_8h}{useful\_\-lib.h} and \hyperlink{constant_8h_a21}{useful\_\-lib.C} to pack/unpack variables into an unsigned array, which is what should be done if Read\_\-grid is ever rewritten. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a19}{saverun} (\hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$Node\-Table, int myid, int numprocs, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$Elem\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, \hyperlink{structMapNames}{Map\-Names} $\ast$mapnames\_\-ptr, int adaptflag, int order\_\-flag, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops\_\-ptr, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$discharge\_\-ptr, \hyperlink{structOutLine}{Out\-Line} $\ast$outline\_\-ptr, int $\ast$savefileflag)
+\begin{CompactList}\small\item\em this function writes a restart file, all the non \hyperlink{classNode}{Node}, non \hyperlink{classElement}{Element} data, thfor example material properties, statistics, and hastable information. A loop through the hastables call member functions \hyperlink{classNode_a6}{Node::save\_\-node()} and \hyperlink{classElement_a6}{Element::save\_\-elem()} which each save 1 \hyperlink{classNode}{Node} or \hyperlink{classElement}{Element} in a single write statement to the restart file so this is VERY fast. However it could be rewritten in a slightly cleaner fashion by adding/moving functionality to \hyperlink{useful__lib_8h}{useful\_\-lib.h} and \hyperlink{constant_8h_a21}{useful\_\-lib.C} to pack/unpack variables into an unsigned array, which is what should be done if Read\_\-grid is ever rewritten. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a20}{init\_\-piles} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int myid, int numprocs, int adaptflag, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, \hyperlink{structMapNames}{Map\-Names} $\ast$mapnames, \hyperlink{structPileProps}{Pile\-Props} $\ast$pileprops, \hyperlink{structFluxProps}{Flux\-Props} $\ast$fluxprops, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops)
+\begin{CompactList}\small\item\em this function intializes the piles, by commenting/uncommenting define statements you can switch from parabaloid to elliptical cylinder shaped piles, or even a hard coded pileshapes written to match particular experiments. Adaptive remeshing and pile reinitialization helps detect small piles and refine around pile edges to obtain a more accurate initial solution and speed up the first few timesteps before adaptive refinement and unrefinement would otherwise occur. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a21}{initial\_\-H\_\-adapt} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int h\_\-count, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structPileProps}{Pile\-Props} $\ast$pileprops\_\-ptr, \hyperlink{structFluxProps}{Flux\-Props} $\ast$fluxprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, int num\_\-buffer\_\-layer)
+\begin{CompactList}\small\item\em this function performs adaptive refinement at timestep zero for refining initial piles and whenever a flux source is activated. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a22}{H\_\-adapt\_\-to\_\-level} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structPileProps}{Pile\-Props} $\ast$pileprops\_\-ptr, \hyperlink{structFluxProps}{Flux\-Props} $\ast$fluxprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, int refinelevel)
+\begin{CompactList}\small\item\em this function refines all elements whos generation is less than refinelevel, until they are of generation refinelevel and then places the flux sources and, if it is at timestep zero, initial piles. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a23}{H\_\-adapt} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int h\_\-count, double target, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structFluxProps}{Flux\-Props} $\ast$fluxprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, int num\_\-buffer\_\-layer)
+\begin{CompactList}\small\item\em this is the normal grid adaptive refinement function it also refreshes the flux sources \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a24}{htflush} (\hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, int)
+\begin{CompactList}\small\item\em this function flushes the hashtables, it is called during grid adaptation in \hyperlink{constant_8h_a21}{hadpt.C} \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a25}{Pack\_\-element} (void $\ast$sendel, \hyperlink{structElemPack}{Elem\-Pack} $\ast$elem, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int destination\_\-proc)
+\begin{CompactList}\small\item\em \hyperlink{extfun_8h_a25}{Pack\_\-element()} is a friend function of the \hyperlink{classElement}{Element} and \hyperlink{classNode}{Node} classes that packs relevant information from an element \char`\"{}sendel\char`\"{} into a smaller data structure (\hyperlink{structElemPack}{Elem\-Pack}) to be sent by an mpi call to another processor, this is used when exchanging ghost cell information or repartitioning. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a26}{MPI\_\-New\_\-Datatype} ()
+\begin{CompactList}\small\item\em Create new MPI datatype: \hyperlink{structElemPack}{Elem\-Pack} type definition in \hyperlink{struct_8h}{struct.h} so structures of \hyperlink{structElemPack}{Elem\-Pack} and \hyperlink{structNeighborPack}{Neighbor\-Pack} can be sent and received. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a27}{repartition} (\hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, int)
+\begin{CompactList}\small\item\em this function repartitions (redistributes) the number of elements on each processor so they all have approximately the same ammount of work to do. it is called in \hyperlink{constant_8h_a21}{hpfem.C} and \hyperlink{constant_8h_a21}{init\_\-piles.C} \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a28}{repartition2} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr)
+\begin{CompactList}\small\item\em the replacement for \hyperlink{extfun_8h_a27}{repartition()}, this function repartitions (redistributes) the number of elements on each processor so they all have approximately the same ammount of work to do \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a29}{Incorporate\-New\-Elements} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid, int num\_\-recv, \hyperlink{structElemPack}{Elem\-Pack} $\ast$recv\_\-array, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr)
+\begin{CompactList}\small\item\em this function creates the elements listed in recv\_\-array and adds them to the \hyperlink{classElement}{Element} \hyperlink{classHashTable}{Hash\-Table}, it will fail an assertion if you tell it to create an \hyperlink{classElement}{Element} that already exists, it is called by repartion2(), which requires the deletion of ghost elements first. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a30}{q\_\-sort\_\-data} (double $\ast$numbers, void $\ast$$\ast$\hyperlink{hdfdefs_8h_a10}{data}, int left, int right)
+\begin{CompactList}\small\item\em quicksort into ascending order, according to matching double precision numbers, the array of pointers to data \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a31}{smooth} (\hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$)
+\begin{CompactList}\small\item\em this function is legacy, it is not defined in the finite difference/volume version of titan \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a32}{smooth\_\-II} (\hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$)
+\begin{CompactList}\small\item\em this function is legacy, it is not defined in the finite difference/volume version of titan \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a33}{Delete\_\-Table} (\hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$)
+\begin{CompactList}\small\item\em this function is legacy, it is not defined in the finite difference/volume version of titan \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a34}{all\_\-check} (\hyperlink{classHashTable}{Hash\-Table} $\ast$eltab, \hyperlink{classHashTable}{Hash\-Table} $\ast$ndtab, int myid, int m)
+\begin{CompactList}\small\item\em this function is legacy, it is not defined in the finite difference/volume version of titan \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a35}{output\_\-summary} (\hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops, int savefileflag)
+\begin{CompactList}\small\item\em at every output interval this function writes a line of revelant statistics about the flow to a file named output\_\-summary.\#\#\#\#\#\#, among the information contained in the file is which times of output match with which timestep numbers (which are used in the file names of the tecplot output files). Keith wrote this. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a36}{OUTPUT\_\-ADAM\_\-STATS} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops\_\-ptr)
+\begin{CompactList}\small\item\em Adam Stinton wanted some particular outputs, such as coordinates, speed, an pile height at locations of pile centroid, maximum pileheight and maximum flow speed, so I (Keith) wrote this for him. The function writes to a file named \char`\"{}flow\_\-dynamics.stats\char`\"{} (Adam's choice of file name). The information is useful enough that I included it in the mainline version of the code but we are getting too many output files, it's about time to combine a bunch of them into one file (prefereably output\_\-summary.\#\#\#\#\#\#). \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a37}{output\_\-discharge} (\hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$discharge, int myid)
+\begin{CompactList}\small\item\em titan now has the capability to caclulate the flux through discharge planes, the sign of the flux follows a righthand rule convention, net v cross ds is non negative for a series os segments \char`\"{}ds\char`\"{} drawn counter clockwise surrounding the pile(s) (out of the box is positive into the box in negative), Keith wrote this \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a38}{output\_\-stoch\_\-stats} (\hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops)
+\begin{CompactList}\small\item\em this function outputs statistics for with a collection of probabilistic runs, this output should probably be combined with the finalstats.\#\#\#\#\#\# file, Keith wrote this \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a39}{tecplotter} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, \hyperlink{structMapNames}{Map\-Names} $\ast$mapnames, double v\_\-star)
+\begin{CompactList}\small\item\em this function writes text tecplot output files in the tecplxxxxxxxx.plt format. Keith rewrote this function to eliminate a lot of bugs shortly after he started the project, since then files were 1/3 the size they were previously. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a40}{meshplotter} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, \hyperlink{structMapNames}{Map\-Names} $\ast$mapnames, double v\_\-star)
+\begin{CompactList}\small\item\em this function writes text tecplot output files in the mshplxxxxxxxx.plt format. This is largely untouched since before I (Keith) joined the GMFG, just minor changes. This is the preferred (by Professor Patra) format of output for debugging purposes even though tecplxxxxxxxx.plt create nicer images. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a41}{vizplotter} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops)
+\begin{CompactList}\small\item\em one of \char`\"{}pady's\char`\"{} output functions, since Keith never met \char`\"{}pady\char`\"{} this is probably long out of date \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a42}{viz\_\-output} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int myid, int numprocs, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, \hyperlink{structMapNames}{Map\-Names} $\ast$mapnames)
+\begin{CompactList}\small\item\em another of \char`\"{}pady's\char`\"{} output functions, since Keith never met \char`\"{}pady\char`\"{} this is probably long out of date \item\end{CompactList}\item 
+int \hyperlink{extfun_8h_a43}{write\_\-xdmf} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structMapNames}{Map\-Names} $\ast$mapnames)
+\begin{CompactList}\small\item\em e\-Xtensible Data Model and Format (\href{http://www.arl.hpc.mil/ice/}{\tt http://www.arl.hpc.mil/ice/}) is a Paraview readable data format \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a44}{incr\_\-tri\_\-output} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int myid, int numprocs, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, double v\_\-star)
+\begin{CompactList}\small\item\em this is Amrita's output function, Keith wrote it to her specifications, it is for use with the gmfg viewer, which Daniel rewrote during the summer of 2006 to remove a lot dependencies and use basically only opengl calls. This makes the viewer compatible with almost every linux machine and a lot easier (read as possible) to install \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a45}{web\_\-output} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int myid, double time, int numprocs, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops)
+\begin{CompactList}\small\item\em this is one of the small output file size functions, this output format is meant for use with a web browser based viewer, this is now out of date. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a46}{web\_\-simplify} (\hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops)
+\begin{CompactList}\small\item\em this is one of the small output file size functions, this output format is meant for use with a web browser based viewer, this is now out of date. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a47}{web\_\-correct} (\hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops)
+\begin{CompactList}\small\item\em this is one of the small output file size functions, this output format is meant for use with a web browser based viewer, this is now out of date. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a48}{grass\_\-sites\_\-header\_\-output} (\hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops)
+\begin{CompactList}\small\item\em this function writes the header for grass sites style output, the grass sites output format is correct and works, but importing the data into GIS packages such as ARCGIS is non trivial until you know the trick to it. Keith does not know the trick, I just wrote this in the format Alex Sorokine specified. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a49}{grass\_\-sites\_\-proc\_\-output} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int myid, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops)
+\begin{CompactList}\small\item\em this function writes one processors grass sites style output, the grass sites output format is correct and works, but importing the data into GIS packages such as ARCGIS is non trivial until you know the trick to it. Keith does not know the trick, I (Keith) just wrote this in the format Alex Sorokine specified. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a50}{check\_\-p\_\-order} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr)
+\begin{CompactList}\small\item\em this function is legacy, it is not defined in the finite difference/volume version of titan \item\end{CompactList}\item 
+int \hyperlink{extfun_8h_a51}{howmanyelements} (\hyperlink{classHashTable}{Hash\-Table} $\ast$)
+\begin{CompactList}\small\item\em this function is legacy, it is not defined in the finite difference/volume version of titan \item\end{CompactList}\item 
+double \hyperlink{extfun_8h_a52}{random\_\-error} (\hyperlink{classHashTable}{Hash\-Table} $\ast$)
+\begin{CompactList}\small\item\em this function is legacy, it is not defined in the finite difference/volume version of titan \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a53}{search\_\-object} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, unsigned $\ast$key, int myid)
+\begin{CompactList}\small\item\em this function is legacy, it is not defined in the finite difference/volume version of titan \item\end{CompactList}\item 
+int \hyperlink{extfun_8h_a54}{compare\_\-key} (unsigned $\ast$, unsigned $\ast$)
+\begin{CompactList}\small\item\em this function compares 2 hashtable keys and says if they're the same or different. \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a55}{list\_\-elements} (\hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, int, int)
+\begin{CompactList}\small\item\em this function is legacy, it is not defined in the finite difference/volume version of titan \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a56}{get\_\-max\_\-key} (\hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$)
+\begin{CompactList}\small\item\em this function is legacy, it is not defined in the finite difference/volume version of titan \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a57}{objects\_\-per\_\-slot} (\hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, int, int)
+\begin{CompactList}\small\item\em this function is legacy, it is not defined in the finite difference/volume version of titan \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a58}{fact\_\-matrix} (double $\ast$, double $\ast$, int, int)
+\begin{CompactList}\small\item\em this function is legacy, it is not defined in the finite difference/volume version of titan \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a59}{Assemble\_\-bubble} (int, int, int, int, double $\ast$, int $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, int)
+\begin{CompactList}\small\item\em this function is legacy, it is not defined in the finite difference/volume version of titan \item\end{CompactList}\item 
+int \hyperlink{extfun_8h_a60}{make\_\-block} (int, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$, int $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, int, int, int, int)
+\begin{CompactList}\small\item\em this function is legacy, it is not defined in the finite difference/volume version of titan \item\end{CompactList}\item 
+void \hyperlink{extfun_8h_a61}{view\_\-elm} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid)
+\item 
+void \hyperlink{extfun_8h_a62}{Mat\_\-write} (int, double $\ast$, int, int, int)
+\item 
+void \hyperlink{extfun_8h_a63}{Mat\_\-write\_\-f} (int, double $\ast$, int, int, int)
+\item 
+void \hyperlink{extfun_8h_a64}{mat\_\-view\_\-} (double $\ast$, int $\ast$, int $\ast$)
+\item 
+void \hyperlink{extfun_8h_a65}{mat\_\-restore} (int, int, int $\ast$, int $\ast$, int $\ast$, int $\ast$, double $\ast$)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+const int \hyperlink{extfun_8h_a1}{QUADNODES} = 9
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{extfun_8h_a0}{
+\index{extfun.h@{extfun.h}!DEBUG_HEADER@{DEBUG\_\-HEADER}}
+\index{DEBUG_HEADER@{DEBUG\_\-HEADER}!extfun.h@{extfun.h}}
+\subsubsection[DEBUG\_\-HEADER]{\setlength{\rightskip}{0pt plus 5cm}\#define DEBUG\_\-HEADER}}
+\label{extfun_8h_a0}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{extfun_8h_a34}{
+\index{extfun.h@{extfun.h}!all_check@{all\_\-check}}
+\index{all_check@{all\_\-check}!extfun.h@{extfun.h}}
+\subsubsection[all\_\-check]{\setlength{\rightskip}{0pt plus 5cm}void all\_\-check (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em eltab}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em ndtab}, int {\em myid}, int {\em m})}}
+\label{extfun_8h_a34}
+
+
+this function is legacy, it is not defined in the finite difference/volume version of titan 
+
+\hypertarget{extfun_8h_a59}{
+\index{extfun.h@{extfun.h}!Assemble_bubble@{Assemble\_\-bubble}}
+\index{Assemble_bubble@{Assemble\_\-bubble}!extfun.h@{extfun.h}}
+\subsubsection[Assemble\_\-bubble]{\setlength{\rightskip}{0pt plus 5cm}void Assemble\_\-bubble (int, int, int, int, double $\ast$, int $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, int)}}
+\label{extfun_8h_a59}
+
+
+this function is legacy, it is not defined in the finite difference/volume version of titan 
+
+\hypertarget{extfun_8h_a2}{
+\index{extfun.h@{extfun.h}!AssertMeshErrorFree@{AssertMeshErrorFree}}
+\index{AssertMeshErrorFree@{AssertMeshErrorFree}!extfun.h@{extfun.h}}
+\subsubsection[AssertMeshErrorFree]{\setlength{\rightskip}{0pt plus 5cm}void Assert\-Mesh\-Error\-Free (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em numprocs}, int {\em myid}, double {\em loc})}}
+\label{extfun_8h_a2}
+
+
+this function checks for any and all possible mesh errors, i.e. it checks if the mesh is legal, it says nothing about the quality of a legal mesh, you must have ghost information present before performing this check, WARNING THIS CHECK TAKES A LOT OF TIME, ONLY USE IT TO DEBUG. 
+
+\hypertarget{extfun_8h_a50}{
+\index{extfun.h@{extfun.h}!check_p_order@{check\_\-p\_\-order}}
+\index{check_p_order@{check\_\-p\_\-order}!extfun.h@{extfun.h}}
+\subsubsection[check\_\-p\_\-order]{\setlength{\rightskip}{0pt plus 5cm}void check\_\-p\_\-order (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr})}}
+\label{extfun_8h_a50}
+
+
+this function is legacy, it is not defined in the finite difference/volume version of titan 
+
+\hypertarget{extfun_8h_a54}{
+\index{extfun.h@{extfun.h}!compare_key@{compare\_\-key}}
+\index{compare_key@{compare\_\-key}!extfun.h@{extfun.h}}
+\subsubsection[compare\_\-key]{\setlength{\rightskip}{0pt plus 5cm}int compare\_\-key (unsigned $\ast$, unsigned $\ast$)}}
+\label{extfun_8h_a54}
+
+
+this function compares 2 hashtable keys and says if they're the same or different. 
+
+\hypertarget{extfun_8h_a7}{
+\index{extfun.h@{extfun.h}!delete_oldsons@{delete\_\-oldsons}}
+\index{delete_oldsons@{delete\_\-oldsons}!extfun.h@{extfun.h}}
+\subsubsection[delete\_\-oldsons]{\setlength{\rightskip}{0pt plus 5cm}void delete\_\-oldsons (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, void $\ast$ {\em Em\-Father})}}
+\label{extfun_8h_a7}
+
+
+\hypertarget{extfun_8h_a33}{
+\index{extfun.h@{extfun.h}!Delete_Table@{Delete\_\-Table}}
+\index{Delete_Table@{Delete\_\-Table}!extfun.h@{extfun.h}}
+\subsubsection[Delete\_\-Table]{\setlength{\rightskip}{0pt plus 5cm}void Delete\_\-Table (\hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$)}}
+\label{extfun_8h_a33}
+
+
+this function is legacy, it is not defined in the finite difference/volume version of titan 
+
+\hypertarget{extfun_8h_a14}{
+\index{extfun.h@{extfun.h}!delete_unused_elements_nodes@{delete\_\-unused\_\-elements\_\-nodes}}
+\index{delete_unused_elements_nodes@{delete\_\-unused\_\-elements\_\-nodes}!extfun.h@{extfun.h}}
+\subsubsection[delete\_\-unused\_\-elements\_\-nodes]{\setlength{\rightskip}{0pt plus 5cm}void delete\_\-unused\_\-elements\_\-nodes (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em myid})}}
+\label{extfun_8h_a14}
+
+
+this function deletes unused elements and nodes, this is called durring grid adaptation in \hyperlink{constant_8h_a21}{hadpt.C} 
+
+\hypertarget{extfun_8h_a3}{
+\index{extfun.h@{extfun.h}!ElemBackgroundCheck@{ElemBackgroundCheck}}
+\index{ElemBackgroundCheck@{ElemBackgroundCheck}!extfun.h@{extfun.h}}
+\subsubsection[ElemBackgroundCheck]{\setlength{\rightskip}{0pt plus 5cm}void Elem\-Background\-Check (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, unsigned $\ast$ {\em debugkey}, FILE $\ast$ {\em fp})}}
+\label{extfun_8h_a3}
+
+
+investigate an \hyperlink{classElement}{Element}, question his \char`\"{}friends and family\char`\"{} about him. 
+
+\hypertarget{extfun_8h_a4}{
+\index{extfun.h@{extfun.h}!ElemBackgroundCheck2@{ElemBackgroundCheck2}}
+\index{ElemBackgroundCheck2@{ElemBackgroundCheck2}!extfun.h@{extfun.h}}
+\subsubsection[ElemBackgroundCheck2]{\setlength{\rightskip}{0pt plus 5cm}void Elem\-Background\-Check2 (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, void $\ast$ {\em Em\-Debug}, FILE $\ast$ {\em fp})}}
+\label{extfun_8h_a4}
+
+
+\hypertarget{extfun_8h_a58}{
+\index{extfun.h@{extfun.h}!fact_matrix@{fact\_\-matrix}}
+\index{fact_matrix@{fact\_\-matrix}!extfun.h@{extfun.h}}
+\subsubsection[fact\_\-matrix]{\setlength{\rightskip}{0pt plus 5cm}void fact\_\-matrix (double $\ast$, double $\ast$, int, int)}}
+\label{extfun_8h_a58}
+
+
+this function is legacy, it is not defined in the finite difference/volume version of titan 
+
+\hypertarget{extfun_8h_a56}{
+\index{extfun.h@{extfun.h}!get_max_key@{get\_\-max\_\-key}}
+\index{get_max_key@{get\_\-max\_\-key}!extfun.h@{extfun.h}}
+\subsubsection[get\_\-max\_\-key]{\setlength{\rightskip}{0pt plus 5cm}void get\_\-max\_\-key (\hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$)}}
+\label{extfun_8h_a56}
+
+
+this function is legacy, it is not defined in the finite difference/volume version of titan 
+
+\hypertarget{extfun_8h_a48}{
+\index{extfun.h@{extfun.h}!grass_sites_header_output@{grass\_\-sites\_\-header\_\-output}}
+\index{grass_sites_header_output@{grass\_\-sites\_\-header\_\-output}!extfun.h@{extfun.h}}
+\subsubsection[grass\_\-sites\_\-header\_\-output]{\setlength{\rightskip}{0pt plus 5cm}void grass\_\-sites\_\-header\_\-output (\hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops})}}
+\label{extfun_8h_a48}
+
+
+this function writes the header for grass sites style output, the grass sites output format is correct and works, but importing the data into GIS packages such as ARCGIS is non trivial until you know the trick to it. Keith does not know the trick, I just wrote this in the format Alex Sorokine specified. 
+
+\hypertarget{extfun_8h_a49}{
+\index{extfun.h@{extfun.h}!grass_sites_proc_output@{grass\_\-sites\_\-proc\_\-output}}
+\index{grass_sites_proc_output@{grass\_\-sites\_\-proc\_\-output}!extfun.h@{extfun.h}}
+\subsubsection[grass\_\-sites\_\-proc\_\-output]{\setlength{\rightskip}{0pt plus 5cm}void grass\_\-sites\_\-proc\_\-output (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em myid}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops})}}
+\label{extfun_8h_a49}
+
+
+this function writes one processors grass sites style output, the grass sites output format is correct and works, but importing the data into GIS packages such as ARCGIS is non trivial until you know the trick to it. Keith does not know the trick, I (Keith) just wrote this in the format Alex Sorokine specified. 
+
+\hypertarget{extfun_8h_a23}{
+\index{extfun.h@{extfun.h}!H_adapt@{H\_\-adapt}}
+\index{H_adapt@{H\_\-adapt}!extfun.h@{extfun.h}}
+\subsubsection[H\_\-adapt]{\setlength{\rightskip}{0pt plus 5cm}void H\_\-adapt (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em h\_\-count}, double {\em target}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structFluxProps}{Flux\-Props} $\ast$ {\em fluxprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, int {\em num\_\-buffer\_\-layer})}}
+\label{extfun_8h_a23}
+
+
+this is the normal grid adaptive refinement function it also refreshes the flux sources 
+
+\hypertarget{extfun_8h_a22}{
+\index{extfun.h@{extfun.h}!H_adapt_to_level@{H\_\-adapt\_\-to\_\-level}}
+\index{H_adapt_to_level@{H\_\-adapt\_\-to\_\-level}!extfun.h@{extfun.h}}
+\subsubsection[H\_\-adapt\_\-to\_\-level]{\setlength{\rightskip}{0pt plus 5cm}void H\_\-adapt\_\-to\_\-level (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structPileProps}{Pile\-Props} $\ast$ {\em pileprops\_\-ptr}, \hyperlink{structFluxProps}{Flux\-Props} $\ast$ {\em fluxprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, int {\em refinelevel})}}
+\label{extfun_8h_a22}
+
+
+this function refines all elements whos generation is less than refinelevel, until they are of generation refinelevel and then places the flux sources and, if it is at timestep zero, initial piles. 
+
+\hypertarget{extfun_8h_a51}{
+\index{extfun.h@{extfun.h}!howmanyelements@{howmanyelements}}
+\index{howmanyelements@{howmanyelements}!extfun.h@{extfun.h}}
+\subsubsection[howmanyelements]{\setlength{\rightskip}{0pt plus 5cm}int howmanyelements (\hyperlink{classHashTable}{Hash\-Table} $\ast$)}}
+\label{extfun_8h_a51}
+
+
+this function is legacy, it is not defined in the finite difference/volume version of titan 
+
+\hypertarget{extfun_8h_a24}{
+\index{extfun.h@{extfun.h}!htflush@{htflush}}
+\index{htflush@{htflush}!extfun.h@{extfun.h}}
+\subsubsection[htflush]{\setlength{\rightskip}{0pt plus 5cm}void htflush (\hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, int)}}
+\label{extfun_8h_a24}
+
+
+this function flushes the hashtables, it is called during grid adaptation in \hyperlink{constant_8h_a21}{hadpt.C} 
+
+\hypertarget{extfun_8h_a11}{
+\index{extfun.h@{extfun.h}!IfMissingElem@{IfMissingElem}}
+\index{IfMissingElem@{IfMissingElem}!extfun.h@{extfun.h}}
+\subsubsection[IfMissingElem]{\setlength{\rightskip}{0pt plus 5cm}int If\-Missing\-Elem (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, int {\em myid}, int {\em iter}, int {\em isearch})}}
+\label{extfun_8h_a11}
+
+
+only used in debugging 
+
+\hypertarget{extfun_8h_a29}{
+\index{extfun.h@{extfun.h}!IncorporateNewElements@{IncorporateNewElements}}
+\index{IncorporateNewElements@{IncorporateNewElements}!extfun.h@{extfun.h}}
+\subsubsection[IncorporateNewElements]{\setlength{\rightskip}{0pt plus 5cm}void Incorporate\-New\-Elements (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, int {\em num\_\-recv}, \hyperlink{structElemPack}{Elem\-Pack} $\ast$ {\em recv\_\-array}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr})}}
+\label{extfun_8h_a29}
+
+
+this function creates the elements listed in recv\_\-array and adds them to the \hyperlink{classElement}{Element} \hyperlink{classHashTable}{Hash\-Table}, it will fail an assertion if you tell it to create an \hyperlink{classElement}{Element} that already exists, it is called by repartion2(), which requires the deletion of ghost elements first. 
+
+\hypertarget{extfun_8h_a44}{
+\index{extfun.h@{extfun.h}!incr_tri_output@{incr\_\-tri\_\-output}}
+\index{incr_tri_output@{incr\_\-tri\_\-output}!extfun.h@{extfun.h}}
+\subsubsection[incr\_\-tri\_\-output]{\setlength{\rightskip}{0pt plus 5cm}void incr\_\-tri\_\-output (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em myid}, int {\em numprocs}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, double {\em v\_\-star})}}
+\label{extfun_8h_a44}
+
+
+this is Amrita's output function, Keith wrote it to her specifications, it is for use with the gmfg viewer, which Daniel rewrote during the summer of 2006 to remove a lot dependencies and use basically only opengl calls. This makes the viewer compatible with almost every linux machine and a lot easier (read as possible) to install 
+
+\hypertarget{extfun_8h_a20}{
+\index{extfun.h@{extfun.h}!init_piles@{init\_\-piles}}
+\index{init_piles@{init\_\-piles}!extfun.h@{extfun.h}}
+\subsubsection[init\_\-piles]{\setlength{\rightskip}{0pt plus 5cm}void init\_\-piles (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em myid}, int {\em numprocs}, int {\em adaptflag}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, \hyperlink{structMapNames}{Map\-Names} $\ast$ {\em mapnames}, \hyperlink{structPileProps}{Pile\-Props} $\ast$ {\em pileprops}, \hyperlink{structFluxProps}{Flux\-Props} $\ast$ {\em fluxprops}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops})}}
+\label{extfun_8h_a20}
+
+
+this function intializes the piles, by commenting/uncommenting define statements you can switch from parabaloid to elliptical cylinder shaped piles, or even a hard coded pileshapes written to match particular experiments. Adaptive remeshing and pile reinitialization helps detect small piles and refine around pile edges to obtain a more accurate initial solution and speed up the first few timesteps before adaptive refinement and unrefinement would otherwise occur. 
+
+\hypertarget{extfun_8h_a21}{
+\index{extfun.h@{extfun.h}!initial_H_adapt@{initial\_\-H\_\-adapt}}
+\index{initial_H_adapt@{initial\_\-H\_\-adapt}!extfun.h@{extfun.h}}
+\subsubsection[initial\_\-H\_\-adapt]{\setlength{\rightskip}{0pt plus 5cm}void initial\_\-H\_\-adapt (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em h\_\-count}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structPileProps}{Pile\-Props} $\ast$ {\em pileprops\_\-ptr}, \hyperlink{structFluxProps}{Flux\-Props} $\ast$ {\em fluxprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, int {\em num\_\-buffer\_\-layer})}}
+\label{extfun_8h_a21}
+
+
+this function performs adaptive refinement at timestep zero for refining initial piles and whenever a flux source is activated. 
+
+\hypertarget{extfun_8h_a12}{
+\index{extfun.h@{extfun.h}!InsanityCheck@{InsanityCheck}}
+\index{InsanityCheck@{InsanityCheck}!extfun.h@{extfun.h}}
+\subsubsection[InsanityCheck]{\setlength{\rightskip}{0pt plus 5cm}void Insanity\-Check (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, int {\em nump}, int {\em myid}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr})}}
+\label{extfun_8h_a12}
+
+
+only used in debugging 
+
+\hypertarget{extfun_8h_a55}{
+\index{extfun.h@{extfun.h}!list_elements@{list\_\-elements}}
+\index{list_elements@{list\_\-elements}!extfun.h@{extfun.h}}
+\subsubsection[list\_\-elements]{\setlength{\rightskip}{0pt plus 5cm}void list\_\-elements (\hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, int, int)}}
+\label{extfun_8h_a55}
+
+
+this function is legacy, it is not defined in the finite difference/volume version of titan 
+
+\hypertarget{extfun_8h_a18}{
+\index{extfun.h@{extfun.h}!loadrun@{loadrun}}
+\index{loadrun@{loadrun}!extfun.h@{extfun.h}}
+\subsubsection[loadrun]{\setlength{\rightskip}{0pt plus 5cm}int loadrun (int {\em myid}, int {\em numprocs}, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$ {\em Node\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$ {\em Elem\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, \hyperlink{structMapNames}{Map\-Names} $\ast$ {\em mapnames\_\-ptr}, int $\ast$ {\em adaptflag\_\-ptr}, int $\ast$ {\em order\_\-flag\_\-ptr}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops\_\-ptr}, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$ {\em discharge\_\-ptr}, \hyperlink{structOutLine}{Out\-Line} $\ast$ {\em outline\_\-ptr})}}
+\label{extfun_8h_a18}
+
+
+this function loads the restart file, recreates the hashtables and restores the saved nodes and elements. Only one readstatement per \hyperlink{classNode}{Node} is performed and one or two per \hyperlink{classElement}{Element} depending upon the Element's boundary conditions so it is very fast. Keith, who wrote this, believes a slightly cleaner solution is to add/move functionality to \hyperlink{useful__lib_8h}{useful\_\-lib.h} and \hyperlink{constant_8h_a21}{useful\_\-lib.C} to pack/unpack variables into an unsigned array, which is what should be done if Read\_\-grid is ever rewritten. 
+
+\hypertarget{extfun_8h_a60}{
+\index{extfun.h@{extfun.h}!make_block@{make\_\-block}}
+\index{make_block@{make\_\-block}!extfun.h@{extfun.h}}
+\subsubsection[make\_\-block]{\setlength{\rightskip}{0pt plus 5cm}int make\_\-block (int, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$, int $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, int, int, int, int)}}
+\label{extfun_8h_a60}
+
+
+this function is legacy, it is not defined in the finite difference/volume version of titan 
+
+\hypertarget{extfun_8h_a65}{
+\index{extfun.h@{extfun.h}!mat_restore@{mat\_\-restore}}
+\index{mat_restore@{mat\_\-restore}!extfun.h@{extfun.h}}
+\subsubsection[mat\_\-restore]{\setlength{\rightskip}{0pt plus 5cm}void mat\_\-restore (int, int, int $\ast$, int $\ast$, int $\ast$, int $\ast$, double $\ast$)}}
+\label{extfun_8h_a65}
+
+
+\hypertarget{extfun_8h_a64}{
+\index{extfun.h@{extfun.h}!mat_view_@{mat\_\-view\_\-}}
+\index{mat_view_@{mat\_\-view\_\-}!extfun.h@{extfun.h}}
+\subsubsection[mat\_\-view\_\-]{\setlength{\rightskip}{0pt plus 5cm}void mat\_\-view\_\- (double $\ast$, int $\ast$, int $\ast$)}}
+\label{extfun_8h_a64}
+
+
+\hypertarget{extfun_8h_a62}{
+\index{extfun.h@{extfun.h}!Mat_write@{Mat\_\-write}}
+\index{Mat_write@{Mat\_\-write}!extfun.h@{extfun.h}}
+\subsubsection[Mat\_\-write]{\setlength{\rightskip}{0pt plus 5cm}void Mat\_\-write (int, double $\ast$, int, int, int)}}
+\label{extfun_8h_a62}
+
+
+\hypertarget{extfun_8h_a63}{
+\index{extfun.h@{extfun.h}!Mat_write_f@{Mat\_\-write\_\-f}}
+\index{Mat_write_f@{Mat\_\-write\_\-f}!extfun.h@{extfun.h}}
+\subsubsection[Mat\_\-write\_\-f]{\setlength{\rightskip}{0pt plus 5cm}void Mat\_\-write\_\-f (int, double $\ast$, int, int, int)}}
+\label{extfun_8h_a63}
+
+
+\hypertarget{extfun_8h_a40}{
+\index{extfun.h@{extfun.h}!meshplotter@{meshplotter}}
+\index{meshplotter@{meshplotter}!extfun.h@{extfun.h}}
+\subsubsection[meshplotter]{\setlength{\rightskip}{0pt plus 5cm}void meshplotter (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, \hyperlink{structMapNames}{Map\-Names} $\ast$ {\em mapnames}, double {\em v\_\-star})}}
+\label{extfun_8h_a40}
+
+
+this function writes text tecplot output files in the mshplxxxxxxxx.plt format. This is largely untouched since before I (Keith) joined the GMFG, just minor changes. This is the preferred (by Professor Patra) format of output for debugging purposes even though tecplxxxxxxxx.plt create nicer images. 
+
+\hypertarget{extfun_8h_a26}{
+\index{extfun.h@{extfun.h}!MPI_New_Datatype@{MPI\_\-New\_\-Datatype}}
+\index{MPI_New_Datatype@{MPI\_\-New\_\-Datatype}!extfun.h@{extfun.h}}
+\subsubsection[MPI\_\-New\_\-Datatype]{\setlength{\rightskip}{0pt plus 5cm}void MPI\_\-New\_\-Datatype ()}}
+\label{extfun_8h_a26}
+
+
+Create new MPI datatype: \hyperlink{structElemPack}{Elem\-Pack} type definition in \hyperlink{struct_8h}{struct.h} so structures of \hyperlink{structElemPack}{Elem\-Pack} and \hyperlink{structNeighborPack}{Neighbor\-Pack} can be sent and received. 
+
+\hypertarget{extfun_8h_a5}{
+\index{extfun.h@{extfun.h}!NodeBackgroundCheck@{NodeBackgroundCheck}}
+\index{NodeBackgroundCheck@{NodeBackgroundCheck}!extfun.h@{extfun.h}}
+\subsubsection[NodeBackgroundCheck]{\setlength{\rightskip}{0pt plus 5cm}void Node\-Background\-Check (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, unsigned $\ast$ {\em debugkey}, FILE $\ast$ {\em fp})}}
+\label{extfun_8h_a5}
+
+
+investigate a \hyperlink{classNode}{Node} question his \char`\"{}friends and family\char`\"{} about him. 
+
+\hypertarget{extfun_8h_a57}{
+\index{extfun.h@{extfun.h}!objects_per_slot@{objects\_\-per\_\-slot}}
+\index{objects_per_slot@{objects\_\-per\_\-slot}!extfun.h@{extfun.h}}
+\subsubsection[objects\_\-per\_\-slot]{\setlength{\rightskip}{0pt plus 5cm}void objects\_\-per\_\-slot (\hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, int, int)}}
+\label{extfun_8h_a57}
+
+
+this function is legacy, it is not defined in the finite difference/volume version of titan 
+
+\hypertarget{extfun_8h_a36}{
+\index{extfun.h@{extfun.h}!OUTPUT_ADAM_STATS@{OUTPUT\_\-ADAM\_\-STATS}}
+\index{OUTPUT_ADAM_STATS@{OUTPUT\_\-ADAM\_\-STATS}!extfun.h@{extfun.h}}
+\subsubsection[OUTPUT\_\-ADAM\_\-STATS]{\setlength{\rightskip}{0pt plus 5cm}void OUTPUT\_\-ADAM\_\-STATS (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops\_\-ptr})}}
+\label{extfun_8h_a36}
+
+
+Adam Stinton wanted some particular outputs, such as coordinates, speed, an pile height at locations of pile centroid, maximum pileheight and maximum flow speed, so I (Keith) wrote this for him. The function writes to a file named \char`\"{}flow\_\-dynamics.stats\char`\"{} (Adam's choice of file name). The information is useful enough that I included it in the mainline version of the code but we are getting too many output files, it's about time to combine a bunch of them into one file (prefereably output\_\-summary.\#\#\#\#\#\#). 
+
+\hypertarget{extfun_8h_a37}{
+\index{extfun.h@{extfun.h}!output_discharge@{output\_\-discharge}}
+\index{output_discharge@{output\_\-discharge}!extfun.h@{extfun.h}}
+\subsubsection[output\_\-discharge]{\setlength{\rightskip}{0pt plus 5cm}void output\_\-discharge (\hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$ {\em discharge}, int {\em myid})}}
+\label{extfun_8h_a37}
+
+
+titan now has the capability to caclulate the flux through discharge planes, the sign of the flux follows a righthand rule convention, net v cross ds is non negative for a series os segments \char`\"{}ds\char`\"{} drawn counter clockwise surrounding the pile(s) (out of the box is positive into the box in negative), Keith wrote this 
+
+\hypertarget{extfun_8h_a38}{
+\index{extfun.h@{extfun.h}!output_stoch_stats@{output\_\-stoch\_\-stats}}
+\index{output_stoch_stats@{output\_\-stoch\_\-stats}!extfun.h@{extfun.h}}
+\subsubsection[output\_\-stoch\_\-stats]{\setlength{\rightskip}{0pt plus 5cm}void output\_\-stoch\_\-stats (\hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops})}}
+\label{extfun_8h_a38}
+
+
+this function outputs statistics for with a collection of probabilistic runs, this output should probably be combined with the finalstats.\#\#\#\#\#\# file, Keith wrote this 
+
+\hypertarget{extfun_8h_a35}{
+\index{extfun.h@{extfun.h}!output_summary@{output\_\-summary}}
+\index{output_summary@{output\_\-summary}!extfun.h@{extfun.h}}
+\subsubsection[output\_\-summary]{\setlength{\rightskip}{0pt plus 5cm}void output\_\-summary (\hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops}, int {\em savefileflag})}}
+\label{extfun_8h_a35}
+
+
+at every output interval this function writes a line of revelant statistics about the flow to a file named output\_\-summary.\#\#\#\#\#\#, among the information contained in the file is which times of output match with which timestep numbers (which are used in the file names of the tecplot output files). Keith wrote this. 
+
+\hypertarget{extfun_8h_a25}{
+\index{extfun.h@{extfun.h}!Pack_element@{Pack\_\-element}}
+\index{Pack_element@{Pack\_\-element}!extfun.h@{extfun.h}}
+\subsubsection[Pack\_\-element]{\setlength{\rightskip}{0pt plus 5cm}void Pack\_\-element (void $\ast$ {\em sendel}, \hyperlink{structElemPack}{Elem\-Pack} $\ast$ {\em elem}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em destination\_\-proc})}}
+\label{extfun_8h_a25}
+
+
+\hyperlink{extfun_8h_a25}{Pack\_\-element()} is a friend function of the \hyperlink{classElement}{Element} and \hyperlink{classNode}{Node} classes that packs relevant information from an element \char`\"{}sendel\char`\"{} into a smaller data structure (\hyperlink{structElemPack}{Elem\-Pack}) to be sent by an mpi call to another processor, this is used when exchanging ghost cell information or repartitioning. 
+
+\hypertarget{extfun_8h_a30}{
+\index{extfun.h@{extfun.h}!q_sort_data@{q\_\-sort\_\-data}}
+\index{q_sort_data@{q\_\-sort\_\-data}!extfun.h@{extfun.h}}
+\subsubsection[q\_\-sort\_\-data]{\setlength{\rightskip}{0pt plus 5cm}void q\_\-sort\_\-data (double $\ast$ {\em numbers}, void $\ast$$\ast$ {\em data}, int {\em left}, int {\em right})}}
+\label{extfun_8h_a30}
+
+
+quicksort into ascending order, according to matching double precision numbers, the array of pointers to data 
+
+\hypertarget{extfun_8h_a52}{
+\index{extfun.h@{extfun.h}!random_error@{random\_\-error}}
+\index{random_error@{random\_\-error}!extfun.h@{extfun.h}}
+\subsubsection[random\_\-error]{\setlength{\rightskip}{0pt plus 5cm}double random\_\-error (\hyperlink{classHashTable}{Hash\-Table} $\ast$)}}
+\label{extfun_8h_a52}
+
+
+this function is legacy, it is not defined in the finite difference/volume version of titan 
+
+\hypertarget{extfun_8h_a16}{
+\index{extfun.h@{extfun.h}!Read_data@{Read\_\-data}}
+\index{Read_data@{Read\_\-data}!extfun.h@{extfun.h}}
+\subsubsection[Read\_\-data]{\setlength{\rightskip}{0pt plus 5cm}void Read\_\-data (int {\em imat}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structPileProps}{Pile\-Props} $\ast$ {\em pileprops\_\-ptr}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, \hyperlink{structFluxProps}{Flux\-Props} $\ast$ {\em fluxprops}, int $\ast$ {\em adaptflag\_\-ptr}, int $\ast$ {\em viz\_\-flag\_\-ptr}, int $\ast$ {\em order\_\-flag\_\-ptr}, \hyperlink{structMapNames}{Map\-Names} $\ast$ {\em mapnames\_\-ptr}, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$ {\em discharge\_\-ptr}, \hyperlink{structOutLine}{Out\-Line} $\ast$ {\em outline\_\-ptr}, int $\ast$ {\em srctype})}}
+\label{extfun_8h_a16}
+
+
+this function reads in the input data (excluding the \char`\"{}funky\char`\"{} grid) at the start of a run, whether or not run is a restart. 
+
+\hypertarget{extfun_8h_a17}{
+\index{extfun.h@{extfun.h}!Read_grid@{Read\_\-grid}}
+\index{Read_grid@{Read\_\-grid}!extfun.h@{extfun.h}}
+\subsubsection[Read\_\-grid]{\setlength{\rightskip}{0pt plus 5cm}void Read\_\-grid (int {\em myid}, int {\em numprocs}, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$ {\em Node\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$ {\em Elem\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structOutLine}{Out\-Line} $\ast$ {\em outline\_\-ptr})}}
+\label{extfun_8h_a17}
+
+
+this function reads in the \char`\"{}funky\char`\"{} grid at the start of an original run but not during restart. This used to be part of \hyperlink{extfun_8h_a16}{Read\_\-data()} before Keith seperated them when adding the restart capability. It is my (Keith's) opinion that this should be torn out and along with the preprocessor rewritten into a new format that is a lot more like what happens during the restart, this would significantly reduce the startup time for large runs. 
+
+\hypertarget{extfun_8h_a8}{
+\index{extfun.h@{extfun.h}!refine_neigh_update@{refine\_\-neigh\_\-update}}
+\index{refine_neigh_update@{refine\_\-neigh\_\-update}!extfun.h@{extfun.h}}
+\subsubsection[refine\_\-neigh\_\-update]{\setlength{\rightskip}{0pt plus 5cm}void refine\_\-neigh\_\-update (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em numprocs}, int {\em myid}, void $\ast$ {\em Refined\-List}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr})}}
+\label{extfun_8h_a8}
+
+
+\hypertarget{extfun_8h_a27}{
+\index{extfun.h@{extfun.h}!repartition@{repartition}}
+\index{repartition@{repartition}!extfun.h@{extfun.h}}
+\subsubsection[repartition]{\setlength{\rightskip}{0pt plus 5cm}void repartition (\hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, int)}}
+\label{extfun_8h_a27}
+
+
+this function repartitions (redistributes) the number of elements on each processor so they all have approximately the same ammount of work to do. it is called in \hyperlink{constant_8h_a21}{hpfem.C} and \hyperlink{constant_8h_a21}{init\_\-piles.C} 
+
+\hypertarget{extfun_8h_a28}{
+\index{extfun.h@{extfun.h}!repartition2@{repartition2}}
+\index{repartition2@{repartition2}!extfun.h@{extfun.h}}
+\subsubsection[repartition2]{\setlength{\rightskip}{0pt plus 5cm}void repartition2 (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr})}}
+\label{extfun_8h_a28}
+
+
+the replacement for \hyperlink{extfun_8h_a27}{repartition()}, this function repartitions (redistributes) the number of elements on each processor so they all have approximately the same ammount of work to do 
+
+Keith wrote this repartitioning function to make it work with any hash function, to not bother with constraining nodes (which is only useful in Continuous Galerkin method, titan uses a finite-difference/ finite-volume predictor/corrector scheme), and to not bother with keeping one brother of every element on the processor, now the unrefinement \hyperlink{classElement}{Element} constructor computes the key of the opposite brother and that's all you need.
+
+The 2 purposes of \hyperlink{extfun_8h_a28}{repartition2()} are to 1) balance the work between processors 2) remove any overlap of key ranges caused by refinement. with this implementation the second purpose is the more critical, but to understand why you first have to understand the problem.
+
+In Titan elements and nodes are \char`\"{}stored\char`\"{} in hash tables, which is just a one dimensional array of buckets and in each bucket is a linked list of elements or nodes. the \char`\"{}hash function\char`\"{} turns a \char`\"{}key\char`\"{} into the indice of the bucket the element or node resides in and then you search the bucket's linked-list for the element/node with the key you are looking for. Array access is fast, linked list access is slow. and there is an entire art form to minimizing the length of each linked list, i.e. making sure the elements/nodes are as equally distributed among the buckets as possible, in order to decrease the average time it takes to retrieve and element/node, that is the true goal.
+
+another complimentary way to achieve this goal is to ensure that elements/nodes are \char`\"{}preloaded\char`\"{} in to cache, which can be achieved if elements/nodes close to each other in physical space are stored close to each other in memory. The way titan accomplishes this is to organize data according to its position on (distance from the beginning of) a space filling curve. Essentially the keys are nothing more than the position of the node (or center node of the element) on the space filling curve. A space filling curve is simply a curve that travels to EVERY \_\-\_\-POINT\_\-\_\- (not just every element or node) in physical space, and visits all the points close to each other before moving on and then never comes back to the same region.
+
+basically it's a \char`\"{}power of 2\char`\"{} thing. The normalized map is a unit square ranging from (0,0) to (1,1). if you divide this square into 4 sub squares (by dividing each dimension in half), the space filling curve will visit all the points in one sub square before moving on to the next sub square. if you divide a sub square into 4 sub sub squares the same holds true, and this relationship is infinitely recursive all the way down to a single point in theory and down to the last bit in the (currently) 8 byte key in practice.
+
+however the physical dimensions of the map make it a rectangle not a square and we want elements/cells to be squares in PHYSICAL space which means that each dimension of the map will be divided into a different, and usually not a power of 2, integer number of elements. the problem arises when a \char`\"{}father\char`\"{} element is divided into it's 4 \char`\"{}son\char`\"{} elements and some of the son elements are on a different \char`\"{}sub square\char`\"{} or different \char`\"{}sub sub square\char`\"{} or different \char`\"{}sub sub sub (you get the idea) square.\char`\"{} Since each processor owns one continuous segment of the space filling curve, this means that refinement can result in some of the \char`\"{}sons\char`\"{} having keys that should be on another processor.
+
+why does it matter which processor an element belongs to? Each element needs its neighbor's information to update itself, which during multiprocessor simulations means processors have to communicate with each other, which means they have to know which processors they need to send information to and receive information from. So if an element is on the wrong processor it's game over. Luckily, elements \char`\"{}remember\char`\"{} which processors it's neighbors belong to so this grants a \_\-temporary\_\- reprieve but during repartitioning, when elements are being moved from one processor to another, this information needs to be correctly reset. And it is a whole lot easier and cheaper in terms of communication (which is slow and hence you want to minimize it) for all the elements to belong to the processors that owns the section of the space filling curve they're on.
+
+that is why it is absolutely essential to fix key range overlap during repartitioning (at least for the way that I have implemented repartitioning). A slight load imbalance can be tolerated but key range overlap can not be.
+
+repartition2 has 2 steps a sequential send (sending/receiving elements to/from the processor(s) immediately before and/or after you on the space filling curve) and a non sequential send that fixes any remaining key range overlap and then updates the neighbor information of every element it owns.
+
+I (Keith) implemented the sequential send in an \char`\"{}intelligent\char`\"{} way or at least intelligent enough that it can actually be \char`\"{}confused\char`\"{} by a pathological case. The \char`\"{}sequential send\char`\"{} determines how many elements it would need to send and receive from its 2 neighbors on the space filling curve to 1) achieve load (computational work) balance 2) to eliminate it's key range overlap with its neighbor since communication is expensive it is preferable to do a one way only send/receive, that is to send OR receive enough elements to fix BOTH load balance and key range overlap in just one send OR receive. If you have to sacrifice a little load balance to ensure the key range overlap is fixed that's okay because the slight load imbalance will be corrected by the next repartitioning so it's not a big deal.
+
+the pathological case is when a processor has to send away \_\-all\_\- of its elements to fix the key range overlap, and possibly give away the same element(s) to BOTH of its neighbor on the space filling curve. Yes that actually happened and it caused titan to crash, which is why I had to rewrite repartition2 to build in a failsafe to protect against that. The failsafe is to make each processor refuse to send away more than half (actually total number of elements minus one divided by 2) of its elements to either neighbor, and if then if it is necessary, repeat the sequential send until each processor's \char`\"{}maximum key\char`\"{} is greater than its \char`\"{}minimum key\char`\"{}. This is the reason the sequential send is inside a while loop. Once the maximum key is greater than than the minimum key, the non sequential send can fix the remaining key range overlap without any difficulty.
+
+note because of some tricks I've played with the initial grid generator (to exploit the space filling curve's \char`\"{}power of 2\char`\"{} effect) the sequential send will usually occur only once per repartitioning and the non sequential send will usually not occur at all. In fact these will only occur when there are far too few elements per processor OR when the exceedingly vast majority of the elements are very close together on the space filling curve and very few exist elsewhere. This means communication will usually be minimal and thus the code will be fast.
+
+I (Keith) spent a minor amount of work to make this fast (or at least not \char`\"{}as dumb as a post\char`\"{} slow), by doing the intelligent (usually one way) sequential send and overlapping computation and communication to keep the CPU busy while it's waiting to exchange elements with other processors so no time will be wasted then.
+
+The sequential send and non sequential send do all of their own communication (do not rely on other non MPI functions to do it) but a \hyperlink{move__data_8C_a0}{move\_\-data()} is required immediately after repartitioning to create the layer of \char`\"{}ghost\char`\"{} cells/elements around the processor's collection of elements. \hypertarget{extfun_8h_a19}{
+\index{extfun.h@{extfun.h}!saverun@{saverun}}
+\index{saverun@{saverun}!extfun.h@{extfun.h}}
+\subsubsection[saverun]{\setlength{\rightskip}{0pt plus 5cm}void saverun (\hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$ {\em Node\-Table}, int {\em myid}, int {\em numprocs}, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$ {\em Elem\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, \hyperlink{structMapNames}{Map\-Names} $\ast$ {\em mapnames\_\-ptr}, int {\em adaptflag}, int {\em order\_\-flag}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops\_\-ptr}, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$ {\em discharge\_\-ptr}, \hyperlink{structOutLine}{Out\-Line} $\ast$ {\em outline\_\-ptr}, int $\ast$ {\em savefileflag})}}
+\label{extfun_8h_a19}
+
+
+this function writes a restart file, all the non \hyperlink{classNode}{Node}, non \hyperlink{classElement}{Element} data, thfor example material properties, statistics, and hastable information. A loop through the hastables call member functions \hyperlink{classNode_a6}{Node::save\_\-node()} and \hyperlink{classElement_a6}{Element::save\_\-elem()} which each save 1 \hyperlink{classNode}{Node} or \hyperlink{classElement}{Element} in a single write statement to the restart file so this is VERY fast. However it could be rewritten in a slightly cleaner fashion by adding/moving functionality to \hyperlink{useful__lib_8h}{useful\_\-lib.h} and \hyperlink{constant_8h_a21}{useful\_\-lib.C} to pack/unpack variables into an unsigned array, which is what should be done if Read\_\-grid is ever rewritten. 
+
+\hypertarget{extfun_8h_a53}{
+\index{extfun.h@{extfun.h}!search_object@{search\_\-object}}
+\index{search_object@{search\_\-object}!extfun.h@{extfun.h}}
+\subsubsection[search\_\-object]{\setlength{\rightskip}{0pt plus 5cm}void search\_\-object (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, unsigned $\ast$ {\em key}, int {\em myid})}}
+\label{extfun_8h_a53}
+
+
+this function is legacy, it is not defined in the finite difference/volume version of titan 
+
+\hypertarget{extfun_8h_a31}{
+\index{extfun.h@{extfun.h}!smooth@{smooth}}
+\index{smooth@{smooth}!extfun.h@{extfun.h}}
+\subsubsection[smooth]{\setlength{\rightskip}{0pt plus 5cm}void smooth (\hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$)}}
+\label{extfun_8h_a31}
+
+
+this function is legacy, it is not defined in the finite difference/volume version of titan 
+
+\hypertarget{extfun_8h_a32}{
+\index{extfun.h@{extfun.h}!smooth_II@{smooth\_\-II}}
+\index{smooth_II@{smooth\_\-II}!extfun.h@{extfun.h}}
+\subsubsection[smooth\_\-II]{\setlength{\rightskip}{0pt plus 5cm}void smooth\_\-II (\hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$)}}
+\label{extfun_8h_a32}
+
+
+this function is legacy, it is not defined in the finite difference/volume version of titan 
+
+\hypertarget{extfun_8h_a13}{
+\index{extfun.h@{extfun.h}!step@{step}}
+\index{step@{step}!extfun.h@{extfun.h}}
+\subsubsection[step]{\setlength{\rightskip}{0pt plus 5cm}void step (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, int {\em nump}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, \hyperlink{structPileProps}{Pile\-Props} $\ast$ {\em pileprops\_\-ptr}, \hyperlink{structFluxProps}{Flux\-Props} $\ast$ {\em fluxprops}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops\_\-ptr}, int $\ast$ {\em order\_\-flag}, \hyperlink{structOutLine}{Out\-Line} $\ast$ {\em outline\_\-ptr}, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$ {\em discharge}, int {\em adaptflag})}}
+\label{extfun_8h_a13}
+
+
+this function implements 1 time step which consists of (by calling other functions) computing spatial derivatives of state variables, computing k active/passive and wave speeds and therefore timestep size, does a finite difference predictor step, followed by a finite volume corrector step, and lastly computing statistics from the current timestep's data. 
+
+\hypertarget{extfun_8h_a39}{
+\index{extfun.h@{extfun.h}!tecplotter@{tecplotter}}
+\index{tecplotter@{tecplotter}!extfun.h@{extfun.h}}
+\subsubsection[tecplotter]{\setlength{\rightskip}{0pt plus 5cm}void tecplotter (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, \hyperlink{structMapNames}{Map\-Names} $\ast$ {\em mapnames}, double {\em v\_\-star})}}
+\label{extfun_8h_a39}
+
+
+this function writes text tecplot output files in the tecplxxxxxxxx.plt format. Keith rewrote this function to eliminate a lot of bugs shortly after he started the project, since then files were 1/3 the size they were previously. 
+
+\hypertarget{extfun_8h_a6}{
+\index{extfun.h@{extfun.h}!unrefine@{unrefine}}
+\index{unrefine@{unrefine}!extfun.h@{extfun.h}}
+\subsubsection[unrefine]{\setlength{\rightskip}{0pt plus 5cm}void unrefine (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, double {\em target}, int {\em myid}, int {\em nump}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr})}}
+\label{extfun_8h_a6}
+
+
+this function loops through all the elements on this processor and (by calling other functions) checks which elements satisfy criteria for being okay to unrefine, if they can be it unrefines them. 
+
+\hypertarget{extfun_8h_a10}{
+\index{extfun.h@{extfun.h}!unrefine_interp_neigh_update@{unrefine\_\-interp\_\-neigh\_\-update}}
+\index{unrefine_interp_neigh_update@{unrefine\_\-interp\_\-neigh\_\-update}!extfun.h@{extfun.h}}
+\subsubsection[unrefine\_\-interp\_\-neigh\_\-update]{\setlength{\rightskip}{0pt plus 5cm}void unrefine\_\-interp\_\-neigh\_\-update (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em nump}, int {\em myid}, void $\ast$ {\em Other\-Proc\-Update})}}
+\label{extfun_8h_a10}
+
+
+\hypertarget{extfun_8h_a9}{
+\index{extfun.h@{extfun.h}!unrefine_neigh_update@{unrefine\_\-neigh\_\-update}}
+\index{unrefine_neigh_update@{unrefine\_\-neigh\_\-update}!extfun.h@{extfun.h}}
+\subsubsection[unrefine\_\-neigh\_\-update]{\setlength{\rightskip}{0pt plus 5cm}void unrefine\_\-neigh\_\-update (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, void $\ast$ {\em New\-Father\-List})}}
+\label{extfun_8h_a9}
+
+
+\hypertarget{extfun_8h_a15}{
+\index{extfun.h@{extfun.h}!update_topo@{update\_\-topo}}
+\index{update_topo@{update\_\-topo}!extfun.h@{extfun.h}}
+\subsubsection[update\_\-topo]{\setlength{\rightskip}{0pt plus 5cm}int update\_\-topo (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em myid}, int {\em nump}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, \hyperlink{structMapNames}{Map\-Names} $\ast$ {\em mapnames})}}
+\label{extfun_8h_a15}
+
+
+this function is used for dynamic replacement of a GIS digital elevation map, for example, when you're running a large simulation on multiple processors about a real life scenario you're expecting to occur soon and a channel collapses. If in the simulation the flow has not yet a gotten to the channel this could allow you to replace the DEM with another one in which the channel has collapsed and continue running the simulation without having to restart from the beginning. while this code updates the map, the logic and external programs used to in real time decide if the map should be updated have not been fully developed, this is the damd (data manager daemon, area of research in which Dr. Matt Jones is Participating). 
+
+\hypertarget{extfun_8h_a61}{
+\index{extfun.h@{extfun.h}!view_elm@{view\_\-elm}}
+\index{view_elm@{view\_\-elm}!extfun.h@{extfun.h}}
+\subsubsection[view\_\-elm]{\setlength{\rightskip}{0pt plus 5cm}void view\_\-elm (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid})}}
+\label{extfun_8h_a61}
+
+
+\hypertarget{extfun_8h_a42}{
+\index{extfun.h@{extfun.h}!viz_output@{viz\_\-output}}
+\index{viz_output@{viz\_\-output}!extfun.h@{extfun.h}}
+\subsubsection[viz\_\-output]{\setlength{\rightskip}{0pt plus 5cm}void viz\_\-output (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em myid}, int {\em numprocs}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, \hyperlink{structMapNames}{Map\-Names} $\ast$ {\em mapnames})}}
+\label{extfun_8h_a42}
+
+
+another of \char`\"{}pady's\char`\"{} output functions, since Keith never met \char`\"{}pady\char`\"{} this is probably long out of date 
+
+\hypertarget{extfun_8h_a41}{
+\index{extfun.h@{extfun.h}!vizplotter@{vizplotter}}
+\index{vizplotter@{vizplotter}!extfun.h@{extfun.h}}
+\subsubsection[vizplotter]{\setlength{\rightskip}{0pt plus 5cm}void vizplotter (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops})}}
+\label{extfun_8h_a41}
+
+
+one of \char`\"{}pady's\char`\"{} output functions, since Keith never met \char`\"{}pady\char`\"{} this is probably long out of date 
+
+\hypertarget{extfun_8h_a47}{
+\index{extfun.h@{extfun.h}!web_correct@{web\_\-correct}}
+\index{web_correct@{web\_\-correct}!extfun.h@{extfun.h}}
+\subsubsection[web\_\-correct]{\setlength{\rightskip}{0pt plus 5cm}void web\_\-correct (\hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops})}}
+\label{extfun_8h_a47}
+
+
+this is one of the small output file size functions, this output format is meant for use with a web browser based viewer, this is now out of date. 
+
+\hypertarget{extfun_8h_a45}{
+\index{extfun.h@{extfun.h}!web_output@{web\_\-output}}
+\index{web_output@{web\_\-output}!extfun.h@{extfun.h}}
+\subsubsection[web\_\-output]{\setlength{\rightskip}{0pt plus 5cm}void web\_\-output (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em myid}, double {\em time}, int {\em numprocs}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops})}}
+\label{extfun_8h_a45}
+
+
+this is one of the small output file size functions, this output format is meant for use with a web browser based viewer, this is now out of date. 
+
+if skip flag \hypertarget{extfun_8h_a46}{
+\index{extfun.h@{extfun.h}!web_simplify@{web\_\-simplify}}
+\index{web_simplify@{web\_\-simplify}!extfun.h@{extfun.h}}
+\subsubsection[web\_\-simplify]{\setlength{\rightskip}{0pt plus 5cm}void web\_\-simplify (\hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops})}}
+\label{extfun_8h_a46}
+
+
+this is one of the small output file size functions, this output format is meant for use with a web browser based viewer, this is now out of date. 
+
+\hypertarget{extfun_8h_a43}{
+\index{extfun.h@{extfun.h}!write_xdmf@{write\_\-xdmf}}
+\index{write_xdmf@{write\_\-xdmf}!extfun.h@{extfun.h}}
+\subsubsection[write\_\-xdmf]{\setlength{\rightskip}{0pt plus 5cm}int write\_\-xdmf (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structMapNames}{Map\-Names} $\ast$ {\em mapnames})}}
+\label{extfun_8h_a43}
+
+
+e\-Xtensible Data Model and Format (\href{http://www.arl.hpc.mil/ice/}{\tt http://www.arl.hpc.mil/ice/}) is a Paraview readable data format 
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{extfun_8h_a1}{
+\index{extfun.h@{extfun.h}!QUADNODES@{QUADNODES}}
+\index{QUADNODES@{QUADNODES}!extfun.h@{extfun.h}}
+\subsubsection[QUADNODES]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{extfun_8h_a1}{QUADNODES} = 9}}
+\label{extfun_8h_a1}
+
+

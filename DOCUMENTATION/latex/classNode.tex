@@ -1,0 +1,688 @@
+\hypertarget{classNode}{
+\section{Node Class Reference}
+\label{classNode}\index{Node@{Node}}
+}
+{\tt \#include $<$node.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classNode_a0}{Node} (unsigned $\ast$keyi, double $\ast$coordi, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr)
+\begin{CompactList}\small\item\em this is the constructor that creates a node when the initial grid is read in \item\end{CompactList}\item 
+\hyperlink{classNode_a1}{Node} (unsigned $\ast$keyi, double $\ast$coordi, int inf, int ord, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr)
+\begin{CompactList}\small\item\em this is the constructor that creates bubble and edge nodes for son Elements when the father \hyperlink{classElement}{Element} is refined \item\end{CompactList}\item 
+\hyperlink{classNode_a2}{Node} (unsigned $\ast$keyi, double $\ast$coordi, int inf, int ord, double elev, int yada)
+\begin{CompactList}\small\item\em this is the node constructor that is called in \hyperlink{update__element__info_8C_a2}{construct\_\-el()} in \hyperlink{constant_8h_a21}{update\_\-element\_\-info.C} \item\end{CompactList}\item 
+\hyperlink{classNode_a3}{Node} (FILE $\ast$fp, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr)
+\begin{CompactList}\small\item\em this is the constructor that recreates/restores a node that was saved in a restart file. \item\end{CompactList}\item 
+\hyperlink{classNode_a4}{Node} ()
+\begin{CompactList}\small\item\em constructor that creates a node without setting any of its values \item\end{CompactList}\item 
+\hyperlink{classNode_a5}{$\sim$Node} ()
+\item 
+void \hyperlink{classNode_a6}{save\_\-node} (FILE $\ast$fp)
+\begin{CompactList}\small\item\em this function writes all of one Node's data necessary for restart to a file in a single fwrite statement \item\end{CompactList}\item 
+void \hyperlink{classNode_a7}{putdof} (int lower, int up)
+\begin{CompactList}\small\item\em this function is legacy afeapi, it is extraneous for the finite difference/volume version of titan, however it appears once in \hyperlink{constant_8h_a21}{htflush.C} \item\end{CompactList}\item 
+int $\ast$ \hyperlink{classNode_a8}{getdof} ()
+\begin{CompactList}\small\item\em this function is legacy afeapi, it is extraneous for the finite difference/volume version of titan \item\end{CompactList}\item 
+void \hyperlink{classNode_a9}{putglnum} (int)
+\begin{CompactList}\small\item\em this function is legacy afeapi \item\end{CompactList}\item 
+void \hyperlink{classNode_a10}{putsol} (double $\ast$s)
+\begin{CompactList}\small\item\em this function is legacy afeapi \item\end{CompactList}\item 
+int \hyperlink{classNode_a11}{getglnum} ()
+\begin{CompactList}\small\item\em this function is legacy afeapi \item\end{CompactList}\item 
+int \hyperlink{classNode_a12}{getinfo} ()
+\begin{CompactList}\small\item\em this function returns the node type, the options are listed in \hyperlink{constant_8h}{constant.h} and include: NODEINIT, CORNER, BUBBLE, SIDE, CONSTRAINED, S\_\-C\_\-CON, S\_\-S\_\-CON, ASSIGNED,and UNASSIGNED. \item\end{CompactList}\item 
+void \hyperlink{classNode_a13}{putinfo} (int in)
+\begin{CompactList}\small\item\em this function sets the node type, the options are listed in \hyperlink{constant_8h}{constant.h} and include: NODEINIT, CORNER, BUBBLE, SIDE, CONSTRAINED, S\_\-C\_\-CON, S\_\-S\_\-CON, ASSIGNED,and UNASSIGNED. \item\end{CompactList}\item 
+unsigned $\ast$ \hyperlink{classNode_a14}{pass\_\-key} ()
+\begin{CompactList}\small\item\em this function returns the node key, a key is a single number that is 2 unsigned variables long and is used to access the pointer to a Node or \hyperlink{classElement}{Element} through the \hyperlink{classHashTable}{Hash\-Table} \item\end{CompactList}\item 
+double $\ast$ \hyperlink{classNode_a15}{get\_\-coord} ()
+\begin{CompactList}\small\item\em this function returns the global x and y coordinates of the node, in the finite difference version of Titan this is not always reliable, use the coordinates of the element instead. It is reliable in the Discontinuous Galerkin version of Titan however. \item\end{CompactList}\item 
+double $\ast$ \hyperlink{classNode_a16}{getsol} ()
+\begin{CompactList}\small\item\em this is legacy afeapi and is not used \item\end{CompactList}\item 
+int \hyperlink{classNode_a17}{get\_\-order} ()
+\begin{CompactList}\small\item\em this is legacy afeapi and is not used \item\end{CompactList}\item 
+void \hyperlink{classNode_a18}{put\_\-order} (int)
+\begin{CompactList}\small\item\em this is legacy afeapi and is not used \item\end{CompactList}\item 
+void \hyperlink{classNode_a19}{increase\_\-order} ()
+\begin{CompactList}\small\item\em this is legacy afeapi and is not used \item\end{CompactList}\item 
+void \hyperlink{classNode_a20}{set\_\-parameters} (int inf, int ord)
+\begin{CompactList}\small\item\em this function sets the node information and order, node order is legacy afeapi but node information is currently used, this function is called in \hyperlink{constant_8h_a21}{update\_\-element\_\-info.C}, another distict function with a similar name \hyperlink{structrefined__neighbor_a1}{refined\_\-neighbor::set\_\-parameters} also existis and is used in \hyperlink{constant_8h_a21}{updatenei.C}, these should not be confused \item\end{CompactList}\item 
+int \hyperlink{classNode_a21}{get\_\-reconstructed} ()
+\begin{CompactList}\small\item\em this is legacy afeapi and is not used \item\end{CompactList}\item 
+void \hyperlink{classNode_a22}{put\_\-reconstructed} (int)
+\begin{CompactList}\small\item\em this is legacy afeapi and is not used at all except once in \hyperlink{constant_8h_a21}{htflush.C} \item\end{CompactList}\item 
+int \hyperlink{classNode_a23}{get\_\-sol\_\-deleted} ()
+\begin{CompactList}\small\item\em this is legacy afeapi and is not used at all except once in \hyperlink{constant_8h_a21}{htflush.C} \item\end{CompactList}\item 
+void \hyperlink{classNode_a24}{put\_\-sol\_\-deleted} (int flag)
+\begin{CompactList}\small\item\em this is legacy afeapi and is not used at all except once in \hyperlink{constant_8h_a21}{htflush.C} \item\end{CompactList}\item 
+void \hyperlink{classNode_a25}{put\_\-id} (int id\_\-in)
+\begin{CompactList}\small\item\em this function sets the id of a node, it is used in repartitioning, \item\end{CompactList}\item 
+int \hyperlink{classNode_a26}{get\_\-id} ()
+\begin{CompactList}\small\item\em this function returns the id of a node, it is used in repartitioning, \item\end{CompactList}\item 
+double $\ast$ \hyperlink{classNode_a27}{get\_\-flux} ()
+\begin{CompactList}\small\item\em this function returns the vector of fluxes stored in an edge node between elements \item\end{CompactList}\item 
+void \hyperlink{classNode_a28}{zero\_\-flux} ()
+\begin{CompactList}\small\item\em this function zeros the flux used during refinement, this is only distinct from the regular flux if flux velocity is being zero'd because the experimental stopping criteria says it should be. This feature is disabled by default. Keith implemented it. \item\end{CompactList}\item 
+double \hyperlink{classNode_a29}{get\_\-elevation} ()
+\begin{CompactList}\small\item\em this function returns the elevation of a node, in the finite difference version of Titan this is not always reliable, use the elevation of the element instead. It is reliable in the Discontinuous Galerkin version of Titan however. \item\end{CompactList}\item 
+void \hyperlink{classNode_a30}{set\_\-elevation} (\hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr)
+\begin{CompactList}\small\item\em this function sets the elevation of a node \item\end{CompactList}\item 
+void \hyperlink{classNode_a31}{put\_\-num\_\-assoc\_\-elem} (int numin)
+\begin{CompactList}\small\item\em this function stores the number of elements associated with this node \item\end{CompactList}\item 
+int \hyperlink{classNode_a32}{get\_\-num\_\-assoc\_\-elem} ()
+\begin{CompactList}\small\item\em this function returns the number of elements associated with this node \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+int \hyperlink{classNode_p0}{id}
+\begin{CompactList}\small\item\em used in delete\_\-unused\_\-nodes\_\-and\_\-elements() function \item\end{CompactList}\item 
+int \hyperlink{classNode_p1}{num\_\-assoc\_\-elem}
+\begin{CompactList}\small\item\em the number of associated elements, it is used in extraneous node \item\end{CompactList}\item 
+int \hyperlink{classNode_p2}{info}
+\begin{CompactList}\small\item\em says what type of node this is see the comments of Node::get\_\-info() \item\end{CompactList}\item 
+int \hyperlink{classNode_p3}{order}
+\begin{CompactList}\small\item\em this is legacy afeapi and is not important though it would involve quite a bit of work to remove because it occurs frequently in Titan \item\end{CompactList}\item 
+double \hyperlink{classNode_p4}{coord} \mbox{[}\hyperlink{constant_8h_a15}{DIMENSION}\mbox{]}
+\begin{CompactList}\small\item\em the global x and y coordinates of the node \item\end{CompactList}\item 
+unsigned \hyperlink{classNode_p5}{key} \mbox{[}\hyperlink{constant_8h_a10}{KEYLENGTH}\mbox{]}
+\begin{CompactList}\small\item\em this is the node key, a key is a single number that is 2 unsigned variables long and is used to access the pointer to a Node or \hyperlink{classElement}{Element} through the \hyperlink{classHashTable}{Hash\-Table} \item\end{CompactList}\item 
+void $\ast$ \hyperlink{classNode_p6}{nextptr}
+\begin{CompactList}\small\item\em points to the next node \item\end{CompactList}\item 
+void $\ast$ \hyperlink{classNode_p7}{preptr}
+\begin{CompactList}\small\item\em points to the previous node \item\end{CompactList}\item 
+int \hyperlink{classNode_p8}{dof} \mbox{[}2\mbox{]}
+\begin{CompactList}\small\item\em nodal degrees of freedom are legacy afeapi but came with the comment \char`\"{}dof\mbox{[}1\mbox{]}-dof\mbox{[}0\mbox{]}+1 = dof of the node\char`\"{} \item\end{CompactList}\item 
+int \hyperlink{classNode_p9}{glnum}
+\begin{CompactList}\small\item\em glnum is legacy afeapit but came with the comment \char`\"{}the node occupies the position from glnum to glnum+dof\char`\"{} \item\end{CompactList}\item 
+double $\ast$ \hyperlink{classNode_p10}{sol}
+\begin{CompactList}\small\item\em sol is legacy afeapi and pointed to the nodal solution array \item\end{CompactList}\item 
+int \hyperlink{classNode_p11}{reconstructed}
+\begin{CompactList}\small\item\em reconstructed is legacy afeapi \item\end{CompactList}\item 
+int \hyperlink{classNode_p12}{sol\_\-deleted}
+\begin{CompactList}\small\item\em sol\_\-deleted is legacy afeapi, it appears in \hyperlink{constant_8h_a21}{node.C} and \hyperlink{constant_8h_a21}{htflush.C} \item\end{CompactList}\item 
+double \hyperlink{classNode_p13}{elevation}
+\begin{CompactList}\small\item\em this elevation should currently be the GIS elevation at the finest \char`\"{}scale\char`\"{} \item\end{CompactList}\item 
+double \hyperlink{classNode_p14}{flux} \mbox{[}\hyperlink{constant_8h_a45}{NUM\_\-STATE\_\-VARS}\mbox{]}
+\begin{CompactList}\small\item\em these are the so called \char`\"{}regular fluxes\char`\"{} that is the ones that are used to update the elements, assume that element normal is parallel to either the x or y axis, Keith is the one who introduced a distinction between regular and refinement fluxes for use with the stopping criteria, this distinction is disabled by default \item\end{CompactList}\item 
+double \hyperlink{classNode_p15}{refinementflux} \mbox{[}\hyperlink{constant_8h_a45}{NUM\_\-STATE\_\-VARS}\mbox{]}
+\begin{CompactList}\small\item\em the \char`\"{}refinement flux\char`\"{} is necessary when using the stopping criteria to reset the \char`\"{}regular\char`\"{} fluxes to what they would be if velocity was zero in the cell(s) involved. The refinement flux is what the flux would have been if it had not been reset, they are needed since refinement is based on fluxes (and also pileheight gradient but that's not relevant here) Keith is the one who introduced a distinction between regular and refinement fluxes for use with the stopping criteria, this distinction is disabled by default. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+class \hyperlink{classNode_n0}{Element}
+\item 
+void \hyperlink{classNode_n1}{correct} (\hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, double dt, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structFluxProps}{Flux\-Props} $\ast$fluxprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, void $\ast$Em\-Temp, double $\ast$forceint, double $\ast$forcebed, double $\ast$eroded, double $\ast$deposited)
+\begin{CompactList}\small\item\em non member C++ function that wraps the fortran correct\_\-() function \item\end{CompactList}\item 
+void \hyperlink{classNode_n2}{Assert\-Mesh\-Error\-Free} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int numprocs, int myid, double loc)
+\begin{CompactList}\small\item\em this function checks for any and all possible mesh errors, i.e. it checks if the mesh is legal, it says nothing about the quality of a legal mesh, you must have ghost information present before performing this check, WARNING THIS CHECK TAKES A LOT OF TIME, ONLY USE IT TO DEBUG. \item\end{CompactList}\item 
+void \hyperlink{classNode_n3}{Elem\-Background\-Check} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, unsigned $\ast$debugkey, FILE $\ast$fp)
+\begin{CompactList}\small\item\em investigate an \hyperlink{classElement}{Element}, question his \char`\"{}friends and family\char`\"{} about him. \item\end{CompactList}\item 
+void \hyperlink{classNode_n4}{Elem\-Background\-Check2} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, void $\ast$Em\-Debug, FILE $\ast$fp)
+\item 
+void \hyperlink{classNode_n5}{Node\-Background\-Check} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, unsigned $\ast$debugkey, FILE $\ast$fp)
+\begin{CompactList}\small\item\em investigate a Node question his \char`\"{}friends and family\char`\"{} about him. \item\end{CompactList}\item 
+void \hyperlink{classNode_n6}{delete\_\-oldsons} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid, void $\ast$Em\-Father)
+\item 
+void \hyperlink{classNode_n7}{refine\_\-neigh\_\-update} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int numprocs, int myid, void $\ast$Refined\-List, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr)
+\item 
+void \hyperlink{classNode_n8}{unrefine\_\-interp\_\-neigh\_\-update} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int nump, int myid, void $\ast$Other\-Proc\-Update)
+\item 
+void \hyperlink{classNode_n9}{Pack\_\-element} (void $\ast$sendel, \hyperlink{structElemPack}{Elem\-Pack} $\ast$elem, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int)
+\begin{CompactList}\small\item\em \hyperlink{classNode_n9}{Pack\_\-element()} is a friend function of the \hyperlink{classElement}{Element} and Node classes that packs relevant information from an element \char`\"{}sendel\char`\"{} into a smaller data structure (\hyperlink{structElemPack}{Elem\-Pack}) to be sent by an mpi call to another processor, this is used when exchanging ghost cell information or repartitioning. \item\end{CompactList}\item 
+void \hyperlink{classNode_n10}{destroy\_\-element} (void $\ast$r\_\-element, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr)
+\item 
+void \hyperlink{classNode_n11}{create\_\-element} (\hyperlink{structElemPack}{Elem\-Pack} $\ast$elem2, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, double $\ast$e\_\-error)
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classNode_a0}{
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\subsubsection[Node]{\setlength{\rightskip}{0pt plus 5cm}Node::Node (unsigned $\ast$ {\em keyi}, double $\ast$ {\em coordi}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr})}}
+\label{classNode_a0}
+
+
+this is the constructor that creates a node when the initial grid is read in 
+
+\hypertarget{classNode_a1}{
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\subsubsection[Node]{\setlength{\rightskip}{0pt plus 5cm}Node::Node (unsigned $\ast$ {\em keyi}, double $\ast$ {\em coordi}, int {\em inf}, int {\em ord}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr})}}
+\label{classNode_a1}
+
+
+this is the constructor that creates bubble and edge nodes for son Elements when the father \hyperlink{classElement}{Element} is refined 
+
+\hypertarget{classNode_a2}{
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\subsubsection[Node]{\setlength{\rightskip}{0pt plus 5cm}Node::Node (unsigned $\ast$ {\em keyi}, double $\ast$ {\em coordi}, int {\em inf}, int {\em ord}, double {\em elev}, int {\em yada})}}
+\label{classNode_a2}
+
+
+this is the node constructor that is called in \hyperlink{update__element__info_8C_a2}{construct\_\-el()} in \hyperlink{constant_8h_a21}{update\_\-element\_\-info.C} 
+
+\hypertarget{classNode_a3}{
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\subsubsection[Node]{\setlength{\rightskip}{0pt plus 5cm}Node::Node (FILE $\ast$ {\em fp}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr})}}
+\label{classNode_a3}
+
+
+this is the constructor that recreates/restores a node that was saved in a restart file. 
+
+\hypertarget{classNode_a4}{
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\subsubsection[Node]{\setlength{\rightskip}{0pt plus 5cm}Node::Node ()}}
+\label{classNode_a4}
+
+
+constructor that creates a node without setting any of its values 
+
+\hypertarget{classNode_a5}{
+\index{Node@{Node}!~Node@{$\sim$Node}}
+\index{~Node@{$\sim$Node}!Node@{Node}}
+\subsubsection[$\sim$Node]{\setlength{\rightskip}{0pt plus 5cm}Node::$\sim$\hyperlink{classNode}{Node} ()}}
+\label{classNode_a5}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classNode_a15}{
+\index{Node@{Node}!get_coord@{get\_\-coord}}
+\index{get_coord@{get\_\-coord}!Node@{Node}}
+\subsubsection[get\_\-coord]{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ Node::get\_\-coord ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a15}
+
+
+this function returns the global x and y coordinates of the node, in the finite difference version of Titan this is not always reliable, use the coordinates of the element instead. It is reliable in the Discontinuous Galerkin version of Titan however. 
+
+\hypertarget{classNode_a29}{
+\index{Node@{Node}!get_elevation@{get\_\-elevation}}
+\index{get_elevation@{get\_\-elevation}!Node@{Node}}
+\subsubsection[get\_\-elevation]{\setlength{\rightskip}{0pt plus 5cm}double Node::get\_\-elevation ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a29}
+
+
+this function returns the elevation of a node, in the finite difference version of Titan this is not always reliable, use the elevation of the element instead. It is reliable in the Discontinuous Galerkin version of Titan however. 
+
+\hypertarget{classNode_a27}{
+\index{Node@{Node}!get_flux@{get\_\-flux}}
+\index{get_flux@{get\_\-flux}!Node@{Node}}
+\subsubsection[get\_\-flux]{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ Node::get\_\-flux ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a27}
+
+
+this function returns the vector of fluxes stored in an edge node between elements 
+
+\hypertarget{classNode_a26}{
+\index{Node@{Node}!get_id@{get\_\-id}}
+\index{get_id@{get\_\-id}!Node@{Node}}
+\subsubsection[get\_\-id]{\setlength{\rightskip}{0pt plus 5cm}int Node::get\_\-id ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a26}
+
+
+this function returns the id of a node, it is used in repartitioning, 
+
+\hypertarget{classNode_a32}{
+\index{Node@{Node}!get_num_assoc_elem@{get\_\-num\_\-assoc\_\-elem}}
+\index{get_num_assoc_elem@{get\_\-num\_\-assoc\_\-elem}!Node@{Node}}
+\subsubsection[get\_\-num\_\-assoc\_\-elem]{\setlength{\rightskip}{0pt plus 5cm}int Node::get\_\-num\_\-assoc\_\-elem ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a32}
+
+
+this function returns the number of elements associated with this node 
+
+\hypertarget{classNode_a17}{
+\index{Node@{Node}!get_order@{get\_\-order}}
+\index{get_order@{get\_\-order}!Node@{Node}}
+\subsubsection[get\_\-order]{\setlength{\rightskip}{0pt plus 5cm}int Node::get\_\-order ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a17}
+
+
+this is legacy afeapi and is not used 
+
+\hypertarget{classNode_a21}{
+\index{Node@{Node}!get_reconstructed@{get\_\-reconstructed}}
+\index{get_reconstructed@{get\_\-reconstructed}!Node@{Node}}
+\subsubsection[get\_\-reconstructed]{\setlength{\rightskip}{0pt plus 5cm}int Node::get\_\-reconstructed ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a21}
+
+
+this is legacy afeapi and is not used 
+
+\hypertarget{classNode_a23}{
+\index{Node@{Node}!get_sol_deleted@{get\_\-sol\_\-deleted}}
+\index{get_sol_deleted@{get\_\-sol\_\-deleted}!Node@{Node}}
+\subsubsection[get\_\-sol\_\-deleted]{\setlength{\rightskip}{0pt plus 5cm}int Node::get\_\-sol\_\-deleted ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a23}
+
+
+this is legacy afeapi and is not used at all except once in \hyperlink{constant_8h_a21}{htflush.C} 
+
+\hypertarget{classNode_a8}{
+\index{Node@{Node}!getdof@{getdof}}
+\index{getdof@{getdof}!Node@{Node}}
+\subsubsection[getdof]{\setlength{\rightskip}{0pt plus 5cm}int $\ast$ Node::getdof ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a8}
+
+
+this function is legacy afeapi, it is extraneous for the finite difference/volume version of titan 
+
+\hypertarget{classNode_a11}{
+\index{Node@{Node}!getglnum@{getglnum}}
+\index{getglnum@{getglnum}!Node@{Node}}
+\subsubsection[getglnum]{\setlength{\rightskip}{0pt plus 5cm}int Node::getglnum ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a11}
+
+
+this function is legacy afeapi 
+
+\hypertarget{classNode_a12}{
+\index{Node@{Node}!getinfo@{getinfo}}
+\index{getinfo@{getinfo}!Node@{Node}}
+\subsubsection[getinfo]{\setlength{\rightskip}{0pt plus 5cm}int Node::getinfo ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a12}
+
+
+this function returns the node type, the options are listed in \hyperlink{constant_8h}{constant.h} and include: NODEINIT, CORNER, BUBBLE, SIDE, CONSTRAINED, S\_\-C\_\-CON, S\_\-S\_\-CON, ASSIGNED,and UNASSIGNED. 
+
+\hypertarget{classNode_a16}{
+\index{Node@{Node}!getsol@{getsol}}
+\index{getsol@{getsol}!Node@{Node}}
+\subsubsection[getsol]{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ Node::getsol ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a16}
+
+
+this is legacy afeapi and is not used 
+
+\hypertarget{classNode_a19}{
+\index{Node@{Node}!increase_order@{increase\_\-order}}
+\index{increase_order@{increase\_\-order}!Node@{Node}}
+\subsubsection[increase\_\-order]{\setlength{\rightskip}{0pt plus 5cm}void Node::increase\_\-order ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a19}
+
+
+this is legacy afeapi and is not used 
+
+\hypertarget{classNode_a14}{
+\index{Node@{Node}!pass_key@{pass\_\-key}}
+\index{pass_key@{pass\_\-key}!Node@{Node}}
+\subsubsection[pass\_\-key]{\setlength{\rightskip}{0pt plus 5cm}unsigned $\ast$ Node::pass\_\-key ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a14}
+
+
+this function returns the node key, a key is a single number that is 2 unsigned variables long and is used to access the pointer to a Node or \hyperlink{classElement}{Element} through the \hyperlink{classHashTable}{Hash\-Table} 
+
+\hypertarget{classNode_a25}{
+\index{Node@{Node}!put_id@{put\_\-id}}
+\index{put_id@{put\_\-id}!Node@{Node}}
+\subsubsection[put\_\-id]{\setlength{\rightskip}{0pt plus 5cm}void Node::put\_\-id (int {\em id\_\-in})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a25}
+
+
+this function sets the id of a node, it is used in repartitioning, 
+
+\hypertarget{classNode_a31}{
+\index{Node@{Node}!put_num_assoc_elem@{put\_\-num\_\-assoc\_\-elem}}
+\index{put_num_assoc_elem@{put\_\-num\_\-assoc\_\-elem}!Node@{Node}}
+\subsubsection[put\_\-num\_\-assoc\_\-elem]{\setlength{\rightskip}{0pt plus 5cm}void Node::put\_\-num\_\-assoc\_\-elem (int {\em numin})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a31}
+
+
+this function stores the number of elements associated with this node 
+
+\hypertarget{classNode_a18}{
+\index{Node@{Node}!put_order@{put\_\-order}}
+\index{put_order@{put\_\-order}!Node@{Node}}
+\subsubsection[put\_\-order]{\setlength{\rightskip}{0pt plus 5cm}void Node::put\_\-order (int)\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a18}
+
+
+this is legacy afeapi and is not used 
+
+\hypertarget{classNode_a22}{
+\index{Node@{Node}!put_reconstructed@{put\_\-reconstructed}}
+\index{put_reconstructed@{put\_\-reconstructed}!Node@{Node}}
+\subsubsection[put\_\-reconstructed]{\setlength{\rightskip}{0pt plus 5cm}void Node::put\_\-reconstructed (int)\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a22}
+
+
+this is legacy afeapi and is not used at all except once in \hyperlink{constant_8h_a21}{htflush.C} 
+
+\hypertarget{classNode_a24}{
+\index{Node@{Node}!put_sol_deleted@{put\_\-sol\_\-deleted}}
+\index{put_sol_deleted@{put\_\-sol\_\-deleted}!Node@{Node}}
+\subsubsection[put\_\-sol\_\-deleted]{\setlength{\rightskip}{0pt plus 5cm}void Node::put\_\-sol\_\-deleted (int {\em flag})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a24}
+
+
+this is legacy afeapi and is not used at all except once in \hyperlink{constant_8h_a21}{htflush.C} 
+
+\hypertarget{classNode_a7}{
+\index{Node@{Node}!putdof@{putdof}}
+\index{putdof@{putdof}!Node@{Node}}
+\subsubsection[putdof]{\setlength{\rightskip}{0pt plus 5cm}void Node::putdof (int {\em lower}, int {\em up})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a7}
+
+
+this function is legacy afeapi, it is extraneous for the finite difference/volume version of titan, however it appears once in \hyperlink{constant_8h_a21}{htflush.C} 
+
+\hypertarget{classNode_a9}{
+\index{Node@{Node}!putglnum@{putglnum}}
+\index{putglnum@{putglnum}!Node@{Node}}
+\subsubsection[putglnum]{\setlength{\rightskip}{0pt plus 5cm}void Node::putglnum (int)\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a9}
+
+
+this function is legacy afeapi 
+
+\hypertarget{classNode_a13}{
+\index{Node@{Node}!putinfo@{putinfo}}
+\index{putinfo@{putinfo}!Node@{Node}}
+\subsubsection[putinfo]{\setlength{\rightskip}{0pt plus 5cm}void Node::putinfo (int {\em in})}}
+\label{classNode_a13}
+
+
+this function sets the node type, the options are listed in \hyperlink{constant_8h}{constant.h} and include: NODEINIT, CORNER, BUBBLE, SIDE, CONSTRAINED, S\_\-C\_\-CON, S\_\-S\_\-CON, ASSIGNED,and UNASSIGNED. 
+
+\hypertarget{classNode_a10}{
+\index{Node@{Node}!putsol@{putsol}}
+\index{putsol@{putsol}!Node@{Node}}
+\subsubsection[putsol]{\setlength{\rightskip}{0pt plus 5cm}void Node::putsol (double $\ast$ {\em s})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classNode_a10}
+
+
+this function is legacy afeapi 
+
+\hypertarget{classNode_a6}{
+\index{Node@{Node}!save_node@{save\_\-node}}
+\index{save_node@{save\_\-node}!Node@{Node}}
+\subsubsection[save\_\-node]{\setlength{\rightskip}{0pt plus 5cm}void Node::save\_\-node (FILE $\ast$ {\em fp})}}
+\label{classNode_a6}
+
+
+this function writes all of one Node's data necessary for restart to a file in a single fwrite statement 
+
+\hypertarget{classNode_a30}{
+\index{Node@{Node}!set_elevation@{set\_\-elevation}}
+\index{set_elevation@{set\_\-elevation}!Node@{Node}}
+\subsubsection[set\_\-elevation]{\setlength{\rightskip}{0pt plus 5cm}void Node::set\_\-elevation (\hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr})}}
+\label{classNode_a30}
+
+
+this function sets the elevation of a node 
+
+\hypertarget{classNode_a20}{
+\index{Node@{Node}!set_parameters@{set\_\-parameters}}
+\index{set_parameters@{set\_\-parameters}!Node@{Node}}
+\subsubsection[set\_\-parameters]{\setlength{\rightskip}{0pt plus 5cm}void Node::set\_\-parameters (int {\em inf}, int {\em ord})}}
+\label{classNode_a20}
+
+
+this function sets the node information and order, node order is legacy afeapi but node information is currently used, this function is called in \hyperlink{constant_8h_a21}{update\_\-element\_\-info.C}, another distict function with a similar name \hyperlink{structrefined__neighbor_a1}{refined\_\-neighbor::set\_\-parameters} also existis and is used in \hyperlink{constant_8h_a21}{updatenei.C}, these should not be confused 
+
+\hypertarget{classNode_a28}{
+\index{Node@{Node}!zero_flux@{zero\_\-flux}}
+\index{zero_flux@{zero\_\-flux}!Node@{Node}}
+\subsubsection[zero\_\-flux]{\setlength{\rightskip}{0pt plus 5cm}void Node::zero\_\-flux ()}}
+\label{classNode_a28}
+
+
+this function zeros the flux used during refinement, this is only distinct from the regular flux if flux velocity is being zero'd because the experimental stopping criteria says it should be. This feature is disabled by default. Keith implemented it. 
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classNode_n2}{
+\index{Node@{Node}!AssertMeshErrorFree@{AssertMeshErrorFree}}
+\index{AssertMeshErrorFree@{AssertMeshErrorFree}!Node@{Node}}
+\subsubsection[AssertMeshErrorFree]{\setlength{\rightskip}{0pt plus 5cm}void Assert\-Mesh\-Error\-Free (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em numprocs}, int {\em myid}, double {\em loc})\hspace{0.3cm}{\tt  \mbox{[}friend\mbox{]}}}}
+\label{classNode_n2}
+
+
+this function checks for any and all possible mesh errors, i.e. it checks if the mesh is legal, it says nothing about the quality of a legal mesh, you must have ghost information present before performing this check, WARNING THIS CHECK TAKES A LOT OF TIME, ONLY USE IT TO DEBUG. 
+
+\hypertarget{classNode_n1}{
+\index{Node@{Node}!correct@{correct}}
+\index{correct@{correct}!Node@{Node}}
+\subsubsection[correct]{\setlength{\rightskip}{0pt plus 5cm}void correct (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, double {\em dt}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structFluxProps}{Flux\-Props} $\ast$ {\em fluxprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, void $\ast$ {\em Em\-Temp}, double $\ast$ {\em forceint}, double $\ast$ {\em forcebed}, double $\ast$ {\em eroded}, double $\ast$ {\em deposited})\hspace{0.3cm}{\tt  \mbox{[}friend\mbox{]}}}}
+\label{classNode_n1}
+
+
+non member C++ function that wraps the fortran correct\_\-() function 
+
+\hypertarget{classNode_n11}{
+\index{Node@{Node}!create_element@{create\_\-element}}
+\index{create_element@{create\_\-element}!Node@{Node}}
+\subsubsection[create\_\-element]{\setlength{\rightskip}{0pt plus 5cm}void create\_\-element (\hyperlink{structElemPack}{Elem\-Pack} $\ast$ {\em elem2}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, double $\ast$ {\em e\_\-error})\hspace{0.3cm}{\tt  \mbox{[}friend\mbox{]}}}}
+\label{classNode_n11}
+
+
+\hypertarget{classNode_n6}{
+\index{Node@{Node}!delete_oldsons@{delete\_\-oldsons}}
+\index{delete_oldsons@{delete\_\-oldsons}!Node@{Node}}
+\subsubsection[delete\_\-oldsons]{\setlength{\rightskip}{0pt plus 5cm}void delete\_\-oldsons (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, void $\ast$ {\em Em\-Father})\hspace{0.3cm}{\tt  \mbox{[}friend\mbox{]}}}}
+\label{classNode_n6}
+
+
+\hypertarget{classNode_n10}{
+\index{Node@{Node}!destroy_element@{destroy\_\-element}}
+\index{destroy_element@{destroy\_\-element}!Node@{Node}}
+\subsubsection[destroy\_\-element]{\setlength{\rightskip}{0pt plus 5cm}void destroy\_\-element (void $\ast$ {\em r\_\-element}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr})\hspace{0.3cm}{\tt  \mbox{[}friend\mbox{]}}}}
+\label{classNode_n10}
+
+
+\hypertarget{classNode_n3}{
+\index{Node@{Node}!ElemBackgroundCheck@{ElemBackgroundCheck}}
+\index{ElemBackgroundCheck@{ElemBackgroundCheck}!Node@{Node}}
+\subsubsection[ElemBackgroundCheck]{\setlength{\rightskip}{0pt plus 5cm}void Elem\-Background\-Check (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, unsigned $\ast$ {\em debugkey}, FILE $\ast$ {\em fp})\hspace{0.3cm}{\tt  \mbox{[}friend\mbox{]}}}}
+\label{classNode_n3}
+
+
+investigate an \hyperlink{classElement}{Element}, question his \char`\"{}friends and family\char`\"{} about him. 
+
+\hypertarget{classNode_n4}{
+\index{Node@{Node}!ElemBackgroundCheck2@{ElemBackgroundCheck2}}
+\index{ElemBackgroundCheck2@{ElemBackgroundCheck2}!Node@{Node}}
+\subsubsection[ElemBackgroundCheck2]{\setlength{\rightskip}{0pt plus 5cm}void Elem\-Background\-Check2 (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, void $\ast$ {\em Em\-Debug}, FILE $\ast$ {\em fp})\hspace{0.3cm}{\tt  \mbox{[}friend\mbox{]}}}}
+\label{classNode_n4}
+
+
+\hypertarget{classNode_n0}{
+\index{Node@{Node}!Element@{Element}}
+\index{Element@{Element}!Node@{Node}}
+\subsubsection[Element]{\setlength{\rightskip}{0pt plus 5cm}friend class \hyperlink{classElement}{Element}\hspace{0.3cm}{\tt  \mbox{[}friend\mbox{]}}}}
+\label{classNode_n0}
+
+
+\hypertarget{classNode_n5}{
+\index{Node@{Node}!NodeBackgroundCheck@{NodeBackgroundCheck}}
+\index{NodeBackgroundCheck@{NodeBackgroundCheck}!Node@{Node}}
+\subsubsection[NodeBackgroundCheck]{\setlength{\rightskip}{0pt plus 5cm}void Node\-Background\-Check (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, unsigned $\ast$ {\em debugkey}, FILE $\ast$ {\em fp})\hspace{0.3cm}{\tt  \mbox{[}friend\mbox{]}}}}
+\label{classNode_n5}
+
+
+investigate a Node question his \char`\"{}friends and family\char`\"{} about him. 
+
+\hypertarget{classNode_n9}{
+\index{Node@{Node}!Pack_element@{Pack\_\-element}}
+\index{Pack_element@{Pack\_\-element}!Node@{Node}}
+\subsubsection[Pack\_\-element]{\setlength{\rightskip}{0pt plus 5cm}void Pack\_\-element (void $\ast$ {\em sendel}, \hyperlink{structElemPack}{Elem\-Pack} $\ast$ {\em elem}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em destination\_\-proc})\hspace{0.3cm}{\tt  \mbox{[}friend\mbox{]}}}}
+\label{classNode_n9}
+
+
+\hyperlink{classNode_n9}{Pack\_\-element()} is a friend function of the \hyperlink{classElement}{Element} and Node classes that packs relevant information from an element \char`\"{}sendel\char`\"{} into a smaller data structure (\hyperlink{structElemPack}{Elem\-Pack}) to be sent by an mpi call to another processor, this is used when exchanging ghost cell information or repartitioning. 
+
+\hypertarget{classNode_n7}{
+\index{Node@{Node}!refine_neigh_update@{refine\_\-neigh\_\-update}}
+\index{refine_neigh_update@{refine\_\-neigh\_\-update}!Node@{Node}}
+\subsubsection[refine\_\-neigh\_\-update]{\setlength{\rightskip}{0pt plus 5cm}void refine\_\-neigh\_\-update (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em numprocs}, int {\em myid}, void $\ast$ {\em Refined\-List}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr})\hspace{0.3cm}{\tt  \mbox{[}friend\mbox{]}}}}
+\label{classNode_n7}
+
+
+\hypertarget{classNode_n8}{
+\index{Node@{Node}!unrefine_interp_neigh_update@{unrefine\_\-interp\_\-neigh\_\-update}}
+\index{unrefine_interp_neigh_update@{unrefine\_\-interp\_\-neigh\_\-update}!Node@{Node}}
+\subsubsection[unrefine\_\-interp\_\-neigh\_\-update]{\setlength{\rightskip}{0pt plus 5cm}void unrefine\_\-interp\_\-neigh\_\-update (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em nump}, int {\em myid}, void $\ast$ {\em Other\-Proc\-Update})\hspace{0.3cm}{\tt  \mbox{[}friend\mbox{]}}}}
+\label{classNode_n8}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classNode_p4}{
+\index{Node@{Node}!coord@{coord}}
+\index{coord@{coord}!Node@{Node}}
+\subsubsection[coord]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classNode_p4}{Node::coord}\mbox{[}\hyperlink{constant_8h_a15}{DIMENSION}\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classNode_p4}
+
+
+the global x and y coordinates of the node 
+
+\hypertarget{classNode_p8}{
+\index{Node@{Node}!dof@{dof}}
+\index{dof@{dof}!Node@{Node}}
+\subsubsection[dof]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classNode_p8}{Node::dof}\mbox{[}2\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classNode_p8}
+
+
+nodal degrees of freedom are legacy afeapi but came with the comment \char`\"{}dof\mbox{[}1\mbox{]}-dof\mbox{[}0\mbox{]}+1 = dof of the node\char`\"{} 
+
+\hypertarget{classNode_p13}{
+\index{Node@{Node}!elevation@{elevation}}
+\index{elevation@{elevation}!Node@{Node}}
+\subsubsection[elevation]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classNode_p13}{Node::elevation}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classNode_p13}
+
+
+this elevation should currently be the GIS elevation at the finest \char`\"{}scale\char`\"{} 
+
+\hypertarget{classNode_p14}{
+\index{Node@{Node}!flux@{flux}}
+\index{flux@{flux}!Node@{Node}}
+\subsubsection[flux]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classNode_p14}{Node::flux}\mbox{[}\hyperlink{constant_8h_a45}{NUM\_\-STATE\_\-VARS}\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classNode_p14}
+
+
+these are the so called \char`\"{}regular fluxes\char`\"{} that is the ones that are used to update the elements, assume that element normal is parallel to either the x or y axis, Keith is the one who introduced a distinction between regular and refinement fluxes for use with the stopping criteria, this distinction is disabled by default 
+
+\hypertarget{classNode_p9}{
+\index{Node@{Node}!glnum@{glnum}}
+\index{glnum@{glnum}!Node@{Node}}
+\subsubsection[glnum]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classNode_p9}{Node::glnum}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classNode_p9}
+
+
+glnum is legacy afeapit but came with the comment \char`\"{}the node occupies the position from glnum to glnum+dof\char`\"{} 
+
+\hypertarget{classNode_p0}{
+\index{Node@{Node}!id@{id}}
+\index{id@{id}!Node@{Node}}
+\subsubsection[id]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classNode_p0}{Node::id}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classNode_p0}
+
+
+used in delete\_\-unused\_\-nodes\_\-and\_\-elements() function 
+
+\hypertarget{classNode_p2}{
+\index{Node@{Node}!info@{info}}
+\index{info@{info}!Node@{Node}}
+\subsubsection[info]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classNode_p2}{Node::info}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classNode_p2}
+
+
+says what type of node this is see the comments of Node::get\_\-info() 
+
+\hypertarget{classNode_p5}{
+\index{Node@{Node}!key@{key}}
+\index{key@{key}!Node@{Node}}
+\subsubsection[key]{\setlength{\rightskip}{0pt plus 5cm}unsigned \hyperlink{classNode_p5}{Node::key}\mbox{[}\hyperlink{constant_8h_a10}{KEYLENGTH}\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classNode_p5}
+
+
+this is the node key, a key is a single number that is 2 unsigned variables long and is used to access the pointer to a Node or \hyperlink{classElement}{Element} through the \hyperlink{classHashTable}{Hash\-Table} 
+
+\hypertarget{classNode_p6}{
+\index{Node@{Node}!nextptr@{nextptr}}
+\index{nextptr@{nextptr}!Node@{Node}}
+\subsubsection[nextptr]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ \hyperlink{classNode_p6}{Node::nextptr}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classNode_p6}
+
+
+points to the next node 
+
+\hypertarget{classNode_p1}{
+\index{Node@{Node}!num_assoc_elem@{num\_\-assoc\_\-elem}}
+\index{num_assoc_elem@{num\_\-assoc\_\-elem}!Node@{Node}}
+\subsubsection[num\_\-assoc\_\-elem]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classNode_p1}{Node::num\_\-assoc\_\-elem}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classNode_p1}
+
+
+the number of associated elements, it is used in extraneous node 
+
+\hypertarget{classNode_p3}{
+\index{Node@{Node}!order@{order}}
+\index{order@{order}!Node@{Node}}
+\subsubsection[order]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classNode_p3}{Node::order}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classNode_p3}
+
+
+this is legacy afeapi and is not important though it would involve quite a bit of work to remove because it occurs frequently in Titan 
+
+\hypertarget{classNode_p7}{
+\index{Node@{Node}!preptr@{preptr}}
+\index{preptr@{preptr}!Node@{Node}}
+\subsubsection[preptr]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ \hyperlink{classNode_p7}{Node::preptr}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classNode_p7}
+
+
+points to the previous node 
+
+\hypertarget{classNode_p11}{
+\index{Node@{Node}!reconstructed@{reconstructed}}
+\index{reconstructed@{reconstructed}!Node@{Node}}
+\subsubsection[reconstructed]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classNode_p11}{Node::reconstructed}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classNode_p11}
+
+
+reconstructed is legacy afeapi 
+
+\hypertarget{classNode_p15}{
+\index{Node@{Node}!refinementflux@{refinementflux}}
+\index{refinementflux@{refinementflux}!Node@{Node}}
+\subsubsection[refinementflux]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classNode_p15}{Node::refinementflux}\mbox{[}\hyperlink{constant_8h_a45}{NUM\_\-STATE\_\-VARS}\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classNode_p15}
+
+
+the \char`\"{}refinement flux\char`\"{} is necessary when using the stopping criteria to reset the \char`\"{}regular\char`\"{} fluxes to what they would be if velocity was zero in the cell(s) involved. The refinement flux is what the flux would have been if it had not been reset, they are needed since refinement is based on fluxes (and also pileheight gradient but that's not relevant here) Keith is the one who introduced a distinction between regular and refinement fluxes for use with the stopping criteria, this distinction is disabled by default. 
+
+\hypertarget{classNode_p10}{
+\index{Node@{Node}!sol@{sol}}
+\index{sol@{sol}!Node@{Node}}
+\subsubsection[sol]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{classNode_p10}{Node::sol}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classNode_p10}
+
+
+sol is legacy afeapi and pointed to the nodal solution array 
+
+\hypertarget{classNode_p12}{
+\index{Node@{Node}!sol_deleted@{sol\_\-deleted}}
+\index{sol_deleted@{sol\_\-deleted}!Node@{Node}}
+\subsubsection[sol\_\-deleted]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classNode_p12}{Node::sol\_\-deleted}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classNode_p12}
+
+
+sol\_\-deleted is legacy afeapi, it appears in \hyperlink{constant_8h_a21}{node.C} and \hyperlink{constant_8h_a21}{htflush.C} 
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{node_8h}{node.h}\item 
+\hyperlink{node_8C}{node.C}\end{CompactItemize}

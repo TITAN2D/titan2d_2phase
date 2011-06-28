@@ -1,0 +1,276 @@
+\hypertarget{geoflow_8h}{
+\section{geoflow.h File Reference}
+\label{geoflow_8h}\index{geoflow.h@{geoflow.h}}
+}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{geoflow_8h_a0}{WEIGHT\_\-ADJUSTER}\ 1
+\item 
+\#define \hyperlink{geoflow_8h_a1}{NUM\_\-FREEFALLS\_\-2\_\-STOP}\ 2
+\item 
+\#define \hyperlink{geoflow_8h_a2}{MIN\_\-GENERATION}\ -3
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{geoflow_8h_a4}{correct} (\hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, double dt, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structFluxProps}{Flux\-Props} $\ast$fluxprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, void $\ast$Em\-Temp, double $\ast$forceint, double $\ast$forcebed, double $\ast$eroded, double $\ast$deposited)
+\begin{CompactList}\small\item\em non member C++ function that wraps the fortran correct\_\-() function \item\end{CompactList}\item 
+void \hyperlink{geoflow_8h_a5}{checknodesol} (\hyperlink{classHashTable}{Hash\-Table} $\ast$)
+\begin{CompactList}\small\item\em this function is legacy, the prototype exists but the function is not defined \item\end{CompactList}\item 
+double \hyperlink{geoflow_8h_a6}{element\_\-weight} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$, int myid, int nump)
+\begin{CompactList}\small\item\em This function assigns a global\_\-weight to the collection of elements based on the sum of their element\_\-weight. \item\end{CompactList}\item 
+void \hyperlink{geoflow_8h_a7}{calc\_\-stats} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$discharge, double d\_\-time)
+\begin{CompactList}\small\item\em This function calculates the vast majority of statistics used for output, including most of what appears in output\_\-summary.\#\#\#\#\#\#, the friction body forces however are not calculated in here, Keith wrote this to replace \hyperlink{step_8C_a2}{calc\_\-volume()}. \item\end{CompactList}\item 
+void \hyperlink{geoflow_8h_a8}{calc\_\-volume} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, int myid, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, double d\_\-time, double $\ast$v\_\-star, double $\ast$nz\_\-star)
+\begin{CompactList}\small\item\em \hyperlink{step_8C_a2}{calc\_\-volume()} has been replaced by \hyperlink{stats_8C_a1}{calc\_\-stats()}, \hyperlink{step_8C_a2}{calc\_\-volume()} is out of date legacy code, the function is still defined in \hyperlink{constant_8h_a21}{step.C} but it is not called. \item\end{CompactList}\item 
+double \hyperlink{geoflow_8h_a9}{get\_\-max\_\-momentum} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr)
+\begin{CompactList}\small\item\em \hyperlink{step_8C_a3}{get\_\-max\_\-momentum()} is legacy, it has been replaced by \hyperlink{stats_8C_a1}{calc\_\-stats()} \item\end{CompactList}\item 
+void \hyperlink{geoflow_8h_a10}{sim\_\-end\_\-warning} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, double v\_\-star)
+\begin{CompactList}\small\item\em this function prints a warning message at end of the simulation to say if the flow is still moving and thus should be run longer before using the data to make decisions \item\end{CompactList}\item 
+void \hyperlink{geoflow_8h_a11}{out\_\-final\_\-stats} (\hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops\_\-ptr)
+\begin{CompactList}\small\item\em this function outputs final stats for one run in a collection of stochastic/probabilistic runs \item\end{CompactList}\item 
+void \hyperlink{geoflow_8h_a12}{setup\_\-geoflow} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid, int nump, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr)
+\begin{CompactList}\small\item\em this function loops through the nodes zeroing the fluxes, then loops through the elements and finds the positive x direction of the element, calculates element size, calculates local terrain elevation, slopes, and curvatures, and calculates the gravity vector in local coordinates. \item\end{CompactList}\item 
+void \hyperlink{geoflow_8h_a13}{slopes} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr)
+\begin{CompactList}\small\item\em this function calculates the spatial derivatives of the state variables \item\end{CompactList}\item 
+double \hyperlink{geoflow_8h_a14}{get\_\-coef\_\-and\_\-eigen} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structFluxProps}{Flux\-Props} $\ast$fluxprops\_\-ptrs, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, int ghost\_\-flag)
+\begin{CompactList}\small\item\em this function computes k active/passive (which is necessary because of the use of the Coulomb friction model) calculates the wave speeds (eigen values of the flux jacobians) and based on them determines the maximum allowable timestep for this iteration. \item\end{CompactList}\item 
+void \hyperlink{geoflow_8h_a15}{move\_\-data} (int nump, int myid, \hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr)
+\begin{CompactList}\small\item\em this function transfers information during events such as ghost element data exchange and repartitioning \item\end{CompactList}\item 
+void \hyperlink{geoflow_8h_a16}{delete\_\-ghost\_\-elms} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, int myid)
+\begin{CompactList}\small\item\em this function deletes the current ghost elements \item\end{CompactList}\item 
+void \hyperlink{geoflow_8h_a17}{calc\_\-edge\_\-states} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, int myid, int $\ast$order\_\-flag, double $\ast$outflow)
+\begin{CompactList}\small\item\em This function loops through all the non-ghost current elements and calls the \hyperlink{classElement}{Element} member function \hyperlink{classElement_a78}{Element::calc\_\-edge\_\-states()} which calculates the Riemann fluxes between elements and stores the Riemann fluxes in the edge nodes. \item\end{CompactList}\item 
+double \hyperlink{geoflow_8h_a18}{c\_\-sgn} (double zz)
+\begin{CompactList}\small\item\em c++ sgn function \item\end{CompactList}\item 
+double \hyperlink{geoflow_8h_a19}{c\_\-dmin1} (double d1, double d2)
+\begin{CompactList}\small\item\em c++ dmin1 function \item\end{CompactList}\item 
+double \hyperlink{geoflow_8h_a20}{c\_\-dmin1} (double d1, double d2, double d3)
+\begin{CompactList}\small\item\em another c++ dmin1 function \item\end{CompactList}\item 
+double \hyperlink{geoflow_8h_a21}{c\_\-dmax1} (double d1, double d2)
+\begin{CompactList}\small\item\em a c++ dmax1 function \item\end{CompactList}\item 
+double \hyperlink{geoflow_8h_a22}{c\_\-dmax1} (double d1, double d2, double d3)
+\begin{CompactList}\small\item\em another c++ dmax1 function \item\end{CompactList}\item 
+double \hyperlink{geoflow_8h_a23}{dabs} (double dd)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+int \hyperlink{geoflow_8h_a3}{REFINE\_\-LEVEL}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{geoflow_8h_a2}{
+\index{geoflow.h@{geoflow.h}!MIN_GENERATION@{MIN\_\-GENERATION}}
+\index{MIN_GENERATION@{MIN\_\-GENERATION}!geoflow.h@{geoflow.h}}
+\subsubsection[MIN\_\-GENERATION]{\setlength{\rightskip}{0pt plus 5cm}\#define MIN\_\-GENERATION\ -3}}
+\label{geoflow_8h_a2}
+
+
+\hypertarget{geoflow_8h_a1}{
+\index{geoflow.h@{geoflow.h}!NUM_FREEFALLS_2_STOP@{NUM\_\-FREEFALLS\_\-2\_\-STOP}}
+\index{NUM_FREEFALLS_2_STOP@{NUM\_\-FREEFALLS\_\-2\_\-STOP}!geoflow.h@{geoflow.h}}
+\subsubsection[NUM\_\-FREEFALLS\_\-2\_\-STOP]{\setlength{\rightskip}{0pt plus 5cm}\#define NUM\_\-FREEFALLS\_\-2\_\-STOP\ 2}}
+\label{geoflow_8h_a1}
+
+
+\hypertarget{geoflow_8h_a0}{
+\index{geoflow.h@{geoflow.h}!WEIGHT_ADJUSTER@{WEIGHT\_\-ADJUSTER}}
+\index{WEIGHT_ADJUSTER@{WEIGHT\_\-ADJUSTER}!geoflow.h@{geoflow.h}}
+\subsubsection[WEIGHT\_\-ADJUSTER]{\setlength{\rightskip}{0pt plus 5cm}\#define WEIGHT\_\-ADJUSTER\ 1}}
+\label{geoflow_8h_a0}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{geoflow_8h_a22}{
+\index{geoflow.h@{geoflow.h}!c_dmax1@{c\_\-dmax1}}
+\index{c_dmax1@{c\_\-dmax1}!geoflow.h@{geoflow.h}}
+\subsubsection[c\_\-dmax1]{\setlength{\rightskip}{0pt plus 5cm}double c\_\-dmax1 (double {\em d1}, double {\em d2}, double {\em d3})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{geoflow_8h_a22}
+
+
+another c++ dmax1 function 
+
+\hypertarget{geoflow_8h_a21}{
+\index{geoflow.h@{geoflow.h}!c_dmax1@{c\_\-dmax1}}
+\index{c_dmax1@{c\_\-dmax1}!geoflow.h@{geoflow.h}}
+\subsubsection[c\_\-dmax1]{\setlength{\rightskip}{0pt plus 5cm}double c\_\-dmax1 (double {\em d1}, double {\em d2})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{geoflow_8h_a21}
+
+
+a c++ dmax1 function 
+
+\hypertarget{geoflow_8h_a20}{
+\index{geoflow.h@{geoflow.h}!c_dmin1@{c\_\-dmin1}}
+\index{c_dmin1@{c\_\-dmin1}!geoflow.h@{geoflow.h}}
+\subsubsection[c\_\-dmin1]{\setlength{\rightskip}{0pt plus 5cm}double c\_\-dmin1 (double {\em d1}, double {\em d2}, double {\em d3})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{geoflow_8h_a20}
+
+
+another c++ dmin1 function 
+
+\hypertarget{geoflow_8h_a19}{
+\index{geoflow.h@{geoflow.h}!c_dmin1@{c\_\-dmin1}}
+\index{c_dmin1@{c\_\-dmin1}!geoflow.h@{geoflow.h}}
+\subsubsection[c\_\-dmin1]{\setlength{\rightskip}{0pt plus 5cm}double c\_\-dmin1 (double {\em d1}, double {\em d2})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{geoflow_8h_a19}
+
+
+c++ dmin1 function 
+
+\hypertarget{geoflow_8h_a18}{
+\index{geoflow.h@{geoflow.h}!c_sgn@{c\_\-sgn}}
+\index{c_sgn@{c\_\-sgn}!geoflow.h@{geoflow.h}}
+\subsubsection[c\_\-sgn]{\setlength{\rightskip}{0pt plus 5cm}double c\_\-sgn (double {\em zz})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{geoflow_8h_a18}
+
+
+c++ sgn function 
+
+\hypertarget{geoflow_8h_a17}{
+\index{geoflow.h@{geoflow.h}!calc_edge_states@{calc\_\-edge\_\-states}}
+\index{calc_edge_states@{calc\_\-edge\_\-states}!geoflow.h@{geoflow.h}}
+\subsubsection[calc\_\-edge\_\-states]{\setlength{\rightskip}{0pt plus 5cm}void calc\_\-edge\_\-states (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, int {\em myid}, int $\ast$ {\em order\_\-flag}, double $\ast$ {\em outflow})}}
+\label{geoflow_8h_a17}
+
+
+This function loops through all the non-ghost current elements and calls the \hyperlink{classElement}{Element} member function \hyperlink{classElement_a78}{Element::calc\_\-edge\_\-states()} which calculates the Riemann fluxes between elements and stores the Riemann fluxes in the edge nodes. 
+
+\hyperlink{edge__states_8C_a0}{calc\_\-edge\_\-states()} cycles through the element Hashtable (listing of all elements) and for each element (that has not been refined this iteration and is not a ghost\_\-element) calls \hyperlink{classElement}{Element} member function \hyperlink{classElement_a78}{Element::calc\_\-edge\_\-states()} (which calculates the Riemann fluxes across the element's boundaries), and adds local boundary-element outflow to GIS map's cummulative outflow (defined as the mass flow off of the GIS map). Also, the elements are checked for multiple pile-height values \hypertarget{geoflow_8h_a7}{
+\index{geoflow.h@{geoflow.h}!calc_stats@{calc\_\-stats}}
+\index{calc_stats@{calc\_\-stats}!geoflow.h@{geoflow.h}}
+\subsubsection[calc\_\-stats]{\setlength{\rightskip}{0pt plus 5cm}void calc\_\-stats (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops}, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$ {\em discharge}, double {\em d\_\-time})}}
+\label{geoflow_8h_a7}
+
+
+This function calculates the vast majority of statistics used for output, including most of what appears in output\_\-summary.\#\#\#\#\#\#, the friction body forces however are not calculated in here, Keith wrote this to replace \hyperlink{step_8C_a2}{calc\_\-volume()}. 
+
+\hypertarget{geoflow_8h_a8}{
+\index{geoflow.h@{geoflow.h}!calc_volume@{calc\_\-volume}}
+\index{calc_volume@{calc\_\-volume}!geoflow.h@{geoflow.h}}
+\subsubsection[calc\_\-volume]{\setlength{\rightskip}{0pt plus 5cm}void calc\_\-volume (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, int {\em myid}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, double {\em d\_\-time}, double $\ast$ {\em v\_\-star}, double $\ast$ {\em nz\_\-star})}}
+\label{geoflow_8h_a8}
+
+
+\hyperlink{step_8C_a2}{calc\_\-volume()} has been replaced by \hyperlink{stats_8C_a1}{calc\_\-stats()}, \hyperlink{step_8C_a2}{calc\_\-volume()} is out of date legacy code, the function is still defined in \hyperlink{constant_8h_a21}{step.C} but it is not called. 
+
+\hypertarget{geoflow_8h_a5}{
+\index{geoflow.h@{geoflow.h}!checknodesol@{checknodesol}}
+\index{checknodesol@{checknodesol}!geoflow.h@{geoflow.h}}
+\subsubsection[checknodesol]{\setlength{\rightskip}{0pt plus 5cm}void checknodesol (\hyperlink{classHashTable}{Hash\-Table} $\ast$)}}
+\label{geoflow_8h_a5}
+
+
+this function is legacy, the prototype exists but the function is not defined 
+
+\hypertarget{geoflow_8h_a4}{
+\index{geoflow.h@{geoflow.h}!correct@{correct}}
+\index{correct@{correct}!geoflow.h@{geoflow.h}}
+\subsubsection[correct]{\setlength{\rightskip}{0pt plus 5cm}void correct (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, double {\em dt}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structFluxProps}{Flux\-Props} $\ast$ {\em fluxprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, void $\ast$ {\em Em\-Temp}, double $\ast$ {\em forceint}, double $\ast$ {\em forcebed}, double $\ast$ {\em eroded}, double $\ast$ {\em deposited})}}
+\label{geoflow_8h_a4}
+
+
+non member C++ function that wraps the fortran correct\_\-() function 
+
+\hypertarget{geoflow_8h_a23}{
+\index{geoflow.h@{geoflow.h}!dabs@{dabs}}
+\index{dabs@{dabs}!geoflow.h@{geoflow.h}}
+\subsubsection[dabs]{\setlength{\rightskip}{0pt plus 5cm}double dabs (double {\em dd})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{geoflow_8h_a23}
+
+
+\hypertarget{geoflow_8h_a16}{
+\index{geoflow.h@{geoflow.h}!delete_ghost_elms@{delete\_\-ghost\_\-elms}}
+\index{delete_ghost_elms@{delete\_\-ghost\_\-elms}!geoflow.h@{geoflow.h}}
+\subsubsection[delete\_\-ghost\_\-elms]{\setlength{\rightskip}{0pt plus 5cm}void delete\_\-ghost\_\-elms (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, int {\em myid})}}
+\label{geoflow_8h_a16}
+
+
+this function deletes the current ghost elements 
+
+\hypertarget{geoflow_8h_a6}{
+\index{geoflow.h@{geoflow.h}!element_weight@{element\_\-weight}}
+\index{element_weight@{element\_\-weight}!geoflow.h@{geoflow.h}}
+\subsubsection[element\_\-weight]{\setlength{\rightskip}{0pt plus 5cm}double element\_\-weight (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, int {\em nump})}}
+\label{geoflow_8h_a6}
+
+
+This function assigns a global\_\-weight to the collection of elements based on the sum of their element\_\-weight. 
+
+\hyperlink{element__weight_8C_a0}{element\_\-weight()} cycles through the element Hashtable (listing of all elements) and for each element (that has not been refined this iteration and is not a ghost\_\-element) calls \hyperlink{classElement}{Element} member function \hyperlink{classElement_a94}{Element::calc\_\-flux\_\-balance()} (which returns a double precision value representing the weight that an element is assigned based on the magnitude of its net mass/momentum fluxes). Note that this value is adjusted to give non-zero weight even to elements with zero pile-heights The cumulative weights (along with a count of the evaluated elements) are stored in sub\_\-weight\mbox{[}\mbox{]}; based on this, the return value for this function is calculated and stored in global\_\-weight\mbox{[}\mbox{]} (i.e. the sum of sub\_\-weight\mbox{[}\mbox{]} from all processors). \hypertarget{geoflow_8h_a14}{
+\index{geoflow.h@{geoflow.h}!get_coef_and_eigen@{get\_\-coef\_\-and\_\-eigen}}
+\index{get_coef_and_eigen@{get\_\-coef\_\-and\_\-eigen}!geoflow.h@{geoflow.h}}
+\subsubsection[get\_\-coef\_\-and\_\-eigen]{\setlength{\rightskip}{0pt plus 5cm}double get\_\-coef\_\-and\_\-eigen (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structFluxProps}{Flux\-Props} $\ast$ {\em fluxprops\_\-ptrs}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, int {\em ghost\_\-flag})}}
+\label{geoflow_8h_a14}
+
+
+this function computes k active/passive (which is necessary because of the use of the Coulomb friction model) calculates the wave speeds (eigen values of the flux jacobians) and based on them determines the maximum allowable timestep for this iteration. 
+
+\hypertarget{geoflow_8h_a9}{
+\index{geoflow.h@{geoflow.h}!get_max_momentum@{get\_\-max\_\-momentum}}
+\index{get_max_momentum@{get\_\-max\_\-momentum}!geoflow.h@{geoflow.h}}
+\subsubsection[get\_\-max\_\-momentum]{\setlength{\rightskip}{0pt plus 5cm}double get\_\-max\_\-momentum (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr})}}
+\label{geoflow_8h_a9}
+
+
+\hyperlink{step_8C_a3}{get\_\-max\_\-momentum()} is legacy, it has been replaced by \hyperlink{stats_8C_a1}{calc\_\-stats()} 
+
+\hypertarget{geoflow_8h_a15}{
+\index{geoflow.h@{geoflow.h}!move_data@{move\_\-data}}
+\index{move_data@{move\_\-data}!geoflow.h@{geoflow.h}}
+\subsubsection[move\_\-data]{\setlength{\rightskip}{0pt plus 5cm}void move\_\-data (int {\em nump}, int {\em myid}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr})}}
+\label{geoflow_8h_a15}
+
+
+this function transfers information during events such as ghost element data exchange and repartitioning 
+
+\hypertarget{geoflow_8h_a11}{
+\index{geoflow.h@{geoflow.h}!out_final_stats@{out\_\-final\_\-stats}}
+\index{out_final_stats@{out\_\-final\_\-stats}!geoflow.h@{geoflow.h}}
+\subsubsection[out\_\-final\_\-stats]{\setlength{\rightskip}{0pt plus 5cm}void out\_\-final\_\-stats (\hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops\_\-ptr})}}
+\label{geoflow_8h_a11}
+
+
+this function outputs final stats for one run in a collection of stochastic/probabilistic runs 
+
+\hypertarget{geoflow_8h_a12}{
+\index{geoflow.h@{geoflow.h}!setup_geoflow@{setup\_\-geoflow}}
+\index{setup_geoflow@{setup\_\-geoflow}!geoflow.h@{geoflow.h}}
+\subsubsection[setup\_\-geoflow]{\setlength{\rightskip}{0pt plus 5cm}void setup\_\-geoflow (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, int {\em nump}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr})}}
+\label{geoflow_8h_a12}
+
+
+this function loops through the nodes zeroing the fluxes, then loops through the elements and finds the positive x direction of the element, calculates element size, calculates local terrain elevation, slopes, and curvatures, and calculates the gravity vector in local coordinates. 
+
+\hypertarget{geoflow_8h_a10}{
+\index{geoflow.h@{geoflow.h}!sim_end_warning@{sim\_\-end\_\-warning}}
+\index{sim_end_warning@{sim\_\-end\_\-warning}!geoflow.h@{geoflow.h}}
+\subsubsection[sim\_\-end\_\-warning]{\setlength{\rightskip}{0pt plus 5cm}void sim\_\-end\_\-warning (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, double {\em v\_\-star})}}
+\label{geoflow_8h_a10}
+
+
+this function prints a warning message at end of the simulation to say if the flow is still moving and thus should be run longer before using the data to make decisions 
+
+\hypertarget{geoflow_8h_a13}{
+\index{geoflow.h@{geoflow.h}!slopes@{slopes}}
+\index{slopes@{slopes}!geoflow.h@{geoflow.h}}
+\subsubsection[slopes]{\setlength{\rightskip}{0pt plus 5cm}void slopes (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr})}}
+\label{geoflow_8h_a13}
+
+
+this function calculates the spatial derivatives of the state variables 
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{geoflow_8h_a3}{
+\index{geoflow.h@{geoflow.h}!REFINE_LEVEL@{REFINE\_\-LEVEL}}
+\index{REFINE_LEVEL@{REFINE\_\-LEVEL}!geoflow.h@{geoflow.h}}
+\subsubsection[REFINE\_\-LEVEL]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{hpfem_8C_a3}{REFINE\_\-LEVEL}}}
+\label{geoflow_8h_a3}
+
+

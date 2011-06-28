@@ -1,0 +1,72 @@
+\hypertarget{preproc_2hilbert_8C}{
+\section{hilbert.C File Reference}
+\label{preproc_2hilbert_8C}\index{hilbert.C@{hilbert.C}}
+}
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$limits.h$>$}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{preproc_2hilbert_8C_a0}{Max\-Bits}\ ( sizeof(unsigned) $\ast$ CHAR\_\-BIT )
+\item 
+\#define \hyperlink{preproc_2hilbert_8C_a1}{IScale}\ ((unsigned)((Max\-Bits $<$= 32) ? $\sim$(0u) : (0xffffffff $<$$<$ (Max\-Bits - 32))))
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{preproc_2hilbert_8C_a2}{hsfc2d} (unsigned coord\mbox{[}$\,$\mbox{]}, unsigned $\ast$nkey, unsigned key\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{preproc_2hilbert_8C_a3}{hsfc3d} (unsigned coord\mbox{[}$\,$\mbox{]}, unsigned $\ast$nkey, unsigned key\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{preproc_2hilbert_8C_a4}{fhsfc2d\_\-} (double coord\mbox{[}$\,$\mbox{]}, unsigned $\ast$nkey, unsigned key\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{preproc_2hilbert_8C_a5}{fhsfc3d} (double coord\mbox{[}$\,$\mbox{]}, unsigned $\ast$nkey, unsigned key\mbox{[}$\,$\mbox{]})
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{preproc_2hilbert_8C_a1}{
+\index{preproc/hilbert.C@{preproc/hilbert.C}!IScale@{IScale}}
+\index{IScale@{IScale}!preproc/hilbert.C@{preproc/hilbert.C}}
+\subsubsection[IScale]{\setlength{\rightskip}{0pt plus 5cm}\#define IScale\ ((unsigned)((Max\-Bits $<$= 32) ? $\sim$(0u) : (0xffffffff $<$$<$ (Max\-Bits - 32))))}}
+\label{preproc_2hilbert_8C_a1}
+
+
+\hypertarget{preproc_2hilbert_8C_a0}{
+\index{preproc/hilbert.C@{preproc/hilbert.C}!MaxBits@{MaxBits}}
+\index{MaxBits@{MaxBits}!preproc/hilbert.C@{preproc/hilbert.C}}
+\subsubsection[MaxBits]{\setlength{\rightskip}{0pt plus 5cm}\#define Max\-Bits\ ( sizeof(unsigned) $\ast$ CHAR\_\-BIT )}}
+\label{preproc_2hilbert_8C_a0}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{preproc_2hilbert_8C_a4}{
+\index{preproc/hilbert.C@{preproc/hilbert.C}!fhsfc2d_@{fhsfc2d\_\-}}
+\index{fhsfc2d_@{fhsfc2d\_\-}!preproc/hilbert.C@{preproc/hilbert.C}}
+\subsubsection[fhsfc2d\_\-]{\setlength{\rightskip}{0pt plus 5cm}void fhsfc2d\_\- (double {\em coord}\mbox{[}$\,$\mbox{]}, unsigned $\ast$ {\em nkey}, unsigned {\em key}\mbox{[}$\,$\mbox{]})}}
+\label{preproc_2hilbert_8C_a4}
+
+
+\hypertarget{preproc_2hilbert_8C_a5}{
+\index{preproc/hilbert.C@{preproc/hilbert.C}!fhsfc3d@{fhsfc3d}}
+\index{fhsfc3d@{fhsfc3d}!preproc/hilbert.C@{preproc/hilbert.C}}
+\subsubsection[fhsfc3d]{\setlength{\rightskip}{0pt plus 5cm}void fhsfc3d (double {\em coord}\mbox{[}$\,$\mbox{]}, unsigned $\ast$ {\em nkey}, unsigned {\em key}\mbox{[}$\,$\mbox{]})}}
+\label{preproc_2hilbert_8C_a5}
+
+
+\hypertarget{preproc_2hilbert_8C_a2}{
+\index{preproc/hilbert.C@{preproc/hilbert.C}!hsfc2d@{hsfc2d}}
+\index{hsfc2d@{hsfc2d}!preproc/hilbert.C@{preproc/hilbert.C}}
+\subsubsection[hsfc2d]{\setlength{\rightskip}{0pt plus 5cm}void hsfc2d (unsigned {\em coord}\mbox{[}$\,$\mbox{]}, unsigned $\ast$ {\em nkey}, unsigned {\em key}\mbox{[}$\,$\mbox{]})}}
+\label{preproc_2hilbert_8C_a2}
+
+
+\hypertarget{preproc_2hilbert_8C_a3}{
+\index{preproc/hilbert.C@{preproc/hilbert.C}!hsfc3d@{hsfc3d}}
+\index{hsfc3d@{hsfc3d}!preproc/hilbert.C@{preproc/hilbert.C}}
+\subsubsection[hsfc3d]{\setlength{\rightskip}{0pt plus 5cm}void hsfc3d (unsigned {\em coord}\mbox{[}$\,$\mbox{]}, unsigned $\ast$ {\em nkey}, unsigned {\em key}\mbox{[}$\,$\mbox{]})}}
+\label{preproc_2hilbert_8C_a3}
+
+

@@ -1,0 +1,31 @@
+\hypertarget{fill_8C}{
+\section{fill.C File Reference}
+\label{fill_8C}\index{fill.C@{fill.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{fill_8C_a0}{Pack\_\-element} (void $\ast$sendel\_\-in, \hyperlink{structElemPack}{Elem\-Pack} $\ast$elem, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int destination\_\-proc)
+\begin{CompactList}\small\item\em \hyperlink{extfun_8h_a25}{Pack\_\-element()} is a friend function of the \hyperlink{classElement}{Element} and \hyperlink{classNode}{Node} classes that packs relevant information from an element \char`\"{}sendel\char`\"{} into a smaller data structure (\hyperlink{structElemPack}{Elem\-Pack}) to be sent by an mpi call to another processor, this is used when exchanging ghost cell information or repartitioning. \item\end{CompactList}\item 
+void \hyperlink{fill_8C_a1}{Pack\_\-neighbor} (int target\_\-proc, \hyperlink{structElementLink}{ELink\-Ptr} $\ast$EL\_\-head, int $\ast$counter, \hyperlink{structNeighborPack}{Ne\-Ptr} $\ast$packed\_\-neighbor\_\-info)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{fill_8C_a0}{
+\index{fill.C@{fill.C}!Pack_element@{Pack\_\-element}}
+\index{Pack_element@{Pack\_\-element}!fill.C@{fill.C}}
+\subsubsection[Pack\_\-element]{\setlength{\rightskip}{0pt plus 5cm}void Pack\_\-element (void $\ast$ {\em sendel\_\-in}, \hyperlink{structElemPack}{Elem\-Pack} $\ast$ {\em elem}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em destination\_\-proc})}}
+\label{fill_8C_a0}
+
+
+\hyperlink{extfun_8h_a25}{Pack\_\-element()} is a friend function of the \hyperlink{classElement}{Element} and \hyperlink{classNode}{Node} classes that packs relevant information from an element \char`\"{}sendel\char`\"{} into a smaller data structure (\hyperlink{structElemPack}{Elem\-Pack}) to be sent by an mpi call to another processor, this is used when exchanging ghost cell information or repartitioning. 
+
+\hypertarget{fill_8C_a1}{
+\index{fill.C@{fill.C}!Pack_neighbor@{Pack\_\-neighbor}}
+\index{Pack_neighbor@{Pack\_\-neighbor}!fill.C@{fill.C}}
+\subsubsection[Pack\_\-neighbor]{\setlength{\rightskip}{0pt plus 5cm}void Pack\_\-neighbor (int {\em target\_\-proc}, \hyperlink{structElementLink}{ELink\-Ptr} $\ast$ {\em EL\_\-head}, int $\ast$ {\em counter}, \hyperlink{structNeighborPack}{Ne\-Ptr} $\ast$ {\em packed\_\-neighbor\_\-info})}}
+\label{fill_8C_a1}
+
+

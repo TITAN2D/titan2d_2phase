@@ -1,0 +1,386 @@
+\hypertarget{classHashTable}{
+\section{Hash\-Table Class Reference}
+\label{classHashTable}\index{HashTable@{HashTable}}
+}
+Hashtables store pointers to each \hyperlink{classElement}{Element} or \hyperlink{classNode}{Node} (of which Hash\-Table is a friend class), these pointers can be accessed by giving the hashtable the \char`\"{}key\char`\"{} of the element number you want to \char`\"{}lookup.\char`\"{} The keys are ordered sequentially by a space filling curve that ensures that the pointers to elements (or nodes) that are located close to each other in physical space will usually be located close to each other in memory, which speeds up access time. Each key is a single number that spans several unsigned variables (elements of an array).  
+
+
+{\tt \#include $<$hashtab.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classHashTable_a0}{Hash\-Table} (unsigned $\ast$, unsigned $\ast$, int, int)
+\item 
+\hyperlink{classHashTable_a1}{Hash\-Table} (double $\ast$doublekeyrangein, int, int, double $\ast$XR, double $\ast$YR, int ifrestart)
+\item 
+\hyperlink{classHashTable_a2}{$\sim$Hash\-Table} ()
+\item 
+int \hyperlink{classHashTable_a3}{hash} (unsigned $\ast$key)
+\item 
+void \hyperlink{classHashTable_a4}{add} (unsigned $\ast$key, void $\ast$value)
+\item 
+void $\ast$ \hyperlink{classHashTable_a5}{lookup} (unsigned $\ast$key)
+\item 
+void \hyperlink{classHashTable_a6}{remove} (unsigned $\ast$key)
+\item 
+void \hyperlink{classHashTable_a7}{remove} (unsigned $\ast$key, int whatflag)
+\item 
+void \hyperlink{classHashTable_a8}{remove} (unsigned $\ast$key, int whatflag, FILE $\ast$fp, int myid, int where)
+\item 
+void \hyperlink{classHashTable_a9}{print\_\-out} (int)
+\item 
+int \hyperlink{classHashTable_a10}{get\_\-no\_\-of\_\-buckets} ()
+\item 
+\hyperlink{structHashEntry}{Hash\-Entry\-Ptr} $\ast$ \hyperlink{classHashTable_a11}{getbucketptr} ()
+\item 
+void $\ast$ \hyperlink{classHashTable_a12}{get\_\-value} ()
+\item 
+double $\ast$ \hyperlink{classHashTable_a13}{get\_\-Xrange} ()
+\item 
+double $\ast$ \hyperlink{classHashTable_a14}{get\_\-Yrange} ()
+\item 
+double $\ast$ \hyperlink{classHashTable_a15}{get\_\-doublekeyrange} ()
+\item 
+double \hyperlink{classHashTable_a16}{get\_\-invdxrange} ()
+\item 
+double \hyperlink{classHashTable_a17}{get\_\-invdyrange} ()
+\item 
+unsigned $\ast$ \hyperlink{classHashTable_a18}{get\_\-Min\-Key} ()
+\item 
+unsigned $\ast$ \hyperlink{classHashTable_a19}{get\_\-Max\-Key} ()
+\item 
+int \hyperlink{classHashTable_a20}{get\_\-nbuckets} ()
+\item 
+int \hyperlink{classHashTable_a21}{get\_\-no\_\-of\_\-entries} ()
+\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{structHashEntry}{Hash\-Entry\-Ptr} \hyperlink{classHashTable_b0}{add\-Element} (int entry, unsigned $\ast$key)
+\item 
+\hyperlink{structHashEntry}{Hash\-Entry\-Ptr} \hyperlink{classHashTable_b1}{search\-Bucket} (\hyperlink{structHashEntry}{Hash\-Entry\-Ptr} p, unsigned $\ast$key)
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+unsigned \hyperlink{classHashTable_p0}{Min\-Key} \mbox{[}2\mbox{]}
+\item 
+unsigned \hyperlink{classHashTable_p1}{Max\-Key} \mbox{[}2\mbox{]}
+\item 
+unsigned \hyperlink{classHashTable_p2}{Range}
+\item 
+double \hyperlink{classHashTable_p3}{doublekeyrange} \mbox{[}2\mbox{]}
+\item 
+double \hyperlink{classHashTable_p4}{hashconstant}
+\item 
+double \hyperlink{classHashTable_p5}{Xrange} \mbox{[}2\mbox{]}
+\item 
+double \hyperlink{classHashTable_p6}{Yrange} \mbox{[}2\mbox{]}
+\item 
+double \hyperlink{classHashTable_p7}{invdxrange}
+\item 
+double \hyperlink{classHashTable_p8}{invdyrange}
+\item 
+\hyperlink{structHashEntry}{Hash\-Entry\-Ptr} $\ast$ \hyperlink{classHashTable_p9}{bucket}
+\item 
+int \hyperlink{classHashTable_p10}{NBUCKETS}
+\item 
+int \hyperlink{classHashTable_p11}{PRIME}
+\item 
+int \hyperlink{classHashTable_p12}{ENTRIES}
+\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+class \hyperlink{classHashTable_n0}{Element}
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Hashtables store pointers to each \hyperlink{classElement}{Element} or \hyperlink{classNode}{Node} (of which Hash\-Table is a friend class), these pointers can be accessed by giving the hashtable the \char`\"{}key\char`\"{} of the element number you want to \char`\"{}lookup.\char`\"{} The keys are ordered sequentially by a space filling curve that ensures that the pointers to elements (or nodes) that are located close to each other in physical space will usually be located close to each other in memory, which speeds up access time. Each key is a single number that spans several unsigned variables (elements of an array). 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classHashTable_a0}{
+\index{HashTable@{Hash\-Table}!HashTable@{HashTable}}
+\index{HashTable@{HashTable}!HashTable@{Hash\-Table}}
+\subsubsection[HashTable]{\setlength{\rightskip}{0pt plus 5cm}Hash\-Table::Hash\-Table (unsigned $\ast$, unsigned $\ast$, int, int)}}
+\label{classHashTable_a0}
+
+
+\hypertarget{classHashTable_a1}{
+\index{HashTable@{Hash\-Table}!HashTable@{HashTable}}
+\index{HashTable@{HashTable}!HashTable@{Hash\-Table}}
+\subsubsection[HashTable]{\setlength{\rightskip}{0pt plus 5cm}Hash\-Table::Hash\-Table (double $\ast$ {\em doublekeyrangein}, int, int, double $\ast$ {\em XR}, double $\ast$ {\em YR}, int {\em ifrestart})}}
+\label{classHashTable_a1}
+
+
+\hypertarget{classHashTable_a2}{
+\index{HashTable@{Hash\-Table}!~HashTable@{$\sim$HashTable}}
+\index{~HashTable@{$\sim$HashTable}!HashTable@{Hash\-Table}}
+\subsubsection[$\sim$HashTable]{\setlength{\rightskip}{0pt plus 5cm}Hash\-Table::$\sim$\hyperlink{classHashTable}{Hash\-Table} ()}}
+\label{classHashTable_a2}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classHashTable_a4}{
+\index{HashTable@{Hash\-Table}!add@{add}}
+\index{add@{add}!HashTable@{Hash\-Table}}
+\subsubsection[add]{\setlength{\rightskip}{0pt plus 5cm}void Hash\-Table::add (unsigned $\ast$ {\em key}, void $\ast$ {\em value})}}
+\label{classHashTable_a4}
+
+
+\hypertarget{classHashTable_b0}{
+\index{HashTable@{Hash\-Table}!addElement@{addElement}}
+\index{addElement@{addElement}!HashTable@{Hash\-Table}}
+\subsubsection[addElement]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{structHashEntry}{Hash\-Entry\-Ptr} Hash\-Table::add\-Element (int {\em entry}, unsigned $\ast$ {\em key})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classHashTable_b0}
+
+
+\hypertarget{classHashTable_a15}{
+\index{HashTable@{Hash\-Table}!get_doublekeyrange@{get\_\-doublekeyrange}}
+\index{get_doublekeyrange@{get\_\-doublekeyrange}!HashTable@{Hash\-Table}}
+\subsubsection[get\_\-doublekeyrange]{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ Hash\-Table::get\_\-doublekeyrange ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classHashTable_a15}
+
+
+\hypertarget{classHashTable_a16}{
+\index{HashTable@{Hash\-Table}!get_invdxrange@{get\_\-invdxrange}}
+\index{get_invdxrange@{get\_\-invdxrange}!HashTable@{Hash\-Table}}
+\subsubsection[get\_\-invdxrange]{\setlength{\rightskip}{0pt plus 5cm}double Hash\-Table::get\_\-invdxrange ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classHashTable_a16}
+
+
+\hypertarget{classHashTable_a17}{
+\index{HashTable@{Hash\-Table}!get_invdyrange@{get\_\-invdyrange}}
+\index{get_invdyrange@{get\_\-invdyrange}!HashTable@{Hash\-Table}}
+\subsubsection[get\_\-invdyrange]{\setlength{\rightskip}{0pt plus 5cm}double Hash\-Table::get\_\-invdyrange ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classHashTable_a17}
+
+
+\hypertarget{classHashTable_a19}{
+\index{HashTable@{Hash\-Table}!get_MaxKey@{get\_\-MaxKey}}
+\index{get_MaxKey@{get\_\-MaxKey}!HashTable@{Hash\-Table}}
+\subsubsection[get\_\-MaxKey]{\setlength{\rightskip}{0pt plus 5cm}unsigned $\ast$ Hash\-Table::get\_\-Max\-Key ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classHashTable_a19}
+
+
+\hypertarget{classHashTable_a18}{
+\index{HashTable@{Hash\-Table}!get_MinKey@{get\_\-MinKey}}
+\index{get_MinKey@{get\_\-MinKey}!HashTable@{Hash\-Table}}
+\subsubsection[get\_\-MinKey]{\setlength{\rightskip}{0pt plus 5cm}unsigned $\ast$ Hash\-Table::get\_\-Min\-Key ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classHashTable_a18}
+
+
+\hypertarget{classHashTable_a20}{
+\index{HashTable@{Hash\-Table}!get_nbuckets@{get\_\-nbuckets}}
+\index{get_nbuckets@{get\_\-nbuckets}!HashTable@{Hash\-Table}}
+\subsubsection[get\_\-nbuckets]{\setlength{\rightskip}{0pt plus 5cm}int Hash\-Table::get\_\-nbuckets ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classHashTable_a20}
+
+
+\hypertarget{classHashTable_a10}{
+\index{HashTable@{Hash\-Table}!get_no_of_buckets@{get\_\-no\_\-of\_\-buckets}}
+\index{get_no_of_buckets@{get\_\-no\_\-of\_\-buckets}!HashTable@{Hash\-Table}}
+\subsubsection[get\_\-no\_\-of\_\-buckets]{\setlength{\rightskip}{0pt plus 5cm}int Hash\-Table::get\_\-no\_\-of\_\-buckets ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classHashTable_a10}
+
+
+\hypertarget{classHashTable_a21}{
+\index{HashTable@{Hash\-Table}!get_no_of_entries@{get\_\-no\_\-of\_\-entries}}
+\index{get_no_of_entries@{get\_\-no\_\-of\_\-entries}!HashTable@{Hash\-Table}}
+\subsubsection[get\_\-no\_\-of\_\-entries]{\setlength{\rightskip}{0pt plus 5cm}int Hash\-Table::get\_\-no\_\-of\_\-entries ()}}
+\label{classHashTable_a21}
+
+
+\hypertarget{classHashTable_a12}{
+\index{HashTable@{Hash\-Table}!get_value@{get\_\-value}}
+\index{get_value@{get\_\-value}!HashTable@{Hash\-Table}}
+\subsubsection[get\_\-value]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Hash\-Table::get\_\-value ()}}
+\label{classHashTable_a12}
+
+
+\hypertarget{classHashTable_a13}{
+\index{HashTable@{Hash\-Table}!get_Xrange@{get\_\-Xrange}}
+\index{get_Xrange@{get\_\-Xrange}!HashTable@{Hash\-Table}}
+\subsubsection[get\_\-Xrange]{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ Hash\-Table::get\_\-Xrange ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classHashTable_a13}
+
+
+\hypertarget{classHashTable_a14}{
+\index{HashTable@{Hash\-Table}!get_Yrange@{get\_\-Yrange}}
+\index{get_Yrange@{get\_\-Yrange}!HashTable@{Hash\-Table}}
+\subsubsection[get\_\-Yrange]{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ Hash\-Table::get\_\-Yrange ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classHashTable_a14}
+
+
+\hypertarget{classHashTable_a11}{
+\index{HashTable@{Hash\-Table}!getbucketptr@{getbucketptr}}
+\index{getbucketptr@{getbucketptr}!HashTable@{Hash\-Table}}
+\subsubsection[getbucketptr]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{structHashEntry}{Hash\-Entry\-Ptr} $\ast$ Hash\-Table::getbucketptr ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classHashTable_a11}
+
+
+\hypertarget{classHashTable_a3}{
+\index{HashTable@{Hash\-Table}!hash@{hash}}
+\index{hash@{hash}!HashTable@{Hash\-Table}}
+\subsubsection[hash]{\setlength{\rightskip}{0pt plus 5cm}int Hash\-Table::hash (unsigned $\ast$ {\em key})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classHashTable_a3}
+
+
+\hypertarget{classHashTable_a5}{
+\index{HashTable@{Hash\-Table}!lookup@{lookup}}
+\index{lookup@{lookup}!HashTable@{Hash\-Table}}
+\subsubsection[lookup]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Hash\-Table::lookup (unsigned $\ast$ {\em key})}}
+\label{classHashTable_a5}
+
+
+\hypertarget{classHashTable_a9}{
+\index{HashTable@{Hash\-Table}!print_out@{print\_\-out}}
+\index{print_out@{print\_\-out}!HashTable@{Hash\-Table}}
+\subsubsection[print\_\-out]{\setlength{\rightskip}{0pt plus 5cm}void Hash\-Table::print\_\-out (int)}}
+\label{classHashTable_a9}
+
+
+\hypertarget{classHashTable_a8}{
+\index{HashTable@{Hash\-Table}!remove@{remove}}
+\index{remove@{remove}!HashTable@{Hash\-Table}}
+\subsubsection[remove]{\setlength{\rightskip}{0pt plus 5cm}void Hash\-Table::remove (unsigned $\ast$ {\em key}, int {\em whatflag}, FILE $\ast$ {\em fp}, int {\em myid}, int {\em where})}}
+\label{classHashTable_a8}
+
+
+\hypertarget{classHashTable_a7}{
+\index{HashTable@{Hash\-Table}!remove@{remove}}
+\index{remove@{remove}!HashTable@{Hash\-Table}}
+\subsubsection[remove]{\setlength{\rightskip}{0pt plus 5cm}void Hash\-Table::remove (unsigned $\ast$ {\em key}, int {\em whatflag})}}
+\label{classHashTable_a7}
+
+
+\hypertarget{classHashTable_a6}{
+\index{HashTable@{Hash\-Table}!remove@{remove}}
+\index{remove@{remove}!HashTable@{Hash\-Table}}
+\subsubsection[remove]{\setlength{\rightskip}{0pt plus 5cm}void Hash\-Table::remove (unsigned $\ast$ {\em key})}}
+\label{classHashTable_a6}
+
+
+\hypertarget{classHashTable_b1}{
+\index{HashTable@{Hash\-Table}!searchBucket@{searchBucket}}
+\index{searchBucket@{searchBucket}!HashTable@{Hash\-Table}}
+\subsubsection[searchBucket]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{structHashEntry}{Hash\-Entry\-Ptr} Hash\-Table::search\-Bucket (\hyperlink{structHashEntry}{Hash\-Entry\-Ptr} {\em p}, unsigned $\ast$ {\em key})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classHashTable_b1}
+
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classHashTable_n0}{
+\index{HashTable@{Hash\-Table}!Element@{Element}}
+\index{Element@{Element}!HashTable@{Hash\-Table}}
+\subsubsection[Element]{\setlength{\rightskip}{0pt plus 5cm}friend class \hyperlink{classElement}{Element}\hspace{0.3cm}{\tt  \mbox{[}friend\mbox{]}}}}
+\label{classHashTable_n0}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classHashTable_p9}{
+\index{HashTable@{Hash\-Table}!bucket@{bucket}}
+\index{bucket@{bucket}!HashTable@{Hash\-Table}}
+\subsubsection[bucket]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{structHashEntry}{Hash\-Entry\-Ptr}$\ast$ \hyperlink{classHashTable_p9}{Hash\-Table::bucket}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classHashTable_p9}
+
+
+\hypertarget{classHashTable_p3}{
+\index{HashTable@{Hash\-Table}!doublekeyrange@{doublekeyrange}}
+\index{doublekeyrange@{doublekeyrange}!HashTable@{Hash\-Table}}
+\subsubsection[doublekeyrange]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classHashTable_p3}{Hash\-Table::doublekeyrange}\mbox{[}2\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classHashTable_p3}
+
+
+\hypertarget{classHashTable_p12}{
+\index{HashTable@{Hash\-Table}!ENTRIES@{ENTRIES}}
+\index{ENTRIES@{ENTRIES}!HashTable@{Hash\-Table}}
+\subsubsection[ENTRIES]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classHashTable_p12}{Hash\-Table::ENTRIES}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classHashTable_p12}
+
+
+\hypertarget{classHashTable_p4}{
+\index{HashTable@{Hash\-Table}!hashconstant@{hashconstant}}
+\index{hashconstant@{hashconstant}!HashTable@{Hash\-Table}}
+\subsubsection[hashconstant]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classHashTable_p4}{Hash\-Table::hashconstant}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classHashTable_p4}
+
+
+\hypertarget{classHashTable_p7}{
+\index{HashTable@{Hash\-Table}!invdxrange@{invdxrange}}
+\index{invdxrange@{invdxrange}!HashTable@{Hash\-Table}}
+\subsubsection[invdxrange]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classHashTable_p7}{Hash\-Table::invdxrange}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classHashTable_p7}
+
+
+\hypertarget{classHashTable_p8}{
+\index{HashTable@{Hash\-Table}!invdyrange@{invdyrange}}
+\index{invdyrange@{invdyrange}!HashTable@{Hash\-Table}}
+\subsubsection[invdyrange]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classHashTable_p8}{Hash\-Table::invdyrange}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classHashTable_p8}
+
+
+\hypertarget{classHashTable_p1}{
+\index{HashTable@{Hash\-Table}!MaxKey@{MaxKey}}
+\index{MaxKey@{MaxKey}!HashTable@{Hash\-Table}}
+\subsubsection[MaxKey]{\setlength{\rightskip}{0pt plus 5cm}unsigned \hyperlink{classHashTable_p1}{Hash\-Table::Max\-Key}\mbox{[}2\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classHashTable_p1}
+
+
+\hypertarget{classHashTable_p0}{
+\index{HashTable@{Hash\-Table}!MinKey@{MinKey}}
+\index{MinKey@{MinKey}!HashTable@{Hash\-Table}}
+\subsubsection[MinKey]{\setlength{\rightskip}{0pt plus 5cm}unsigned \hyperlink{classHashTable_p0}{Hash\-Table::Min\-Key}\mbox{[}2\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classHashTable_p0}
+
+
+\hypertarget{classHashTable_p10}{
+\index{HashTable@{Hash\-Table}!NBUCKETS@{NBUCKETS}}
+\index{NBUCKETS@{NBUCKETS}!HashTable@{Hash\-Table}}
+\subsubsection[NBUCKETS]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classHashTable_p10}{Hash\-Table::NBUCKETS}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classHashTable_p10}
+
+
+\hypertarget{classHashTable_p11}{
+\index{HashTable@{Hash\-Table}!PRIME@{PRIME}}
+\index{PRIME@{PRIME}!HashTable@{Hash\-Table}}
+\subsubsection[PRIME]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classHashTable_p11}{Hash\-Table::PRIME}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classHashTable_p11}
+
+
+\hypertarget{classHashTable_p2}{
+\index{HashTable@{Hash\-Table}!Range@{Range}}
+\index{Range@{Range}!HashTable@{Hash\-Table}}
+\subsubsection[Range]{\setlength{\rightskip}{0pt plus 5cm}unsigned \hyperlink{classHashTable_p2}{Hash\-Table::Range}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classHashTable_p2}
+
+
+\hypertarget{classHashTable_p5}{
+\index{HashTable@{Hash\-Table}!Xrange@{Xrange}}
+\index{Xrange@{Xrange}!HashTable@{Hash\-Table}}
+\subsubsection[Xrange]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classHashTable_p5}{Hash\-Table::Xrange}\mbox{[}2\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classHashTable_p5}
+
+
+\hypertarget{classHashTable_p6}{
+\index{HashTable@{Hash\-Table}!Yrange@{Yrange}}
+\index{Yrange@{Yrange}!HashTable@{Hash\-Table}}
+\subsubsection[Yrange]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classHashTable_p6}{Hash\-Table::Yrange}\mbox{[}2\mbox{]}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classHashTable_p6}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{hashtab_8h}{hashtab.h}\item 
+\hyperlink{hashtab2_8C}{hashtab2.C}\end{CompactItemize}

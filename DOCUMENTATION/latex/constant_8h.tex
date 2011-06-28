@@ -1,0 +1,463 @@
+\hypertarget{constant_8h}{
+\section{constant.h File Reference}
+\label{constant_8h}\index{constant.h@{constant.h}}
+}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{constant_8h_a0}{GEOFLOW\_\-TINY}\ 0.0001
+\item 
+\#define \hyperlink{constant_8h_a1}{GEOFLOW\_\-SHORT}\ 0.01
+\item 
+\#define \hyperlink{constant_8h_a2}{NEWBUFFER}\ 5
+\item 
+\#define \hyperlink{constant_8h_a3}{BUFFER}\ 4
+\item 
+\#define \hyperlink{constant_8h_a4}{NEWSON}\ 3
+\item 
+\#define \hyperlink{constant_8h_a5}{NEWFATHER}\ 2
+\item 
+\#define \hyperlink{constant_8h_a6}{NOTRECADAPTED}\ 1
+\item 
+\#define \hyperlink{constant_8h_a7}{TOBEDELETED}\ 0
+\item 
+\#define \hyperlink{constant_8h_a8}{OLDFATHER}\ -6
+\item 
+\#define \hyperlink{constant_8h_a9}{OLDSON}\ -7
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{constant_8h_a47}{fhsfc3d} (double $\ast$, unsigned $\ast$, unsigned $\ast$)
+\item 
+void \hyperlink{constant_8h_a48}{fhsfc2d\_\-} (double $\ast$, unsigned $\ast$, unsigned $\ast$)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+const int \hyperlink{constant_8h_a10}{KEYLENGTH} = 2
+\item 
+const int \hyperlink{constant_8h_a11}{MAX\_\-PROCS} = 2056
+\item 
+const int \hyperlink{constant_8h_a12}{ZERO} = '0'
+\item 
+const int \hyperlink{constant_8h_a13}{NONZERO} = 111
+\item 
+const int \hyperlink{constant_8h_a14}{PRIME} = 2017
+\item 
+const int \hyperlink{constant_8h_a15}{DIMENSION} = 2
+\item 
+const int \hyperlink{constant_8h_a16}{EQUATIONS} = 2
+\item 
+const int \hyperlink{constant_8h_a17}{POWER} = 1
+\item 
+const int \hyperlink{constant_8h_a18}{MAX\_\-ORDER} = 6
+\item 
+const double \hyperlink{constant_8h_a19}{PI} = 3.1415926
+\item 
+const int \hyperlink{constant_8h_a20}{BCTYPE} = 3
+\item 
+const float \hyperlink{constant_8h_a21}{C} = 1.5
+\item 
+const int \hyperlink{constant_8h_a22}{NODEINIT} = 0x0000
+\item 
+const int \hyperlink{constant_8h_a23}{CORNER} = 0x0002
+\item 
+const int \hyperlink{constant_8h_a24}{BUBBLE} = 0x0006
+\item 
+const int \hyperlink{constant_8h_a25}{SIDE} = 0x0004
+\item 
+const int \hyperlink{constant_8h_a26}{CONSTRAINED} = 0x0001
+\item 
+const int \hyperlink{constant_8h_a27}{S\_\-C\_\-CON} = 0x0007
+\item 
+const int \hyperlink{constant_8h_a28}{S\_\-S\_\-CON} = 0x0005
+\item 
+const int \hyperlink{constant_8h_a29}{ASSIGNED} = 1
+\item 
+const int \hyperlink{constant_8h_a30}{UNASSIGNED} = 0
+\item 
+const double \hyperlink{constant_8h_a31}{UN\_\-CONSTRAINED} = -999999.0
+\item 
+const int \hyperlink{constant_8h_a32}{ON} = 1
+\item 
+const int \hyperlink{constant_8h_a33}{OFF} = 0
+\item 
+const int \hyperlink{constant_8h_a34}{NEW} = 1
+\item 
+const int \hyperlink{constant_8h_a35}{OLD} = 0
+\item 
+const int \hyperlink{constant_8h_a36}{INIT} = -1
+\item 
+const float \hyperlink{constant_8h_a37}{MAX\_\-X} = 1.0
+\item 
+const float \hyperlink{constant_8h_a38}{MAX\_\-Y} = 1.0
+\item 
+const float \hyperlink{constant_8h_a39}{MIN\_\-X} = -1.0
+\item 
+const float \hyperlink{constant_8h_a40}{MIN\_\-Y} = -1.0
+\item 
+const float \hyperlink{constant_8h_a41}{SMALL} = 1.0e-5
+\item 
+const float \hyperlink{constant_8h_a42}{XBC} = -1.0
+\item 
+const float \hyperlink{constant_8h_a43}{YBC} = -1.0
+\item 
+const float \hyperlink{constant_8h_a44}{LOAD\_\-BALANCE\_\-TOLERANCE} = 1.0001
+\item 
+const int \hyperlink{constant_8h_a45}{NUM\_\-STATE\_\-VARS} = 3
+\item 
+const int \hyperlink{constant_8h_a46}{GHOST} = -9876
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{constant_8h_a3}{
+\index{constant.h@{constant.h}!BUFFER@{BUFFER}}
+\index{BUFFER@{BUFFER}!constant.h@{constant.h}}
+\subsubsection[BUFFER]{\setlength{\rightskip}{0pt plus 5cm}\#define BUFFER\ 4}}
+\label{constant_8h_a3}
+
+
+\hypertarget{constant_8h_a1}{
+\index{constant.h@{constant.h}!GEOFLOW_SHORT@{GEOFLOW\_\-SHORT}}
+\index{GEOFLOW_SHORT@{GEOFLOW\_\-SHORT}!constant.h@{constant.h}}
+\subsubsection[GEOFLOW\_\-SHORT]{\setlength{\rightskip}{0pt plus 5cm}\#define GEOFLOW\_\-SHORT\ 0.01}}
+\label{constant_8h_a1}
+
+
+\hypertarget{constant_8h_a0}{
+\index{constant.h@{constant.h}!GEOFLOW_TINY@{GEOFLOW\_\-TINY}}
+\index{GEOFLOW_TINY@{GEOFLOW\_\-TINY}!constant.h@{constant.h}}
+\subsubsection[GEOFLOW\_\-TINY]{\setlength{\rightskip}{0pt plus 5cm}\#define GEOFLOW\_\-TINY\ 0.0001}}
+\label{constant_8h_a0}
+
+
+\hypertarget{constant_8h_a2}{
+\index{constant.h@{constant.h}!NEWBUFFER@{NEWBUFFER}}
+\index{NEWBUFFER@{NEWBUFFER}!constant.h@{constant.h}}
+\subsubsection[NEWBUFFER]{\setlength{\rightskip}{0pt plus 5cm}\#define NEWBUFFER\ 5}}
+\label{constant_8h_a2}
+
+
+\hypertarget{constant_8h_a5}{
+\index{constant.h@{constant.h}!NEWFATHER@{NEWFATHER}}
+\index{NEWFATHER@{NEWFATHER}!constant.h@{constant.h}}
+\subsubsection[NEWFATHER]{\setlength{\rightskip}{0pt plus 5cm}\#define NEWFATHER\ 2}}
+\label{constant_8h_a5}
+
+
+\hypertarget{constant_8h_a4}{
+\index{constant.h@{constant.h}!NEWSON@{NEWSON}}
+\index{NEWSON@{NEWSON}!constant.h@{constant.h}}
+\subsubsection[NEWSON]{\setlength{\rightskip}{0pt plus 5cm}\#define NEWSON\ 3}}
+\label{constant_8h_a4}
+
+
+\hypertarget{constant_8h_a6}{
+\index{constant.h@{constant.h}!NOTRECADAPTED@{NOTRECADAPTED}}
+\index{NOTRECADAPTED@{NOTRECADAPTED}!constant.h@{constant.h}}
+\subsubsection[NOTRECADAPTED]{\setlength{\rightskip}{0pt plus 5cm}\#define NOTRECADAPTED\ 1}}
+\label{constant_8h_a6}
+
+
+\hypertarget{constant_8h_a8}{
+\index{constant.h@{constant.h}!OLDFATHER@{OLDFATHER}}
+\index{OLDFATHER@{OLDFATHER}!constant.h@{constant.h}}
+\subsubsection[OLDFATHER]{\setlength{\rightskip}{0pt plus 5cm}\#define OLDFATHER\ -6}}
+\label{constant_8h_a8}
+
+
+\hypertarget{constant_8h_a9}{
+\index{constant.h@{constant.h}!OLDSON@{OLDSON}}
+\index{OLDSON@{OLDSON}!constant.h@{constant.h}}
+\subsubsection[OLDSON]{\setlength{\rightskip}{0pt plus 5cm}\#define OLDSON\ -7}}
+\label{constant_8h_a9}
+
+
+\hypertarget{constant_8h_a7}{
+\index{constant.h@{constant.h}!TOBEDELETED@{TOBEDELETED}}
+\index{TOBEDELETED@{TOBEDELETED}!constant.h@{constant.h}}
+\subsubsection[TOBEDELETED]{\setlength{\rightskip}{0pt plus 5cm}\#define TOBEDELETED\ 0}}
+\label{constant_8h_a7}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{constant_8h_a48}{
+\index{constant.h@{constant.h}!fhsfc2d_@{fhsfc2d\_\-}}
+\index{fhsfc2d_@{fhsfc2d\_\-}!constant.h@{constant.h}}
+\subsubsection[fhsfc2d\_\-]{\setlength{\rightskip}{0pt plus 5cm}void fhsfc2d\_\- (double $\ast$, unsigned $\ast$, unsigned $\ast$)}}
+\label{constant_8h_a48}
+
+
+\hypertarget{constant_8h_a47}{
+\index{constant.h@{constant.h}!fhsfc3d@{fhsfc3d}}
+\index{fhsfc3d@{fhsfc3d}!constant.h@{constant.h}}
+\subsubsection[fhsfc3d]{\setlength{\rightskip}{0pt plus 5cm}void fhsfc3d (double $\ast$, unsigned $\ast$, unsigned $\ast$)}}
+\label{constant_8h_a47}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{constant_8h_a29}{
+\index{constant.h@{constant.h}!ASSIGNED@{ASSIGNED}}
+\index{ASSIGNED@{ASSIGNED}!constant.h@{constant.h}}
+\subsubsection[ASSIGNED]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a29}{ASSIGNED} = 1}}
+\label{constant_8h_a29}
+
+
+\hypertarget{constant_8h_a20}{
+\index{constant.h@{constant.h}!BCTYPE@{BCTYPE}}
+\index{BCTYPE@{BCTYPE}!constant.h@{constant.h}}
+\subsubsection[BCTYPE]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a20}{BCTYPE} = 3}}
+\label{constant_8h_a20}
+
+
+\hypertarget{constant_8h_a24}{
+\index{constant.h@{constant.h}!BUBBLE@{BUBBLE}}
+\index{BUBBLE@{BUBBLE}!constant.h@{constant.h}}
+\subsubsection[BUBBLE]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a24}{BUBBLE} = 0x0006}}
+\label{constant_8h_a24}
+
+
+\hypertarget{constant_8h_a21}{
+\index{constant.h@{constant.h}!C@{C}}
+\index{C@{C}!constant.h@{constant.h}}
+\subsubsection[C]{\setlength{\rightskip}{0pt plus 5cm}const float \hyperlink{constant_8h_a21}{C} = 1.5}}
+\label{constant_8h_a21}
+
+
+\hypertarget{constant_8h_a26}{
+\index{constant.h@{constant.h}!CONSTRAINED@{CONSTRAINED}}
+\index{CONSTRAINED@{CONSTRAINED}!constant.h@{constant.h}}
+\subsubsection[CONSTRAINED]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a26}{CONSTRAINED} = 0x0001}}
+\label{constant_8h_a26}
+
+
+\hypertarget{constant_8h_a23}{
+\index{constant.h@{constant.h}!CORNER@{CORNER}}
+\index{CORNER@{CORNER}!constant.h@{constant.h}}
+\subsubsection[CORNER]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a23}{CORNER} = 0x0002}}
+\label{constant_8h_a23}
+
+
+\hypertarget{constant_8h_a15}{
+\index{constant.h@{constant.h}!DIMENSION@{DIMENSION}}
+\index{DIMENSION@{DIMENSION}!constant.h@{constant.h}}
+\subsubsection[DIMENSION]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a15}{DIMENSION} = 2}}
+\label{constant_8h_a15}
+
+
+\hypertarget{constant_8h_a16}{
+\index{constant.h@{constant.h}!EQUATIONS@{EQUATIONS}}
+\index{EQUATIONS@{EQUATIONS}!constant.h@{constant.h}}
+\subsubsection[EQUATIONS]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a16}{EQUATIONS} = 2}}
+\label{constant_8h_a16}
+
+
+\hypertarget{constant_8h_a46}{
+\index{constant.h@{constant.h}!GHOST@{GHOST}}
+\index{GHOST@{GHOST}!constant.h@{constant.h}}
+\subsubsection[GHOST]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a46}{GHOST} = -9876}}
+\label{constant_8h_a46}
+
+
+\hypertarget{constant_8h_a36}{
+\index{constant.h@{constant.h}!INIT@{INIT}}
+\index{INIT@{INIT}!constant.h@{constant.h}}
+\subsubsection[INIT]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a36}{INIT} = -1}}
+\label{constant_8h_a36}
+
+
+\hypertarget{constant_8h_a10}{
+\index{constant.h@{constant.h}!KEYLENGTH@{KEYLENGTH}}
+\index{KEYLENGTH@{KEYLENGTH}!constant.h@{constant.h}}
+\subsubsection[KEYLENGTH]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a10}{KEYLENGTH} = 2}}
+\label{constant_8h_a10}
+
+
+\hypertarget{constant_8h_a44}{
+\index{constant.h@{constant.h}!LOAD_BALANCE_TOLERANCE@{LOAD\_\-BALANCE\_\-TOLERANCE}}
+\index{LOAD_BALANCE_TOLERANCE@{LOAD\_\-BALANCE\_\-TOLERANCE}!constant.h@{constant.h}}
+\subsubsection[LOAD\_\-BALANCE\_\-TOLERANCE]{\setlength{\rightskip}{0pt plus 5cm}const float \hyperlink{constant_8h_a44}{LOAD\_\-BALANCE\_\-TOLERANCE} = 1.0001}}
+\label{constant_8h_a44}
+
+
+\hypertarget{constant_8h_a18}{
+\index{constant.h@{constant.h}!MAX_ORDER@{MAX\_\-ORDER}}
+\index{MAX_ORDER@{MAX\_\-ORDER}!constant.h@{constant.h}}
+\subsubsection[MAX\_\-ORDER]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a18}{MAX\_\-ORDER} = 6}}
+\label{constant_8h_a18}
+
+
+\hypertarget{constant_8h_a11}{
+\index{constant.h@{constant.h}!MAX_PROCS@{MAX\_\-PROCS}}
+\index{MAX_PROCS@{MAX\_\-PROCS}!constant.h@{constant.h}}
+\subsubsection[MAX\_\-PROCS]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a11}{MAX\_\-PROCS} = 2056}}
+\label{constant_8h_a11}
+
+
+\hypertarget{constant_8h_a37}{
+\index{constant.h@{constant.h}!MAX_X@{MAX\_\-X}}
+\index{MAX_X@{MAX\_\-X}!constant.h@{constant.h}}
+\subsubsection[MAX\_\-X]{\setlength{\rightskip}{0pt plus 5cm}const float \hyperlink{constant_8h_a37}{MAX\_\-X} = 1.0}}
+\label{constant_8h_a37}
+
+
+\hypertarget{constant_8h_a38}{
+\index{constant.h@{constant.h}!MAX_Y@{MAX\_\-Y}}
+\index{MAX_Y@{MAX\_\-Y}!constant.h@{constant.h}}
+\subsubsection[MAX\_\-Y]{\setlength{\rightskip}{0pt plus 5cm}const float \hyperlink{constant_8h_a38}{MAX\_\-Y} = 1.0}}
+\label{constant_8h_a38}
+
+
+\hypertarget{constant_8h_a39}{
+\index{constant.h@{constant.h}!MIN_X@{MIN\_\-X}}
+\index{MIN_X@{MIN\_\-X}!constant.h@{constant.h}}
+\subsubsection[MIN\_\-X]{\setlength{\rightskip}{0pt plus 5cm}const float \hyperlink{constant_8h_a39}{MIN\_\-X} = -1.0}}
+\label{constant_8h_a39}
+
+
+\hypertarget{constant_8h_a40}{
+\index{constant.h@{constant.h}!MIN_Y@{MIN\_\-Y}}
+\index{MIN_Y@{MIN\_\-Y}!constant.h@{constant.h}}
+\subsubsection[MIN\_\-Y]{\setlength{\rightskip}{0pt plus 5cm}const float \hyperlink{constant_8h_a40}{MIN\_\-Y} = -1.0}}
+\label{constant_8h_a40}
+
+
+\hypertarget{constant_8h_a34}{
+\index{constant.h@{constant.h}!NEW@{NEW}}
+\index{NEW@{NEW}!constant.h@{constant.h}}
+\subsubsection[NEW]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a34}{NEW} = 1}}
+\label{constant_8h_a34}
+
+
+\hypertarget{constant_8h_a22}{
+\index{constant.h@{constant.h}!NODEINIT@{NODEINIT}}
+\index{NODEINIT@{NODEINIT}!constant.h@{constant.h}}
+\subsubsection[NODEINIT]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a22}{NODEINIT} = 0x0000}}
+\label{constant_8h_a22}
+
+
+\hypertarget{constant_8h_a13}{
+\index{constant.h@{constant.h}!NONZERO@{NONZERO}}
+\index{NONZERO@{NONZERO}!constant.h@{constant.h}}
+\subsubsection[NONZERO]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a13}{NONZERO} = 111}}
+\label{constant_8h_a13}
+
+
+\hypertarget{constant_8h_a45}{
+\index{constant.h@{constant.h}!NUM_STATE_VARS@{NUM\_\-STATE\_\-VARS}}
+\index{NUM_STATE_VARS@{NUM\_\-STATE\_\-VARS}!constant.h@{constant.h}}
+\subsubsection[NUM\_\-STATE\_\-VARS]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a45}{NUM\_\-STATE\_\-VARS} = 3}}
+\label{constant_8h_a45}
+
+
+\hypertarget{constant_8h_a33}{
+\index{constant.h@{constant.h}!OFF@{OFF}}
+\index{OFF@{OFF}!constant.h@{constant.h}}
+\subsubsection[OFF]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a33}{OFF} = 0}}
+\label{constant_8h_a33}
+
+
+\hypertarget{constant_8h_a35}{
+\index{constant.h@{constant.h}!OLD@{OLD}}
+\index{OLD@{OLD}!constant.h@{constant.h}}
+\subsubsection[OLD]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a35}{OLD} = 0}}
+\label{constant_8h_a35}
+
+
+\hypertarget{constant_8h_a32}{
+\index{constant.h@{constant.h}!ON@{ON}}
+\index{ON@{ON}!constant.h@{constant.h}}
+\subsubsection[ON]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a32}{ON} = 1}}
+\label{constant_8h_a32}
+
+
+\hypertarget{constant_8h_a19}{
+\index{constant.h@{constant.h}!PI@{PI}}
+\index{PI@{PI}!constant.h@{constant.h}}
+\subsubsection[PI]{\setlength{\rightskip}{0pt plus 5cm}const double \hyperlink{constant_8h_a19}{PI} = 3.1415926}}
+\label{constant_8h_a19}
+
+
+\hypertarget{constant_8h_a17}{
+\index{constant.h@{constant.h}!POWER@{POWER}}
+\index{POWER@{POWER}!constant.h@{constant.h}}
+\subsubsection[POWER]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a17}{POWER} = 1}}
+\label{constant_8h_a17}
+
+
+\hypertarget{constant_8h_a14}{
+\index{constant.h@{constant.h}!PRIME@{PRIME}}
+\index{PRIME@{PRIME}!constant.h@{constant.h}}
+\subsubsection[PRIME]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a14}{PRIME} = 2017}}
+\label{constant_8h_a14}
+
+
+\hypertarget{constant_8h_a27}{
+\index{constant.h@{constant.h}!S_C_CON@{S\_\-C\_\-CON}}
+\index{S_C_CON@{S\_\-C\_\-CON}!constant.h@{constant.h}}
+\subsubsection[S\_\-C\_\-CON]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a27}{S\_\-C\_\-CON} = 0x0007}}
+\label{constant_8h_a27}
+
+
+\hypertarget{constant_8h_a28}{
+\index{constant.h@{constant.h}!S_S_CON@{S\_\-S\_\-CON}}
+\index{S_S_CON@{S\_\-S\_\-CON}!constant.h@{constant.h}}
+\subsubsection[S\_\-S\_\-CON]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a28}{S\_\-S\_\-CON} = 0x0005}}
+\label{constant_8h_a28}
+
+
+\hypertarget{constant_8h_a25}{
+\index{constant.h@{constant.h}!SIDE@{SIDE}}
+\index{SIDE@{SIDE}!constant.h@{constant.h}}
+\subsubsection[SIDE]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a25}{SIDE} = 0x0004}}
+\label{constant_8h_a25}
+
+
+\hypertarget{constant_8h_a41}{
+\index{constant.h@{constant.h}!SMALL@{SMALL}}
+\index{SMALL@{SMALL}!constant.h@{constant.h}}
+\subsubsection[SMALL]{\setlength{\rightskip}{0pt plus 5cm}const float \hyperlink{constant_8h_a41}{SMALL} = 1.0e-5}}
+\label{constant_8h_a41}
+
+
+\hypertarget{constant_8h_a31}{
+\index{constant.h@{constant.h}!UN_CONSTRAINED@{UN\_\-CONSTRAINED}}
+\index{UN_CONSTRAINED@{UN\_\-CONSTRAINED}!constant.h@{constant.h}}
+\subsubsection[UN\_\-CONSTRAINED]{\setlength{\rightskip}{0pt plus 5cm}const double \hyperlink{constant_8h_a31}{UN\_\-CONSTRAINED} = -999999.0}}
+\label{constant_8h_a31}
+
+
+\hypertarget{constant_8h_a30}{
+\index{constant.h@{constant.h}!UNASSIGNED@{UNASSIGNED}}
+\index{UNASSIGNED@{UNASSIGNED}!constant.h@{constant.h}}
+\subsubsection[UNASSIGNED]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a30}{UNASSIGNED} = 0}}
+\label{constant_8h_a30}
+
+
+\hypertarget{constant_8h_a42}{
+\index{constant.h@{constant.h}!XBC@{XBC}}
+\index{XBC@{XBC}!constant.h@{constant.h}}
+\subsubsection[XBC]{\setlength{\rightskip}{0pt plus 5cm}const float \hyperlink{constant_8h_a42}{XBC} = -1.0}}
+\label{constant_8h_a42}
+
+
+\hypertarget{constant_8h_a43}{
+\index{constant.h@{constant.h}!YBC@{YBC}}
+\index{YBC@{YBC}!constant.h@{constant.h}}
+\subsubsection[YBC]{\setlength{\rightskip}{0pt plus 5cm}const float \hyperlink{constant_8h_a43}{YBC} = -1.0}}
+\label{constant_8h_a43}
+
+
+\hypertarget{constant_8h_a12}{
+\index{constant.h@{constant.h}!ZERO@{ZERO}}
+\index{ZERO@{ZERO}!constant.h@{constant.h}}
+\subsubsection[ZERO]{\setlength{\rightskip}{0pt plus 5cm}const int \hyperlink{constant_8h_a12}{ZERO} = '0'}}
+\label{constant_8h_a12}
+
+

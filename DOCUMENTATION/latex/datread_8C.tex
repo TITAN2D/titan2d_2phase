@@ -1,0 +1,42 @@
+\hypertarget{datread_8C}{
+\section{datread.C File Reference}
+\label{datread_8C}\index{datread.C@{datread.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{datread_8C_a0}{initial\_\-} (int $\ast$, double $\ast$, double $\ast$)
+\item 
+void \hyperlink{datread_8C_a1}{Read\_\-data} (int myid, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structPileProps}{Pile\-Props} $\ast$pileprops\_\-ptr, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, \hyperlink{structFluxProps}{Flux\-Props} $\ast$fluxprops, int $\ast$adaptflag\_\-ptr, int $\ast$viz\_\-flag\_\-ptr, int $\ast$order\_\-flag\_\-ptr, \hyperlink{structMapNames}{Map\-Names} $\ast$mapnames\_\-ptr, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$discharge\_\-ptr, \hyperlink{structOutLine}{Out\-Line} $\ast$outline\_\-ptr, int $\ast$srctype)
+\begin{CompactList}\small\item\em this function reads in the input data (excluding the \char`\"{}funky\char`\"{} grid) at the start of a run, whether or not run is a restart. \item\end{CompactList}\item 
+void \hyperlink{datread_8C_a2}{Read\_\-grid} (int myid, int numprocs, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$Node\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$Elem\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structOutLine}{Out\-Line} $\ast$outline\_\-ptr)
+\begin{CompactList}\small\item\em this function reads in the \char`\"{}funky\char`\"{} grid at the start of an original run but not during restart. This used to be part of \hyperlink{extfun_8h_a16}{Read\_\-data()} before Keith seperated them when adding the restart capability. It is my (Keith's) opinion that this should be torn out and along with the preprocessor rewritten into a new format that is a lot more like what happens during the restart, this would significantly reduce the startup time for large runs. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{datread_8C_a0}{
+\index{datread.C@{datread.C}!initial_@{initial\_\-}}
+\index{initial_@{initial\_\-}!datread.C@{datread.C}}
+\subsubsection[initial\_\-]{\setlength{\rightskip}{0pt plus 5cm}void initial\_\- (int $\ast$, double $\ast$, double $\ast$)}}
+\label{datread_8C_a0}
+
+
+\hypertarget{datread_8C_a1}{
+\index{datread.C@{datread.C}!Read_data@{Read\_\-data}}
+\index{Read_data@{Read\_\-data}!datread.C@{datread.C}}
+\subsubsection[Read\_\-data]{\setlength{\rightskip}{0pt plus 5cm}void Read\_\-data (int {\em myid}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structPileProps}{Pile\-Props} $\ast$ {\em pileprops\_\-ptr}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, \hyperlink{structFluxProps}{Flux\-Props} $\ast$ {\em fluxprops}, int $\ast$ {\em adaptflag\_\-ptr}, int $\ast$ {\em viz\_\-flag\_\-ptr}, int $\ast$ {\em order\_\-flag\_\-ptr}, \hyperlink{structMapNames}{Map\-Names} $\ast$ {\em mapnames\_\-ptr}, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$ {\em discharge\_\-ptr}, \hyperlink{structOutLine}{Out\-Line} $\ast$ {\em outline\_\-ptr}, int $\ast$ {\em srctype})}}
+\label{datread_8C_a1}
+
+
+this function reads in the input data (excluding the \char`\"{}funky\char`\"{} grid) at the start of a run, whether or not run is a restart. 
+
+\hypertarget{datread_8C_a2}{
+\index{datread.C@{datread.C}!Read_grid@{Read\_\-grid}}
+\index{Read_grid@{Read\_\-grid}!datread.C@{datread.C}}
+\subsubsection[Read\_\-grid]{\setlength{\rightskip}{0pt plus 5cm}void Read\_\-grid (int {\em myid}, int {\em numprocs}, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$ {\em Node\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$ {\em Elem\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structOutLine}{Out\-Line} $\ast$ {\em outline\_\-ptr})}}
+\label{datread_8C_a2}
+
+
+this function reads in the \char`\"{}funky\char`\"{} grid at the start of an original run but not during restart. This used to be part of \hyperlink{extfun_8h_a16}{Read\_\-data()} before Keith seperated them when adding the restart capability. It is my (Keith's) opinion that this should be torn out and along with the preprocessor rewritten into a new format that is a lot more like what happens during the restart, this would significantly reduce the startup time for large runs. 
+

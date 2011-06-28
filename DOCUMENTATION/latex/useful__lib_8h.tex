@@ -1,0 +1,536 @@
+\hypertarget{useful__lib_8h}{
+\section{useful\_\-lib.h File Reference}
+\label{useful__lib_8h}\index{useful_lib.h@{useful\_\-lib.h}}
+}
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+union \hyperlink{unionfourbytes}{fourbytes}
+\item 
+union \hyperlink{unioneightbytes}{eightbytes}
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef \hyperlink{unionfourbytes}{fourbytes} \hyperlink{useful__lib_8h_a0}{Four\-Bytes}
+\item 
+typedef \hyperlink{unioneightbytes}{eightbytes} \hyperlink{useful__lib_8h_a1}{Eight\-Bytes}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+unsigned $\ast$ \hyperlink{useful__lib_8h_a2}{CAlloc\-U1} (int N1)
+\item 
+unsigned $\ast$$\ast$ \hyperlink{useful__lib_8h_a3}{CAlloc\-U2} (int N1, int N2)
+\item 
+unsigned $\ast$$\ast$$\ast$ \hyperlink{useful__lib_8h_a4}{CAlloc\-U3} (int N1, int N2, int N3)
+\item 
+int $\ast$ \hyperlink{useful__lib_8h_a5}{CAlloc\-I1} (int N1)
+\item 
+int $\ast$$\ast$ \hyperlink{useful__lib_8h_a6}{CAlloc\-I2} (int N1, int N2)
+\item 
+int $\ast$$\ast$$\ast$ \hyperlink{useful__lib_8h_a7}{CAlloc\-I3} (int N1, int N2, int N3)
+\item 
+float $\ast$ \hyperlink{useful__lib_8h_a8}{CAlloc\-F1} (int N1)
+\item 
+float $\ast$$\ast$ \hyperlink{useful__lib_8h_a9}{CAlloc\-F2} (int N1, int N2)
+\item 
+float $\ast$$\ast$$\ast$ \hyperlink{useful__lib_8h_a10}{CAlloc\-F3} (int N1, int N2, int N3)
+\item 
+double $\ast$ \hyperlink{useful__lib_8h_a11}{CAlloc\-D1} (int N1)
+\item 
+double $\ast$$\ast$ \hyperlink{useful__lib_8h_a12}{CAlloc\-D2} (int N1, int N2)
+\item 
+double $\ast$$\ast$$\ast$ \hyperlink{useful__lib_8h_a13}{CAlloc\-D3} (int N1, int N2, int N3)
+\item 
+double $\ast$$\ast$$\ast$$\ast$ \hyperlink{useful__lib_8h_a14}{CAlloc\-D4} (int N1, int N2, int N3, int N4)
+\item 
+char $\ast$ \hyperlink{useful__lib_8h_a15}{CAlloc\-C1} (int N1)
+\item 
+char $\ast$$\ast$ \hyperlink{useful__lib_8h_a16}{CAlloc\-C2} (int N1, int N2)
+\item 
+char $\ast$$\ast$$\ast$ \hyperlink{useful__lib_8h_a17}{CAlloc\-C3} (int N1, int N2, int N3)
+\item 
+void \hyperlink{useful__lib_8h_a18}{CDe\-Alloc\-U1} (unsigned $\ast$U1)
+\item 
+void \hyperlink{useful__lib_8h_a19}{CDe\-Alloc\-U2} (unsigned $\ast$$\ast$U2)
+\item 
+void \hyperlink{useful__lib_8h_a20}{CDe\-Alloc\-U3} (unsigned $\ast$$\ast$$\ast$U3)
+\item 
+void \hyperlink{useful__lib_8h_a21}{CDe\-Alloc\-I1} (int $\ast$I1)
+\item 
+void \hyperlink{useful__lib_8h_a22}{CDe\-Alloc\-I2} (int $\ast$$\ast$I2)
+\item 
+void \hyperlink{useful__lib_8h_a23}{CDe\-Alloc\-I3} (int $\ast$$\ast$$\ast$I3)
+\item 
+void \hyperlink{useful__lib_8h_a24}{CDe\-Alloc\-F1} (float $\ast$F1)
+\item 
+void \hyperlink{useful__lib_8h_a25}{CDe\-Alloc\-F2} (float $\ast$$\ast$F2)
+\item 
+void \hyperlink{useful__lib_8h_a26}{CDe\-Alloc\-F3} (float $\ast$$\ast$$\ast$F3)
+\item 
+void \hyperlink{useful__lib_8h_a27}{CDe\-Alloc\-D1} (double $\ast$D1)
+\item 
+void \hyperlink{useful__lib_8h_a28}{CDe\-Alloc\-D2} (double $\ast$$\ast$D2)
+\item 
+void \hyperlink{useful__lib_8h_a29}{CDe\-Alloc\-D3} (double $\ast$$\ast$$\ast$D3)
+\item 
+void \hyperlink{useful__lib_8h_a30}{CDe\-Alloc\-D4} (double $\ast$$\ast$$\ast$$\ast$D4)
+\item 
+void \hyperlink{useful__lib_8h_a31}{CDe\-Alloc\-C1} (char $\ast$C1)
+\item 
+void \hyperlink{useful__lib_8h_a32}{CDe\-Alloc\-C2} (char $\ast$$\ast$C2)
+\item 
+void \hyperlink{useful__lib_8h_a33}{CDe\-Alloc\-C3} (char $\ast$$\ast$$\ast$C3)
+\item 
+char $\ast$ \hyperlink{useful__lib_8h_a34}{allocstrcpy} (const char $\ast$str)
+\item 
+FILE $\ast$ \hyperlink{useful__lib_8h_a35}{fopen\_\-bin} (char $\ast$filename, char $\ast$mode)
+\item 
+void \hyperlink{useful__lib_8h_a36}{fread\-U} (FILE $\ast$fp, unsigned $\ast$U)
+\item 
+void \hyperlink{useful__lib_8h_a37}{fread\-I} (FILE $\ast$fp, int $\ast$I)
+\item 
+void \hyperlink{useful__lib_8h_a38}{fread\-F} (FILE $\ast$fp, float $\ast$F)
+\item 
+void \hyperlink{useful__lib_8h_a39}{fread\-F2D} (FILE $\ast$fp, double $\ast$D)
+\item 
+void \hyperlink{useful__lib_8h_a40}{fread\-D} (FILE $\ast$fp, double $\ast$D)
+\item 
+void \hyperlink{useful__lib_8h_a41}{fread\-C} (FILE $\ast$fp, char $\ast$\hyperlink{constant_8h_a21}{C})
+\item 
+void \hyperlink{useful__lib_8h_a42}{freadstring} (FILE $\ast$fp, char $\ast$$\ast$str)
+\item 
+void \hyperlink{useful__lib_8h_a43}{fwrite\-U} (FILE $\ast$fp, unsigned U)
+\item 
+void \hyperlink{useful__lib_8h_a44}{fwrite\-I} (FILE $\ast$fp, int I)
+\item 
+void \hyperlink{useful__lib_8h_a45}{fwrite\-F} (FILE $\ast$fp, float F)
+\item 
+void \hyperlink{useful__lib_8h_a46}{fwrite\-D} (FILE $\ast$fp, double D)
+\item 
+void \hyperlink{useful__lib_8h_a47}{fwrite\-C} (FILE $\ast$fp, char \hyperlink{constant_8h_a21}{C})
+\item 
+void \hyperlink{useful__lib_8h_a48}{fwritestring} (FILE $\ast$fp, char $\ast$str)
+\item 
+void \hyperlink{useful__lib_8h_a49}{unique\_\-sort} (int $\ast$a, int $\ast$N)
+\item 
+void \hyperlink{useful__lib_8h_a50}{unique\_\-sort\_\-d} (double $\ast$a, int $\ast$N)
+\item 
+int \hyperlink{useful__lib_8h_a51}{search\-I1} (int $\ast$I1, int N1, int findme)
+\item 
+int \hyperlink{useful__lib_8h_a52}{search\-D1} (double $\ast$D1, int N1, double findme)
+\item 
+double \hyperlink{useful__lib_8h_a53}{ran1} (long $\ast$idum)
+\item 
+double \hyperlink{useful__lib_8h_a54}{key2double} (unsigned key\mbox{[}2\mbox{]})
+\item 
+unsigned $\ast$ \hyperlink{useful__lib_8h_a55}{double2key} (double D, unsigned key\mbox{[}2\mbox{]})
+\item 
+double \hyperlink{useful__lib_8h_a56}{sign} (double a)
+\end{CompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{useful__lib_8h_a1}{
+\index{useful_lib.h@{useful\_\-lib.h}!EightBytes@{EightBytes}}
+\index{EightBytes@{EightBytes}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[EightBytes]{\setlength{\rightskip}{0pt plus 5cm}typedef union \hyperlink{unioneightbytes}{eightbytes}  \hyperlink{unioneightbytes}{Eight\-Bytes}}}
+\label{useful__lib_8h_a1}
+
+
+\hypertarget{useful__lib_8h_a0}{
+\index{useful_lib.h@{useful\_\-lib.h}!FourBytes@{FourBytes}}
+\index{FourBytes@{FourBytes}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[FourBytes]{\setlength{\rightskip}{0pt plus 5cm}typedef union \hyperlink{unionfourbytes}{fourbytes}  \hyperlink{unionfourbytes}{Four\-Bytes}}}
+\label{useful__lib_8h_a0}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{useful__lib_8h_a34}{
+\index{useful_lib.h@{useful\_\-lib.h}!allocstrcpy@{allocstrcpy}}
+\index{allocstrcpy@{allocstrcpy}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[allocstrcpy]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ allocstrcpy (const char $\ast$ {\em str})}}
+\label{useful__lib_8h_a34}
+
+
+\hypertarget{useful__lib_8h_a15}{
+\index{useful_lib.h@{useful\_\-lib.h}!CAllocC1@{CAllocC1}}
+\index{CAllocC1@{CAllocC1}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CAllocC1]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ CAlloc\-C1 (int {\em N1})}}
+\label{useful__lib_8h_a15}
+
+
+\hypertarget{useful__lib_8h_a16}{
+\index{useful_lib.h@{useful\_\-lib.h}!CAllocC2@{CAllocC2}}
+\index{CAllocC2@{CAllocC2}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CAllocC2]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ CAlloc\-C2 (int {\em N1}, int {\em N2})}}
+\label{useful__lib_8h_a16}
+
+
+\hypertarget{useful__lib_8h_a17}{
+\index{useful_lib.h@{useful\_\-lib.h}!CAllocC3@{CAllocC3}}
+\index{CAllocC3@{CAllocC3}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CAllocC3]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$$\ast$ CAlloc\-C3 (int {\em N1}, int {\em N2}, int {\em N3})}}
+\label{useful__lib_8h_a17}
+
+
+\hypertarget{useful__lib_8h_a11}{
+\index{useful_lib.h@{useful\_\-lib.h}!CAllocD1@{CAllocD1}}
+\index{CAllocD1@{CAllocD1}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CAllocD1]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ CAlloc\-D1 (int {\em N1})}}
+\label{useful__lib_8h_a11}
+
+
+\hypertarget{useful__lib_8h_a12}{
+\index{useful_lib.h@{useful\_\-lib.h}!CAllocD2@{CAllocD2}}
+\index{CAllocD2@{CAllocD2}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CAllocD2]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$$\ast$ CAlloc\-D2 (int {\em N1}, int {\em N2})}}
+\label{useful__lib_8h_a12}
+
+
+\hypertarget{useful__lib_8h_a13}{
+\index{useful_lib.h@{useful\_\-lib.h}!CAllocD3@{CAllocD3}}
+\index{CAllocD3@{CAllocD3}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CAllocD3]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$$\ast$$\ast$ CAlloc\-D3 (int {\em N1}, int {\em N2}, int {\em N3})}}
+\label{useful__lib_8h_a13}
+
+
+\hypertarget{useful__lib_8h_a14}{
+\index{useful_lib.h@{useful\_\-lib.h}!CAllocD4@{CAllocD4}}
+\index{CAllocD4@{CAllocD4}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CAllocD4]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$$\ast$$\ast$$\ast$ CAlloc\-D4 (int {\em N1}, int {\em N2}, int {\em N3}, int {\em N4})}}
+\label{useful__lib_8h_a14}
+
+
+\hypertarget{useful__lib_8h_a8}{
+\index{useful_lib.h@{useful\_\-lib.h}!CAllocF1@{CAllocF1}}
+\index{CAllocF1@{CAllocF1}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CAllocF1]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$ CAlloc\-F1 (int {\em N1})}}
+\label{useful__lib_8h_a8}
+
+
+\hypertarget{useful__lib_8h_a9}{
+\index{useful_lib.h@{useful\_\-lib.h}!CAllocF2@{CAllocF2}}
+\index{CAllocF2@{CAllocF2}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CAllocF2]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$$\ast$ CAlloc\-F2 (int {\em N1}, int {\em N2})}}
+\label{useful__lib_8h_a9}
+
+
+\hypertarget{useful__lib_8h_a10}{
+\index{useful_lib.h@{useful\_\-lib.h}!CAllocF3@{CAllocF3}}
+\index{CAllocF3@{CAllocF3}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CAllocF3]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$$\ast$$\ast$ CAlloc\-F3 (int {\em N1}, int {\em N2}, int {\em N3})}}
+\label{useful__lib_8h_a10}
+
+
+\hypertarget{useful__lib_8h_a5}{
+\index{useful_lib.h@{useful\_\-lib.h}!CAllocI1@{CAllocI1}}
+\index{CAllocI1@{CAllocI1}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CAllocI1]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ CAlloc\-I1 (int {\em N1})}}
+\label{useful__lib_8h_a5}
+
+
+\hypertarget{useful__lib_8h_a6}{
+\index{useful_lib.h@{useful\_\-lib.h}!CAllocI2@{CAllocI2}}
+\index{CAllocI2@{CAllocI2}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CAllocI2]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$$\ast$ CAlloc\-I2 (int {\em N1}, int {\em N2})}}
+\label{useful__lib_8h_a6}
+
+
+\hypertarget{useful__lib_8h_a7}{
+\index{useful_lib.h@{useful\_\-lib.h}!CAllocI3@{CAllocI3}}
+\index{CAllocI3@{CAllocI3}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CAllocI3]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$$\ast$$\ast$ CAlloc\-I3 (int {\em N1}, int {\em N2}, int {\em N3})}}
+\label{useful__lib_8h_a7}
+
+
+\hypertarget{useful__lib_8h_a2}{
+\index{useful_lib.h@{useful\_\-lib.h}!CAllocU1@{CAllocU1}}
+\index{CAllocU1@{CAllocU1}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CAllocU1]{\setlength{\rightskip}{0pt plus 5cm}unsigned$\ast$ CAlloc\-U1 (int {\em N1})}}
+\label{useful__lib_8h_a2}
+
+
+\hypertarget{useful__lib_8h_a3}{
+\index{useful_lib.h@{useful\_\-lib.h}!CAllocU2@{CAllocU2}}
+\index{CAllocU2@{CAllocU2}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CAllocU2]{\setlength{\rightskip}{0pt plus 5cm}unsigned$\ast$$\ast$ CAlloc\-U2 (int {\em N1}, int {\em N2})}}
+\label{useful__lib_8h_a3}
+
+
+\hypertarget{useful__lib_8h_a4}{
+\index{useful_lib.h@{useful\_\-lib.h}!CAllocU3@{CAllocU3}}
+\index{CAllocU3@{CAllocU3}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CAllocU3]{\setlength{\rightskip}{0pt plus 5cm}unsigned$\ast$$\ast$$\ast$ CAlloc\-U3 (int {\em N1}, int {\em N2}, int {\em N3})}}
+\label{useful__lib_8h_a4}
+
+
+\hypertarget{useful__lib_8h_a31}{
+\index{useful_lib.h@{useful\_\-lib.h}!CDeAllocC1@{CDeAllocC1}}
+\index{CDeAllocC1@{CDeAllocC1}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CDeAllocC1]{\setlength{\rightskip}{0pt plus 5cm}void CDe\-Alloc\-C1 (char $\ast$ {\em C1})}}
+\label{useful__lib_8h_a31}
+
+
+\hypertarget{useful__lib_8h_a32}{
+\index{useful_lib.h@{useful\_\-lib.h}!CDeAllocC2@{CDeAllocC2}}
+\index{CDeAllocC2@{CDeAllocC2}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CDeAllocC2]{\setlength{\rightskip}{0pt plus 5cm}void CDe\-Alloc\-C2 (char $\ast$$\ast$ {\em C2})}}
+\label{useful__lib_8h_a32}
+
+
+\hypertarget{useful__lib_8h_a33}{
+\index{useful_lib.h@{useful\_\-lib.h}!CDeAllocC3@{CDeAllocC3}}
+\index{CDeAllocC3@{CDeAllocC3}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CDeAllocC3]{\setlength{\rightskip}{0pt plus 5cm}void CDe\-Alloc\-C3 (char $\ast$$\ast$$\ast$ {\em C3})}}
+\label{useful__lib_8h_a33}
+
+
+\hypertarget{useful__lib_8h_a27}{
+\index{useful_lib.h@{useful\_\-lib.h}!CDeAllocD1@{CDeAllocD1}}
+\index{CDeAllocD1@{CDeAllocD1}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CDeAllocD1]{\setlength{\rightskip}{0pt plus 5cm}void CDe\-Alloc\-D1 (double $\ast$ {\em D1})}}
+\label{useful__lib_8h_a27}
+
+
+\hypertarget{useful__lib_8h_a28}{
+\index{useful_lib.h@{useful\_\-lib.h}!CDeAllocD2@{CDeAllocD2}}
+\index{CDeAllocD2@{CDeAllocD2}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CDeAllocD2]{\setlength{\rightskip}{0pt plus 5cm}void CDe\-Alloc\-D2 (double $\ast$$\ast$ {\em D2})}}
+\label{useful__lib_8h_a28}
+
+
+\hypertarget{useful__lib_8h_a29}{
+\index{useful_lib.h@{useful\_\-lib.h}!CDeAllocD3@{CDeAllocD3}}
+\index{CDeAllocD3@{CDeAllocD3}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CDeAllocD3]{\setlength{\rightskip}{0pt plus 5cm}void CDe\-Alloc\-D3 (double $\ast$$\ast$$\ast$ {\em D3})}}
+\label{useful__lib_8h_a29}
+
+
+\hypertarget{useful__lib_8h_a30}{
+\index{useful_lib.h@{useful\_\-lib.h}!CDeAllocD4@{CDeAllocD4}}
+\index{CDeAllocD4@{CDeAllocD4}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CDeAllocD4]{\setlength{\rightskip}{0pt plus 5cm}void CDe\-Alloc\-D4 (double $\ast$$\ast$$\ast$$\ast$ {\em D4})}}
+\label{useful__lib_8h_a30}
+
+
+\hypertarget{useful__lib_8h_a24}{
+\index{useful_lib.h@{useful\_\-lib.h}!CDeAllocF1@{CDeAllocF1}}
+\index{CDeAllocF1@{CDeAllocF1}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CDeAllocF1]{\setlength{\rightskip}{0pt plus 5cm}void CDe\-Alloc\-F1 (float $\ast$ {\em F1})}}
+\label{useful__lib_8h_a24}
+
+
+\hypertarget{useful__lib_8h_a25}{
+\index{useful_lib.h@{useful\_\-lib.h}!CDeAllocF2@{CDeAllocF2}}
+\index{CDeAllocF2@{CDeAllocF2}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CDeAllocF2]{\setlength{\rightskip}{0pt plus 5cm}void CDe\-Alloc\-F2 (float $\ast$$\ast$ {\em F2})}}
+\label{useful__lib_8h_a25}
+
+
+\hypertarget{useful__lib_8h_a26}{
+\index{useful_lib.h@{useful\_\-lib.h}!CDeAllocF3@{CDeAllocF3}}
+\index{CDeAllocF3@{CDeAllocF3}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CDeAllocF3]{\setlength{\rightskip}{0pt plus 5cm}void CDe\-Alloc\-F3 (float $\ast$$\ast$$\ast$ {\em F3})}}
+\label{useful__lib_8h_a26}
+
+
+\hypertarget{useful__lib_8h_a21}{
+\index{useful_lib.h@{useful\_\-lib.h}!CDeAllocI1@{CDeAllocI1}}
+\index{CDeAllocI1@{CDeAllocI1}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CDeAllocI1]{\setlength{\rightskip}{0pt plus 5cm}void CDe\-Alloc\-I1 (int $\ast$ {\em I1})}}
+\label{useful__lib_8h_a21}
+
+
+\hypertarget{useful__lib_8h_a22}{
+\index{useful_lib.h@{useful\_\-lib.h}!CDeAllocI2@{CDeAllocI2}}
+\index{CDeAllocI2@{CDeAllocI2}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CDeAllocI2]{\setlength{\rightskip}{0pt plus 5cm}void CDe\-Alloc\-I2 (int $\ast$$\ast$ {\em I2})}}
+\label{useful__lib_8h_a22}
+
+
+\hypertarget{useful__lib_8h_a23}{
+\index{useful_lib.h@{useful\_\-lib.h}!CDeAllocI3@{CDeAllocI3}}
+\index{CDeAllocI3@{CDeAllocI3}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CDeAllocI3]{\setlength{\rightskip}{0pt plus 5cm}void CDe\-Alloc\-I3 (int $\ast$$\ast$$\ast$ {\em I3})}}
+\label{useful__lib_8h_a23}
+
+
+\hypertarget{useful__lib_8h_a18}{
+\index{useful_lib.h@{useful\_\-lib.h}!CDeAllocU1@{CDeAllocU1}}
+\index{CDeAllocU1@{CDeAllocU1}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CDeAllocU1]{\setlength{\rightskip}{0pt plus 5cm}void CDe\-Alloc\-U1 (unsigned $\ast$ {\em U1})}}
+\label{useful__lib_8h_a18}
+
+
+\hypertarget{useful__lib_8h_a19}{
+\index{useful_lib.h@{useful\_\-lib.h}!CDeAllocU2@{CDeAllocU2}}
+\index{CDeAllocU2@{CDeAllocU2}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CDeAllocU2]{\setlength{\rightskip}{0pt plus 5cm}void CDe\-Alloc\-U2 (unsigned $\ast$$\ast$ {\em U2})}}
+\label{useful__lib_8h_a19}
+
+
+\hypertarget{useful__lib_8h_a20}{
+\index{useful_lib.h@{useful\_\-lib.h}!CDeAllocU3@{CDeAllocU3}}
+\index{CDeAllocU3@{CDeAllocU3}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[CDeAllocU3]{\setlength{\rightskip}{0pt plus 5cm}void CDe\-Alloc\-U3 (unsigned $\ast$$\ast$$\ast$ {\em U3})}}
+\label{useful__lib_8h_a20}
+
+
+\hypertarget{useful__lib_8h_a55}{
+\index{useful_lib.h@{useful\_\-lib.h}!double2key@{double2key}}
+\index{double2key@{double2key}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[double2key]{\setlength{\rightskip}{0pt plus 5cm}unsigned$\ast$ double2key (double {\em D}, unsigned {\em key}\mbox{[}2\mbox{]})}}
+\label{useful__lib_8h_a55}
+
+
+\hypertarget{useful__lib_8h_a35}{
+\index{useful_lib.h@{useful\_\-lib.h}!fopen_bin@{fopen\_\-bin}}
+\index{fopen_bin@{fopen\_\-bin}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[fopen\_\-bin]{\setlength{\rightskip}{0pt plus 5cm}FILE$\ast$ fopen\_\-bin (char $\ast$ {\em filename}, char $\ast$ {\em mode})}}
+\label{useful__lib_8h_a35}
+
+
+\hypertarget{useful__lib_8h_a41}{
+\index{useful_lib.h@{useful\_\-lib.h}!freadC@{freadC}}
+\index{freadC@{freadC}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[freadC]{\setlength{\rightskip}{0pt plus 5cm}void fread\-C (FILE $\ast$ {\em fp}, char $\ast$ {\em C})}}
+\label{useful__lib_8h_a41}
+
+
+\hypertarget{useful__lib_8h_a40}{
+\index{useful_lib.h@{useful\_\-lib.h}!freadD@{freadD}}
+\index{freadD@{freadD}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[freadD]{\setlength{\rightskip}{0pt plus 5cm}void fread\-D (FILE $\ast$ {\em fp}, double $\ast$ {\em D})}}
+\label{useful__lib_8h_a40}
+
+
+\hypertarget{useful__lib_8h_a38}{
+\index{useful_lib.h@{useful\_\-lib.h}!freadF@{freadF}}
+\index{freadF@{freadF}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[freadF]{\setlength{\rightskip}{0pt plus 5cm}void fread\-F (FILE $\ast$ {\em fp}, float $\ast$ {\em F})}}
+\label{useful__lib_8h_a38}
+
+
+\hypertarget{useful__lib_8h_a39}{
+\index{useful_lib.h@{useful\_\-lib.h}!freadF2D@{freadF2D}}
+\index{freadF2D@{freadF2D}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[freadF2D]{\setlength{\rightskip}{0pt plus 5cm}void fread\-F2D (FILE $\ast$ {\em fp}, double $\ast$ {\em D})}}
+\label{useful__lib_8h_a39}
+
+
+\hypertarget{useful__lib_8h_a37}{
+\index{useful_lib.h@{useful\_\-lib.h}!freadI@{freadI}}
+\index{freadI@{freadI}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[freadI]{\setlength{\rightskip}{0pt plus 5cm}void fread\-I (FILE $\ast$ {\em fp}, int $\ast$ {\em I})}}
+\label{useful__lib_8h_a37}
+
+
+\hypertarget{useful__lib_8h_a42}{
+\index{useful_lib.h@{useful\_\-lib.h}!freadstring@{freadstring}}
+\index{freadstring@{freadstring}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[freadstring]{\setlength{\rightskip}{0pt plus 5cm}void freadstring (FILE $\ast$ {\em fp}, char $\ast$$\ast$ {\em str})}}
+\label{useful__lib_8h_a42}
+
+
+\hypertarget{useful__lib_8h_a36}{
+\index{useful_lib.h@{useful\_\-lib.h}!freadU@{freadU}}
+\index{freadU@{freadU}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[freadU]{\setlength{\rightskip}{0pt plus 5cm}void fread\-U (FILE $\ast$ {\em fp}, unsigned $\ast$ {\em U})}}
+\label{useful__lib_8h_a36}
+
+
+\hypertarget{useful__lib_8h_a47}{
+\index{useful_lib.h@{useful\_\-lib.h}!fwriteC@{fwriteC}}
+\index{fwriteC@{fwriteC}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[fwriteC]{\setlength{\rightskip}{0pt plus 5cm}void fwrite\-C (FILE $\ast$ {\em fp}, char {\em C})}}
+\label{useful__lib_8h_a47}
+
+
+\hypertarget{useful__lib_8h_a46}{
+\index{useful_lib.h@{useful\_\-lib.h}!fwriteD@{fwriteD}}
+\index{fwriteD@{fwriteD}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[fwriteD]{\setlength{\rightskip}{0pt plus 5cm}void fwrite\-D (FILE $\ast$ {\em fp}, double {\em D})}}
+\label{useful__lib_8h_a46}
+
+
+\hypertarget{useful__lib_8h_a45}{
+\index{useful_lib.h@{useful\_\-lib.h}!fwriteF@{fwriteF}}
+\index{fwriteF@{fwriteF}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[fwriteF]{\setlength{\rightskip}{0pt plus 5cm}void fwrite\-F (FILE $\ast$ {\em fp}, float {\em F})}}
+\label{useful__lib_8h_a45}
+
+
+\hypertarget{useful__lib_8h_a44}{
+\index{useful_lib.h@{useful\_\-lib.h}!fwriteI@{fwriteI}}
+\index{fwriteI@{fwriteI}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[fwriteI]{\setlength{\rightskip}{0pt plus 5cm}void fwrite\-I (FILE $\ast$ {\em fp}, int {\em I})}}
+\label{useful__lib_8h_a44}
+
+
+\hypertarget{useful__lib_8h_a48}{
+\index{useful_lib.h@{useful\_\-lib.h}!fwritestring@{fwritestring}}
+\index{fwritestring@{fwritestring}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[fwritestring]{\setlength{\rightskip}{0pt plus 5cm}void fwritestring (FILE $\ast$ {\em fp}, char $\ast$ {\em str})}}
+\label{useful__lib_8h_a48}
+
+
+\hypertarget{useful__lib_8h_a43}{
+\index{useful_lib.h@{useful\_\-lib.h}!fwriteU@{fwriteU}}
+\index{fwriteU@{fwriteU}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[fwriteU]{\setlength{\rightskip}{0pt plus 5cm}void fwrite\-U (FILE $\ast$ {\em fp}, unsigned {\em U})}}
+\label{useful__lib_8h_a43}
+
+
+\hypertarget{useful__lib_8h_a54}{
+\index{useful_lib.h@{useful\_\-lib.h}!key2double@{key2double}}
+\index{key2double@{key2double}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[key2double]{\setlength{\rightskip}{0pt plus 5cm}double key2double (unsigned {\em key}\mbox{[}2\mbox{]})}}
+\label{useful__lib_8h_a54}
+
+
+\hypertarget{useful__lib_8h_a53}{
+\index{useful_lib.h@{useful\_\-lib.h}!ran1@{ran1}}
+\index{ran1@{ran1}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[ran1]{\setlength{\rightskip}{0pt plus 5cm}double ran1 (long $\ast$ {\em idum})}}
+\label{useful__lib_8h_a53}
+
+
+\hypertarget{useful__lib_8h_a52}{
+\index{useful_lib.h@{useful\_\-lib.h}!searchD1@{searchD1}}
+\index{searchD1@{searchD1}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[searchD1]{\setlength{\rightskip}{0pt plus 5cm}int search\-D1 (double $\ast$ {\em D1}, int {\em N1}, double {\em findme})}}
+\label{useful__lib_8h_a52}
+
+
+\hypertarget{useful__lib_8h_a51}{
+\index{useful_lib.h@{useful\_\-lib.h}!searchI1@{searchI1}}
+\index{searchI1@{searchI1}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[searchI1]{\setlength{\rightskip}{0pt plus 5cm}int search\-I1 (int $\ast$ {\em I1}, int {\em N1}, int {\em findme})}}
+\label{useful__lib_8h_a51}
+
+
+\hypertarget{useful__lib_8h_a56}{
+\index{useful_lib.h@{useful\_\-lib.h}!sign@{sign}}
+\index{sign@{sign}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[sign]{\setlength{\rightskip}{0pt plus 5cm}double sign (double {\em a})}}
+\label{useful__lib_8h_a56}
+
+
+\hypertarget{useful__lib_8h_a49}{
+\index{useful_lib.h@{useful\_\-lib.h}!unique_sort@{unique\_\-sort}}
+\index{unique_sort@{unique\_\-sort}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[unique\_\-sort]{\setlength{\rightskip}{0pt plus 5cm}void unique\_\-sort (int $\ast$ {\em a}, int $\ast$ {\em N})}}
+\label{useful__lib_8h_a49}
+
+
+\hypertarget{useful__lib_8h_a50}{
+\index{useful_lib.h@{useful\_\-lib.h}!unique_sort_d@{unique\_\-sort\_\-d}}
+\index{unique_sort_d@{unique\_\-sort\_\-d}!useful_lib.h@{useful\_\-lib.h}}
+\subsubsection[unique\_\-sort\_\-d]{\setlength{\rightskip}{0pt plus 5cm}void unique\_\-sort\_\-d (double $\ast$ {\em a}, int $\ast$ {\em N})}}
+\label{useful__lib_8h_a50}
+
+

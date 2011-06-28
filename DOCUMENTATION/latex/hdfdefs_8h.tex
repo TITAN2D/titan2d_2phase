@@ -1,0 +1,295 @@
+\hypertarget{hdfdefs_8h}{
+\section{hdfdefs.h File Reference}
+\label{hdfdefs_8h}\index{hdfdefs.h@{hdfdefs.h}}
+}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{hdfdefs_8h_a0}{DATASETNAME}\ \char`\"{}Extendible\-Array1\char`\"{}
+\item 
+\#define \hyperlink{hdfdefs_8h_a1}{DATASETNAME1}\ \char`\"{}Extendible\-Array2\char`\"{}
+\item 
+\#define \hyperlink{hdfdefs_8h_a2}{RANK}\ 2
+\item 
+\#define \hyperlink{hdfdefs_8h_a3}{LENGTH}\ 1
+\item 
+\#define \hyperlink{hdfdefs_8h_a4}{HEIGHT}\ 10000
+\item 
+\#define \hyperlink{hdfdefs_8h_a5}{WIDTH}\ 10
+\item 
+\#define \hyperlink{hdfdefs_8h_a6}{HEIGHT1}\ 2500
+\item 
+\#define \hyperlink{hdfdefs_8h_a7}{a\-HEIGHT}\ 10
+\item 
+\#define \hyperlink{hdfdefs_8h_a8}{a\-WIDTH}\ 4
+\item 
+\#define \hyperlink{hdfdefs_8h_a9}{a\-HEIGHT1}\ 2
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+float \hyperlink{hdfdefs_8h_a10}{data} \mbox{[}HEIGHT\mbox{]}\mbox{[}WIDTH\mbox{]}
+\item 
+float \hyperlink{hdfdefs_8h_a11}{data1} \mbox{[}HEIGHT1\mbox{]}\mbox{[}WIDTH\mbox{]}
+\item 
+float \hyperlink{hdfdefs_8h_a12}{adata} \mbox{[}a\-HEIGHT\mbox{]}\mbox{[}a\-WIDTH\mbox{]}
+\item 
+float \hyperlink{hdfdefs_8h_a13}{adata1} \mbox{[}a\-HEIGHT1\mbox{]}\mbox{[}a\-WIDTH\mbox{]}
+\item 
+hsize\_\-t \hyperlink{hdfdefs_8h_a14}{maxdim} \mbox{[}2\mbox{]} = \{H5S\_\-UNLIMITED, WIDTH\}
+\item 
+hsize\_\-t \hyperlink{hdfdefs_8h_a15}{amaxdim} \mbox{[}2\mbox{]} = \{H5S\_\-UNLIMITED,a\-WIDTH\}
+\item 
+hsize\_\-t \hyperlink{hdfdefs_8h_a16}{dim} \mbox{[}2\mbox{]} = \{HEIGHT, WIDTH\}
+\item 
+hsize\_\-t \hyperlink{hdfdefs_8h_a17}{adim} \mbox{[}2\mbox{]} = \{a\-HEIGHT, a\-WIDTH\}
+\item 
+hid\_\-t \hyperlink{hdfdefs_8h_a18}{cparms}
+\item 
+hid\_\-t \hyperlink{hdfdefs_8h_a19}{acparms}
+\item 
+hsize\_\-t \hyperlink{hdfdefs_8h_a20}{newsize} \mbox{[}2\mbox{]} = \{HEIGHT, WIDTH\}
+\item 
+hsize\_\-t \hyperlink{hdfdefs_8h_a21}{anewsize} \mbox{[}2\mbox{]} = \{a\-HEIGHT, a\-WIDTH\}
+\item 
+void $\ast$ \hyperlink{hdfdefs_8h_a22}{tbuf} = NULL
+\item 
+int \hyperlink{hdfdefs_8h_a23}{w} \mbox{[}100\mbox{]}
+\item 
+int \hyperlink{hdfdefs_8h_a24}{aw} \mbox{[}100\mbox{]}
+\item 
+int \hyperlink{hdfdefs_8h_a25}{r} \mbox{[}100\mbox{]}
+\item 
+int \hyperlink{hdfdefs_8h_a26}{ar} \mbox{[}100\mbox{]}
+\item 
+int \hyperlink{hdfdefs_8h_a27}{l} \mbox{[}100\mbox{]}
+\item 
+int \hyperlink{hdfdefs_8h_a28}{al} \mbox{[}100\mbox{]}
+\item 
+int \hyperlink{hdfdefs_8h_a29}{al1} \mbox{[}100\mbox{]}
+\item 
+int \hyperlink{hdfdefs_8h_a30}{l1} \mbox{[}100\mbox{]}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{hdfdefs_8h_a7}{
+\index{hdfdefs.h@{hdfdefs.h}!aHEIGHT@{aHEIGHT}}
+\index{aHEIGHT@{aHEIGHT}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[aHEIGHT]{\setlength{\rightskip}{0pt plus 5cm}\#define a\-HEIGHT\ 10}}
+\label{hdfdefs_8h_a7}
+
+
+\hypertarget{hdfdefs_8h_a9}{
+\index{hdfdefs.h@{hdfdefs.h}!aHEIGHT1@{aHEIGHT1}}
+\index{aHEIGHT1@{aHEIGHT1}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[aHEIGHT1]{\setlength{\rightskip}{0pt plus 5cm}\#define a\-HEIGHT1\ 2}}
+\label{hdfdefs_8h_a9}
+
+
+\hypertarget{hdfdefs_8h_a8}{
+\index{hdfdefs.h@{hdfdefs.h}!aWIDTH@{aWIDTH}}
+\index{aWIDTH@{aWIDTH}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[aWIDTH]{\setlength{\rightskip}{0pt plus 5cm}\#define a\-WIDTH\ 4}}
+\label{hdfdefs_8h_a8}
+
+
+\hypertarget{hdfdefs_8h_a0}{
+\index{hdfdefs.h@{hdfdefs.h}!DATASETNAME@{DATASETNAME}}
+\index{DATASETNAME@{DATASETNAME}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[DATASETNAME]{\setlength{\rightskip}{0pt plus 5cm}\#define DATASETNAME\ \char`\"{}Extendible\-Array1\char`\"{}}}
+\label{hdfdefs_8h_a0}
+
+
+\hypertarget{hdfdefs_8h_a1}{
+\index{hdfdefs.h@{hdfdefs.h}!DATASETNAME1@{DATASETNAME1}}
+\index{DATASETNAME1@{DATASETNAME1}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[DATASETNAME1]{\setlength{\rightskip}{0pt plus 5cm}\#define DATASETNAME1\ \char`\"{}Extendible\-Array2\char`\"{}}}
+\label{hdfdefs_8h_a1}
+
+
+\hypertarget{hdfdefs_8h_a4}{
+\index{hdfdefs.h@{hdfdefs.h}!HEIGHT@{HEIGHT}}
+\index{HEIGHT@{HEIGHT}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[HEIGHT]{\setlength{\rightskip}{0pt plus 5cm}\#define HEIGHT\ 10000}}
+\label{hdfdefs_8h_a4}
+
+
+\hypertarget{hdfdefs_8h_a6}{
+\index{hdfdefs.h@{hdfdefs.h}!HEIGHT1@{HEIGHT1}}
+\index{HEIGHT1@{HEIGHT1}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[HEIGHT1]{\setlength{\rightskip}{0pt plus 5cm}\#define HEIGHT1\ 2500}}
+\label{hdfdefs_8h_a6}
+
+
+\hypertarget{hdfdefs_8h_a3}{
+\index{hdfdefs.h@{hdfdefs.h}!LENGTH@{LENGTH}}
+\index{LENGTH@{LENGTH}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[LENGTH]{\setlength{\rightskip}{0pt plus 5cm}\#define LENGTH\ 1}}
+\label{hdfdefs_8h_a3}
+
+
+\hypertarget{hdfdefs_8h_a2}{
+\index{hdfdefs.h@{hdfdefs.h}!RANK@{RANK}}
+\index{RANK@{RANK}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[RANK]{\setlength{\rightskip}{0pt plus 5cm}\#define RANK\ 2}}
+\label{hdfdefs_8h_a2}
+
+
+\hypertarget{hdfdefs_8h_a5}{
+\index{hdfdefs.h@{hdfdefs.h}!WIDTH@{WIDTH}}
+\index{WIDTH@{WIDTH}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[WIDTH]{\setlength{\rightskip}{0pt plus 5cm}\#define WIDTH\ 10}}
+\label{hdfdefs_8h_a5}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{hdfdefs_8h_a19}{
+\index{hdfdefs.h@{hdfdefs.h}!acparms@{acparms}}
+\index{acparms@{acparms}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[acparms]{\setlength{\rightskip}{0pt plus 5cm}hid\_\-t \hyperlink{hdfdefs_8h_a19}{acparms}}}
+\label{hdfdefs_8h_a19}
+
+
+\hypertarget{hdfdefs_8h_a12}{
+\index{hdfdefs.h@{hdfdefs.h}!adata@{adata}}
+\index{adata@{adata}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[adata]{\setlength{\rightskip}{0pt plus 5cm}float \hyperlink{hdfdefs_8h_a12}{adata}\mbox{[}a\-HEIGHT\mbox{]}\mbox{[}a\-WIDTH\mbox{]}}}
+\label{hdfdefs_8h_a12}
+
+
+\hypertarget{hdfdefs_8h_a13}{
+\index{hdfdefs.h@{hdfdefs.h}!adata1@{adata1}}
+\index{adata1@{adata1}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[adata1]{\setlength{\rightskip}{0pt plus 5cm}float \hyperlink{hdfdefs_8h_a13}{adata1}\mbox{[}a\-HEIGHT1\mbox{]}\mbox{[}a\-WIDTH\mbox{]}}}
+\label{hdfdefs_8h_a13}
+
+
+\hypertarget{hdfdefs_8h_a17}{
+\index{hdfdefs.h@{hdfdefs.h}!adim@{adim}}
+\index{adim@{adim}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[adim]{\setlength{\rightskip}{0pt plus 5cm}hsize\_\-t \hyperlink{hdfdefs_8h_a17}{adim}\mbox{[}2\mbox{]} = \{a\-HEIGHT, a\-WIDTH\}}}
+\label{hdfdefs_8h_a17}
+
+
+\hypertarget{hdfdefs_8h_a28}{
+\index{hdfdefs.h@{hdfdefs.h}!al@{al}}
+\index{al@{al}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[al]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{hdfdefs_8h_a28}{al}\mbox{[}100\mbox{]}}}
+\label{hdfdefs_8h_a28}
+
+
+\hypertarget{hdfdefs_8h_a29}{
+\index{hdfdefs.h@{hdfdefs.h}!al1@{al1}}
+\index{al1@{al1}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[al1]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{hdfdefs_8h_a29}{al1}\mbox{[}100\mbox{]}}}
+\label{hdfdefs_8h_a29}
+
+
+\hypertarget{hdfdefs_8h_a15}{
+\index{hdfdefs.h@{hdfdefs.h}!amaxdim@{amaxdim}}
+\index{amaxdim@{amaxdim}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[amaxdim]{\setlength{\rightskip}{0pt plus 5cm}hsize\_\-t \hyperlink{hdfdefs_8h_a15}{amaxdim}\mbox{[}2\mbox{]} = \{H5S\_\-UNLIMITED,a\-WIDTH\}}}
+\label{hdfdefs_8h_a15}
+
+
+\hypertarget{hdfdefs_8h_a21}{
+\index{hdfdefs.h@{hdfdefs.h}!anewsize@{anewsize}}
+\index{anewsize@{anewsize}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[anewsize]{\setlength{\rightskip}{0pt plus 5cm}hsize\_\-t \hyperlink{hdfdefs_8h_a21}{anewsize}\mbox{[}2\mbox{]} = \{a\-HEIGHT, a\-WIDTH\}}}
+\label{hdfdefs_8h_a21}
+
+
+\hypertarget{hdfdefs_8h_a26}{
+\index{hdfdefs.h@{hdfdefs.h}!ar@{ar}}
+\index{ar@{ar}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[ar]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{hdfdefs_8h_a26}{ar}\mbox{[}100\mbox{]}}}
+\label{hdfdefs_8h_a26}
+
+
+\hypertarget{hdfdefs_8h_a24}{
+\index{hdfdefs.h@{hdfdefs.h}!aw@{aw}}
+\index{aw@{aw}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[aw]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{hdfdefs_8h_a24}{aw}\mbox{[}100\mbox{]}}}
+\label{hdfdefs_8h_a24}
+
+
+\hypertarget{hdfdefs_8h_a18}{
+\index{hdfdefs.h@{hdfdefs.h}!cparms@{cparms}}
+\index{cparms@{cparms}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[cparms]{\setlength{\rightskip}{0pt plus 5cm}hid\_\-t \hyperlink{hdfdefs_8h_a18}{cparms}}}
+\label{hdfdefs_8h_a18}
+
+
+\hypertarget{hdfdefs_8h_a10}{
+\index{hdfdefs.h@{hdfdefs.h}!data@{data}}
+\index{data@{data}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[data]{\setlength{\rightskip}{0pt plus 5cm}float \hyperlink{hdfdefs_8h_a10}{data}\mbox{[}HEIGHT\mbox{]}\mbox{[}WIDTH\mbox{]}}}
+\label{hdfdefs_8h_a10}
+
+
+\hypertarget{hdfdefs_8h_a11}{
+\index{hdfdefs.h@{hdfdefs.h}!data1@{data1}}
+\index{data1@{data1}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[data1]{\setlength{\rightskip}{0pt plus 5cm}float \hyperlink{hdfdefs_8h_a11}{data1}\mbox{[}HEIGHT1\mbox{]}\mbox{[}WIDTH\mbox{]}}}
+\label{hdfdefs_8h_a11}
+
+
+\hypertarget{hdfdefs_8h_a16}{
+\index{hdfdefs.h@{hdfdefs.h}!dim@{dim}}
+\index{dim@{dim}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[dim]{\setlength{\rightskip}{0pt plus 5cm}hsize\_\-t \hyperlink{hdfdefs_8h_a16}{dim}\mbox{[}2\mbox{]} = \{HEIGHT, WIDTH\}}}
+\label{hdfdefs_8h_a16}
+
+
+\hypertarget{hdfdefs_8h_a27}{
+\index{hdfdefs.h@{hdfdefs.h}!l@{l}}
+\index{l@{l}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[l]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{hdfdefs_8h_a27}{l}\mbox{[}100\mbox{]}}}
+\label{hdfdefs_8h_a27}
+
+
+\hypertarget{hdfdefs_8h_a30}{
+\index{hdfdefs.h@{hdfdefs.h}!l1@{l1}}
+\index{l1@{l1}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[l1]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{hdfdefs_8h_a30}{l1}\mbox{[}100\mbox{]}}}
+\label{hdfdefs_8h_a30}
+
+
+\hypertarget{hdfdefs_8h_a14}{
+\index{hdfdefs.h@{hdfdefs.h}!maxdim@{maxdim}}
+\index{maxdim@{maxdim}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[maxdim]{\setlength{\rightskip}{0pt plus 5cm}hsize\_\-t \hyperlink{hdfdefs_8h_a14}{maxdim}\mbox{[}2\mbox{]} = \{H5S\_\-UNLIMITED, WIDTH\}}}
+\label{hdfdefs_8h_a14}
+
+
+\hypertarget{hdfdefs_8h_a20}{
+\index{hdfdefs.h@{hdfdefs.h}!newsize@{newsize}}
+\index{newsize@{newsize}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[newsize]{\setlength{\rightskip}{0pt plus 5cm}hsize\_\-t \hyperlink{hdfdefs_8h_a20}{newsize}\mbox{[}2\mbox{]} = \{HEIGHT, WIDTH\}}}
+\label{hdfdefs_8h_a20}
+
+
+\hypertarget{hdfdefs_8h_a25}{
+\index{hdfdefs.h@{hdfdefs.h}!r@{r}}
+\index{r@{r}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[r]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{hdfdefs_8h_a25}{r}\mbox{[}100\mbox{]}}}
+\label{hdfdefs_8h_a25}
+
+
+\hypertarget{hdfdefs_8h_a22}{
+\index{hdfdefs.h@{hdfdefs.h}!tbuf@{tbuf}}
+\index{tbuf@{tbuf}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[tbuf]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ \hyperlink{hdfdefs_8h_a22}{tbuf} = NULL}}
+\label{hdfdefs_8h_a22}
+
+
+\hypertarget{hdfdefs_8h_a23}{
+\index{hdfdefs.h@{hdfdefs.h}!w@{w}}
+\index{w@{w}!hdfdefs.h@{hdfdefs.h}}
+\subsubsection[w]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{hdfdefs_8h_a23}{w}\mbox{[}100\mbox{]}}}
+\label{hdfdefs_8h_a23}
+
+

@@ -1,0 +1,336 @@
+\hypertarget{classContour}{
+\section{Contour Class Reference}
+\label{classContour}\index{Contour@{Contour}}
+}
+{\tt \#include $<$contour.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{classContour_a0}{Trace\-Curve\-From\-Here} (int)
+\item 
+void \hyperlink{classContour_a1}{Load\-Data} (double \hyperlink{classContour_o13}{Ph\-Array}\mbox{[}$\,$\mbox{]}\mbox{[}GW\mbox{]}, \hyperlink{structnode}{node} \hyperlink{classContour_o14}{Ev\-Grid}\mbox{[}$\,$\mbox{]}\mbox{[}GW\mbox{]}, double \hyperlink{classContour_o15}{heightlvl}\mbox{[}4\mbox{]}, FILE $\ast$\hyperlink{classContour_o20}{cellfile})
+\item 
+void \hyperlink{classContour_a2}{contfun} (void)
+\item 
+void \hyperlink{classContour_a3}{Load\-Cell\-At} (int, int)
+\item 
+int \hyperlink{classContour_a4}{Check\-Intersection} (int)
+\item 
+void \hyperlink{classContour_a5}{Form\-Triangle\-With\-Edge} (int)
+\item 
+int \hyperlink{classContour_a6}{Follow\-Curve} (int, int \&, int \&, int \&, int \&)
+\item 
+int \hyperlink{classContour_a7}{Get\-Next\-Triangle} (int)
+\item 
+int \hyperlink{classContour_a8}{Get\-Next\-Edge} (int)
+\item 
+void \hyperlink{classContour_a9}{Flush\-Touch\-Pad} (void)
+\item 
+\hyperlink{classContour_a10}{Contour} (int)
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int \hyperlink{classContour_o0}{GWa}
+\item 
+int \hyperlink{classContour_o1}{xcells}
+\item 
+int \hyperlink{classContour_o2}{ycells}
+\item 
+int \hyperlink{classContour_o3}{start\-XIndex}
+\item 
+int \hyperlink{classContour_o4}{start\-YIndex}
+\item 
+int \hyperlink{classContour_o5}{start\-Edge}
+\item 
+double \hyperlink{classContour_o6}{start\-X}
+\item 
+double \hyperlink{classContour_o7}{start\-Y}
+\item 
+\hyperlink{structcellinfo}{cellinfo} \hyperlink{classContour_o8}{cell}
+\item 
+int \hyperlink{classContour_o9}{touchpad} \mbox{[}GW\mbox{]}\mbox{[}GW\mbox{]}
+\item 
+double \hyperlink{classContour_o10}{Sub\-Tri\-X} \mbox{[}4\mbox{]}
+\item 
+double \hyperlink{classContour_o11}{Sub\-Tri\-Y} \mbox{[}4\mbox{]}
+\item 
+double \hyperlink{classContour_o12}{Sub\-Tri\-Ph} \mbox{[}4\mbox{]}
+\item 
+double \hyperlink{classContour_o13}{Ph\-Array} \mbox{[}GW\mbox{]}\mbox{[}GW\mbox{]}
+\item 
+\hyperlink{structnode}{node} \hyperlink{classContour_o14}{Ev\-Grid} \mbox{[}GW\mbox{]}\mbox{[}GW\mbox{]}
+\item 
+double \hyperlink{classContour_o15}{heightlvl} \mbox{[}4\mbox{]}
+\item 
+int \hyperlink{classContour_o16}{XCurrent}
+\item 
+int \hyperlink{classContour_o17}{YCurrent}
+\item 
+double \hyperlink{classContour_o18}{Max\-Ph}
+\item 
+double \hyperlink{classContour_o19}{Min\-Ph}
+\item 
+FILE $\ast$ \hyperlink{classContour_o20}{cellfile}
+\end{CompactItemize}
+\subsection*{Static Public Attributes}
+\begin{CompactItemize}
+\item 
+int \hyperlink{classContour_s0}{In\-I} \mbox{[}$\,$\mbox{]} = \{0,1,1,0,0\}
+\item 
+int \hyperlink{classContour_s1}{In\-J} \mbox{[}$\,$\mbox{]} = \{0,0,1,1,0\}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classContour_a10}{
+\index{Contour@{Contour}!Contour@{Contour}}
+\index{Contour@{Contour}!Contour@{Contour}}
+\subsubsection[Contour]{\setlength{\rightskip}{0pt plus 5cm}Contour::Contour (int)}}
+\label{classContour_a10}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classContour_a4}{
+\index{Contour@{Contour}!CheckIntersection@{CheckIntersection}}
+\index{CheckIntersection@{CheckIntersection}!Contour@{Contour}}
+\subsubsection[CheckIntersection]{\setlength{\rightskip}{0pt plus 5cm}int Contour::Check\-Intersection (int)}}
+\label{classContour_a4}
+
+
+\hypertarget{classContour_a2}{
+\index{Contour@{Contour}!contfun@{contfun}}
+\index{contfun@{contfun}!Contour@{Contour}}
+\subsubsection[contfun]{\setlength{\rightskip}{0pt plus 5cm}void Contour::contfun (void)}}
+\label{classContour_a2}
+
+
+\hypertarget{classContour_a9}{
+\index{Contour@{Contour}!FlushTouchPad@{FlushTouchPad}}
+\index{FlushTouchPad@{FlushTouchPad}!Contour@{Contour}}
+\subsubsection[FlushTouchPad]{\setlength{\rightskip}{0pt plus 5cm}void Contour::Flush\-Touch\-Pad (void)}}
+\label{classContour_a9}
+
+
+\hypertarget{classContour_a6}{
+\index{Contour@{Contour}!FollowCurve@{FollowCurve}}
+\index{FollowCurve@{FollowCurve}!Contour@{Contour}}
+\subsubsection[FollowCurve]{\setlength{\rightskip}{0pt plus 5cm}int Contour::Follow\-Curve (int, int \&, int \&, int \&, int \&)}}
+\label{classContour_a6}
+
+
+\hypertarget{classContour_a5}{
+\index{Contour@{Contour}!FormTriangleWithEdge@{FormTriangleWithEdge}}
+\index{FormTriangleWithEdge@{FormTriangleWithEdge}!Contour@{Contour}}
+\subsubsection[FormTriangleWithEdge]{\setlength{\rightskip}{0pt plus 5cm}void Contour::Form\-Triangle\-With\-Edge (int)}}
+\label{classContour_a5}
+
+
+\hypertarget{classContour_a8}{
+\index{Contour@{Contour}!GetNextEdge@{GetNextEdge}}
+\index{GetNextEdge@{GetNextEdge}!Contour@{Contour}}
+\subsubsection[GetNextEdge]{\setlength{\rightskip}{0pt plus 5cm}int Contour::Get\-Next\-Edge (int)}}
+\label{classContour_a8}
+
+
+\hypertarget{classContour_a7}{
+\index{Contour@{Contour}!GetNextTriangle@{GetNextTriangle}}
+\index{GetNextTriangle@{GetNextTriangle}!Contour@{Contour}}
+\subsubsection[GetNextTriangle]{\setlength{\rightskip}{0pt plus 5cm}int Contour::Get\-Next\-Triangle (int)}}
+\label{classContour_a7}
+
+
+\hypertarget{classContour_a3}{
+\index{Contour@{Contour}!LoadCellAt@{LoadCellAt}}
+\index{LoadCellAt@{LoadCellAt}!Contour@{Contour}}
+\subsubsection[LoadCellAt]{\setlength{\rightskip}{0pt plus 5cm}void Contour::Load\-Cell\-At (int, int)}}
+\label{classContour_a3}
+
+
+\hypertarget{classContour_a1}{
+\index{Contour@{Contour}!LoadData@{LoadData}}
+\index{LoadData@{LoadData}!Contour@{Contour}}
+\subsubsection[LoadData]{\setlength{\rightskip}{0pt plus 5cm}void Contour::Load\-Data (double {\em Ph\-Array}\mbox{[}$\,$\mbox{]}\mbox{[}GW\mbox{]}, \hyperlink{structnode}{node} {\em Ev\-Grid}\mbox{[}$\,$\mbox{]}\mbox{[}GW\mbox{]}, double {\em heightlvl}\mbox{[}4\mbox{]}, FILE $\ast$ {\em cellfile})}}
+\label{classContour_a1}
+
+
+\hypertarget{classContour_a0}{
+\index{Contour@{Contour}!TraceCurveFromHere@{TraceCurveFromHere}}
+\index{TraceCurveFromHere@{TraceCurveFromHere}!Contour@{Contour}}
+\subsubsection[TraceCurveFromHere]{\setlength{\rightskip}{0pt plus 5cm}void Contour::Trace\-Curve\-From\-Here (int)}}
+\label{classContour_a0}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classContour_o8}{
+\index{Contour@{Contour}!cell@{cell}}
+\index{cell@{cell}!Contour@{Contour}}
+\subsubsection[cell]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{structcellinfo}{cellinfo} \hyperlink{classContour_o8}{Contour::cell}}}
+\label{classContour_o8}
+
+
+\hypertarget{classContour_o20}{
+\index{Contour@{Contour}!cellfile@{cellfile}}
+\index{cellfile@{cellfile}!Contour@{Contour}}
+\subsubsection[cellfile]{\setlength{\rightskip}{0pt plus 5cm}FILE$\ast$ \hyperlink{classContour_o20}{Contour::cellfile}}}
+\label{classContour_o20}
+
+
+\hypertarget{classContour_o14}{
+\index{Contour@{Contour}!EvGrid@{EvGrid}}
+\index{EvGrid@{EvGrid}!Contour@{Contour}}
+\subsubsection[EvGrid]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{structnode}{node} \hyperlink{classContour_o14}{Contour::Ev\-Grid}\mbox{[}GW\mbox{]}\mbox{[}GW\mbox{]}}}
+\label{classContour_o14}
+
+
+\hypertarget{classContour_o0}{
+\index{Contour@{Contour}!GWa@{GWa}}
+\index{GWa@{GWa}!Contour@{Contour}}
+\subsubsection[GWa]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classContour_o0}{Contour::GWa}}}
+\label{classContour_o0}
+
+
+\hypertarget{classContour_o15}{
+\index{Contour@{Contour}!heightlvl@{heightlvl}}
+\index{heightlvl@{heightlvl}!Contour@{Contour}}
+\subsubsection[heightlvl]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classContour_o15}{Contour::heightlvl}\mbox{[}4\mbox{]}}}
+\label{classContour_o15}
+
+
+\hypertarget{classContour_s0}{
+\index{Contour@{Contour}!InI@{InI}}
+\index{InI@{InI}!Contour@{Contour}}
+\subsubsection[InI]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classContour_s0}{Contour::In\-I} = \{0,1,1,0,0\}\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classContour_s0}
+
+
+\hypertarget{classContour_s1}{
+\index{Contour@{Contour}!InJ@{InJ}}
+\index{InJ@{InJ}!Contour@{Contour}}
+\subsubsection[InJ]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classContour_s1}{Contour::In\-J} = \{0,0,1,1,0\}\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classContour_s1}
+
+
+\hypertarget{classContour_o18}{
+\index{Contour@{Contour}!MaxPh@{MaxPh}}
+\index{MaxPh@{MaxPh}!Contour@{Contour}}
+\subsubsection[MaxPh]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classContour_o18}{Contour::Max\-Ph}}}
+\label{classContour_o18}
+
+
+\hypertarget{classContour_o19}{
+\index{Contour@{Contour}!MinPh@{MinPh}}
+\index{MinPh@{MinPh}!Contour@{Contour}}
+\subsubsection[MinPh]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classContour_o19}{Contour::Min\-Ph}}}
+\label{classContour_o19}
+
+
+\hypertarget{classContour_o13}{
+\index{Contour@{Contour}!PhArray@{PhArray}}
+\index{PhArray@{PhArray}!Contour@{Contour}}
+\subsubsection[PhArray]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classContour_o13}{Contour::Ph\-Array}\mbox{[}GW\mbox{]}\mbox{[}GW\mbox{]}}}
+\label{classContour_o13}
+
+
+\hypertarget{classContour_o5}{
+\index{Contour@{Contour}!startEdge@{startEdge}}
+\index{startEdge@{startEdge}!Contour@{Contour}}
+\subsubsection[startEdge]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classContour_o5}{Contour::start\-Edge}}}
+\label{classContour_o5}
+
+
+\hypertarget{classContour_o6}{
+\index{Contour@{Contour}!startX@{startX}}
+\index{startX@{startX}!Contour@{Contour}}
+\subsubsection[startX]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classContour_o6}{Contour::start\-X}}}
+\label{classContour_o6}
+
+
+\hypertarget{classContour_o3}{
+\index{Contour@{Contour}!startXIndex@{startXIndex}}
+\index{startXIndex@{startXIndex}!Contour@{Contour}}
+\subsubsection[startXIndex]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classContour_o3}{Contour::start\-XIndex}}}
+\label{classContour_o3}
+
+
+\hypertarget{classContour_o7}{
+\index{Contour@{Contour}!startY@{startY}}
+\index{startY@{startY}!Contour@{Contour}}
+\subsubsection[startY]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classContour_o7}{Contour::start\-Y}}}
+\label{classContour_o7}
+
+
+\hypertarget{classContour_o4}{
+\index{Contour@{Contour}!startYIndex@{startYIndex}}
+\index{startYIndex@{startYIndex}!Contour@{Contour}}
+\subsubsection[startYIndex]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classContour_o4}{Contour::start\-YIndex}}}
+\label{classContour_o4}
+
+
+\hypertarget{classContour_o12}{
+\index{Contour@{Contour}!SubTriPh@{SubTriPh}}
+\index{SubTriPh@{SubTriPh}!Contour@{Contour}}
+\subsubsection[SubTriPh]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classContour_o12}{Contour::Sub\-Tri\-Ph}\mbox{[}4\mbox{]}}}
+\label{classContour_o12}
+
+
+\hypertarget{classContour_o10}{
+\index{Contour@{Contour}!SubTriX@{SubTriX}}
+\index{SubTriX@{SubTriX}!Contour@{Contour}}
+\subsubsection[SubTriX]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classContour_o10}{Contour::Sub\-Tri\-X}\mbox{[}4\mbox{]}}}
+\label{classContour_o10}
+
+
+\hypertarget{classContour_o11}{
+\index{Contour@{Contour}!SubTriY@{SubTriY}}
+\index{SubTriY@{SubTriY}!Contour@{Contour}}
+\subsubsection[SubTriY]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classContour_o11}{Contour::Sub\-Tri\-Y}\mbox{[}4\mbox{]}}}
+\label{classContour_o11}
+
+
+\hypertarget{classContour_o9}{
+\index{Contour@{Contour}!touchpad@{touchpad}}
+\index{touchpad@{touchpad}!Contour@{Contour}}
+\subsubsection[touchpad]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classContour_o9}{Contour::touchpad}\mbox{[}GW\mbox{]}\mbox{[}GW\mbox{]}}}
+\label{classContour_o9}
+
+
+\hypertarget{classContour_o1}{
+\index{Contour@{Contour}!xcells@{xcells}}
+\index{xcells@{xcells}!Contour@{Contour}}
+\subsubsection[xcells]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classContour_o1}{Contour::xcells}}}
+\label{classContour_o1}
+
+
+\hypertarget{classContour_o16}{
+\index{Contour@{Contour}!XCurrent@{XCurrent}}
+\index{XCurrent@{XCurrent}!Contour@{Contour}}
+\subsubsection[XCurrent]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classContour_o16}{Contour::XCurrent}}}
+\label{classContour_o16}
+
+
+\hypertarget{classContour_o2}{
+\index{Contour@{Contour}!ycells@{ycells}}
+\index{ycells@{ycells}!Contour@{Contour}}
+\subsubsection[ycells]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classContour_o2}{Contour::ycells}}}
+\label{classContour_o2}
+
+
+\hypertarget{classContour_o17}{
+\index{Contour@{Contour}!YCurrent@{YCurrent}}
+\index{YCurrent@{YCurrent}!Contour@{Contour}}
+\subsubsection[YCurrent]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classContour_o17}{Contour::YCurrent}}}
+\label{classContour_o17}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{contour_8h}{contour.h}\item 
+\hyperlink{contfun_8C}{contfun.C}\end{CompactItemize}

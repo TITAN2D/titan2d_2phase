@@ -1,0 +1,220 @@
+\hypertarget{repartition__BSFC_8h}{
+\section{repartition\_\-BSFC.h File Reference}
+\label{repartition__BSFC_8h}\index{repartition_BSFC.h@{repartition\_\-BSFC.h}}
+}
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{structsfc__vertex}{sfc\_\-vertex}
+\item 
+struct \hyperlink{structunstructured__communication}{unstructured\_\-communication}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{repartition__BSFC_8h_a0}{BSFC\_\-NO\_\-CUT}\ 0
+\item 
+\#define \hyperlink{repartition__BSFC_8h_a1}{BSFC\_\-CUT}\ 1
+\item 
+\#define \hyperlink{repartition__BSFC_8h_a2}{BSFC\_\-NOT\_\-BALANCED}\ 1
+\item 
+\#define \hyperlink{repartition__BSFC_8h_a3}{BSFC\_\-BALANCED}\ 0
+\item 
+\#define \hyperlink{repartition__BSFC_8h_a4}{BSFC\_\-COARSE\_\-LEVEL\_\-FLAG}\ 2
+\item 
+\#define \hyperlink{repartition__BSFC_8h_a5}{BSFC\_\-NEW}\ 1
+\item 
+\#define \hyperlink{repartition__BSFC_8h_a6}{BSFC\_\-OLD}\ 0
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef \hyperlink{structsfc__vertex}{sfc\_\-vertex} \hyperlink{repartition__BSFC_8h_a7}{BSFC\_\-VERTEX}
+\item 
+typedef \hyperlink{structsfc__vertex}{sfc\_\-vertex} $\ast$ \hyperlink{repartition__BSFC_8h_a8}{BSFC\_\-VERTEX\_\-PTR}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{repartition__BSFC_8h_a9}{BSFC\_\-update\_\-element\_\-proc} (int, \hyperlink{classElement}{Element} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, int)
+\item 
+void \hyperlink{repartition__BSFC_8h_a10}{BSFC\_\-combine\_\-elements} (int side, \hyperlink{classElement}{Element} $\ast$Em\-Temp, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int destination\_\-proc)
+\begin{CompactList}\small\item\em this function figures out how to \char`\"{}bunch\char`\"{} together elements that cannot be put on different processors because of a constrained node, B stands for bunch SFC stands for space filling curve \item\end{CompactList}\item 
+int \hyperlink{repartition__BSFC_8h_a11}{BSFC\_\-find\_\-imbalance} (float $\ast$work\_\-percent\_\-array, float cumulative\_\-work, float total\_\-work, int which\_\-proc, int numprocs)
+\item 
+void \hyperlink{repartition__BSFC_8h_a12}{BSFC\_\-single\_\-wgt\_\-calc\_\-partition} (int wgt\_\-dim, float work\_\-allocated, float $\ast$total\_\-weight\_\-array, int $\ast$bin\_\-proc\_\-array, float $\ast$binned\_\-weight\_\-array, float $\ast$work\_\-percent\_\-array, float $\ast$actual\_\-work\_\-allocated, int number\_\-of\_\-bins, int $\ast$number\_\-of\_\-cuts, int current\_\-proc, int level\_\-flag, int $\ast$)
+\item 
+int \hyperlink{repartition__BSFC_8h_a13}{BSFC\_\-get\_\-array\_\-location} (int number\_\-of\_\-bins, int number\_\-of\_\-bits, int prev\_\-used\_\-bits, \hyperlink{structsfc__vertex}{BSFC\_\-VERTEX\_\-PTR} sfc\_\-vert\_\-ptr)
+\item 
+void \hyperlink{repartition__BSFC_8h_a14}{BSFC\_\-get\_\-normed\_\-coords} (double min\_\-bounding\_\-box\mbox{[}$\,$\mbox{]}, double max\_\-bounding\_\-box\mbox{[}$\,$\mbox{]}, double normed\_\-coords\mbox{[}$\,$\mbox{]}, int num\_\-dims, double my\_\-coords\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{repartition__BSFC_8h_a15}{BSFC\_\-create\_\-info} (double min\_\-bounding\_\-box\mbox{[}$\,$\mbox{]}, double max\_\-bounding\_\-box\mbox{[}$\,$\mbox{]}, int num\_\-dims, int num\_\-local\_\-objects, int wgt\_\-dim, \hyperlink{structsfc__vertex}{BSFC\_\-VERTEX\_\-PTR} sfc\_\-vert\_\-ptr, double $\ast$coords)
+\item 
+void \hyperlink{repartition__BSFC_8h_a16}{BSFC\_\-refine\_\-partition} (int $\ast$local\_\-balanced\_\-flag, int $\ast$amount\_\-of\_\-used\_\-bits, int num\_\-vert\_\-in\_\-cut, \hyperlink{structsfc__vertex}{BSFC\_\-VERTEX\_\-PTR} vert\_\-in\_\-cut\_\-ptr, float $\ast$work\_\-percent\_\-array, float total\_\-weight, float $\ast$global\_\-actual\_\-work\_\-allocated, int number\_\-of\_\-cuts, int $\ast$ll\_\-bins\_\-head, float $\ast$work\_\-prev\_\-allocated, int subbins\_\-per\_\-bin, int $\ast$local\_\-balanced\_\-flag\_\-array, int myid, int numprocs)
+\item 
+int \hyperlink{repartition__BSFC_8h_a17}{BSFC\_\-create\_\-compare\_\-key} (unsigned sfc\_\-key\mbox{[}$\,$\mbox{]}, unsigned compare\_\-key\mbox{[}$\,$\mbox{]}, unsigned AND\_\-operator\_\-array\mbox{[}$\,$\mbox{]}, int prev\_\-used\_\-bits)
+\item 
+int \hyperlink{repartition__BSFC_8h_a18}{BSFC\_\-check\_\-refine} (unsigned $\ast$sfc\_\-key, unsigned $\ast$compare\_\-key, unsigned $\ast$AND\_\-operator\_\-array)
+\item 
+void \hyperlink{repartition__BSFC_8h_a19}{BSFC\_\-update\_\-and\_\-send\_\-elements} (int myid, int numprocs, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int)
+\item 
+int \hyperlink{repartition__BSFC_8h_a20}{BSFC\_\-pow} (int intbase, int intexp)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{repartition__BSFC_8h_a3}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_BALANCED@{BSFC\_\-BALANCED}}
+\index{BSFC_BALANCED@{BSFC\_\-BALANCED}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-BALANCED]{\setlength{\rightskip}{0pt plus 5cm}\#define BSFC\_\-BALANCED\ 0}}
+\label{repartition__BSFC_8h_a3}
+
+
+\hypertarget{repartition__BSFC_8h_a4}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_COARSE_LEVEL_FLAG@{BSFC\_\-COARSE\_\-LEVEL\_\-FLAG}}
+\index{BSFC_COARSE_LEVEL_FLAG@{BSFC\_\-COARSE\_\-LEVEL\_\-FLAG}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-COARSE\_\-LEVEL\_\-FLAG]{\setlength{\rightskip}{0pt plus 5cm}\#define BSFC\_\-COARSE\_\-LEVEL\_\-FLAG\ 2}}
+\label{repartition__BSFC_8h_a4}
+
+
+\hypertarget{repartition__BSFC_8h_a1}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_CUT@{BSFC\_\-CUT}}
+\index{BSFC_CUT@{BSFC\_\-CUT}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-CUT]{\setlength{\rightskip}{0pt plus 5cm}\#define BSFC\_\-CUT\ 1}}
+\label{repartition__BSFC_8h_a1}
+
+
+\hypertarget{repartition__BSFC_8h_a5}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_NEW@{BSFC\_\-NEW}}
+\index{BSFC_NEW@{BSFC\_\-NEW}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-NEW]{\setlength{\rightskip}{0pt plus 5cm}\#define BSFC\_\-NEW\ 1}}
+\label{repartition__BSFC_8h_a5}
+
+
+\hypertarget{repartition__BSFC_8h_a0}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_NO_CUT@{BSFC\_\-NO\_\-CUT}}
+\index{BSFC_NO_CUT@{BSFC\_\-NO\_\-CUT}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-NO\_\-CUT]{\setlength{\rightskip}{0pt plus 5cm}\#define BSFC\_\-NO\_\-CUT\ 0}}
+\label{repartition__BSFC_8h_a0}
+
+
+\hypertarget{repartition__BSFC_8h_a2}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_NOT_BALANCED@{BSFC\_\-NOT\_\-BALANCED}}
+\index{BSFC_NOT_BALANCED@{BSFC\_\-NOT\_\-BALANCED}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-NOT\_\-BALANCED]{\setlength{\rightskip}{0pt plus 5cm}\#define BSFC\_\-NOT\_\-BALANCED\ 1}}
+\label{repartition__BSFC_8h_a2}
+
+
+\hypertarget{repartition__BSFC_8h_a6}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_OLD@{BSFC\_\-OLD}}
+\index{BSFC_OLD@{BSFC\_\-OLD}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-OLD]{\setlength{\rightskip}{0pt plus 5cm}\#define BSFC\_\-OLD\ 0}}
+\label{repartition__BSFC_8h_a6}
+
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{repartition__BSFC_8h_a7}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_VERTEX@{BSFC\_\-VERTEX}}
+\index{BSFC_VERTEX@{BSFC\_\-VERTEX}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-VERTEX]{\setlength{\rightskip}{0pt plus 5cm}typedef struct \hyperlink{structsfc__vertex}{sfc\_\-vertex} \hyperlink{structsfc__vertex}{BSFC\_\-VERTEX}}}
+\label{repartition__BSFC_8h_a7}
+
+
+\hypertarget{repartition__BSFC_8h_a8}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_VERTEX_PTR@{BSFC\_\-VERTEX\_\-PTR}}
+\index{BSFC_VERTEX_PTR@{BSFC\_\-VERTEX\_\-PTR}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-VERTEX\_\-PTR]{\setlength{\rightskip}{0pt plus 5cm}typedef struct \hyperlink{structsfc__vertex}{sfc\_\-vertex}$\ast$ \hyperlink{structsfc__vertex}{BSFC\_\-VERTEX\_\-PTR}}}
+\label{repartition__BSFC_8h_a8}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{repartition__BSFC_8h_a18}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_check_refine@{BSFC\_\-check\_\-refine}}
+\index{BSFC_check_refine@{BSFC\_\-check\_\-refine}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-check\_\-refine]{\setlength{\rightskip}{0pt plus 5cm}int BSFC\_\-check\_\-refine (unsigned $\ast$ {\em sfc\_\-key}, unsigned $\ast$ {\em compare\_\-key}, unsigned $\ast$ {\em AND\_\-operator\_\-array})}}
+\label{repartition__BSFC_8h_a18}
+
+
+\hypertarget{repartition__BSFC_8h_a10}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_combine_elements@{BSFC\_\-combine\_\-elements}}
+\index{BSFC_combine_elements@{BSFC\_\-combine\_\-elements}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-combine\_\-elements]{\setlength{\rightskip}{0pt plus 5cm}void BSFC\_\-combine\_\-elements (int {\em side}, \hyperlink{classElement}{Element} $\ast$ {\em Em\-Temp}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em destination\_\-proc})}}
+\label{repartition__BSFC_8h_a10}
+
+
+this function figures out how to \char`\"{}bunch\char`\"{} together elements that cannot be put on different processors because of a constrained node, B stands for bunch SFC stands for space filling curve 
+
+\hypertarget{repartition__BSFC_8h_a17}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_create_compare_key@{BSFC\_\-create\_\-compare\_\-key}}
+\index{BSFC_create_compare_key@{BSFC\_\-create\_\-compare\_\-key}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-create\_\-compare\_\-key]{\setlength{\rightskip}{0pt plus 5cm}int BSFC\_\-create\_\-compare\_\-key (unsigned {\em sfc\_\-key}\mbox{[}$\,$\mbox{]}, unsigned {\em compare\_\-key}\mbox{[}$\,$\mbox{]}, unsigned {\em AND\_\-operator\_\-array}\mbox{[}$\,$\mbox{]}, int {\em prev\_\-used\_\-bits})}}
+\label{repartition__BSFC_8h_a17}
+
+
+\hypertarget{repartition__BSFC_8h_a15}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_create_info@{BSFC\_\-create\_\-info}}
+\index{BSFC_create_info@{BSFC\_\-create\_\-info}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-create\_\-info]{\setlength{\rightskip}{0pt plus 5cm}void BSFC\_\-create\_\-info (double {\em min\_\-bounding\_\-box}\mbox{[}$\,$\mbox{]}, double {\em max\_\-bounding\_\-box}\mbox{[}$\,$\mbox{]}, int {\em num\_\-dims}, int {\em num\_\-local\_\-objects}, int {\em wgt\_\-dim}, \hyperlink{structsfc__vertex}{BSFC\_\-VERTEX\_\-PTR} {\em sfc\_\-vert\_\-ptr}, double $\ast$ {\em coords})}}
+\label{repartition__BSFC_8h_a15}
+
+
+\hypertarget{repartition__BSFC_8h_a11}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_find_imbalance@{BSFC\_\-find\_\-imbalance}}
+\index{BSFC_find_imbalance@{BSFC\_\-find\_\-imbalance}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-find\_\-imbalance]{\setlength{\rightskip}{0pt plus 5cm}int BSFC\_\-find\_\-imbalance (float $\ast$ {\em work\_\-percent\_\-array}, float {\em cumulative\_\-work}, float {\em total\_\-work}, int {\em which\_\-proc}, int {\em numprocs})}}
+\label{repartition__BSFC_8h_a11}
+
+
+\hypertarget{repartition__BSFC_8h_a13}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_get_array_location@{BSFC\_\-get\_\-array\_\-location}}
+\index{BSFC_get_array_location@{BSFC\_\-get\_\-array\_\-location}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-get\_\-array\_\-location]{\setlength{\rightskip}{0pt plus 5cm}int BSFC\_\-get\_\-array\_\-location (int {\em number\_\-of\_\-bins}, int {\em number\_\-of\_\-bits}, int {\em prev\_\-used\_\-bits}, \hyperlink{structsfc__vertex}{BSFC\_\-VERTEX\_\-PTR} {\em sfc\_\-vert\_\-ptr})}}
+\label{repartition__BSFC_8h_a13}
+
+
+\hypertarget{repartition__BSFC_8h_a14}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_get_normed_coords@{BSFC\_\-get\_\-normed\_\-coords}}
+\index{BSFC_get_normed_coords@{BSFC\_\-get\_\-normed\_\-coords}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-get\_\-normed\_\-coords]{\setlength{\rightskip}{0pt plus 5cm}void BSFC\_\-get\_\-normed\_\-coords (double {\em min\_\-bounding\_\-box}\mbox{[}$\,$\mbox{]}, double {\em max\_\-bounding\_\-box}\mbox{[}$\,$\mbox{]}, double {\em normed\_\-coords}\mbox{[}$\,$\mbox{]}, int {\em num\_\-dims}, double {\em my\_\-coords}\mbox{[}$\,$\mbox{]})}}
+\label{repartition__BSFC_8h_a14}
+
+
+\hypertarget{repartition__BSFC_8h_a20}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_pow@{BSFC\_\-pow}}
+\index{BSFC_pow@{BSFC\_\-pow}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-pow]{\setlength{\rightskip}{0pt plus 5cm}int BSFC\_\-pow (int {\em intbase}, int {\em intexp})}}
+\label{repartition__BSFC_8h_a20}
+
+
+\hypertarget{repartition__BSFC_8h_a16}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_refine_partition@{BSFC\_\-refine\_\-partition}}
+\index{BSFC_refine_partition@{BSFC\_\-refine\_\-partition}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-refine\_\-partition]{\setlength{\rightskip}{0pt plus 5cm}void BSFC\_\-refine\_\-partition (int $\ast$ {\em local\_\-balanced\_\-flag}, int $\ast$ {\em amount\_\-of\_\-used\_\-bits}, int {\em num\_\-vert\_\-in\_\-cut}, \hyperlink{structsfc__vertex}{BSFC\_\-VERTEX\_\-PTR} {\em vert\_\-in\_\-cut\_\-ptr}, float $\ast$ {\em work\_\-percent\_\-array}, float {\em total\_\-weight}, float $\ast$ {\em global\_\-actual\_\-work\_\-allocated}, int {\em number\_\-of\_\-cuts}, int $\ast$ {\em ll\_\-bins\_\-head}, float $\ast$ {\em work\_\-prev\_\-allocated}, int {\em subbins\_\-per\_\-bin}, int $\ast$ {\em local\_\-balanced\_\-flag\_\-array}, int {\em myid}, int {\em numprocs})}}
+\label{repartition__BSFC_8h_a16}
+
+
+\hypertarget{repartition__BSFC_8h_a12}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_single_wgt_calc_partition@{BSFC\_\-single\_\-wgt\_\-calc\_\-partition}}
+\index{BSFC_single_wgt_calc_partition@{BSFC\_\-single\_\-wgt\_\-calc\_\-partition}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-single\_\-wgt\_\-calc\_\-partition]{\setlength{\rightskip}{0pt plus 5cm}void BSFC\_\-single\_\-wgt\_\-calc\_\-partition (int {\em wgt\_\-dim}, float {\em work\_\-allocated}, float $\ast$ {\em total\_\-weight\_\-array}, int $\ast$ {\em bin\_\-proc\_\-array}, float $\ast$ {\em binned\_\-weight\_\-array}, float $\ast$ {\em work\_\-percent\_\-array}, float $\ast$ {\em actual\_\-work\_\-allocated}, int {\em number\_\-of\_\-bins}, int $\ast$ {\em number\_\-of\_\-cuts}, int {\em current\_\-proc}, int {\em level\_\-flag}, int $\ast$)}}
+\label{repartition__BSFC_8h_a12}
+
+
+\hypertarget{repartition__BSFC_8h_a19}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_update_and_send_elements@{BSFC\_\-update\_\-and\_\-send\_\-elements}}
+\index{BSFC_update_and_send_elements@{BSFC\_\-update\_\-and\_\-send\_\-elements}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-update\_\-and\_\-send\_\-elements]{\setlength{\rightskip}{0pt plus 5cm}void BSFC\_\-update\_\-and\_\-send\_\-elements (int {\em myid}, int {\em numprocs}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int)}}
+\label{repartition__BSFC_8h_a19}
+
+
+\hypertarget{repartition__BSFC_8h_a9}{
+\index{repartition_BSFC.h@{repartition\_\-BSFC.h}!BSFC_update_element_proc@{BSFC\_\-update\_\-element\_\-proc}}
+\index{BSFC_update_element_proc@{BSFC\_\-update\_\-element\_\-proc}!repartition_BSFC.h@{repartition\_\-BSFC.h}}
+\subsubsection[BSFC\_\-update\_\-element\_\-proc]{\setlength{\rightskip}{0pt plus 5cm}void BSFC\_\-update\_\-element\_\-proc (int, \hyperlink{classElement}{Element} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, \hyperlink{classHashTable}{Hash\-Table} $\ast$, int)}}
+\label{repartition__BSFC_8h_a9}
+
+

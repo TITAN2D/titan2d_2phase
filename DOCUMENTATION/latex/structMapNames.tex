@@ -1,0 +1,122 @@
+\hypertarget{structMapNames}{
+\section{Map\-Names Struct Reference}
+\label{structMapNames}\index{MapNames@{MapNames}}
+}
+this structure holds the path to and name of the GIS map and also a flag to say if there are any extra maps, such as a material properties map, associated with the DEM  
+
+
+{\tt \#include $<$properties.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{structMapNames_a0}{$\sim$Map\-Names} ()
+\begin{CompactList}\small\item\em this destructor calls \hyperlink{structMapNames_a2}{Map\-Names::clear()} which deallocates the dynamically allocated arrays in the Map\-Names structure. \item\end{CompactList}\item 
+void \hyperlink{structMapNames_a1}{assign} (char $\ast$gis\_\-main\_\-in, char $\ast$gis\_\-sub\_\-in, char $\ast$gis\_\-mapset\_\-in, char $\ast$gis\_\-map\_\-in, int extramaps\_\-in)
+\begin{CompactList}\small\item\em this function allocates space for and assigns the information about the GIS map \item\end{CompactList}\item 
+void \hyperlink{structMapNames_a2}{clear} ()
+\begin{CompactList}\small\item\em this function deallocates the dynamically allocated arrays in the Map\-Names structure. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+char $\ast$ \hyperlink{structMapNames_o0}{gis\_\-main}
+\begin{CompactList}\small\item\em gis main directory \item\end{CompactList}\item 
+char $\ast$ \hyperlink{structMapNames_o1}{gis\_\-sub}
+\begin{CompactList}\small\item\em gis sub directory \item\end{CompactList}\item 
+char $\ast$ \hyperlink{structMapNames_o2}{gis\_\-mapset}
+\begin{CompactList}\small\item\em gis map set \item\end{CompactList}\item 
+char $\ast$ \hyperlink{structMapNames_o3}{gis\_\-map}
+\begin{CompactList}\small\item\em the actual gis map \item\end{CompactList}\item 
+int \hyperlink{structMapNames_o4}{extramaps}
+\begin{CompactList}\small\item\em extra maps: 0=none +1=2$^\wedge$0=$<$gis\_\-map$>$\_\-Mat MATerial map +2$^\wedge$(bit\#-1)=$<$gis\_\-map$>$\_\-Xxx not yet used \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+this structure holds the path to and name of the GIS map and also a flag to say if there are any extra maps, such as a material properties map, associated with the DEM 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structMapNames_a0}{
+\index{MapNames@{Map\-Names}!~MapNames@{$\sim$MapNames}}
+\index{~MapNames@{$\sim$MapNames}!MapNames@{Map\-Names}}
+\subsubsection[$\sim$MapNames]{\setlength{\rightskip}{0pt plus 5cm}Map\-Names::$\sim$\hyperlink{structMapNames}{Map\-Names} ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structMapNames_a0}
+
+
+this destructor calls \hyperlink{structMapNames_a2}{Map\-Names::clear()} which deallocates the dynamically allocated arrays in the Map\-Names structure. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structMapNames_a1}{
+\index{MapNames@{Map\-Names}!assign@{assign}}
+\index{assign@{assign}!MapNames@{Map\-Names}}
+\subsubsection[assign]{\setlength{\rightskip}{0pt plus 5cm}void Map\-Names::assign (char $\ast$ {\em gis\_\-main\_\-in}, char $\ast$ {\em gis\_\-sub\_\-in}, char $\ast$ {\em gis\_\-mapset\_\-in}, char $\ast$ {\em gis\_\-map\_\-in}, int {\em extramaps\_\-in})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structMapNames_a1}
+
+
+this function allocates space for and assigns the information about the GIS map 
+
+\hypertarget{structMapNames_a2}{
+\index{MapNames@{Map\-Names}!clear@{clear}}
+\index{clear@{clear}!MapNames@{Map\-Names}}
+\subsubsection[clear]{\setlength{\rightskip}{0pt plus 5cm}void Map\-Names::clear ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structMapNames_a2}
+
+
+this function deallocates the dynamically allocated arrays in the Map\-Names structure. 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structMapNames_o4}{
+\index{MapNames@{Map\-Names}!extramaps@{extramaps}}
+\index{extramaps@{extramaps}!MapNames@{Map\-Names}}
+\subsubsection[extramaps]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structMapNames_o4}{Map\-Names::extramaps}}}
+\label{structMapNames_o4}
+
+
+extra maps: 0=none +1=2$^\wedge$0=$<$gis\_\-map$>$\_\-Mat MATerial map +2$^\wedge$(bit\#-1)=$<$gis\_\-map$>$\_\-Xxx not yet used 
+
+\hypertarget{structMapNames_o0}{
+\index{MapNames@{Map\-Names}!gis_main@{gis\_\-main}}
+\index{gis_main@{gis\_\-main}!MapNames@{Map\-Names}}
+\subsubsection[gis\_\-main]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ \hyperlink{structMapNames_o0}{Map\-Names::gis\_\-main}}}
+\label{structMapNames_o0}
+
+
+gis main directory 
+
+\hypertarget{structMapNames_o3}{
+\index{MapNames@{Map\-Names}!gis_map@{gis\_\-map}}
+\index{gis_map@{gis\_\-map}!MapNames@{Map\-Names}}
+\subsubsection[gis\_\-map]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ \hyperlink{structMapNames_o3}{Map\-Names::gis\_\-map}}}
+\label{structMapNames_o3}
+
+
+the actual gis map 
+
+\hypertarget{structMapNames_o2}{
+\index{MapNames@{Map\-Names}!gis_mapset@{gis\_\-mapset}}
+\index{gis_mapset@{gis\_\-mapset}!MapNames@{Map\-Names}}
+\subsubsection[gis\_\-mapset]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ \hyperlink{structMapNames_o2}{Map\-Names::gis\_\-mapset}}}
+\label{structMapNames_o2}
+
+
+gis map set 
+
+\hypertarget{structMapNames_o1}{
+\index{MapNames@{Map\-Names}!gis_sub@{gis\_\-sub}}
+\index{gis_sub@{gis\_\-sub}!MapNames@{Map\-Names}}
+\subsubsection[gis\_\-sub]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ \hyperlink{structMapNames_o1}{Map\-Names::gis\_\-sub}}}
+\label{structMapNames_o1}
+
+
+gis sub directory 
+
+
+
+The documentation for this struct was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{properties_8h}{properties.h}\end{CompactItemize}

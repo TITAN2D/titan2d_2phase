@@ -1,0 +1,201 @@
+\hypertarget{classGisLine}{
+\section{Gis\-Line Class Reference}
+\label{classGisLine}\index{GisLine@{GisLine}}
+}
+{\tt \#include $<$Gis\-Lines.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classGisLine_a0}{Gis\-Line} ()
+\item 
+\hyperlink{classGisLine_a1}{Gis\-Line} (vector$<$ double $>$ \&x\-S, vector$<$ double $>$ \&y\-S)
+\item 
+virtual \hyperlink{classGisLine_a2}{$\sim$Gis\-Line} ()
+\item 
+int \hyperlink{classGisLine_a3}{number\-Of\-Points} ()
+\item 
+void \hyperlink{classGisLine_a4}{get\-Points} (double $\ast$x\-Coords, double $\ast$y\-Coords)
+\item 
+void \hyperlink{classGisLine_a5}{insert\-Points} (double x, double y)
+\item 
+void \hyperlink{classGisLine_a6}{set\-Index} (int line\-Index)
+\item 
+void \hyperlink{classGisLine_a7}{set\-Label} (string line\-Label)
+\item 
+int \hyperlink{classGisLine_a8}{get\-Index} ()
+\item 
+string \hyperlink{classGisLine_a9}{get\-Label} ()
+\item 
+bool \hyperlink{classGisLine_a10}{find\-Points} (double x, double y, double scale)
+\item 
+void \hyperlink{classGisLine_a11}{print} ()
+\item 
+\hyperlink{classGisLine_a12}{Gis\-Line} (const \hyperlink{classGisLine}{Gis\-Line} \&a)
+\item 
+\hyperlink{classGisLine}{Gis\-Line} \& \hyperlink{classGisLine_a13}{operator=} (const \hyperlink{classGisLine}{Gis\-Line} \&a)
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+vector$<$ double $>$ \hyperlink{classGisLine_o0}{\_\-x\-S}
+\item 
+vector$<$ double $>$ \hyperlink{classGisLine_o1}{\_\-y\-S}
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+int \hyperlink{classGisLine_p0}{\_\-n\-Points}
+\item 
+int \hyperlink{classGisLine_p1}{\_\-line\-Index}
+\item 
+string \hyperlink{classGisLine_p2}{\_\-line\-Label}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGisLine_a0}{
+\index{GisLine@{Gis\-Line}!GisLine@{GisLine}}
+\index{GisLine@{GisLine}!GisLine@{Gis\-Line}}
+\subsubsection[GisLine]{\setlength{\rightskip}{0pt plus 5cm}Gis\-Line::Gis\-Line ()}}
+\label{classGisLine_a0}
+
+
+\hypertarget{classGisLine_a1}{
+\index{GisLine@{Gis\-Line}!GisLine@{GisLine}}
+\index{GisLine@{GisLine}!GisLine@{Gis\-Line}}
+\subsubsection[GisLine]{\setlength{\rightskip}{0pt plus 5cm}Gis\-Line::Gis\-Line (vector$<$ double $>$ \& {\em x\-S}, vector$<$ double $>$ \& {\em y\-S})}}
+\label{classGisLine_a1}
+
+
+\hypertarget{classGisLine_a2}{
+\index{GisLine@{Gis\-Line}!~GisLine@{$\sim$GisLine}}
+\index{~GisLine@{$\sim$GisLine}!GisLine@{Gis\-Line}}
+\subsubsection[$\sim$GisLine]{\setlength{\rightskip}{0pt plus 5cm}virtual Gis\-Line::$\sim$\hyperlink{classGisLine}{Gis\-Line} ()\hspace{0.3cm}{\tt  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classGisLine_a2}
+
+
+\hypertarget{classGisLine_a12}{
+\index{GisLine@{Gis\-Line}!GisLine@{GisLine}}
+\index{GisLine@{GisLine}!GisLine@{Gis\-Line}}
+\subsubsection[GisLine]{\setlength{\rightskip}{0pt plus 5cm}Gis\-Line::Gis\-Line (const \hyperlink{classGisLine}{Gis\-Line} \& {\em a})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisLine_a12}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGisLine_a10}{
+\index{GisLine@{Gis\-Line}!findPoints@{findPoints}}
+\index{findPoints@{findPoints}!GisLine@{Gis\-Line}}
+\subsubsection[findPoints]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-Line::find\-Points (double {\em x}, double {\em y}, double {\em scale})}}
+\label{classGisLine_a10}
+
+
+\hypertarget{classGisLine_a8}{
+\index{GisLine@{Gis\-Line}!getIndex@{getIndex}}
+\index{getIndex@{getIndex}!GisLine@{Gis\-Line}}
+\subsubsection[getIndex]{\setlength{\rightskip}{0pt plus 5cm}int Gis\-Line::get\-Index ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisLine_a8}
+
+
+\hypertarget{classGisLine_a9}{
+\index{GisLine@{Gis\-Line}!getLabel@{getLabel}}
+\index{getLabel@{getLabel}!GisLine@{Gis\-Line}}
+\subsubsection[getLabel]{\setlength{\rightskip}{0pt plus 5cm}string Gis\-Line::get\-Label ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisLine_a9}
+
+
+\hypertarget{classGisLine_a4}{
+\index{GisLine@{Gis\-Line}!getPoints@{getPoints}}
+\index{getPoints@{getPoints}!GisLine@{Gis\-Line}}
+\subsubsection[getPoints]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Line::get\-Points (double $\ast$ {\em x\-Coords}, double $\ast$ {\em y\-Coords})}}
+\label{classGisLine_a4}
+
+
+\hypertarget{classGisLine_a5}{
+\index{GisLine@{Gis\-Line}!insertPoints@{insertPoints}}
+\index{insertPoints@{insertPoints}!GisLine@{Gis\-Line}}
+\subsubsection[insertPoints]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Line::insert\-Points (double {\em x}, double {\em y})}}
+\label{classGisLine_a5}
+
+
+\hypertarget{classGisLine_a3}{
+\index{GisLine@{Gis\-Line}!numberOfPoints@{numberOfPoints}}
+\index{numberOfPoints@{numberOfPoints}!GisLine@{Gis\-Line}}
+\subsubsection[numberOfPoints]{\setlength{\rightskip}{0pt plus 5cm}int Gis\-Line::number\-Of\-Points ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisLine_a3}
+
+
+\hypertarget{classGisLine_a13}{
+\index{GisLine@{Gis\-Line}!operator=@{operator=}}
+\index{operator=@{operator=}!GisLine@{Gis\-Line}}
+\subsubsection[operator=]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{classGisLine}{Gis\-Line}\& Gis\-Line::operator= (const \hyperlink{classGisLine}{Gis\-Line} \& {\em a})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisLine_a13}
+
+
+\hypertarget{classGisLine_a11}{
+\index{GisLine@{Gis\-Line}!print@{print}}
+\index{print@{print}!GisLine@{Gis\-Line}}
+\subsubsection[print]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Line::print ()}}
+\label{classGisLine_a11}
+
+
+\hypertarget{classGisLine_a6}{
+\index{GisLine@{Gis\-Line}!setIndex@{setIndex}}
+\index{setIndex@{setIndex}!GisLine@{Gis\-Line}}
+\subsubsection[setIndex]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Line::set\-Index (int {\em line\-Index})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisLine_a6}
+
+
+\hypertarget{classGisLine_a7}{
+\index{GisLine@{Gis\-Line}!setLabel@{setLabel}}
+\index{setLabel@{setLabel}!GisLine@{Gis\-Line}}
+\subsubsection[setLabel]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Line::set\-Label (string {\em line\-Label})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisLine_a7}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classGisLine_p1}{
+\index{GisLine@{Gis\-Line}!_lineIndex@{\_\-lineIndex}}
+\index{_lineIndex@{\_\-lineIndex}!GisLine@{Gis\-Line}}
+\subsubsection[\_\-lineIndex]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classGisLine_p1}{Gis\-Line::\_\-line\-Index}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisLine_p1}
+
+
+\hypertarget{classGisLine_p2}{
+\index{GisLine@{Gis\-Line}!_lineLabel@{\_\-lineLabel}}
+\index{_lineLabel@{\_\-lineLabel}!GisLine@{Gis\-Line}}
+\subsubsection[\_\-lineLabel]{\setlength{\rightskip}{0pt plus 5cm}string \hyperlink{classGisLine_p2}{Gis\-Line::\_\-line\-Label}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisLine_p2}
+
+
+\hypertarget{classGisLine_p0}{
+\index{GisLine@{Gis\-Line}!_nPoints@{\_\-nPoints}}
+\index{_nPoints@{\_\-nPoints}!GisLine@{Gis\-Line}}
+\subsubsection[\_\-nPoints]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classGisLine_p0}{Gis\-Line::\_\-n\-Points}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisLine_p0}
+
+
+\hypertarget{classGisLine_o0}{
+\index{GisLine@{Gis\-Line}!_xS@{\_\-xS}}
+\index{_xS@{\_\-xS}!GisLine@{Gis\-Line}}
+\subsubsection[\_\-xS]{\setlength{\rightskip}{0pt plus 5cm}vector$<$double$>$ \hyperlink{classGisLine_o0}{Gis\-Line::\_\-x\-S}}}
+\label{classGisLine_o0}
+
+
+\hypertarget{classGisLine_o1}{
+\index{GisLine@{Gis\-Line}!_yS@{\_\-yS}}
+\index{_yS@{\_\-yS}!GisLine@{Gis\-Line}}
+\subsubsection[\_\-yS]{\setlength{\rightskip}{0pt plus 5cm}vector$<$double$>$ \hyperlink{classGisLine_o1}{Gis\-Line::\_\-y\-S}}}
+\label{classGisLine_o1}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{GisLines_8h}{Gis\-Lines.h}\item 
+\hyperlink{GisLines_8C}{Gis\-Lines.C}\end{CompactItemize}

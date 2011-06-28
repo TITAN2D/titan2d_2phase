@@ -1,0 +1,133 @@
+\hypertarget{classCPolyLine}{
+\section{CPoly\-Line Class Reference}
+\label{classCPolyLine}\index{CPolyLine@{CPolyLine}}
+}
+{\tt \#include $<$cpolyline.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classCPolyLine_a0}{CPoly\-Line} (int type, string lbl)
+\item 
+\hyperlink{classCPolyLine_a1}{CPoly\-Line} ()
+\item 
+\hyperlink{classCPolyLine_a2}{$\sim$CPoly\-Line} ()
+\item 
+void \hyperlink{classCPolyLine_a3}{Set\-Lines\-XY} (int npts, double $\ast$x, double $\ast$y)
+\item 
+int \hyperlink{classCPolyLine_a4}{Get\_\-ith\_\-xy} (int idx, float $\ast$x, float $\ast$y)
+\item 
+int \hyperlink{classCPolyLine_a5}{Write\-Poly\-Line} (ofstream $\ast$stream)
+\item 
+int \hyperlink{classCPolyLine_a6}{Read\-Poly\-Line} (ifstream $\ast$stream)
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int \hyperlink{classCPolyLine_o0}{\_\-num\-Of\-Pts}
+\item 
+int \hyperlink{classCPolyLine_o1}{\_\-type}
+\item 
+float $\ast$$\ast$ \hyperlink{classCPolyLine_o2}{\_\-xylst}
+\item 
+string \hyperlink{classCPolyLine_o3}{\_\-label}
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This class represents a line made up of many segments. It hold a list of xy points on the line. \begin{Desc}
+\item[Author:]Amrita Chanda \end{Desc}
+
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classCPolyLine_a0}{
+\index{CPolyLine@{CPoly\-Line}!CPolyLine@{CPolyLine}}
+\index{CPolyLine@{CPolyLine}!CPolyLine@{CPoly\-Line}}
+\subsubsection[CPolyLine]{\setlength{\rightskip}{0pt plus 5cm}CPoly\-Line::CPoly\-Line (int {\em type}, string {\em lbl})}}
+\label{classCPolyLine_a0}
+
+
+\hypertarget{classCPolyLine_a1}{
+\index{CPolyLine@{CPoly\-Line}!CPolyLine@{CPolyLine}}
+\index{CPolyLine@{CPolyLine}!CPolyLine@{CPoly\-Line}}
+\subsubsection[CPolyLine]{\setlength{\rightskip}{0pt plus 5cm}CPoly\-Line::CPoly\-Line ()}}
+\label{classCPolyLine_a1}
+
+
+\hypertarget{classCPolyLine_a2}{
+\index{CPolyLine@{CPoly\-Line}!~CPolyLine@{$\sim$CPolyLine}}
+\index{~CPolyLine@{$\sim$CPolyLine}!CPolyLine@{CPoly\-Line}}
+\subsubsection[$\sim$CPolyLine]{\setlength{\rightskip}{0pt plus 5cm}CPoly\-Line::$\sim$\hyperlink{classCPolyLine}{CPoly\-Line} ()}}
+\label{classCPolyLine_a2}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classCPolyLine_a4}{
+\index{CPolyLine@{CPoly\-Line}!Get_ith_xy@{Get\_\-ith\_\-xy}}
+\index{Get_ith_xy@{Get\_\-ith\_\-xy}!CPolyLine@{CPoly\-Line}}
+\subsubsection[Get\_\-ith\_\-xy]{\setlength{\rightskip}{0pt plus 5cm}int CPoly\-Line::Get\_\-ith\_\-xy (int {\em idx}, float $\ast$ {\em x}, float $\ast$ {\em y})}}
+\label{classCPolyLine_a4}
+
+
+\hypertarget{classCPolyLine_a6}{
+\index{CPolyLine@{CPoly\-Line}!ReadPolyLine@{ReadPolyLine}}
+\index{ReadPolyLine@{ReadPolyLine}!CPolyLine@{CPoly\-Line}}
+\subsubsection[ReadPolyLine]{\setlength{\rightskip}{0pt plus 5cm}int CPoly\-Line::Read\-Poly\-Line (ifstream $\ast$ {\em stream})}}
+\label{classCPolyLine_a6}
+
+
+\hypertarget{classCPolyLine_a3}{
+\index{CPolyLine@{CPoly\-Line}!SetLinesXY@{SetLinesXY}}
+\index{SetLinesXY@{SetLinesXY}!CPolyLine@{CPoly\-Line}}
+\subsubsection[SetLinesXY]{\setlength{\rightskip}{0pt plus 5cm}void CPoly\-Line::Set\-Lines\-XY (int {\em npts}, double $\ast$ {\em x}, double $\ast$ {\em y})}}
+\label{classCPolyLine_a3}
+
+
+No descriptions \hypertarget{classCPolyLine_a5}{
+\index{CPolyLine@{CPoly\-Line}!WritePolyLine@{WritePolyLine}}
+\index{WritePolyLine@{WritePolyLine}!CPolyLine@{CPoly\-Line}}
+\subsubsection[WritePolyLine]{\setlength{\rightskip}{0pt plus 5cm}int CPoly\-Line::Write\-Poly\-Line (ofstream $\ast$ {\em stream})}}
+\label{classCPolyLine_a5}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classCPolyLine_o3}{
+\index{CPolyLine@{CPoly\-Line}!_label@{\_\-label}}
+\index{_label@{\_\-label}!CPolyLine@{CPoly\-Line}}
+\subsubsection[\_\-label]{\setlength{\rightskip}{0pt plus 5cm}string \hyperlink{classCPolyLine_o3}{CPoly\-Line::\_\-label}}}
+\label{classCPolyLine_o3}
+
+
+\hypertarget{classCPolyLine_o0}{
+\index{CPolyLine@{CPoly\-Line}!_numOfPts@{\_\-numOfPts}}
+\index{_numOfPts@{\_\-numOfPts}!CPolyLine@{CPoly\-Line}}
+\subsubsection[\_\-numOfPts]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classCPolyLine_o0}{CPoly\-Line::\_\-num\-Of\-Pts}}}
+\label{classCPolyLine_o0}
+
+
+\hypertarget{classCPolyLine_o1}{
+\index{CPolyLine@{CPoly\-Line}!_type@{\_\-type}}
+\index{_type@{\_\-type}!CPolyLine@{CPoly\-Line}}
+\subsubsection[\_\-type]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classCPolyLine_o1}{CPoly\-Line::\_\-type}}}
+\label{classCPolyLine_o1}
+
+
+\hypertarget{classCPolyLine_o2}{
+\index{CPolyLine@{CPoly\-Line}!_xylst@{\_\-xylst}}
+\index{_xylst@{\_\-xylst}!CPolyLine@{CPoly\-Line}}
+\subsubsection[\_\-xylst]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$$\ast$ \hyperlink{classCPolyLine_o2}{CPoly\-Line::\_\-xylst}}}
+\label{classCPolyLine_o2}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{cpolyline_8h}{cpolyline.h}\item 
+\hyperlink{cpolyline_8cpp}{cpolyline.cpp}\end{CompactItemize}

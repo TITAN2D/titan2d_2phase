@@ -1,0 +1,457 @@
+\hypertarget{structElemPack}{
+\section{Elem\-Pack Struct Reference}
+\label{structElemPack}\index{ElemPack@{ElemPack}}
+}
+Elem\-Pack is a smaller (memory spacewise) version of \hyperlink{classElement}{Element} that can be sent from one processor to another via MPI calls.  
+
+
+{\tt \#include $<$struct.h$>$}
+
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int \hyperlink{structElemPack_o0}{myprocess}
+\item 
+int \hyperlink{structElemPack_o1}{generation}
+\item 
+int \hyperlink{structElemPack_o2}{material}
+\item 
+int \hyperlink{structElemPack_o3}{neigh\_\-proc} \mbox{[}8\mbox{]}
+\item 
+int \hyperlink{structElemPack_o4}{order} \mbox{[}5\mbox{]}
+\item 
+int \hyperlink{structElemPack_o5}{neigh\_\-gen} \mbox{[}8\mbox{]}
+\item 
+int \hyperlink{structElemPack_o6}{ndof}
+\item 
+int \hyperlink{structElemPack_o7}{no\_\-of\_\-eqns}
+\item 
+int \hyperlink{structElemPack_o8}{refined}
+\item 
+int \hyperlink{structElemPack_o9}{adapted}
+\item 
+int \hyperlink{structElemPack_o10}{which\_\-son}
+\item 
+int \hyperlink{structElemPack_o11}{new\_\-old}
+\item 
+int \hyperlink{structElemPack_o12}{n\_\-order} \mbox{[}9\mbox{]}
+\item 
+int \hyperlink{structElemPack_o13}{n\_\-info} \mbox{[}9\mbox{]}
+\item 
+int \hyperlink{structElemPack_o14}{bc}
+\item 
+int \hyperlink{structElemPack_o15}{bc\_\-type} \mbox{[}4\mbox{]}
+\item 
+int \hyperlink{structElemPack_o16}{positive\_\-x\_\-side}
+\item 
+int \hyperlink{structElemPack_o17}{elm\_\-loc} \mbox{[}2\mbox{]}
+\item 
+int \hyperlink{structElemPack_o18}{opposite\_\-brother\_\-flag}
+\item 
+int \hyperlink{structElemPack_o19}{iwetnode}
+\item 
+unsigned \hyperlink{structElemPack_o20}{key} \mbox{[}\hyperlink{constant_8h_a10}{KEYLENGTH}\mbox{]}
+\item 
+unsigned \hyperlink{structElemPack_o21}{node\_\-key} \mbox{[}8\mbox{]}\mbox{[}\hyperlink{constant_8h_a10}{KEYLENGTH}\mbox{]}
+\item 
+unsigned \hyperlink{structElemPack_o22}{neighbor} \mbox{[}8\mbox{]}\mbox{[}\hyperlink{constant_8h_a10}{KEYLENGTH}\mbox{]}
+\item 
+unsigned \hyperlink{structElemPack_o23}{son} \mbox{[}4\mbox{]}\mbox{[}\hyperlink{constant_8h_a10}{KEYLENGTH}\mbox{]}
+\item 
+unsigned \hyperlink{structElemPack_o24}{brothers} \mbox{[}4\mbox{]}\mbox{[}\hyperlink{constant_8h_a10}{KEYLENGTH}\mbox{]}
+\item 
+double \hyperlink{structElemPack_o25}{elevation}
+\item 
+double \hyperlink{structElemPack_o26}{n\_\-coord} \mbox{[}9\mbox{]}\mbox{[}2\mbox{]}
+\item 
+double \hyperlink{structElemPack_o27}{el\_\-error} \mbox{[}\hyperlink{constant_8h_a16}{EQUATIONS}\mbox{]}
+\item 
+double \hyperlink{structElemPack_o28}{el\_\-solution} \mbox{[}\hyperlink{constant_8h_a16}{EQUATIONS}\mbox{]}
+\item 
+double \hyperlink{structElemPack_o29}{bc\_\-value} \mbox{[}4\mbox{]}\mbox{[}2\mbox{]}\mbox{[}2\mbox{]}
+\item 
+double \hyperlink{structElemPack_o30}{state\_\-vars} \mbox{[}\hyperlink{constant_8h_a45}{NUM\_\-STATE\_\-VARS}\mbox{]}
+\item 
+double \hyperlink{structElemPack_o31}{prev\_\-state\_\-vars} \mbox{[}\hyperlink{constant_8h_a45}{NUM\_\-STATE\_\-VARS}\mbox{]}
+\item 
+double \hyperlink{structElemPack_o32}{d\_\-state\_\-vars} \mbox{[}\hyperlink{constant_8h_a45}{NUM\_\-STATE\_\-VARS} $\ast$\hyperlink{constant_8h_a15}{DIMENSION}\mbox{]}
+\item 
+double \hyperlink{structElemPack_o33}{shortspeed}
+\item 
+double \hyperlink{structElemPack_o34}{dx} \mbox{[}\hyperlink{constant_8h_a15}{DIMENSION}\mbox{]}
+\item 
+double \hyperlink{structElemPack_o35}{eigenvxymax} \mbox{[}\hyperlink{constant_8h_a15}{DIMENSION}\mbox{]}
+\item 
+double \hyperlink{structElemPack_o36}{kactxy} \mbox{[}\hyperlink{constant_8h_a15}{DIMENSION}\mbox{]}
+\item 
+double \hyperlink{structElemPack_o37}{zeta} \mbox{[}\hyperlink{constant_8h_a15}{DIMENSION}\mbox{]}
+\item 
+double \hyperlink{structElemPack_o38}{curvature} \mbox{[}\hyperlink{constant_8h_a15}{DIMENSION}\mbox{]}
+\item 
+double \hyperlink{structElemPack_o39}{gravity} \mbox{[}3\mbox{]}
+\item 
+double \hyperlink{structElemPack_o40}{d\_\-gravity} \mbox{[}\hyperlink{constant_8h_a15}{DIMENSION}\mbox{]}
+\item 
+double \hyperlink{structElemPack_o41}{lam}
+\item 
+double \hyperlink{structElemPack_o42}{lb\_\-weight}
+\item 
+double \hyperlink{structElemPack_o43}{node\_\-elevation} \mbox{[}9\mbox{]}
+\item 
+double \hyperlink{structElemPack_o44}{Influx} \mbox{[}\hyperlink{constant_8h_a45}{NUM\_\-STATE\_\-VARS}\mbox{]}
+\item 
+double \hyperlink{structElemPack_o45}{Awet}
+\item 
+double \hyperlink{structElemPack_o46}{Swet}
+\item 
+double \hyperlink{structElemPack_o47}{drypoint} \mbox{[}\hyperlink{constant_8h_a15}{DIMENSION}\mbox{]}
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Elem\-Pack is a smaller (memory spacewise) version of \hyperlink{classElement}{Element} that can be sent from one processor to another via MPI calls. 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structElemPack_o9}{
+\index{ElemPack@{Elem\-Pack}!adapted@{adapted}}
+\index{adapted@{adapted}!ElemPack@{Elem\-Pack}}
+\subsubsection[adapted]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o9}{Elem\-Pack::adapted}}}
+\label{structElemPack_o9}
+
+
+\hypertarget{structElemPack_o45}{
+\index{ElemPack@{Elem\-Pack}!Awet@{Awet}}
+\index{Awet@{Awet}!ElemPack@{Elem\-Pack}}
+\subsubsection[Awet]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o45}{Elem\-Pack::Awet}}}
+\label{structElemPack_o45}
+
+
+\hypertarget{structElemPack_o14}{
+\index{ElemPack@{Elem\-Pack}!bc@{bc}}
+\index{bc@{bc}!ElemPack@{Elem\-Pack}}
+\subsubsection[bc]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o14}{Elem\-Pack::bc}}}
+\label{structElemPack_o14}
+
+
+\hypertarget{structElemPack_o15}{
+\index{ElemPack@{Elem\-Pack}!bc_type@{bc\_\-type}}
+\index{bc_type@{bc\_\-type}!ElemPack@{Elem\-Pack}}
+\subsubsection[bc\_\-type]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o15}{Elem\-Pack::bc\_\-type}\mbox{[}4\mbox{]}}}
+\label{structElemPack_o15}
+
+
+\hypertarget{structElemPack_o29}{
+\index{ElemPack@{Elem\-Pack}!bc_value@{bc\_\-value}}
+\index{bc_value@{bc\_\-value}!ElemPack@{Elem\-Pack}}
+\subsubsection[bc\_\-value]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o29}{Elem\-Pack::bc\_\-value}\mbox{[}4\mbox{]}\mbox{[}2\mbox{]}\mbox{[}2\mbox{]}}}
+\label{structElemPack_o29}
+
+
+\hypertarget{structElemPack_o24}{
+\index{ElemPack@{Elem\-Pack}!brothers@{brothers}}
+\index{brothers@{brothers}!ElemPack@{Elem\-Pack}}
+\subsubsection[brothers]{\setlength{\rightskip}{0pt plus 5cm}unsigned \hyperlink{structElemPack_o24}{Elem\-Pack::brothers}\mbox{[}4\mbox{]}\mbox{[}\hyperlink{constant_8h_a10}{KEYLENGTH}\mbox{]}}}
+\label{structElemPack_o24}
+
+
+\hypertarget{structElemPack_o38}{
+\index{ElemPack@{Elem\-Pack}!curvature@{curvature}}
+\index{curvature@{curvature}!ElemPack@{Elem\-Pack}}
+\subsubsection[curvature]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o38}{Elem\-Pack::curvature}\mbox{[}\hyperlink{constant_8h_a15}{DIMENSION}\mbox{]}}}
+\label{structElemPack_o38}
+
+
+\hypertarget{structElemPack_o40}{
+\index{ElemPack@{Elem\-Pack}!d_gravity@{d\_\-gravity}}
+\index{d_gravity@{d\_\-gravity}!ElemPack@{Elem\-Pack}}
+\subsubsection[d\_\-gravity]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o40}{Elem\-Pack::d\_\-gravity}\mbox{[}\hyperlink{constant_8h_a15}{DIMENSION}\mbox{]}}}
+\label{structElemPack_o40}
+
+
+\hypertarget{structElemPack_o32}{
+\index{ElemPack@{Elem\-Pack}!d_state_vars@{d\_\-state\_\-vars}}
+\index{d_state_vars@{d\_\-state\_\-vars}!ElemPack@{Elem\-Pack}}
+\subsubsection[d\_\-state\_\-vars]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o32}{Elem\-Pack::d\_\-state\_\-vars}\mbox{[}\hyperlink{constant_8h_a45}{NUM\_\-STATE\_\-VARS} $\ast$\hyperlink{constant_8h_a15}{DIMENSION}\mbox{]}}}
+\label{structElemPack_o32}
+
+
+\hypertarget{structElemPack_o47}{
+\index{ElemPack@{Elem\-Pack}!drypoint@{drypoint}}
+\index{drypoint@{drypoint}!ElemPack@{Elem\-Pack}}
+\subsubsection[drypoint]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o47}{Elem\-Pack::drypoint}\mbox{[}\hyperlink{constant_8h_a15}{DIMENSION}\mbox{]}}}
+\label{structElemPack_o47}
+
+
+\hypertarget{structElemPack_o34}{
+\index{ElemPack@{Elem\-Pack}!dx@{dx}}
+\index{dx@{dx}!ElemPack@{Elem\-Pack}}
+\subsubsection[dx]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o34}{Elem\-Pack::dx}\mbox{[}\hyperlink{constant_8h_a15}{DIMENSION}\mbox{]}}}
+\label{structElemPack_o34}
+
+
+\hypertarget{structElemPack_o35}{
+\index{ElemPack@{Elem\-Pack}!eigenvxymax@{eigenvxymax}}
+\index{eigenvxymax@{eigenvxymax}!ElemPack@{Elem\-Pack}}
+\subsubsection[eigenvxymax]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o35}{Elem\-Pack::eigenvxymax}\mbox{[}\hyperlink{constant_8h_a15}{DIMENSION}\mbox{]}}}
+\label{structElemPack_o35}
+
+
+\hypertarget{structElemPack_o27}{
+\index{ElemPack@{Elem\-Pack}!el_error@{el\_\-error}}
+\index{el_error@{el\_\-error}!ElemPack@{Elem\-Pack}}
+\subsubsection[el\_\-error]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o27}{Elem\-Pack::el\_\-error}\mbox{[}\hyperlink{constant_8h_a16}{EQUATIONS}\mbox{]}}}
+\label{structElemPack_o27}
+
+
+\hypertarget{structElemPack_o28}{
+\index{ElemPack@{Elem\-Pack}!el_solution@{el\_\-solution}}
+\index{el_solution@{el\_\-solution}!ElemPack@{Elem\-Pack}}
+\subsubsection[el\_\-solution]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o28}{Elem\-Pack::el\_\-solution}\mbox{[}\hyperlink{constant_8h_a16}{EQUATIONS}\mbox{]}}}
+\label{structElemPack_o28}
+
+
+\hypertarget{structElemPack_o25}{
+\index{ElemPack@{Elem\-Pack}!elevation@{elevation}}
+\index{elevation@{elevation}!ElemPack@{Elem\-Pack}}
+\subsubsection[elevation]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o25}{Elem\-Pack::elevation}}}
+\label{structElemPack_o25}
+
+
+\hypertarget{structElemPack_o17}{
+\index{ElemPack@{Elem\-Pack}!elm_loc@{elm\_\-loc}}
+\index{elm_loc@{elm\_\-loc}!ElemPack@{Elem\-Pack}}
+\subsubsection[elm\_\-loc]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o17}{Elem\-Pack::elm\_\-loc}\mbox{[}2\mbox{]}}}
+\label{structElemPack_o17}
+
+
+\hypertarget{structElemPack_o1}{
+\index{ElemPack@{Elem\-Pack}!generation@{generation}}
+\index{generation@{generation}!ElemPack@{Elem\-Pack}}
+\subsubsection[generation]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o1}{Elem\-Pack::generation}}}
+\label{structElemPack_o1}
+
+
+\hypertarget{structElemPack_o39}{
+\index{ElemPack@{Elem\-Pack}!gravity@{gravity}}
+\index{gravity@{gravity}!ElemPack@{Elem\-Pack}}
+\subsubsection[gravity]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o39}{Elem\-Pack::gravity}\mbox{[}3\mbox{]}}}
+\label{structElemPack_o39}
+
+
+\hypertarget{structElemPack_o44}{
+\index{ElemPack@{Elem\-Pack}!Influx@{Influx}}
+\index{Influx@{Influx}!ElemPack@{Elem\-Pack}}
+\subsubsection[Influx]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o44}{Elem\-Pack::Influx}\mbox{[}\hyperlink{constant_8h_a45}{NUM\_\-STATE\_\-VARS}\mbox{]}}}
+\label{structElemPack_o44}
+
+
+\hypertarget{structElemPack_o19}{
+\index{ElemPack@{Elem\-Pack}!iwetnode@{iwetnode}}
+\index{iwetnode@{iwetnode}!ElemPack@{Elem\-Pack}}
+\subsubsection[iwetnode]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o19}{Elem\-Pack::iwetnode}}}
+\label{structElemPack_o19}
+
+
+\hypertarget{structElemPack_o36}{
+\index{ElemPack@{Elem\-Pack}!kactxy@{kactxy}}
+\index{kactxy@{kactxy}!ElemPack@{Elem\-Pack}}
+\subsubsection[kactxy]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o36}{Elem\-Pack::kactxy}\mbox{[}\hyperlink{constant_8h_a15}{DIMENSION}\mbox{]}}}
+\label{structElemPack_o36}
+
+
+\hypertarget{structElemPack_o20}{
+\index{ElemPack@{Elem\-Pack}!key@{key}}
+\index{key@{key}!ElemPack@{Elem\-Pack}}
+\subsubsection[key]{\setlength{\rightskip}{0pt plus 5cm}unsigned \hyperlink{structElemPack_o20}{Elem\-Pack::key}\mbox{[}\hyperlink{constant_8h_a10}{KEYLENGTH}\mbox{]}}}
+\label{structElemPack_o20}
+
+
+\hypertarget{structElemPack_o41}{
+\index{ElemPack@{Elem\-Pack}!lam@{lam}}
+\index{lam@{lam}!ElemPack@{Elem\-Pack}}
+\subsubsection[lam]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o41}{Elem\-Pack::lam}}}
+\label{structElemPack_o41}
+
+
+\hypertarget{structElemPack_o42}{
+\index{ElemPack@{Elem\-Pack}!lb_weight@{lb\_\-weight}}
+\index{lb_weight@{lb\_\-weight}!ElemPack@{Elem\-Pack}}
+\subsubsection[lb\_\-weight]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o42}{Elem\-Pack::lb\_\-weight}}}
+\label{structElemPack_o42}
+
+
+\hypertarget{structElemPack_o2}{
+\index{ElemPack@{Elem\-Pack}!material@{material}}
+\index{material@{material}!ElemPack@{Elem\-Pack}}
+\subsubsection[material]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o2}{Elem\-Pack::material}}}
+\label{structElemPack_o2}
+
+
+\hypertarget{structElemPack_o0}{
+\index{ElemPack@{Elem\-Pack}!myprocess@{myprocess}}
+\index{myprocess@{myprocess}!ElemPack@{Elem\-Pack}}
+\subsubsection[myprocess]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o0}{Elem\-Pack::myprocess}}}
+\label{structElemPack_o0}
+
+
+\hypertarget{structElemPack_o26}{
+\index{ElemPack@{Elem\-Pack}!n_coord@{n\_\-coord}}
+\index{n_coord@{n\_\-coord}!ElemPack@{Elem\-Pack}}
+\subsubsection[n\_\-coord]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o26}{Elem\-Pack::n\_\-coord}\mbox{[}9\mbox{]}\mbox{[}2\mbox{]}}}
+\label{structElemPack_o26}
+
+
+\hypertarget{structElemPack_o13}{
+\index{ElemPack@{Elem\-Pack}!n_info@{n\_\-info}}
+\index{n_info@{n\_\-info}!ElemPack@{Elem\-Pack}}
+\subsubsection[n\_\-info]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o13}{Elem\-Pack::n\_\-info}\mbox{[}9\mbox{]}}}
+\label{structElemPack_o13}
+
+
+\hypertarget{structElemPack_o12}{
+\index{ElemPack@{Elem\-Pack}!n_order@{n\_\-order}}
+\index{n_order@{n\_\-order}!ElemPack@{Elem\-Pack}}
+\subsubsection[n\_\-order]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o12}{Elem\-Pack::n\_\-order}\mbox{[}9\mbox{]}}}
+\label{structElemPack_o12}
+
+
+\hypertarget{structElemPack_o6}{
+\index{ElemPack@{Elem\-Pack}!ndof@{ndof}}
+\index{ndof@{ndof}!ElemPack@{Elem\-Pack}}
+\subsubsection[ndof]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o6}{Elem\-Pack::ndof}}}
+\label{structElemPack_o6}
+
+
+\hypertarget{structElemPack_o5}{
+\index{ElemPack@{Elem\-Pack}!neigh_gen@{neigh\_\-gen}}
+\index{neigh_gen@{neigh\_\-gen}!ElemPack@{Elem\-Pack}}
+\subsubsection[neigh\_\-gen]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o5}{Elem\-Pack::neigh\_\-gen}\mbox{[}8\mbox{]}}}
+\label{structElemPack_o5}
+
+
+\hypertarget{structElemPack_o3}{
+\index{ElemPack@{Elem\-Pack}!neigh_proc@{neigh\_\-proc}}
+\index{neigh_proc@{neigh\_\-proc}!ElemPack@{Elem\-Pack}}
+\subsubsection[neigh\_\-proc]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o3}{Elem\-Pack::neigh\_\-proc}\mbox{[}8\mbox{]}}}
+\label{structElemPack_o3}
+
+
+\hypertarget{structElemPack_o22}{
+\index{ElemPack@{Elem\-Pack}!neighbor@{neighbor}}
+\index{neighbor@{neighbor}!ElemPack@{Elem\-Pack}}
+\subsubsection[neighbor]{\setlength{\rightskip}{0pt plus 5cm}unsigned \hyperlink{structElemPack_o22}{Elem\-Pack::neighbor}\mbox{[}8\mbox{]}\mbox{[}\hyperlink{constant_8h_a10}{KEYLENGTH}\mbox{]}}}
+\label{structElemPack_o22}
+
+
+\hypertarget{structElemPack_o11}{
+\index{ElemPack@{Elem\-Pack}!new_old@{new\_\-old}}
+\index{new_old@{new\_\-old}!ElemPack@{Elem\-Pack}}
+\subsubsection[new\_\-old]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o11}{Elem\-Pack::new\_\-old}}}
+\label{structElemPack_o11}
+
+
+\hypertarget{structElemPack_o7}{
+\index{ElemPack@{Elem\-Pack}!no_of_eqns@{no\_\-of\_\-eqns}}
+\index{no_of_eqns@{no\_\-of\_\-eqns}!ElemPack@{Elem\-Pack}}
+\subsubsection[no\_\-of\_\-eqns]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o7}{Elem\-Pack::no\_\-of\_\-eqns}}}
+\label{structElemPack_o7}
+
+
+\hypertarget{structElemPack_o43}{
+\index{ElemPack@{Elem\-Pack}!node_elevation@{node\_\-elevation}}
+\index{node_elevation@{node\_\-elevation}!ElemPack@{Elem\-Pack}}
+\subsubsection[node\_\-elevation]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o43}{Elem\-Pack::node\_\-elevation}\mbox{[}9\mbox{]}}}
+\label{structElemPack_o43}
+
+
+\hypertarget{structElemPack_o21}{
+\index{ElemPack@{Elem\-Pack}!node_key@{node\_\-key}}
+\index{node_key@{node\_\-key}!ElemPack@{Elem\-Pack}}
+\subsubsection[node\_\-key]{\setlength{\rightskip}{0pt plus 5cm}unsigned \hyperlink{structElemPack_o21}{Elem\-Pack::node\_\-key}\mbox{[}8\mbox{]}\mbox{[}\hyperlink{constant_8h_a10}{KEYLENGTH}\mbox{]}}}
+\label{structElemPack_o21}
+
+
+\hypertarget{structElemPack_o18}{
+\index{ElemPack@{Elem\-Pack}!opposite_brother_flag@{opposite\_\-brother\_\-flag}}
+\index{opposite_brother_flag@{opposite\_\-brother\_\-flag}!ElemPack@{Elem\-Pack}}
+\subsubsection[opposite\_\-brother\_\-flag]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o18}{Elem\-Pack::opposite\_\-brother\_\-flag}}}
+\label{structElemPack_o18}
+
+
+\hypertarget{structElemPack_o4}{
+\index{ElemPack@{Elem\-Pack}!order@{order}}
+\index{order@{order}!ElemPack@{Elem\-Pack}}
+\subsubsection[order]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o4}{Elem\-Pack::order}\mbox{[}5\mbox{]}}}
+\label{structElemPack_o4}
+
+
+\hypertarget{structElemPack_o16}{
+\index{ElemPack@{Elem\-Pack}!positive_x_side@{positive\_\-x\_\-side}}
+\index{positive_x_side@{positive\_\-x\_\-side}!ElemPack@{Elem\-Pack}}
+\subsubsection[positive\_\-x\_\-side]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o16}{Elem\-Pack::positive\_\-x\_\-side}}}
+\label{structElemPack_o16}
+
+
+\hypertarget{structElemPack_o31}{
+\index{ElemPack@{Elem\-Pack}!prev_state_vars@{prev\_\-state\_\-vars}}
+\index{prev_state_vars@{prev\_\-state\_\-vars}!ElemPack@{Elem\-Pack}}
+\subsubsection[prev\_\-state\_\-vars]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o31}{Elem\-Pack::prev\_\-state\_\-vars}\mbox{[}\hyperlink{constant_8h_a45}{NUM\_\-STATE\_\-VARS}\mbox{]}}}
+\label{structElemPack_o31}
+
+
+\hypertarget{structElemPack_o8}{
+\index{ElemPack@{Elem\-Pack}!refined@{refined}}
+\index{refined@{refined}!ElemPack@{Elem\-Pack}}
+\subsubsection[refined]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o8}{Elem\-Pack::refined}}}
+\label{structElemPack_o8}
+
+
+\hypertarget{structElemPack_o33}{
+\index{ElemPack@{Elem\-Pack}!shortspeed@{shortspeed}}
+\index{shortspeed@{shortspeed}!ElemPack@{Elem\-Pack}}
+\subsubsection[shortspeed]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o33}{Elem\-Pack::shortspeed}}}
+\label{structElemPack_o33}
+
+
+\hypertarget{structElemPack_o23}{
+\index{ElemPack@{Elem\-Pack}!son@{son}}
+\index{son@{son}!ElemPack@{Elem\-Pack}}
+\subsubsection[son]{\setlength{\rightskip}{0pt plus 5cm}unsigned \hyperlink{structElemPack_o23}{Elem\-Pack::son}\mbox{[}4\mbox{]}\mbox{[}\hyperlink{constant_8h_a10}{KEYLENGTH}\mbox{]}}}
+\label{structElemPack_o23}
+
+
+\hypertarget{structElemPack_o30}{
+\index{ElemPack@{Elem\-Pack}!state_vars@{state\_\-vars}}
+\index{state_vars@{state\_\-vars}!ElemPack@{Elem\-Pack}}
+\subsubsection[state\_\-vars]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o30}{Elem\-Pack::state\_\-vars}\mbox{[}\hyperlink{constant_8h_a45}{NUM\_\-STATE\_\-VARS}\mbox{]}}}
+\label{structElemPack_o30}
+
+
+\hypertarget{structElemPack_o46}{
+\index{ElemPack@{Elem\-Pack}!Swet@{Swet}}
+\index{Swet@{Swet}!ElemPack@{Elem\-Pack}}
+\subsubsection[Swet]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o46}{Elem\-Pack::Swet}}}
+\label{structElemPack_o46}
+
+
+\hypertarget{structElemPack_o10}{
+\index{ElemPack@{Elem\-Pack}!which_son@{which\_\-son}}
+\index{which_son@{which\_\-son}!ElemPack@{Elem\-Pack}}
+\subsubsection[which\_\-son]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structElemPack_o10}{Elem\-Pack::which\_\-son}}}
+\label{structElemPack_o10}
+
+
+\hypertarget{structElemPack_o37}{
+\index{ElemPack@{Elem\-Pack}!zeta@{zeta}}
+\index{zeta@{zeta}!ElemPack@{Elem\-Pack}}
+\subsubsection[zeta]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structElemPack_o37}{Elem\-Pack::zeta}\mbox{[}\hyperlink{constant_8h_a15}{DIMENSION}\mbox{]}}}
+\label{structElemPack_o37}
+
+
+
+
+The documentation for this struct was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{struct_8h}{struct.h}\end{CompactItemize}

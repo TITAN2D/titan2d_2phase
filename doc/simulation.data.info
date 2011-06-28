@@ -1,0 +1,22 @@
+The format of the simulation.data files is as follows:
+number of piles
+height of pile 1
+x center of pile 1
+y center of pile 1
+x extent of pile 1
+y extent of pile 1
+height of pile 2
+x center of pile 2
+...
+x extent of last pile
+y extent of last pile
+maximum number of time steps for the simulation
+maximum simulation time for the simulation
+how often to output the visualization data (time steps per output)
+adapt flag (0 no, 1 yes)
+visualization output type (mshplot, tecplot, pady's output)
+GIS information main directory
+GIS sub-directory
+GIS mapset
+GIS map
+

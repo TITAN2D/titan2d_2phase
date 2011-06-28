@@ -1,0 +1,304 @@
+\hypertarget{structTimeProps}{
+\section{Time\-Props Struct Reference}
+\label{structTimeProps}\index{TimeProps@{TimeProps}}
+}
+this structure holds all the information about time and timestepping  
+
+
+{\tt \#include $<$properties.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{structTimeProps_a0}{inittime} (int maxiterin, double maxtimein, double timeoutputin, double timesavein, double TIME\_\-SCALEin)
+\begin{CompactList}\small\item\em this function initializes the time properties at the beginning of the simulation \item\end{CompactList}\item 
+void \hyperlink{structTimeProps_a1}{incrtime} (double $\ast$dt)
+\begin{CompactList}\small\item\em this function increments the time step, after, if neccessary, decreasing the time step to land evenly on the next time to output save or end the simulation \item\end{CompactList}\item 
+int \hyperlink{structTimeProps_a2}{ifstart} ()
+\item 
+int \hyperlink{structTimeProps_a3}{iffirst} ()
+\begin{CompactList}\small\item\em checks if it's before first time step \item\end{CompactList}\item 
+int \hyperlink{structTimeProps_a4}{ifend} (double vstar)
+\begin{CompactList}\small\item\em checks if it's at first time step checks if the simulation should end due to running out of time, running out of timesteps or meeting a legacy \char`\"{}stopped\char`\"{} criteria \item\end{CompactList}\item 
+int \hyperlink{structTimeProps_a5}{ifcheckstop} ()
+\begin{CompactList}\small\item\em checks if the simulation has passed 1/10th of the maximum time allowed \item\end{CompactList}\item 
+int \hyperlink{structTimeProps_a6}{ifsave} ()
+\begin{CompactList}\small\item\em checks if the restart file should be saved now \item\end{CompactList}\item 
+int \hyperlink{structTimeProps_a7}{ifoutput} ()
+\begin{CompactList}\small\item\em checks if the output files should be written now \item\end{CompactList}\item 
+void \hyperlink{structTimeProps_a8}{chunktime} (int $\ast$hours, int $\ast$minutes, double $\ast$seconds)
+\begin{CompactList}\small\item\em chunk simulated time into hours minutes and seconds \item\end{CompactList}\item 
+double \hyperlink{structTimeProps_a9}{timesec} ()
+\begin{CompactList}\small\item\em return the simulated time in seconds \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int \hyperlink{structTimeProps_o0}{maxiter}
+\begin{CompactList}\small\item\em the maximum \# of iterations (a.k.a. time steps) before the simulation ends \item\end{CompactList}\item 
+int \hyperlink{structTimeProps_o1}{iter}
+\begin{CompactList}\small\item\em the current number of iterations \item\end{CompactList}\item 
+double \hyperlink{structTimeProps_o2}{maxtime}
+\begin{CompactList}\small\item\em the maximum amount of time (in seconds) before the simulation ends \item\end{CompactList}\item 
+double \hyperlink{structTimeProps_o3}{ndmaxtime}
+\begin{CompactList}\small\item\em the non-dimensional maxtime \item\end{CompactList}\item 
+double \hyperlink{structTimeProps_o4}{timeoutput}
+\begin{CompactList}\small\item\em the amount of time (in seconds) between subsequent outputs (with one exception... when the simulation ends one final output is performed and that one will be less than \char`\"{}timeoutput\char`\"{} seconds after the previous one \item\end{CompactList}\item 
+double \hyperlink{structTimeProps_o5}{timesave}
+\begin{CompactList}\small\item\em the amount of time (in seconds) between subsequent saves (with one exception... when the simulation ends one final save is performed and that one will be less than \char`\"{}timeoutput\char`\"{} seconds after the previous one \item\end{CompactList}\item 
+int \hyperlink{structTimeProps_o6}{ioutput}
+\begin{CompactList}\small\item\em count of the number of times output has been done \item\end{CompactList}\item 
+int \hyperlink{structTimeProps_o7}{isave}
+\begin{CompactList}\small\item\em count of the number of times saving has been done \item\end{CompactList}\item 
+double \hyperlink{structTimeProps_o8}{ndnextoutput}
+\begin{CompactList}\small\item\em the non-dimensional time at which the next output should occur \item\end{CompactList}\item 
+double \hyperlink{structTimeProps_o9}{ndnextsave}
+\begin{CompactList}\small\item\em the non-dimensional time at which the next save should occur \item\end{CompactList}\item 
+double \hyperlink{structTimeProps_o10}{TIME\_\-SCALE}
+\begin{CompactList}\small\item\em the value used to nondimensionalize time \item\end{CompactList}\item 
+double \hyperlink{structTimeProps_o11}{time}
+\begin{CompactList}\small\item\em the non-dimensional current time \item\end{CompactList}\item 
+double \hyperlink{structTimeProps_o12}{dtime}
+\begin{CompactList}\small\item\em the non-dimensional time step \item\end{CompactList}\item 
+double \hyperlink{structTimeProps_o13}{vstarmax}
+\begin{CompactList}\small\item\em velocity measure/Vslump used as a STOPPING CRITERIA,which is while it's stored under Time\-Props (also members of \hyperlink{structMatProps}{Mat\-Props} are assigned once, are permanent for the run), see \hyperlink{structMatProps}{Mat\-Props} struct below for Vslump, see ../main/datread.C for initialization of Vslump \item\end{CompactList}\item 
+time\_\-t \hyperlink{structTimeProps_o14}{starttime}
+\begin{CompactList}\small\item\em wallclock time shortly after titan starts running \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+this structure holds all the information about time and timestepping 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structTimeProps_a8}{
+\index{TimeProps@{Time\-Props}!chunktime@{chunktime}}
+\index{chunktime@{chunktime}!TimeProps@{Time\-Props}}
+\subsubsection[chunktime]{\setlength{\rightskip}{0pt plus 5cm}void Time\-Props::chunktime (int $\ast$ {\em hours}, int $\ast$ {\em minutes}, double $\ast$ {\em seconds})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structTimeProps_a8}
+
+
+chunk simulated time into hours minutes and seconds 
+
+\hypertarget{structTimeProps_a5}{
+\index{TimeProps@{Time\-Props}!ifcheckstop@{ifcheckstop}}
+\index{ifcheckstop@{ifcheckstop}!TimeProps@{Time\-Props}}
+\subsubsection[ifcheckstop]{\setlength{\rightskip}{0pt plus 5cm}int Time\-Props::ifcheckstop ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structTimeProps_a5}
+
+
+checks if the simulation has passed 1/10th of the maximum time allowed 
+
+\hypertarget{structTimeProps_a4}{
+\index{TimeProps@{Time\-Props}!ifend@{ifend}}
+\index{ifend@{ifend}!TimeProps@{Time\-Props}}
+\subsubsection[ifend]{\setlength{\rightskip}{0pt plus 5cm}int Time\-Props::ifend (double {\em vstar})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structTimeProps_a4}
+
+
+checks if it's at first time step checks if the simulation should end due to running out of time, running out of timesteps or meeting a legacy \char`\"{}stopped\char`\"{} criteria 
+
+\hypertarget{structTimeProps_a3}{
+\index{TimeProps@{Time\-Props}!iffirst@{iffirst}}
+\index{iffirst@{iffirst}!TimeProps@{Time\-Props}}
+\subsubsection[iffirst]{\setlength{\rightskip}{0pt plus 5cm}int Time\-Props::iffirst ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structTimeProps_a3}
+
+
+checks if it's before first time step 
+
+\hypertarget{structTimeProps_a7}{
+\index{TimeProps@{Time\-Props}!ifoutput@{ifoutput}}
+\index{ifoutput@{ifoutput}!TimeProps@{Time\-Props}}
+\subsubsection[ifoutput]{\setlength{\rightskip}{0pt plus 5cm}int Time\-Props::ifoutput ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structTimeProps_a7}
+
+
+checks if the output files should be written now 
+
+\hypertarget{structTimeProps_a6}{
+\index{TimeProps@{Time\-Props}!ifsave@{ifsave}}
+\index{ifsave@{ifsave}!TimeProps@{Time\-Props}}
+\subsubsection[ifsave]{\setlength{\rightskip}{0pt plus 5cm}int Time\-Props::ifsave ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structTimeProps_a6}
+
+
+checks if the restart file should be saved now 
+
+\hypertarget{structTimeProps_a2}{
+\index{TimeProps@{Time\-Props}!ifstart@{ifstart}}
+\index{ifstart@{ifstart}!TimeProps@{Time\-Props}}
+\subsubsection[ifstart]{\setlength{\rightskip}{0pt plus 5cm}int Time\-Props::ifstart ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structTimeProps_a2}
+
+
+\hypertarget{structTimeProps_a1}{
+\index{TimeProps@{Time\-Props}!incrtime@{incrtime}}
+\index{incrtime@{incrtime}!TimeProps@{Time\-Props}}
+\subsubsection[incrtime]{\setlength{\rightskip}{0pt plus 5cm}void Time\-Props::incrtime (double $\ast$ {\em dt})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structTimeProps_a1}
+
+
+this function increments the time step, after, if neccessary, decreasing the time step to land evenly on the next time to output save or end the simulation 
+
+\hypertarget{structTimeProps_a0}{
+\index{TimeProps@{Time\-Props}!inittime@{inittime}}
+\index{inittime@{inittime}!TimeProps@{Time\-Props}}
+\subsubsection[inittime]{\setlength{\rightskip}{0pt plus 5cm}void Time\-Props::inittime (int {\em maxiterin}, double {\em maxtimein}, double {\em timeoutputin}, double {\em timesavein}, double {\em TIME\_\-SCALEin})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structTimeProps_a0}
+
+
+this function initializes the time properties at the beginning of the simulation 
+
+\hypertarget{structTimeProps_a9}{
+\index{TimeProps@{Time\-Props}!timesec@{timesec}}
+\index{timesec@{timesec}!TimeProps@{Time\-Props}}
+\subsubsection[timesec]{\setlength{\rightskip}{0pt plus 5cm}double Time\-Props::timesec ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structTimeProps_a9}
+
+
+return the simulated time in seconds 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structTimeProps_o12}{
+\index{TimeProps@{Time\-Props}!dtime@{dtime}}
+\index{dtime@{dtime}!TimeProps@{Time\-Props}}
+\subsubsection[dtime]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structTimeProps_o12}{Time\-Props::dtime}}}
+\label{structTimeProps_o12}
+
+
+the non-dimensional time step 
+
+\hypertarget{structTimeProps_o6}{
+\index{TimeProps@{Time\-Props}!ioutput@{ioutput}}
+\index{ioutput@{ioutput}!TimeProps@{Time\-Props}}
+\subsubsection[ioutput]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structTimeProps_o6}{Time\-Props::ioutput}}}
+\label{structTimeProps_o6}
+
+
+count of the number of times output has been done 
+
+\hypertarget{structTimeProps_o7}{
+\index{TimeProps@{Time\-Props}!isave@{isave}}
+\index{isave@{isave}!TimeProps@{Time\-Props}}
+\subsubsection[isave]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structTimeProps_o7}{Time\-Props::isave}}}
+\label{structTimeProps_o7}
+
+
+count of the number of times saving has been done 
+
+\hypertarget{structTimeProps_o1}{
+\index{TimeProps@{Time\-Props}!iter@{iter}}
+\index{iter@{iter}!TimeProps@{Time\-Props}}
+\subsubsection[iter]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structTimeProps_o1}{Time\-Props::iter}}}
+\label{structTimeProps_o1}
+
+
+the current number of iterations 
+
+\hypertarget{structTimeProps_o0}{
+\index{TimeProps@{Time\-Props}!maxiter@{maxiter}}
+\index{maxiter@{maxiter}!TimeProps@{Time\-Props}}
+\subsubsection[maxiter]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structTimeProps_o0}{Time\-Props::maxiter}}}
+\label{structTimeProps_o0}
+
+
+the maximum \# of iterations (a.k.a. time steps) before the simulation ends 
+
+\hypertarget{structTimeProps_o2}{
+\index{TimeProps@{Time\-Props}!maxtime@{maxtime}}
+\index{maxtime@{maxtime}!TimeProps@{Time\-Props}}
+\subsubsection[maxtime]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structTimeProps_o2}{Time\-Props::maxtime}}}
+\label{structTimeProps_o2}
+
+
+the maximum amount of time (in seconds) before the simulation ends 
+
+\hypertarget{structTimeProps_o3}{
+\index{TimeProps@{Time\-Props}!ndmaxtime@{ndmaxtime}}
+\index{ndmaxtime@{ndmaxtime}!TimeProps@{Time\-Props}}
+\subsubsection[ndmaxtime]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structTimeProps_o3}{Time\-Props::ndmaxtime}}}
+\label{structTimeProps_o3}
+
+
+the non-dimensional maxtime 
+
+\hypertarget{structTimeProps_o8}{
+\index{TimeProps@{Time\-Props}!ndnextoutput@{ndnextoutput}}
+\index{ndnextoutput@{ndnextoutput}!TimeProps@{Time\-Props}}
+\subsubsection[ndnextoutput]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structTimeProps_o8}{Time\-Props::ndnextoutput}}}
+\label{structTimeProps_o8}
+
+
+the non-dimensional time at which the next output should occur 
+
+\hypertarget{structTimeProps_o9}{
+\index{TimeProps@{Time\-Props}!ndnextsave@{ndnextsave}}
+\index{ndnextsave@{ndnextsave}!TimeProps@{Time\-Props}}
+\subsubsection[ndnextsave]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structTimeProps_o9}{Time\-Props::ndnextsave}}}
+\label{structTimeProps_o9}
+
+
+the non-dimensional time at which the next save should occur 
+
+\hypertarget{structTimeProps_o14}{
+\index{TimeProps@{Time\-Props}!starttime@{starttime}}
+\index{starttime@{starttime}!TimeProps@{Time\-Props}}
+\subsubsection[starttime]{\setlength{\rightskip}{0pt plus 5cm}time\_\-t \hyperlink{structTimeProps_o14}{Time\-Props::starttime}}}
+\label{structTimeProps_o14}
+
+
+wallclock time shortly after titan starts running 
+
+\hypertarget{structTimeProps_o11}{
+\index{TimeProps@{Time\-Props}!time@{time}}
+\index{time@{time}!TimeProps@{Time\-Props}}
+\subsubsection[time]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structTimeProps_o11}{Time\-Props::time}}}
+\label{structTimeProps_o11}
+
+
+the non-dimensional current time 
+
+\hypertarget{structTimeProps_o10}{
+\index{TimeProps@{Time\-Props}!TIME_SCALE@{TIME\_\-SCALE}}
+\index{TIME_SCALE@{TIME\_\-SCALE}!TimeProps@{Time\-Props}}
+\subsubsection[TIME\_\-SCALE]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structTimeProps_o10}{Time\-Props::TIME\_\-SCALE}}}
+\label{structTimeProps_o10}
+
+
+the value used to nondimensionalize time 
+
+\hypertarget{structTimeProps_o4}{
+\index{TimeProps@{Time\-Props}!timeoutput@{timeoutput}}
+\index{timeoutput@{timeoutput}!TimeProps@{Time\-Props}}
+\subsubsection[timeoutput]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structTimeProps_o4}{Time\-Props::timeoutput}}}
+\label{structTimeProps_o4}
+
+
+the amount of time (in seconds) between subsequent outputs (with one exception... when the simulation ends one final output is performed and that one will be less than \char`\"{}timeoutput\char`\"{} seconds after the previous one 
+
+\hypertarget{structTimeProps_o5}{
+\index{TimeProps@{Time\-Props}!timesave@{timesave}}
+\index{timesave@{timesave}!TimeProps@{Time\-Props}}
+\subsubsection[timesave]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structTimeProps_o5}{Time\-Props::timesave}}}
+\label{structTimeProps_o5}
+
+
+the amount of time (in seconds) between subsequent saves (with one exception... when the simulation ends one final save is performed and that one will be less than \char`\"{}timeoutput\char`\"{} seconds after the previous one 
+
+\hypertarget{structTimeProps_o13}{
+\index{TimeProps@{Time\-Props}!vstarmax@{vstarmax}}
+\index{vstarmax@{vstarmax}!TimeProps@{Time\-Props}}
+\subsubsection[vstarmax]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{structTimeProps_o13}{Time\-Props::vstarmax}}}
+\label{structTimeProps_o13}
+
+
+velocity measure/Vslump used as a STOPPING CRITERIA,which is while it's stored under Time\-Props (also members of \hyperlink{structMatProps}{Mat\-Props} are assigned once, are permanent for the run), see \hyperlink{structMatProps}{Mat\-Props} struct below for Vslump, see ../main/datread.C for initialization of Vslump 
+
+
+
+The documentation for this struct was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{properties_8h}{properties.h}\end{CompactItemize}

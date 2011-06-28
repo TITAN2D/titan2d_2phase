@@ -1,0 +1,342 @@
+\hypertarget{classGisGrid}{
+\section{Gis\-Grid Class Reference}
+\label{classGisGrid}\index{GisGrid@{GisGrid}}
+}
+{\tt \#include $<$Gis\-Grid.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classGisGrid_a0}{Gis\-Grid} ()
+\item 
+virtual \hyperlink{classGisGrid_a1}{$\sim$Gis\-Grid} ()
+\item 
+void \hyperlink{classGisGrid_a2}{set\-Num\-Rows\-Cols} (int n\-Rows, int n\-Cols)
+\item 
+void \hyperlink{classGisGrid_a3}{set\-Num\-Rows} (int n\-Rows)
+\item 
+void \hyperlink{classGisGrid_a4}{set\-Num\-Cols} (int n\-Cols)
+\item 
+void \hyperlink{classGisGrid_a5}{set\-Box} (double x\-Min, double y\-Min, double x\-Max, double y\-Max)
+\item 
+void \hyperlink{classGisGrid_a6}{set\-Res} (float res)
+\item 
+void \hyperlink{classGisGrid_a7}{set\-Res\-X} (float res)
+\item 
+double \hyperlink{classGisGrid_a8}{get\-Res\-X} ()
+\item 
+void \hyperlink{classGisGrid_a9}{set\-Res\-Y} (float res)
+\item 
+double \hyperlink{classGisGrid_a10}{get\-Res\-Y} ()
+\item 
+double \hyperlink{classGisGrid_a11}{delta\-X} ()
+\item 
+double \hyperlink{classGisGrid_a12}{delta\-Y} ()
+\item 
+double \hyperlink{classGisGrid_a13}{no\-Data\-Value} ()
+\item 
+void \hyperlink{classGisGrid_a14}{no\-Data\-Value} (double double\-Val)
+\item 
+void \hyperlink{classGisGrid_a15}{init\-Grid} ()
+\item 
+void \hyperlink{classGisGrid_a16}{set\-Max} (\hyperlink{classGisTriOut}{Gis\-Tri\-Out} \&tri, int sim\-Var)
+\item 
+double \hyperlink{classGisGrid_a17}{get} (int row, int col)
+\item 
+int \hyperlink{classGisGrid_a18}{get\-Row} (double y)
+\item 
+int \hyperlink{classGisGrid_a19}{get\-Col} (double x)
+\item 
+double \hyperlink{classGisGrid_a20}{get\-Y} (int row)
+\item 
+double \hyperlink{classGisGrid_a21}{get\-X} (int col)
+\item 
+void \hyperlink{classGisGrid_a22}{set} (int row, int col, float float\-Val)
+\item 
+void \hyperlink{classGisGrid_a23}{smooth3} ()
+\item 
+void \hyperlink{classGisGrid_a24}{print} ()
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+double \hyperlink{classGisGrid_o0}{res\-X\_\-}
+\item 
+double \hyperlink{classGisGrid_o1}{res\-Y\_\-}
+\item 
+double \hyperlink{classGisGrid_o2}{x\-Min\_\-}
+\item 
+double \hyperlink{classGisGrid_o3}{y\-Min\_\-}
+\item 
+double \hyperlink{classGisGrid_o4}{x\-Max\_\-}
+\item 
+double \hyperlink{classGisGrid_o5}{y\-Max\_\-}
+\item 
+double \hyperlink{classGisGrid_o6}{no\-Data\_\-}
+\item 
+int \hyperlink{classGisGrid_o7}{n\-Cols\_\-}
+\item 
+int \hyperlink{classGisGrid_o8}{n\-Rows\_\-}
+\item 
+vector$<$ float $>$ \hyperlink{classGisGrid_o9}{gis\-Grid\_\-}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGisGrid_a0}{
+\index{GisGrid@{Gis\-Grid}!GisGrid@{GisGrid}}
+\index{GisGrid@{GisGrid}!GisGrid@{Gis\-Grid}}
+\subsubsection[GisGrid]{\setlength{\rightskip}{0pt plus 5cm}Gis\-Grid::Gis\-Grid ()}}
+\label{classGisGrid_a0}
+
+
+\hypertarget{classGisGrid_a1}{
+\index{GisGrid@{Gis\-Grid}!~GisGrid@{$\sim$GisGrid}}
+\index{~GisGrid@{$\sim$GisGrid}!GisGrid@{Gis\-Grid}}
+\subsubsection[$\sim$GisGrid]{\setlength{\rightskip}{0pt plus 5cm}virtual Gis\-Grid::$\sim$\hyperlink{classGisGrid}{Gis\-Grid} ()\hspace{0.3cm}{\tt  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classGisGrid_a1}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGisGrid_a11}{
+\index{GisGrid@{Gis\-Grid}!deltaX@{deltaX}}
+\index{deltaX@{deltaX}!GisGrid@{Gis\-Grid}}
+\subsubsection[deltaX]{\setlength{\rightskip}{0pt plus 5cm}double Gis\-Grid::delta\-X ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisGrid_a11}
+
+
+\hypertarget{classGisGrid_a12}{
+\index{GisGrid@{Gis\-Grid}!deltaY@{deltaY}}
+\index{deltaY@{deltaY}!GisGrid@{Gis\-Grid}}
+\subsubsection[deltaY]{\setlength{\rightskip}{0pt plus 5cm}double Gis\-Grid::delta\-Y ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisGrid_a12}
+
+
+\hypertarget{classGisGrid_a17}{
+\index{GisGrid@{Gis\-Grid}!get@{get}}
+\index{get@{get}!GisGrid@{Gis\-Grid}}
+\subsubsection[get]{\setlength{\rightskip}{0pt plus 5cm}double Gis\-Grid::get (int {\em row}, int {\em col})}}
+\label{classGisGrid_a17}
+
+
+\hypertarget{classGisGrid_a19}{
+\index{GisGrid@{Gis\-Grid}!getCol@{getCol}}
+\index{getCol@{getCol}!GisGrid@{Gis\-Grid}}
+\subsubsection[getCol]{\setlength{\rightskip}{0pt plus 5cm}int Gis\-Grid::get\-Col (double {\em x})}}
+\label{classGisGrid_a19}
+
+
+\hypertarget{classGisGrid_a8}{
+\index{GisGrid@{Gis\-Grid}!getResX@{getResX}}
+\index{getResX@{getResX}!GisGrid@{Gis\-Grid}}
+\subsubsection[getResX]{\setlength{\rightskip}{0pt plus 5cm}double Gis\-Grid::get\-Res\-X ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisGrid_a8}
+
+
+\hypertarget{classGisGrid_a10}{
+\index{GisGrid@{Gis\-Grid}!getResY@{getResY}}
+\index{getResY@{getResY}!GisGrid@{Gis\-Grid}}
+\subsubsection[getResY]{\setlength{\rightskip}{0pt plus 5cm}double Gis\-Grid::get\-Res\-Y ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisGrid_a10}
+
+
+\hypertarget{classGisGrid_a18}{
+\index{GisGrid@{Gis\-Grid}!getRow@{getRow}}
+\index{getRow@{getRow}!GisGrid@{Gis\-Grid}}
+\subsubsection[getRow]{\setlength{\rightskip}{0pt plus 5cm}int Gis\-Grid::get\-Row (double {\em y})}}
+\label{classGisGrid_a18}
+
+
+\hypertarget{classGisGrid_a21}{
+\index{GisGrid@{Gis\-Grid}!getX@{getX}}
+\index{getX@{getX}!GisGrid@{Gis\-Grid}}
+\subsubsection[getX]{\setlength{\rightskip}{0pt plus 5cm}double Gis\-Grid::get\-X (int {\em col})}}
+\label{classGisGrid_a21}
+
+
+\hypertarget{classGisGrid_a20}{
+\index{GisGrid@{Gis\-Grid}!getY@{getY}}
+\index{getY@{getY}!GisGrid@{Gis\-Grid}}
+\subsubsection[getY]{\setlength{\rightskip}{0pt plus 5cm}double Gis\-Grid::get\-Y (int {\em row})}}
+\label{classGisGrid_a20}
+
+
+\hypertarget{classGisGrid_a15}{
+\index{GisGrid@{Gis\-Grid}!initGrid@{initGrid}}
+\index{initGrid@{initGrid}!GisGrid@{Gis\-Grid}}
+\subsubsection[initGrid]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Grid::init\-Grid ()}}
+\label{classGisGrid_a15}
+
+
+\hypertarget{classGisGrid_a14}{
+\index{GisGrid@{Gis\-Grid}!noDataValue@{noDataValue}}
+\index{noDataValue@{noDataValue}!GisGrid@{Gis\-Grid}}
+\subsubsection[noDataValue]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Grid::no\-Data\-Value (double {\em double\-Val})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisGrid_a14}
+
+
+\hypertarget{classGisGrid_a13}{
+\index{GisGrid@{Gis\-Grid}!noDataValue@{noDataValue}}
+\index{noDataValue@{noDataValue}!GisGrid@{Gis\-Grid}}
+\subsubsection[noDataValue]{\setlength{\rightskip}{0pt plus 5cm}double Gis\-Grid::no\-Data\-Value ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisGrid_a13}
+
+
+\hypertarget{classGisGrid_a24}{
+\index{GisGrid@{Gis\-Grid}!print@{print}}
+\index{print@{print}!GisGrid@{Gis\-Grid}}
+\subsubsection[print]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Grid::print ()}}
+\label{classGisGrid_a24}
+
+
+\hypertarget{classGisGrid_a22}{
+\index{GisGrid@{Gis\-Grid}!set@{set}}
+\index{set@{set}!GisGrid@{Gis\-Grid}}
+\subsubsection[set]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Grid::set (int {\em row}, int {\em col}, float {\em float\-Val})}}
+\label{classGisGrid_a22}
+
+
+\hypertarget{classGisGrid_a5}{
+\index{GisGrid@{Gis\-Grid}!setBox@{setBox}}
+\index{setBox@{setBox}!GisGrid@{Gis\-Grid}}
+\subsubsection[setBox]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Grid::set\-Box (double {\em x\-Min}, double {\em y\-Min}, double {\em x\-Max}, double {\em y\-Max})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisGrid_a5}
+
+
+\hypertarget{classGisGrid_a16}{
+\index{GisGrid@{Gis\-Grid}!setMax@{setMax}}
+\index{setMax@{setMax}!GisGrid@{Gis\-Grid}}
+\subsubsection[setMax]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Grid::set\-Max (\hyperlink{classGisTriOut}{Gis\-Tri\-Out} \& {\em tri}, int {\em sim\-Var})}}
+\label{classGisGrid_a16}
+
+
+\hypertarget{classGisGrid_a4}{
+\index{GisGrid@{Gis\-Grid}!setNumCols@{setNumCols}}
+\index{setNumCols@{setNumCols}!GisGrid@{Gis\-Grid}}
+\subsubsection[setNumCols]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Grid::set\-Num\-Cols (int {\em n\-Cols})}}
+\label{classGisGrid_a4}
+
+
+\hypertarget{classGisGrid_a3}{
+\index{GisGrid@{Gis\-Grid}!setNumRows@{setNumRows}}
+\index{setNumRows@{setNumRows}!GisGrid@{Gis\-Grid}}
+\subsubsection[setNumRows]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Grid::set\-Num\-Rows (int {\em n\-Rows})}}
+\label{classGisGrid_a3}
+
+
+\hypertarget{classGisGrid_a2}{
+\index{GisGrid@{Gis\-Grid}!setNumRowsCols@{setNumRowsCols}}
+\index{setNumRowsCols@{setNumRowsCols}!GisGrid@{Gis\-Grid}}
+\subsubsection[setNumRowsCols]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Grid::set\-Num\-Rows\-Cols (int {\em n\-Rows}, int {\em n\-Cols})}}
+\label{classGisGrid_a2}
+
+
+\hypertarget{classGisGrid_a6}{
+\index{GisGrid@{Gis\-Grid}!setRes@{setRes}}
+\index{setRes@{setRes}!GisGrid@{Gis\-Grid}}
+\subsubsection[setRes]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Grid::set\-Res (float {\em res})}}
+\label{classGisGrid_a6}
+
+
+\hypertarget{classGisGrid_a7}{
+\index{GisGrid@{Gis\-Grid}!setResX@{setResX}}
+\index{setResX@{setResX}!GisGrid@{Gis\-Grid}}
+\subsubsection[setResX]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Grid::set\-Res\-X (float {\em res})}}
+\label{classGisGrid_a7}
+
+
+\hypertarget{classGisGrid_a9}{
+\index{GisGrid@{Gis\-Grid}!setResY@{setResY}}
+\index{setResY@{setResY}!GisGrid@{Gis\-Grid}}
+\subsubsection[setResY]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Grid::set\-Res\-Y (float {\em res})}}
+\label{classGisGrid_a9}
+
+
+\hypertarget{classGisGrid_a23}{
+\index{GisGrid@{Gis\-Grid}!smooth3@{smooth3}}
+\index{smooth3@{smooth3}!GisGrid@{Gis\-Grid}}
+\subsubsection[smooth3]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Grid::smooth3 ()}}
+\label{classGisGrid_a23}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classGisGrid_o9}{
+\index{GisGrid@{Gis\-Grid}!gisGrid_@{gisGrid\_\-}}
+\index{gisGrid_@{gisGrid\_\-}!GisGrid@{Gis\-Grid}}
+\subsubsection[gisGrid\_\-]{\setlength{\rightskip}{0pt plus 5cm}vector$<$float$>$ \hyperlink{classGisGrid_o9}{Gis\-Grid::gis\-Grid\_\-}}}
+\label{classGisGrid_o9}
+
+
+\hypertarget{classGisGrid_o7}{
+\index{GisGrid@{Gis\-Grid}!nCols_@{nCols\_\-}}
+\index{nCols_@{nCols\_\-}!GisGrid@{Gis\-Grid}}
+\subsubsection[nCols\_\-]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classGisGrid_o7}{Gis\-Grid::n\-Cols\_\-}}}
+\label{classGisGrid_o7}
+
+
+\hypertarget{classGisGrid_o6}{
+\index{GisGrid@{Gis\-Grid}!noData_@{noData\_\-}}
+\index{noData_@{noData\_\-}!GisGrid@{Gis\-Grid}}
+\subsubsection[noData\_\-]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classGisGrid_o6}{Gis\-Grid::no\-Data\_\-}}}
+\label{classGisGrid_o6}
+
+
+\hypertarget{classGisGrid_o8}{
+\index{GisGrid@{Gis\-Grid}!nRows_@{nRows\_\-}}
+\index{nRows_@{nRows\_\-}!GisGrid@{Gis\-Grid}}
+\subsubsection[nRows\_\-]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{classGisGrid_o8}{Gis\-Grid::n\-Rows\_\-}}}
+\label{classGisGrid_o8}
+
+
+\hypertarget{classGisGrid_o0}{
+\index{GisGrid@{Gis\-Grid}!resX_@{resX\_\-}}
+\index{resX_@{resX\_\-}!GisGrid@{Gis\-Grid}}
+\subsubsection[resX\_\-]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classGisGrid_o0}{Gis\-Grid::res\-X\_\-}}}
+\label{classGisGrid_o0}
+
+
+\hypertarget{classGisGrid_o1}{
+\index{GisGrid@{Gis\-Grid}!resY_@{resY\_\-}}
+\index{resY_@{resY\_\-}!GisGrid@{Gis\-Grid}}
+\subsubsection[resY\_\-]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classGisGrid_o1}{Gis\-Grid::res\-Y\_\-}}}
+\label{classGisGrid_o1}
+
+
+\hypertarget{classGisGrid_o4}{
+\index{GisGrid@{Gis\-Grid}!xMax_@{xMax\_\-}}
+\index{xMax_@{xMax\_\-}!GisGrid@{Gis\-Grid}}
+\subsubsection[xMax\_\-]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classGisGrid_o4}{Gis\-Grid::x\-Max\_\-}}}
+\label{classGisGrid_o4}
+
+
+\hypertarget{classGisGrid_o2}{
+\index{GisGrid@{Gis\-Grid}!xMin_@{xMin\_\-}}
+\index{xMin_@{xMin\_\-}!GisGrid@{Gis\-Grid}}
+\subsubsection[xMin\_\-]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classGisGrid_o2}{Gis\-Grid::x\-Min\_\-}}}
+\label{classGisGrid_o2}
+
+
+\hypertarget{classGisGrid_o5}{
+\index{GisGrid@{Gis\-Grid}!yMax_@{yMax\_\-}}
+\index{yMax_@{yMax\_\-}!GisGrid@{Gis\-Grid}}
+\subsubsection[yMax\_\-]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classGisGrid_o5}{Gis\-Grid::y\-Max\_\-}}}
+\label{classGisGrid_o5}
+
+
+\hypertarget{classGisGrid_o3}{
+\index{GisGrid@{Gis\-Grid}!yMin_@{yMin\_\-}}
+\index{yMin_@{yMin\_\-}!GisGrid@{Gis\-Grid}}
+\subsubsection[yMin\_\-]{\setlength{\rightskip}{0pt plus 5cm}double \hyperlink{classGisGrid_o3}{Gis\-Grid::y\-Min\_\-}}}
+\label{classGisGrid_o3}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{GisGrid_8h}{Gis\-Grid.h}\item 
+\hyperlink{GisGrid_8C}{Gis\-Grid.C}\end{CompactItemize}

@@ -1,0 +1,93 @@
+\hypertarget{update__element__info_8C}{
+\section{update\_\-element\_\-info.C File Reference}
+\label{update__element__info_8C}\index{update_element_info.C@{update\_\-element\_\-info.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{update__element__info_8C_a0}{same\_\-proc} (\hyperlink{classElement}{Element} $\ast$r\_\-element, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, int target\_\-proc, int side)
+\item 
+void \hyperlink{update__element__info_8C_a1}{diff\_\-proc} (\hyperlink{classElement}{Element} $\ast$r\_\-element, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, int new\_\-proc, int side, \hyperlink{structElementLink}{ELink\-Ptr} $\ast$EL\_\-head)
+\item 
+void \hyperlink{update__element__info_8C_a2}{construct\_\-el} (\hyperlink{classElement}{Element} $\ast$newelement, \hyperlink{structElemPack}{Elem\-Pack} $\ast$elem2, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int myid, double $\ast$e\_\-error)
+\begin{CompactList}\small\item\em construct\_\-el is a friend function of the \hyperlink{classElement}{Element} class that fills an element with information it receives in a variable of the \hyperlink{structElemPack}{Elem\-Pack} class from an MPI call \item\end{CompactList}\item 
+void \hyperlink{update__element__info_8C_a3}{check\_\-neighbor\_\-info} (\hyperlink{classElement}{Element} $\ast$newelement, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, int myid)
+\item 
+void \hyperlink{update__element__info_8C_a4}{destroy\_\-element} (void $\ast$r\_\-element\_\-in, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int target\_\-proc, \hyperlink{structElementLink}{ELink\-Ptr} $\ast$EL\_\-head)
+\item 
+void \hyperlink{update__element__info_8C_a5}{create\_\-element} (\hyperlink{structElemPack}{Elem\-Pack} $\ast$elem2, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int myid, double $\ast$e\_\-error)
+\begin{CompactList}\small\item\em \hyperlink{BSFC__update__and__send__elements_8C_a0}{create\_\-element()} is a friend function of the \hyperlink{classElement}{Element} and \hyperlink{classNode}{Node} classes. After receiving an \hyperlink{structElemPack}{Elem\-Pack}, \hyperlink{BSFC__update__and__send__elements_8C_a0}{create\_\-element()} instances a new element, calls \hyperlink{update__element__info_8C_a2}{construct\_\-el()} to transfer data from \hyperlink{structElemPack}{Elem\-Pack} to the new element, and inserts the new element into the Hashtable. Don't call this if s\_\-flag is 0 (original repartitioning scheme) \item\end{CompactList}\item 
+void \hyperlink{update__element__info_8C_a6}{create\_\-element} (\hyperlink{structElemPack}{Elem\-Pack} $\ast$elem2, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int myid)
+\item 
+void \hyperlink{update__element__info_8C_a7}{diff\_\-proc1\_\-2} (int counter, \hyperlink{structNeighborPack}{Neighbor\-Pack} packed\_\-neighbor\_\-info\mbox{[}$\,$\mbox{]}, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{update__element__info_8C_a3}{
+\index{update_element_info.C@{update\_\-element\_\-info.C}!check_neighbor_info@{check\_\-neighbor\_\-info}}
+\index{check_neighbor_info@{check\_\-neighbor\_\-info}!update_element_info.C@{update\_\-element\_\-info.C}}
+\subsubsection[check\_\-neighbor\_\-info]{\setlength{\rightskip}{0pt plus 5cm}void check\_\-neighbor\_\-info (\hyperlink{classElement}{Element} $\ast$ {\em newelement}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, int {\em myid})}}
+\label{update__element__info_8C_a3}
+
+
+\hypertarget{update__element__info_8C_a2}{
+\index{update_element_info.C@{update\_\-element\_\-info.C}!construct_el@{construct\_\-el}}
+\index{construct_el@{construct\_\-el}!update_element_info.C@{update\_\-element\_\-info.C}}
+\subsubsection[construct\_\-el]{\setlength{\rightskip}{0pt plus 5cm}void construct\_\-el (\hyperlink{classElement}{Element} $\ast$ {\em newelement}, \hyperlink{structElemPack}{Elem\-Pack} $\ast$ {\em elem2}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em myid}, double $\ast$ {\em e\_\-error})}}
+\label{update__element__info_8C_a2}
+
+
+construct\_\-el is a friend function of the \hyperlink{classElement}{Element} class that fills an element with information it receives in a variable of the \hyperlink{structElemPack}{Elem\-Pack} class from an MPI call 
+
+\hypertarget{update__element__info_8C_a6}{
+\index{update_element_info.C@{update\_\-element\_\-info.C}!create_element@{create\_\-element}}
+\index{create_element@{create\_\-element}!update_element_info.C@{update\_\-element\_\-info.C}}
+\subsubsection[create\_\-element]{\setlength{\rightskip}{0pt plus 5cm}void create\_\-element (\hyperlink{structElemPack}{Elem\-Pack} $\ast$ {\em elem2}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em myid})}}
+\label{update__element__info_8C_a6}
+
+
+\hypertarget{update__element__info_8C_a5}{
+\index{update_element_info.C@{update\_\-element\_\-info.C}!create_element@{create\_\-element}}
+\index{create_element@{create\_\-element}!update_element_info.C@{update\_\-element\_\-info.C}}
+\subsubsection[create\_\-element]{\setlength{\rightskip}{0pt plus 5cm}void create\_\-element (\hyperlink{structElemPack}{Elem\-Pack} $\ast$ {\em elem2}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em myid}, double $\ast$ {\em e\_\-error})}}
+\label{update__element__info_8C_a5}
+
+
+\hyperlink{BSFC__update__and__send__elements_8C_a0}{create\_\-element()} is a friend function of the \hyperlink{classElement}{Element} and \hyperlink{classNode}{Node} classes. After receiving an \hyperlink{structElemPack}{Elem\-Pack}, \hyperlink{BSFC__update__and__send__elements_8C_a0}{create\_\-element()} instances a new element, calls \hyperlink{update__element__info_8C_a2}{construct\_\-el()} to transfer data from \hyperlink{structElemPack}{Elem\-Pack} to the new element, and inserts the new element into the Hashtable. Don't call this if s\_\-flag is 0 (original repartitioning scheme) 
+
+\hypertarget{update__element__info_8C_a4}{
+\index{update_element_info.C@{update\_\-element\_\-info.C}!destroy_element@{destroy\_\-element}}
+\index{destroy_element@{destroy\_\-element}!update_element_info.C@{update\_\-element\_\-info.C}}
+\subsubsection[destroy\_\-element]{\setlength{\rightskip}{0pt plus 5cm}void destroy\_\-element (void $\ast$ {\em r\_\-element\_\-in}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em target\_\-proc}, \hyperlink{structElementLink}{ELink\-Ptr} $\ast$ {\em EL\_\-head})}}
+\label{update__element__info_8C_a4}
+
+
+\hyperlink{update__element__info_8C_a4}{destroy\_\-element()} is a friend function of the \hyperlink{classElement}{Element} and \hyperlink{classNode}{Node} classes that does the following
+
+1. Update the neighbor\_\-proc of the neighbors 1.1 if neighbor is at the same proc----$>$ok 1.2 if neighbor is at the target proc--$>$done when the element is created in its new subdomain 1.3 if neighbor is at a 3rd proc-------$>$these elements are linked for later communication
+
+2. Remove element from the hashtable
+
+3. Remove some nodes..........later not now \hypertarget{update__element__info_8C_a1}{
+\index{update_element_info.C@{update\_\-element\_\-info.C}!diff_proc@{diff\_\-proc}}
+\index{diff_proc@{diff\_\-proc}!update_element_info.C@{update\_\-element\_\-info.C}}
+\subsubsection[diff\_\-proc]{\setlength{\rightskip}{0pt plus 5cm}void diff\_\-proc (\hyperlink{classElement}{Element} $\ast$ {\em r\_\-element}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, int {\em new\_\-proc}, int {\em side}, \hyperlink{structElementLink}{ELink\-Ptr} $\ast$ {\em EL\_\-head})}}
+\label{update__element__info_8C_a1}
+
+
+\hypertarget{update__element__info_8C_a7}{
+\index{update_element_info.C@{update\_\-element\_\-info.C}!diff_proc1_2@{diff\_\-proc1\_\-2}}
+\index{diff_proc1_2@{diff\_\-proc1\_\-2}!update_element_info.C@{update\_\-element\_\-info.C}}
+\subsubsection[diff\_\-proc1\_\-2]{\setlength{\rightskip}{0pt plus 5cm}void diff\_\-proc1\_\-2 (int {\em counter}, \hyperlink{structNeighborPack}{Neighbor\-Pack} {\em packed\_\-neighbor\_\-info}\mbox{[}$\,$\mbox{]}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr})}}
+\label{update__element__info_8C_a7}
+
+
+\hypertarget{update__element__info_8C_a0}{
+\index{update_element_info.C@{update\_\-element\_\-info.C}!same_proc@{same\_\-proc}}
+\index{same_proc@{same\_\-proc}!update_element_info.C@{update\_\-element\_\-info.C}}
+\subsubsection[same\_\-proc]{\setlength{\rightskip}{0pt plus 5cm}void same\_\-proc (\hyperlink{classElement}{Element} $\ast$ {\em r\_\-element}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, int {\em target\_\-proc}, int {\em side})}}
+\label{update__element__info_8C_a0}
+
+

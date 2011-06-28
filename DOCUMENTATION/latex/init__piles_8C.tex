@@ -1,0 +1,64 @@
+\hypertarget{init__piles_8C}{
+\section{init\_\-piles.C File Reference}
+\label{init__piles_8C}\index{init_piles.C@{init\_\-piles.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{init__piles_8C_a0}{PARABALOID}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int \hyperlink{init__piles_8C_a1}{get\_\-elem\_\-elev} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{classElement}{Element} $\ast$Em\-Temp, double $\ast$elevation)
+\item 
+void \hyperlink{init__piles_8C_a2}{print\_\-grid} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops)
+\item 
+void \hyperlink{init__piles_8C_a3}{elliptical\_\-pile\_\-height} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, \hyperlink{classElement}{Element} $\ast$Em\-Temp, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structPileProps}{Pile\-Props} $\ast$pileprops\_\-ptr)
+\item 
+void \hyperlink{init__piles_8C_a4}{init\_\-piles} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int myid, int numprocs, int adaptflag, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, \hyperlink{structMapNames}{Map\-Names} $\ast$mapnames, \hyperlink{structPileProps}{Pile\-Props} $\ast$pileprops, \hyperlink{structFluxProps}{Flux\-Props} $\ast$fluxprops, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops)
+\begin{CompactList}\small\item\em this function intializes the piles, by commenting/uncommenting define statements you can switch from parabaloid to elliptical cylinder shaped piles, or even a hard coded pileshapes written to match particular experiments. Adaptive remeshing and pile reinitialization helps detect small piles and refine around pile edges to obtain a more accurate initial solution and speed up the first few timesteps before adaptive refinement and unrefinement would otherwise occur. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{init__piles_8C_a0}{
+\index{init_piles.C@{init\_\-piles.C}!PARABALOID@{PARABALOID}}
+\index{PARABALOID@{PARABALOID}!init_piles.C@{init\_\-piles.C}}
+\subsubsection[PARABALOID]{\setlength{\rightskip}{0pt plus 5cm}\#define PARABALOID}}
+\label{init__piles_8C_a0}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{init__piles_8C_a3}{
+\index{init_piles.C@{init\_\-piles.C}!elliptical_pile_height@{elliptical\_\-pile\_\-height}}
+\index{elliptical_pile_height@{elliptical\_\-pile\_\-height}!init_piles.C@{init\_\-piles.C}}
+\subsubsection[elliptical\_\-pile\_\-height]{\setlength{\rightskip}{0pt plus 5cm}void elliptical\_\-pile\_\-height (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, \hyperlink{classElement}{Element} $\ast$ {\em Em\-Temp}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structPileProps}{Pile\-Props} $\ast$ {\em pileprops\_\-ptr})}}
+\label{init__piles_8C_a3}
+
+
+\hypertarget{init__piles_8C_a1}{
+\index{init_piles.C@{init\_\-piles.C}!get_elem_elev@{get\_\-elem\_\-elev}}
+\index{get_elem_elev@{get\_\-elem\_\-elev}!init_piles.C@{init\_\-piles.C}}
+\subsubsection[get\_\-elem\_\-elev]{\setlength{\rightskip}{0pt plus 5cm}int get\_\-elem\_\-elev (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{classElement}{Element} $\ast$ {\em Em\-Temp}, double $\ast$ {\em elevation})}}
+\label{init__piles_8C_a1}
+
+
+\hypertarget{init__piles_8C_a4}{
+\index{init_piles.C@{init\_\-piles.C}!init_piles@{init\_\-piles}}
+\index{init_piles@{init\_\-piles}!init_piles.C@{init\_\-piles.C}}
+\subsubsection[init\_\-piles]{\setlength{\rightskip}{0pt plus 5cm}void init\_\-piles (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em myid}, int {\em numprocs}, int {\em adaptflag}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, \hyperlink{structMapNames}{Map\-Names} $\ast$ {\em mapnames}, \hyperlink{structPileProps}{Pile\-Props} $\ast$ {\em pileprops}, \hyperlink{structFluxProps}{Flux\-Props} $\ast$ {\em fluxprops}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops})}}
+\label{init__piles_8C_a4}
+
+
+this function intializes the piles, by commenting/uncommenting define statements you can switch from parabaloid to elliptical cylinder shaped piles, or even a hard coded pileshapes written to match particular experiments. Adaptive remeshing and pile reinitialization helps detect small piles and refine around pile edges to obtain a more accurate initial solution and speed up the first few timesteps before adaptive refinement and unrefinement would otherwise occur. 
+
+\hypertarget{init__piles_8C_a2}{
+\index{init_piles.C@{init\_\-piles.C}!print_grid@{print\_\-grid}}
+\index{print_grid@{print\_\-grid}!init_piles.C@{init\_\-piles.C}}
+\subsubsection[print\_\-grid]{\setlength{\rightskip}{0pt plus 5cm}void print\_\-grid (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops})}}
+\label{init__piles_8C_a2}
+
+

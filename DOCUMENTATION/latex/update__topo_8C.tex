@@ -1,0 +1,37 @@
+\hypertarget{update__topo_8C}{
+\section{update\_\-topo.C File Reference}
+\label{update__topo_8C}\index{update_topo.C@{update\_\-topo.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{update__topo_8C_a0}{WORKDIR}\ \char`\"{}.\char`\"{}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int \hyperlink{update__topo_8C_a1}{update\_\-topo} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int myid, int nump, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, \hyperlink{structMapNames}{Map\-Names} $\ast$mapnames)
+\begin{CompactList}\small\item\em this function is used for dynamic replacement of a GIS digital elevation map, for example, when you're running a large simulation on multiple processors about a real life scenario you're expecting to occur soon and a channel collapses. If in the simulation the flow has not yet a gotten to the channel this could allow you to replace the DEM with another one in which the channel has collapsed and continue running the simulation without having to restart from the beginning. while this code updates the map, the logic and external programs used to in real time decide if the map should be updated have not been fully developed, this is the damd (data manager daemon, area of research in which Dr. Matt Jones is Participating). \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{update__topo_8C_a0}{
+\index{update_topo.C@{update\_\-topo.C}!WORKDIR@{WORKDIR}}
+\index{WORKDIR@{WORKDIR}!update_topo.C@{update\_\-topo.C}}
+\subsubsection[WORKDIR]{\setlength{\rightskip}{0pt plus 5cm}\#define WORKDIR\ \char`\"{}.\char`\"{}}}
+\label{update__topo_8C_a0}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{update__topo_8C_a1}{
+\index{update_topo.C@{update\_\-topo.C}!update_topo@{update\_\-topo}}
+\index{update_topo@{update\_\-topo}!update_topo.C@{update\_\-topo.C}}
+\subsubsection[update\_\-topo]{\setlength{\rightskip}{0pt plus 5cm}int update\_\-topo (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em myid}, int {\em nump}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, \hyperlink{structMapNames}{Map\-Names} $\ast$ {\em mapnames})}}
+\label{update__topo_8C_a1}
+
+
+this function is used for dynamic replacement of a GIS digital elevation map, for example, when you're running a large simulation on multiple processors about a real life scenario you're expecting to occur soon and a channel collapses. If in the simulation the flow has not yet a gotten to the channel this could allow you to replace the DEM with another one in which the channel has collapsed and continue running the simulation without having to restart from the beginning. while this code updates the map, the logic and external programs used to in real time decide if the map should be updated have not been fully developed, this is the damd (data manager daemon, area of research in which Dr. Matt Jones is Participating). 
+

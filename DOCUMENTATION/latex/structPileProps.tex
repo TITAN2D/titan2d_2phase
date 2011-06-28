@@ -1,0 +1,177 @@
+\hypertarget{structPileProps}{
+\section{Pile\-Props Struct Reference}
+\label{structPileProps}\index{PileProps@{PileProps}}
+}
+the Pile\-Props structure holds the pile properties read in in \hyperlink{extfun_8h_a16}{Read\_\-data()} so the pile can be placed at the proper locations shortly thereafter in \hyperlink{extfun_8h_a20}{init\_\-piles()}  
+
+
+{\tt \#include $<$properties.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{structPileProps_a0}{Pile\-Props} ()
+\begin{CompactList}\small\item\em this constuctor initializes the number of piles to zero. \item\end{CompactList}\item 
+void \hyperlink{structPileProps_a1}{allocpiles} (int numpiles\_\-in)
+\begin{CompactList}\small\item\em function allocates space for the pile data \item\end{CompactList}\item 
+\hyperlink{structPileProps_a2}{$\sim$Pile\-Props} ()
+\begin{CompactList}\small\item\em this function deallocates the dynamically out array members of the Pile\-Props structure \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int \hyperlink{structPileProps_o0}{numpiles}
+\begin{CompactList}\small\item\em the number of piles \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structPileProps_o1}{pileheight}
+\begin{CompactList}\small\item\em array holding pile height \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structPileProps_o2}{x\-Cen}
+\begin{CompactList}\small\item\em array holding x coordinate of pile center \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structPileProps_o3}{y\-Cen}
+\begin{CompactList}\small\item\em array holding y coordinate of pile center \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structPileProps_o4}{majorrad}
+\begin{CompactList}\small\item\em array holding the major (x before rotation) radius \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structPileProps_o5}{minorrad}
+\begin{CompactList}\small\item\em array holding the minor (y before rotation) radius \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structPileProps_o6}{cosrot}
+\begin{CompactList}\small\item\em array holding the cosine of the rotation angle \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structPileProps_o7}{sinrot}
+\begin{CompactList}\small\item\em array holding the sine of the rotation angle; \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structPileProps_o8}{initial\-Vx}
+\begin{CompactList}\small\item\em array holding the initial x speed of the pile \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structPileProps_o9}{initial\-Vy}
+\begin{CompactList}\small\item\em array holding the initial y speed of the pile \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+the Pile\-Props structure holds the pile properties read in in \hyperlink{extfun_8h_a16}{Read\_\-data()} so the pile can be placed at the proper locations shortly thereafter in \hyperlink{extfun_8h_a20}{init\_\-piles()} 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structPileProps_a0}{
+\index{PileProps@{Pile\-Props}!PileProps@{PileProps}}
+\index{PileProps@{PileProps}!PileProps@{Pile\-Props}}
+\subsubsection[PileProps]{\setlength{\rightskip}{0pt plus 5cm}Pile\-Props::Pile\-Props ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structPileProps_a0}
+
+
+this constuctor initializes the number of piles to zero. 
+
+\hypertarget{structPileProps_a2}{
+\index{PileProps@{Pile\-Props}!~PileProps@{$\sim$PileProps}}
+\index{~PileProps@{$\sim$PileProps}!PileProps@{Pile\-Props}}
+\subsubsection[$\sim$PileProps]{\setlength{\rightskip}{0pt plus 5cm}Pile\-Props::$\sim$\hyperlink{structPileProps}{Pile\-Props} ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structPileProps_a2}
+
+
+this function deallocates the dynamically out array members of the Pile\-Props structure 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structPileProps_a1}{
+\index{PileProps@{Pile\-Props}!allocpiles@{allocpiles}}
+\index{allocpiles@{allocpiles}!PileProps@{Pile\-Props}}
+\subsubsection[allocpiles]{\setlength{\rightskip}{0pt plus 5cm}void Pile\-Props::allocpiles (int {\em numpiles\_\-in})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structPileProps_a1}
+
+
+function allocates space for the pile data 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structPileProps_o6}{
+\index{PileProps@{Pile\-Props}!cosrot@{cosrot}}
+\index{cosrot@{cosrot}!PileProps@{Pile\-Props}}
+\subsubsection[cosrot]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structPileProps_o6}{Pile\-Props::cosrot}}}
+\label{structPileProps_o6}
+
+
+array holding the cosine of the rotation angle 
+
+\hypertarget{structPileProps_o8}{
+\index{PileProps@{Pile\-Props}!initialVx@{initialVx}}
+\index{initialVx@{initialVx}!PileProps@{Pile\-Props}}
+\subsubsection[initialVx]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structPileProps_o8}{Pile\-Props::initial\-Vx}}}
+\label{structPileProps_o8}
+
+
+array holding the initial x speed of the pile 
+
+\hypertarget{structPileProps_o9}{
+\index{PileProps@{Pile\-Props}!initialVy@{initialVy}}
+\index{initialVy@{initialVy}!PileProps@{Pile\-Props}}
+\subsubsection[initialVy]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structPileProps_o9}{Pile\-Props::initial\-Vy}}}
+\label{structPileProps_o9}
+
+
+array holding the initial y speed of the pile 
+
+\hypertarget{structPileProps_o4}{
+\index{PileProps@{Pile\-Props}!majorrad@{majorrad}}
+\index{majorrad@{majorrad}!PileProps@{Pile\-Props}}
+\subsubsection[majorrad]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structPileProps_o4}{Pile\-Props::majorrad}}}
+\label{structPileProps_o4}
+
+
+array holding the major (x before rotation) radius 
+
+\hypertarget{structPileProps_o5}{
+\index{PileProps@{Pile\-Props}!minorrad@{minorrad}}
+\index{minorrad@{minorrad}!PileProps@{Pile\-Props}}
+\subsubsection[minorrad]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structPileProps_o5}{Pile\-Props::minorrad}}}
+\label{structPileProps_o5}
+
+
+array holding the minor (y before rotation) radius 
+
+\hypertarget{structPileProps_o0}{
+\index{PileProps@{Pile\-Props}!numpiles@{numpiles}}
+\index{numpiles@{numpiles}!PileProps@{Pile\-Props}}
+\subsubsection[numpiles]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structPileProps_o0}{Pile\-Props::numpiles}}}
+\label{structPileProps_o0}
+
+
+the number of piles 
+
+\hypertarget{structPileProps_o1}{
+\index{PileProps@{Pile\-Props}!pileheight@{pileheight}}
+\index{pileheight@{pileheight}!PileProps@{Pile\-Props}}
+\subsubsection[pileheight]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structPileProps_o1}{Pile\-Props::pileheight}}}
+\label{structPileProps_o1}
+
+
+array holding pile height 
+
+\hypertarget{structPileProps_o7}{
+\index{PileProps@{Pile\-Props}!sinrot@{sinrot}}
+\index{sinrot@{sinrot}!PileProps@{Pile\-Props}}
+\subsubsection[sinrot]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structPileProps_o7}{Pile\-Props::sinrot}}}
+\label{structPileProps_o7}
+
+
+array holding the sine of the rotation angle; 
+
+\hypertarget{structPileProps_o2}{
+\index{PileProps@{Pile\-Props}!xCen@{xCen}}
+\index{xCen@{xCen}!PileProps@{Pile\-Props}}
+\subsubsection[xCen]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structPileProps_o2}{Pile\-Props::x\-Cen}}}
+\label{structPileProps_o2}
+
+
+array holding x coordinate of pile center 
+
+\hypertarget{structPileProps_o3}{
+\index{PileProps@{Pile\-Props}!yCen@{yCen}}
+\index{yCen@{yCen}!PileProps@{Pile\-Props}}
+\subsubsection[yCen]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structPileProps_o3}{Pile\-Props::y\-Cen}}}
+\label{structPileProps_o3}
+
+
+array holding y coordinate of pile center 
+
+
+
+The documentation for this struct was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{properties_8h}{properties.h}\end{CompactItemize}

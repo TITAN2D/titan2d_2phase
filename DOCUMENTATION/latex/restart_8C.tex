@@ -1,0 +1,48 @@
+\hypertarget{restart_8C}{
+\section{restart.C File Reference}
+\label{restart_8C}\index{restart.C@{restart.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{restart_8C_a0}{NUM\_\-CHAR\_\-IN\_\-SAVE\_\-HEADER}\ 16384
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int \hyperlink{restart_8C_a1}{loadrun} (int myid, int numprocs, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$Node\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$Elem\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, \hyperlink{structMapNames}{Map\-Names} $\ast$mapnames\_\-ptr, int $\ast$adaptflag\_\-ptr, int $\ast$order\_\-flag\_\-ptr, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops\_\-ptr, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$discharge\_\-ptr, \hyperlink{structOutLine}{Out\-Line} $\ast$outline\_\-ptr)
+\begin{CompactList}\small\item\em this function loads the restart file, recreates the hashtables and restores the saved nodes and elements. Only one readstatement per \hyperlink{classNode}{Node} is performed and one or two per \hyperlink{classElement}{Element} depending upon the Element's boundary conditions so it is very fast. Keith, who wrote this, believes a slightly cleaner solution is to add/move functionality to \hyperlink{useful__lib_8h}{useful\_\-lib.h} and \hyperlink{constant_8h_a21}{useful\_\-lib.C} to pack/unpack variables into an unsigned array, which is what should be done if Read\_\-grid is ever rewritten. \item\end{CompactList}\item 
+void \hyperlink{restart_8C_a2}{saverun} (\hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$Node\-Table, int myid, int numprocs, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$Elem\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, \hyperlink{structMapNames}{Map\-Names} $\ast$mapnames\_\-ptr, int adaptflag, int order\_\-flag, \hyperlink{structStatProps}{Stat\-Props} $\ast$statprops\_\-ptr, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$discharge\_\-ptr, \hyperlink{structOutLine}{Out\-Line} $\ast$outline\_\-ptr, int $\ast$savefileflag)
+\begin{CompactList}\small\item\em this function writes a restart file, all the non \hyperlink{classNode}{Node}, non \hyperlink{classElement}{Element} data, thfor example material properties, statistics, and hastable information. A loop through the hastables call member functions \hyperlink{classNode_a6}{Node::save\_\-node()} and \hyperlink{classElement_a6}{Element::save\_\-elem()} which each save 1 \hyperlink{classNode}{Node} or \hyperlink{classElement}{Element} in a single write statement to the restart file so this is VERY fast. However it could be rewritten in a slightly cleaner fashion by adding/moving functionality to \hyperlink{useful__lib_8h}{useful\_\-lib.h} and \hyperlink{constant_8h_a21}{useful\_\-lib.C} to pack/unpack variables into an unsigned array, which is what should be done if Read\_\-grid is ever rewritten. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{restart_8C_a0}{
+\index{restart.C@{restart.C}!NUM_CHAR_IN_SAVE_HEADER@{NUM\_\-CHAR\_\-IN\_\-SAVE\_\-HEADER}}
+\index{NUM_CHAR_IN_SAVE_HEADER@{NUM\_\-CHAR\_\-IN\_\-SAVE\_\-HEADER}!restart.C@{restart.C}}
+\subsubsection[NUM\_\-CHAR\_\-IN\_\-SAVE\_\-HEADER]{\setlength{\rightskip}{0pt plus 5cm}\#define NUM\_\-CHAR\_\-IN\_\-SAVE\_\-HEADER\ 16384}}
+\label{restart_8C_a0}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{restart_8C_a1}{
+\index{restart.C@{restart.C}!loadrun@{loadrun}}
+\index{loadrun@{loadrun}!restart.C@{restart.C}}
+\subsubsection[loadrun]{\setlength{\rightskip}{0pt plus 5cm}int loadrun (int {\em myid}, int {\em numprocs}, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$ {\em Node\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$ {\em Elem\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, \hyperlink{structMapNames}{Map\-Names} $\ast$ {\em mapnames\_\-ptr}, int $\ast$ {\em adaptflag\_\-ptr}, int $\ast$ {\em order\_\-flag\_\-ptr}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops\_\-ptr}, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$ {\em discharge\_\-ptr}, \hyperlink{structOutLine}{Out\-Line} $\ast$ {\em outline\_\-ptr})}}
+\label{restart_8C_a1}
+
+
+this function loads the restart file, recreates the hashtables and restores the saved nodes and elements. Only one readstatement per \hyperlink{classNode}{Node} is performed and one or two per \hyperlink{classElement}{Element} depending upon the Element's boundary conditions so it is very fast. Keith, who wrote this, believes a slightly cleaner solution is to add/move functionality to \hyperlink{useful__lib_8h}{useful\_\-lib.h} and \hyperlink{constant_8h_a21}{useful\_\-lib.C} to pack/unpack variables into an unsigned array, which is what should be done if Read\_\-grid is ever rewritten. 
+
+\hypertarget{restart_8C_a2}{
+\index{restart.C@{restart.C}!saverun@{saverun}}
+\index{saverun@{saverun}!restart.C@{restart.C}}
+\subsubsection[saverun]{\setlength{\rightskip}{0pt plus 5cm}void saverun (\hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$ {\em Node\-Table}, int {\em myid}, int {\em numprocs}, \hyperlink{classHashTable}{Hash\-Table} $\ast$$\ast$ {\em Elem\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, \hyperlink{structMapNames}{Map\-Names} $\ast$ {\em mapnames\_\-ptr}, int {\em adaptflag}, int {\em order\_\-flag}, \hyperlink{structStatProps}{Stat\-Props} $\ast$ {\em statprops\_\-ptr}, \hyperlink{structDISCHARGE}{DISCHARGE} $\ast$ {\em discharge\_\-ptr}, \hyperlink{structOutLine}{Out\-Line} $\ast$ {\em outline\_\-ptr}, int $\ast$ {\em savefileflag})}}
+\label{restart_8C_a2}
+
+
+this function writes a restart file, all the non \hyperlink{classNode}{Node}, non \hyperlink{classElement}{Element} data, thfor example material properties, statistics, and hastable information. A loop through the hastables call member functions \hyperlink{classNode_a6}{Node::save\_\-node()} and \hyperlink{classElement_a6}{Element::save\_\-elem()} which each save 1 \hyperlink{classNode}{Node} or \hyperlink{classElement}{Element} in a single write statement to the restart file so this is VERY fast. However it could be rewritten in a slightly cleaner fashion by adding/moving functionality to \hyperlink{useful__lib_8h}{useful\_\-lib.h} and \hyperlink{constant_8h_a21}{useful\_\-lib.C} to pack/unpack variables into an unsigned array, which is what should be done if Read\_\-grid is ever rewritten. 
+

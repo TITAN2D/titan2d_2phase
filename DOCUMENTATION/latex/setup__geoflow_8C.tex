@@ -1,0 +1,22 @@
+\hypertarget{setup__geoflow_8C}{
+\section{setup\_\-geoflow.C File Reference}
+\label{setup__geoflow_8C}\index{setup_geoflow.C@{setup\_\-geoflow.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{setup__geoflow_8C_a0}{setup\_\-geoflow} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid, int nump, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr)
+\begin{CompactList}\small\item\em this function loops through the nodes zeroing the fluxes, then loops through the elements and finds the positive x direction of the element, calculates element size, calculates local terrain elevation, slopes, and curvatures, and calculates the gravity vector in local coordinates. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{setup__geoflow_8C_a0}{
+\index{setup_geoflow.C@{setup\_\-geoflow.C}!setup_geoflow@{setup\_\-geoflow}}
+\index{setup_geoflow@{setup\_\-geoflow}!setup_geoflow.C@{setup\_\-geoflow.C}}
+\subsubsection[setup\_\-geoflow]{\setlength{\rightskip}{0pt plus 5cm}void setup\_\-geoflow (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, int {\em nump}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr})}}
+\label{setup__geoflow_8C_a0}
+
+
+this function loops through the nodes zeroing the fluxes, then loops through the elements and finds the positive x direction of the element, calculates element size, calculates local terrain elevation, slopes, and curvatures, and calculates the gravity vector in local coordinates. 
+

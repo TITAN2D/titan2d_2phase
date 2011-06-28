@@ -1,0 +1,180 @@
+\hypertarget{classGisAscFile}{
+\section{Gis\-Asc\-File Class Reference}
+\label{classGisAscFile}\index{GisAscFile@{GisAscFile}}
+}
+{\tt \#include $<$Gis\-Asc\-File.h$>$}
+
+Inheritance diagram for Gis\-Asc\-File::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classGisAscFile}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classGisAscFile_a0}{Gis\-Asc\-File} (const string \&name, const char $\ast$mode=\char`\"{}r\char`\"{})
+\item 
+virtual \hyperlink{classGisAscFile_a1}{$\sim$Gis\-Asc\-File} ()
+\item 
+bool \hyperlink{classGisAscFile_a2}{good} ()
+\item 
+void \hyperlink{classGisAscFile_a3}{get\-Line} (char $\ast$out\-Char, int n\-Char, char term\-Char= '$\backslash$n')
+\item 
+void \hyperlink{classGisAscFile_a4}{get\-Line} (string \&out\-String)
+\item 
+void \hyperlink{classGisAscFile_a5}{get\-Char} (char $\ast$out\-Char)
+\item 
+void \hyperlink{classGisAscFile_a6}{get\-Asc\-Int} (int \&int\-Value)
+\item 
+void \hyperlink{classGisAscFile_a7}{get\-Asc\-Double} (double \&double\-Value)
+\item 
+void \hyperlink{classGisAscFile_a8}{get\-String} (string \&r\-String)
+\item 
+void \hyperlink{classGisAscFile_a9}{rewind} ()
+\item 
+string \hyperlink{classGisAscFile_a10}{mode} ()
+\item 
+bool \hyperlink{classGisAscFile_a11}{find\-String} (const string \&to\-Find\-String)
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+fstream \hyperlink{classGisAscFile_p0}{file\_\-}
+\item 
+string \hyperlink{classGisAscFile_p1}{mode\_\-}
+\end{CompactItemize}
+\subsection*{Private Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classGisAscFile_d0}{Gis\-Asc\-File} (const \hyperlink{classGisAscFile}{Gis\-Asc\-File} \&)
+\item 
+\hyperlink{classGisAscFile}{Gis\-Asc\-File} \& \hyperlink{classGisAscFile_d1}{operator=} (const \hyperlink{classGisAscFile}{Gis\-Asc\-File} \&)
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGisAscFile_a0}{
+\index{GisAscFile@{Gis\-Asc\-File}!GisAscFile@{GisAscFile}}
+\index{GisAscFile@{GisAscFile}!GisAscFile@{Gis\-Asc\-File}}
+\subsubsection[GisAscFile]{\setlength{\rightskip}{0pt plus 5cm}Gis\-Asc\-File::Gis\-Asc\-File (const string \& {\em name}, const char $\ast$ {\em mode} = {\tt \char`\"{}r\char`\"{}})}}
+\label{classGisAscFile_a0}
+
+
+\hypertarget{classGisAscFile_a1}{
+\index{GisAscFile@{Gis\-Asc\-File}!~GisAscFile@{$\sim$GisAscFile}}
+\index{~GisAscFile@{$\sim$GisAscFile}!GisAscFile@{Gis\-Asc\-File}}
+\subsubsection[$\sim$GisAscFile]{\setlength{\rightskip}{0pt plus 5cm}virtual Gis\-Asc\-File::$\sim$\hyperlink{classGisAscFile}{Gis\-Asc\-File} ()\hspace{0.3cm}{\tt  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classGisAscFile_a1}
+
+
+\hypertarget{classGisAscFile_d0}{
+\index{GisAscFile@{Gis\-Asc\-File}!GisAscFile@{GisAscFile}}
+\index{GisAscFile@{GisAscFile}!GisAscFile@{Gis\-Asc\-File}}
+\subsubsection[GisAscFile]{\setlength{\rightskip}{0pt plus 5cm}Gis\-Asc\-File::Gis\-Asc\-File (const \hyperlink{classGisAscFile}{Gis\-Asc\-File} \&)\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classGisAscFile_d0}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGisAscFile_a11}{
+\index{GisAscFile@{Gis\-Asc\-File}!findString@{findString}}
+\index{findString@{findString}!GisAscFile@{Gis\-Asc\-File}}
+\subsubsection[findString]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-Asc\-File::find\-String (const string \& {\em to\-Find\-String})}}
+\label{classGisAscFile_a11}
+
+
+\hypertarget{classGisAscFile_a7}{
+\index{GisAscFile@{Gis\-Asc\-File}!getAscDouble@{getAscDouble}}
+\index{getAscDouble@{getAscDouble}!GisAscFile@{Gis\-Asc\-File}}
+\subsubsection[getAscDouble]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Asc\-File::get\-Asc\-Double (double \& {\em double\-Value})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisAscFile_a7}
+
+
+\hypertarget{classGisAscFile_a6}{
+\index{GisAscFile@{Gis\-Asc\-File}!getAscInt@{getAscInt}}
+\index{getAscInt@{getAscInt}!GisAscFile@{Gis\-Asc\-File}}
+\subsubsection[getAscInt]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Asc\-File::get\-Asc\-Int (int \& {\em int\-Value})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisAscFile_a6}
+
+
+\hypertarget{classGisAscFile_a5}{
+\index{GisAscFile@{Gis\-Asc\-File}!getChar@{getChar}}
+\index{getChar@{getChar}!GisAscFile@{Gis\-Asc\-File}}
+\subsubsection[getChar]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Asc\-File::get\-Char (char $\ast$ {\em out\-Char})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisAscFile_a5}
+
+
+\hypertarget{classGisAscFile_a4}{
+\index{GisAscFile@{Gis\-Asc\-File}!getLine@{getLine}}
+\index{getLine@{getLine}!GisAscFile@{Gis\-Asc\-File}}
+\subsubsection[getLine]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Asc\-File::get\-Line (string \& {\em out\-String})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisAscFile_a4}
+
+
+\hypertarget{classGisAscFile_a3}{
+\index{GisAscFile@{Gis\-Asc\-File}!getLine@{getLine}}
+\index{getLine@{getLine}!GisAscFile@{Gis\-Asc\-File}}
+\subsubsection[getLine]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Asc\-File::get\-Line (char $\ast$ {\em out\-Char}, int {\em n\-Char}, char {\em term\-Char} = {\tt '$\backslash$n'})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisAscFile_a3}
+
+
+\hypertarget{classGisAscFile_a8}{
+\index{GisAscFile@{Gis\-Asc\-File}!getString@{getString}}
+\index{getString@{getString}!GisAscFile@{Gis\-Asc\-File}}
+\subsubsection[getString]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Asc\-File::get\-String (string \& {\em r\-String})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisAscFile_a8}
+
+
+\hypertarget{classGisAscFile_a2}{
+\index{GisAscFile@{Gis\-Asc\-File}!good@{good}}
+\index{good@{good}!GisAscFile@{Gis\-Asc\-File}}
+\subsubsection[good]{\setlength{\rightskip}{0pt plus 5cm}bool Gis\-Asc\-File::good ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisAscFile_a2}
+
+
+\hypertarget{classGisAscFile_a10}{
+\index{GisAscFile@{Gis\-Asc\-File}!mode@{mode}}
+\index{mode@{mode}!GisAscFile@{Gis\-Asc\-File}}
+\subsubsection[mode]{\setlength{\rightskip}{0pt plus 5cm}string Gis\-Asc\-File::mode ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGisAscFile_a10}
+
+
+\hypertarget{classGisAscFile_d1}{
+\index{GisAscFile@{Gis\-Asc\-File}!operator=@{operator=}}
+\index{operator=@{operator=}!GisAscFile@{Gis\-Asc\-File}}
+\subsubsection[operator=]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{classGisAscFile}{Gis\-Asc\-File}\& Gis\-Asc\-File::operator= (const \hyperlink{classGisAscFile}{Gis\-Asc\-File} \&)\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classGisAscFile_d1}
+
+
+\hypertarget{classGisAscFile_a9}{
+\index{GisAscFile@{Gis\-Asc\-File}!rewind@{rewind}}
+\index{rewind@{rewind}!GisAscFile@{Gis\-Asc\-File}}
+\subsubsection[rewind]{\setlength{\rightskip}{0pt plus 5cm}void Gis\-Asc\-File::rewind ()}}
+\label{classGisAscFile_a9}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classGisAscFile_p0}{
+\index{GisAscFile@{Gis\-Asc\-File}!file_@{file\_\-}}
+\index{file_@{file\_\-}!GisAscFile@{Gis\-Asc\-File}}
+\subsubsection[file\_\-]{\setlength{\rightskip}{0pt plus 5cm}fstream \hyperlink{classGisAscFile_p0}{Gis\-Asc\-File::file\_\-}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisAscFile_p0}
+
+
+\hypertarget{classGisAscFile_p1}{
+\index{GisAscFile@{Gis\-Asc\-File}!mode_@{mode\_\-}}
+\index{mode_@{mode\_\-}!GisAscFile@{Gis\-Asc\-File}}
+\subsubsection[mode\_\-]{\setlength{\rightskip}{0pt plus 5cm}string \hyperlink{classGisAscFile_p1}{Gis\-Asc\-File::mode\_\-}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classGisAscFile_p1}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{GisAscFile_8h}{Gis\-Asc\-File.h}\item 
+\hyperlink{GisAscFile_8C}{Gis\-Asc\-File.C}\end{CompactItemize}

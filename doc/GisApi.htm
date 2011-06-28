@@ -1,0 +1,711 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="GisApi_files/filelist.xml">
+<title>GisApi Reference</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>namikawa</o:Author>
+  <o:LastAuthor>namikawa</o:LastAuthor>
+  <o:Revision>10</o:Revision>
+  <o:TotalTime>130</o:TotalTime>
+  <o:Created>2004-05-17T13:34:00Z</o:Created>
+  <o:LastSaved>2004-05-17T16:19:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>641</o:Words>
+  <o:Characters>3657</o:Characters>
+  <o:Company> </o:Company>
+  <o:Lines>30</o:Lines>
+  <o:Paragraphs>8</o:Paragraphs>
+  <o:CharactersWithSpaces>4290</o:CharactersWithSpaces>
+  <o:Version>10.3311</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>75</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:Compatibility>
+   <w:ApplyBreakingRules/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<link rel=Stylesheet type="text/css" media=all
+href="http://terralib.dpi.inpe.br/doxygen_documentation_v20/doxygen.css">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Times;
+	panose-1:2 2 6 3 5 4 5 2 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:536902279 -2147483648 8 0 511 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+code
+	{font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	color:black;}
+p.SourceCode, li.SourceCode, div.SourceCode
+	{mso-style-name:SourceCode;
+	mso-style-parent:"Normal \(Web\)";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:Times;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Courier New";
+	color:black;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:30884215;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1772846190 -1105404340 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@list l0:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:289438735;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-226834170 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:1435789303;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1700297668 -1105404340 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@list l2:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="6146"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h1><!-- Generated by Doxygen 1.2.16 -->GIS Interface</h1>
+
+<p class=MsoNormal>Implements access to GIS related data: Digital Elevation
+Model (DEM), Material (usually geology or land use) map, and Texture (Remote
+Sensing image). DEM and Material provide data for the numerical simulation and
+Texture is used for visualization. The GIS data must be in raster format.</p>
+
+<p class=MsoNormal>The format of GIS data is based on GRASS format, which
+allows data to be manipulated by GRASS. However, GIS data is not dependent of
+GRASS, and using the specifications of the data formats, one can create data
+from any other GIS software or from another source.</p>
+
+<p class=MsoNormal>GIS data is accessed by the application program through an interface
+(Application Program Interface &#8211; API). The main features of the GIS-API
+are:</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span dir=LTR>Data is loaded from files to memory
+during initialization, assuming that there are enough systems resources.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span dir=LTR>When data is not required anymore,
+application program must deallocated by calling API delete functions.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span dir=LTR>Data can be obtained in resolution
+different than the original data. The nearest neighbor to the grid cell center
+is used for all cases, except when the resolution is smaller for DEM, in which
+case a bilinear interpolation is used.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span dir=LTR>Data can be accessed for individual
+locations, a set of locations, or for a regular grid area.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span dir=LTR>Slope and curvature data are derived
+automatically from DEM, using an eight neighbor finite difference method.</span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in left 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='color:black'><span style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='color:black'>Slope
+and curvature are calculated in the original resolution.<o:p></o:p></span></span></p>
+
+<p class=MsoNormal>Files naming conventions:</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span dir=LTR>DEM data defines the base name.</span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in left 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='color:black'><span style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='color:black'>Material
+data with the same extents of the DEM is named using the base name added by &#8220;_Mat&#8221;.<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in left 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='color:black'><span style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='color:black'>Material
+data with extents that covers the DEM is named &#8220;Material&#8221;.<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in left 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='color:black'><span style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='color:black'>Texture data
+with the same extents of the DEM is named using the base name added by &#8220;_<span
+class=SpellE>Img</span>&#8221;.<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in left 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='color:black'><span style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='color:black'>Texture
+data with extents that covers the DEM is named &#8220;Image&#8221;.<o:p></o:p></span></span></p>
+
+<p class=MsoNormal>Files location:</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span dir=LTR>All header files must reside in &lt;</span><span
+class=SpellE><i><span style='font-size:10.0pt;font-family:"Courier New"'>GISDbase</span></i></span><i><span
+style='font-size:10.0pt;font-family:"Courier New"'>&gt;</span></i>/<em> &lt;location&gt;</em>/&lt;<span
+class=SpellE><em>mapset</em></span><em>&gt;</em>/<span class=SpellE><i>cellhd</i></span>
+directory.</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in left 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='color:black'><span style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='color:black'>DEM data
+file</span> must reside in &lt;</span><span class=SpellE><i><span
+style='font-size:10.0pt;font-family:"Courier New"'>GISDbase</span></i></span><i><span
+style='font-size:10.0pt;font-family:"Courier New"'>&gt;</span></i>/<em> &lt;location&gt;</em>/&lt;<span
+class=SpellE><em>mapset</em></span><em>&gt;</em>/<span class=SpellE>f<i>cell</i></span>
+directory.<span style='color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in left 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='color:black'><span style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='color:black'>Material
+data file</span> must reside in &lt;</span><span class=SpellE><i><span
+style='font-size:10.0pt;font-family:"Courier New"'>GISDbase</span></i></span><i><span
+style='font-size:10.0pt;font-family:"Courier New"'>&gt;</span></i>/<em> &lt;location&gt;</em>/&lt;<span
+class=SpellE><em>mapset</em></span><em>&gt;</em>/<i>cell</i> directory.<span
+style='color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in left 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='color:black'><span style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='color:black'>Texture data
+file</span> must reside in &lt;</span><span class=SpellE><i><span
+style='font-size:10.0pt;font-family:"Courier New"'>GISDbase</span></i></span><i><span
+style='font-size:10.0pt;font-family:"Courier New"'>&gt;</span></i>/<em> &lt;location&gt;</em>/&lt;<span
+class=SpellE><em>mapset</em></span><em>&gt;</em>/<i>cell</i> directory.<span
+style='color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in left 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='color:black'><span style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='color:black'>Material
+categories file </span>must reside in &lt;</span><span class=SpellE><i><span
+style='font-size:10.0pt;font-family:"Courier New"'>GISDbase</span></i></span><i><span
+style='font-size:10.0pt;font-family:"Courier New"'>&gt;</span></i>/<em> &lt;location&gt;</em>/&lt;<span
+class=SpellE><em>mapset</em></span><em>&gt;</em>/<i>cats</i> directory.<span
+style='color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in left 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='color:black'><span style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='color:black'>Texture colors
+file </span>must reside in &lt;</span><span class=SpellE><i><span
+style='font-size:10.0pt;font-family:"Courier New"'>GISDbase</span></i></span><i><span
+style='font-size:10.0pt;font-family:"Courier New"'>&gt;</span></i>/<em> &lt;location&gt;</em>/&lt;<span
+class=SpellE><em>mapset</em></span><em>&gt;</em>/<span class=SpellE><i>colr</i></span>
+directory<span style='color:black'>.<o:p></o:p></span></p>
+
+<h2><a href="GisDEMApi.htm">Access to DEM</a></h2>
+
+<h2 style='margin-left:.5in'><a href="GisDEMApi.htm#DEMFileFormat">DEM File
+Format</a></h2>
+
+<h2><a href="GisRasterApi.htm">Access to Material</a></h2>
+
+<h2 style='text-indent:.5in'><a href="GisRasterApi.htm#MaterialFileFormat">Material
+File Format<o:p></o:p></a></h2>
+
+<h2><a href="GisImageApi.htm">Access to Texture</a></h2>
+
+<h2 style='text-indent:.5in'><a href="GisImageApi.htm#TextureFileFormat">Texture
+File Format</a></h2>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+style='mso-bidi-font-size:13.0pt;mso-fareast-font-family:"Courier New";
+color:black'>GISAPI Usage Notes<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+style='mso-bidi-font-size:13.0pt;mso-fareast-font-family:"Courier New";
+color:black'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-27.0pt;margin-bottom:
+0in;margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l1 level1 lfo4;
+tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-bidi-font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:
+Symbol;mso-bidi-font-family:Symbol;color:black'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='mso-bidi-font-size:
+13.0pt;mso-fareast-font-family:"Courier New";color:black'>Memory management:</span></span><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span>All space is
+managed by calling functions and must allocate and <span class=SpellE>deallocate</span>
+memory. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-27.0pt;margin-bottom:
+0in;margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l1 level1 lfo4;
+tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-bidi-font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:
+Symbol;mso-bidi-font-family:Symbol;color:black'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='mso-bidi-font-size:
+13.0pt;mso-fareast-font-family:"Courier New";color:black'>X and Y extents:</span></span><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span>X and Y
+maximum and minimum coordinates does not refer to a grid cell center but to the
+extremes of the cell.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span>The difference
+between X maximum and X minimum is equal to the number of columns multiplied by
+the resolution.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span>The same
+applies to Y direction and the number of rows.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span>Therefore
+number of rows and columns are given by:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='font-size:10.0pt;color:black'><span style='mso-tab-count:2'>                                         </span><span
+class=SpellE><span class=GramE>ncols</span></span> = (<span class=SpellE>ymax-ymin</span>)
+/ <span class=SpellE>res</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='font-size:10.0pt;color:black'><span style='mso-tab-count:2'>                                         </span><span
+class=SpellE>nrows</span> =(<span class=SpellE>xmax-xmin</span>) / <span
+class=SpellE>res</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:149.7pt;mso-para-margin-left:16.04gd;
+tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-27.0pt;margin-bottom:
+0in;margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l1 level1 lfo4;
+tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-bidi-font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:
+Symbol;mso-bidi-font-family:Symbol;color:black'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='mso-bidi-font-size:
+13.0pt;mso-fareast-font-family:"Courier New";color:black'>Grid row and column
+coordinates and XY coordinates:</span></span><span style='mso-bidi-font-size:
+10.0pt;mso-fareast-font-family:"Courier New";color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span>The grid cell
+at row zero and column zero has coordinates <span class=SpellE>Xmin</span> and <span
+class=SpellE>Ymax</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span>The grid cell at
+row <i>nrows-1</i> and column <i>ncols-1</i> has coordinates <span
+class=SpellE>Xmax</span> and <span class=SpellE>Ymin</span>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-27.0pt;margin-bottom:
+0in;margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l1 level1 lfo4;
+tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-bidi-font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:
+Symbol;mso-bidi-font-family:Symbol;color:black'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='mso-bidi-font-size:
+13.0pt;mso-fareast-font-family:"Courier New";color:black'>Resolution in X and Y
+direction must be equal:</span></span><span style='mso-bidi-font-size:10.0pt;
+mso-fareast-font-family:"Courier New";color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span>This
+assumption is required for slope and curvature calculation method.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span></span><span
+style='mso-bidi-font-size:13.0pt;mso-fareast-font-family:"Courier New";
+color:black'>When data is loaded, a difference of 10% is allowed.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:13.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span>The extents in
+Y direction of the data will be recalculated from the X direction resolution.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-27.0pt;margin-bottom:
+0in;margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l1 level1 lfo4;
+tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-bidi-font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:
+Symbol;mso-bidi-font-family:Symbol;color:black'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='mso-bidi-font-size:
+10.0pt;mso-fareast-font-family:"Courier New";color:black'>Implementation in
+C++, using STL.<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-27.0pt;margin-bottom:
+0in;margin-left:.75in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l2 level1 lfo6;
+tab-stops:45.8pt list .75in left 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-bidi-font-size:10.0pt;color:black'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+dir=LTR><span style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'>Application must include:<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-27.0pt;margin-bottom:
+0in;margin-left:45.8pt;margin-bottom:.0001pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span><span
+class=SpellE><span class=GramE>GisApi.h</span></span><span class=GramE> :</span>
+The API include file.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-27.0pt;margin-bottom:
+0in;margin-left:.75in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l2 level1 lfo6;
+tab-stops:45.8pt list .75in left 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-bidi-font-size:10.0pt;color:black'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+dir=LTR><span style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'>Application must link with a library built using:<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-27.0pt;margin-bottom:
+0in;margin-left:45.8pt;margin-bottom:.0001pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span><span
+class=SpellE><span class=GramE>GisApi.h</span></span><span class=GramE> :</span>
+The API include file.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:45.8pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span><span
+class=SpellE>GisApi.C</span>: Implementation of the API functions<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:45.8pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span><span
+class=SpellE>GisAscFile.C</span>; <span class=SpellE>GisAscFile.h</span>:
+Auxiliary to API, <span class=GramE>handle</span> ASCII format files<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:45.8pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span><span
+class=SpellE>GisBinFile.C</span>; <span class=SpellE>GisBinFile.h</span>:
+Auxiliary to API, <span class=GramE>handle</span> binary format files<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:45.8pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span><span
+class=SpellE>GisRasterHdr.C</span>; <span class=SpellE>GisRasterHdr.h</span>:
+Auxiliary to API, <span class=GramE>handle</span> header files</span><span
+style='font-size:10.0pt;mso-fareast-font-family:"Courier New";mso-bidi-font-family:
+"Courier New";color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:91.6pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+class=SpellE><span style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:
+"Courier New";color:black'>GisCats.C</span></span><span class=GramE><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'>;<span style='mso-spacerun:yes'>  </span><span class=SpellE>GisCats.h</span></span></span><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'>: Auxiliary to API, handle Material categories files<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:91.6pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+class=SpellE><span style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:
+"Courier New";color:black'>GisColors.C</span></span><span style='mso-bidi-font-size:
+10.0pt;mso-fareast-font-family:"Courier New";color:black'>; <span class=SpellE>GisColors.h</span>:
+Auxiliary to API, handle Texture colors files<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>

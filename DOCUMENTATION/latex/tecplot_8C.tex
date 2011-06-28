@@ -1,0 +1,160 @@
+\hypertarget{tecplot_8C}{
+\section{tecplot.C File Reference}
+\label{tecplot_8C}\index{tecplot.C@{tecplot.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{tecplot_8C_a0}{TECPLOTASCII}
+\item 
+\#define \hyperlink{tecplot_8C_a1}{TARGETPROCA}\ -1
+\item 
+\#define \hyperlink{tecplot_8C_a2}{TARGETPROCB}\ -1
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{tecplot_8C_a3}{get\_\-elem\_\-orient} (\hyperlink{classElement}{Element} $\ast$Em\-Temp, int $\ast$xm, int $\ast$xp, int $\ast$ym, int $\ast$yp)
+\item 
+int \hyperlink{tecplot_8C_a4}{get\_\-elem\_\-elev} (\hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{classElement}{Element} $\ast$Em\-Temp, double $\ast$elevation)
+\item 
+int \hyperlink{tecplot_8C_a5}{get\_\-ll\_\-polygon} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid, \hyperlink{classElement}{Element} $\ast$Em\-Array\mbox{[}4\mbox{]})
+\item 
+int \hyperlink{tecplot_8C_a6}{get\_\-ur\_\-tri} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid, \hyperlink{classElement}{Element} $\ast$Em\-Array\mbox{[}4\mbox{]})
+\item 
+int \hyperlink{tecplot_8C_a7}{print\_\-bubble\_\-node} (FILE $\ast$fp, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{classElement}{Element} $\ast$Em\-Temp)
+\item 
+void \hyperlink{tecplot_8C_a8}{Dump\-String} (FILE $\ast$fp, char $\ast$str)
+\item 
+void \hyperlink{tecplot_8C_a9}{testkey} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classElement}{Element} $\ast$Em\-Temp)
+\item 
+void \hyperlink{tecplot_8C_a10}{testkey2} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table)
+\item 
+void \hyperlink{tecplot_8C_a11}{tecplotter} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, \hyperlink{structMapNames}{Map\-Names} $\ast$mapnames, double v\_\-star)
+\begin{CompactList}\small\item\em this function writes text tecplot output files in the tecplxxxxxxxx.plt format. Keith rewrote this function to eliminate a lot of bugs shortly after he started the project, since then files were 1/3 the size they were previously. \item\end{CompactList}\item 
+void \hyperlink{tecplot_8C_a12}{viz\_\-output} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid, int numprocs, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, \hyperlink{structMapNames}{Map\-Names} $\ast$mapnames)
+\begin{CompactList}\small\item\em another of \char`\"{}pady's\char`\"{} output functions, since Keith never met \char`\"{}pady\char`\"{} this is probably long out of date \item\end{CompactList}\item 
+void \hyperlink{tecplot_8C_a13}{meshplotter} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, \hyperlink{structMapNames}{Map\-Names} $\ast$mapnames, double v\_\-star)
+\begin{CompactList}\small\item\em this function writes text tecplot output files in the mshplxxxxxxxx.plt format. This is largely untouched since before I (Keith) joined the GMFG, just minor changes. This is the preferred (by Professor Patra) format of output for debugging purposes even though tecplxxxxxxxx.plt create nicer images. \item\end{CompactList}\item 
+void \hyperlink{tecplot_8C_a14}{vizplotter} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops)
+\begin{CompactList}\small\item\em one of \char`\"{}pady's\char`\"{} output functions, since Keith never met \char`\"{}pady\char`\"{} this is probably long out of date \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{tecplot_8C_a1}{
+\index{tecplot.C@{tecplot.C}!TARGETPROCA@{TARGETPROCA}}
+\index{TARGETPROCA@{TARGETPROCA}!tecplot.C@{tecplot.C}}
+\subsubsection[TARGETPROCA]{\setlength{\rightskip}{0pt plus 5cm}\#define TARGETPROCA\ -1}}
+\label{tecplot_8C_a1}
+
+
+\hypertarget{tecplot_8C_a2}{
+\index{tecplot.C@{tecplot.C}!TARGETPROCB@{TARGETPROCB}}
+\index{TARGETPROCB@{TARGETPROCB}!tecplot.C@{tecplot.C}}
+\subsubsection[TARGETPROCB]{\setlength{\rightskip}{0pt plus 5cm}\#define TARGETPROCB\ -1}}
+\label{tecplot_8C_a2}
+
+
+\hypertarget{tecplot_8C_a0}{
+\index{tecplot.C@{tecplot.C}!TECPLOTASCII@{TECPLOTASCII}}
+\index{TECPLOTASCII@{TECPLOTASCII}!tecplot.C@{tecplot.C}}
+\subsubsection[TECPLOTASCII]{\setlength{\rightskip}{0pt plus 5cm}\#define TECPLOTASCII}}
+\label{tecplot_8C_a0}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{tecplot_8C_a8}{
+\index{tecplot.C@{tecplot.C}!DumpString@{DumpString}}
+\index{DumpString@{DumpString}!tecplot.C@{tecplot.C}}
+\subsubsection[DumpString]{\setlength{\rightskip}{0pt plus 5cm}void Dump\-String (FILE $\ast$ {\em fp}, char $\ast$ {\em str})}}
+\label{tecplot_8C_a8}
+
+
+\hypertarget{tecplot_8C_a4}{
+\index{tecplot.C@{tecplot.C}!get_elem_elev@{get\_\-elem\_\-elev}}
+\index{get_elem_elev@{get\_\-elem\_\-elev}!tecplot.C@{tecplot.C}}
+\subsubsection[get\_\-elem\_\-elev]{\setlength{\rightskip}{0pt plus 5cm}int get\_\-elem\_\-elev (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{classElement}{Element} $\ast$ {\em Em\-Temp}, double $\ast$ {\em elevation})}}
+\label{tecplot_8C_a4}
+
+
+\hypertarget{tecplot_8C_a3}{
+\index{tecplot.C@{tecplot.C}!get_elem_orient@{get\_\-elem\_\-orient}}
+\index{get_elem_orient@{get\_\-elem\_\-orient}!tecplot.C@{tecplot.C}}
+\subsubsection[get\_\-elem\_\-orient]{\setlength{\rightskip}{0pt plus 5cm}void get\_\-elem\_\-orient (\hyperlink{classElement}{Element} $\ast$ {\em Em\-Temp}, int $\ast$ {\em xm}, int $\ast$ {\em xp}, int $\ast$ {\em ym}, int $\ast$ {\em yp})}}
+\label{tecplot_8C_a3}
+
+
+\hypertarget{tecplot_8C_a5}{
+\index{tecplot.C@{tecplot.C}!get_ll_polygon@{get\_\-ll\_\-polygon}}
+\index{get_ll_polygon@{get\_\-ll\_\-polygon}!tecplot.C@{tecplot.C}}
+\subsubsection[get\_\-ll\_\-polygon]{\setlength{\rightskip}{0pt plus 5cm}int get\_\-ll\_\-polygon (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, \hyperlink{classElement}{Element} $\ast$ {\em Em\-Array}\mbox{[}4\mbox{]})}}
+\label{tecplot_8C_a5}
+
+
+\hypertarget{tecplot_8C_a6}{
+\index{tecplot.C@{tecplot.C}!get_ur_tri@{get\_\-ur\_\-tri}}
+\index{get_ur_tri@{get\_\-ur\_\-tri}!tecplot.C@{tecplot.C}}
+\subsubsection[get\_\-ur\_\-tri]{\setlength{\rightskip}{0pt plus 5cm}int get\_\-ur\_\-tri (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, \hyperlink{classElement}{Element} $\ast$ {\em Em\-Array}\mbox{[}4\mbox{]})}}
+\label{tecplot_8C_a6}
+
+
+\hypertarget{tecplot_8C_a13}{
+\index{tecplot.C@{tecplot.C}!meshplotter@{meshplotter}}
+\index{meshplotter@{meshplotter}!tecplot.C@{tecplot.C}}
+\subsubsection[meshplotter]{\setlength{\rightskip}{0pt plus 5cm}void meshplotter (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, \hyperlink{structMapNames}{Map\-Names} $\ast$ {\em mapnames}, double {\em v\_\-star})}}
+\label{tecplot_8C_a13}
+
+
+this function writes text tecplot output files in the mshplxxxxxxxx.plt format. This is largely untouched since before I (Keith) joined the GMFG, just minor changes. This is the preferred (by Professor Patra) format of output for debugging purposes even though tecplxxxxxxxx.plt create nicer images. 
+
+\hypertarget{tecplot_8C_a7}{
+\index{tecplot.C@{tecplot.C}!print_bubble_node@{print\_\-bubble\_\-node}}
+\index{print_bubble_node@{print\_\-bubble\_\-node}!tecplot.C@{tecplot.C}}
+\subsubsection[print\_\-bubble\_\-node]{\setlength{\rightskip}{0pt plus 5cm}int print\_\-bubble\_\-node (FILE $\ast$ {\em fp}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{classElement}{Element} $\ast$ {\em Em\-Temp})}}
+\label{tecplot_8C_a7}
+
+
+\hypertarget{tecplot_8C_a11}{
+\index{tecplot.C@{tecplot.C}!tecplotter@{tecplotter}}
+\index{tecplotter@{tecplotter}!tecplot.C@{tecplot.C}}
+\subsubsection[tecplotter]{\setlength{\rightskip}{0pt plus 5cm}void tecplotter (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, \hyperlink{structMapNames}{Map\-Names} $\ast$ {\em mapnames}, double {\em v\_\-star})}}
+\label{tecplot_8C_a11}
+
+
+this function writes text tecplot output files in the tecplxxxxxxxx.plt format. Keith rewrote this function to eliminate a lot of bugs shortly after he started the project, since then files were 1/3 the size they were previously. 
+
+\hypertarget{tecplot_8C_a9}{
+\index{tecplot.C@{tecplot.C}!testkey@{testkey}}
+\index{testkey@{testkey}!tecplot.C@{tecplot.C}}
+\subsubsection[testkey]{\setlength{\rightskip}{0pt plus 5cm}void testkey (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classElement}{Element} $\ast$ {\em Em\-Temp})}}
+\label{tecplot_8C_a9}
+
+
+\hypertarget{tecplot_8C_a10}{
+\index{tecplot.C@{tecplot.C}!testkey2@{testkey2}}
+\index{testkey2@{testkey2}!tecplot.C@{tecplot.C}}
+\subsubsection[testkey2]{\setlength{\rightskip}{0pt plus 5cm}void testkey2 (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table})}}
+\label{tecplot_8C_a10}
+
+
+\hypertarget{tecplot_8C_a12}{
+\index{tecplot.C@{tecplot.C}!viz_output@{viz\_\-output}}
+\index{viz_output@{viz\_\-output}!tecplot.C@{tecplot.C}}
+\subsubsection[viz\_\-output]{\setlength{\rightskip}{0pt plus 5cm}void viz\_\-output (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, int {\em numprocs}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, \hyperlink{structMapNames}{Map\-Names} $\ast$ {\em mapnames})}}
+\label{tecplot_8C_a12}
+
+
+another of \char`\"{}pady's\char`\"{} output functions, since Keith never met \char`\"{}pady\char`\"{} this is probably long out of date 
+
+\hypertarget{tecplot_8C_a14}{
+\index{tecplot.C@{tecplot.C}!vizplotter@{vizplotter}}
+\index{vizplotter@{vizplotter}!tecplot.C@{tecplot.C}}
+\subsubsection[vizplotter]{\setlength{\rightskip}{0pt plus 5cm}void vizplotter (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops})}}
+\label{tecplot_8C_a14}
+
+
+one of \char`\"{}pady's\char`\"{} output functions, since Keith never met \char`\"{}pady\char`\"{} this is probably long out of date 
+

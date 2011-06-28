@@ -1,0 +1,246 @@
+\hypertarget{repartition__BSFC_8C}{
+\section{repartition\_\-BSFC.C File Reference}
+\label{repartition__BSFC_8C}\index{repartition_BSFC.C@{repartition\_\-BSFC.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+{\tt \#include \char`\"{}../header/exvar.h\char`\"{}}\par
+{\tt \#include \char`\"{}./repartition\_\-BSFC.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{repartition__BSFC_8C_a0}{BINS\_\-PER\_\-PROC}\ 50
+\item 
+\#define \hyperlink{repartition__BSFC_8C_a1}{SUBBINS\_\-PER\_\-BIN}\ 50
+\item 
+\#define \hyperlink{repartition__BSFC_8C_a2}{MAX\_\-REFINEMENT\_\-LEVEL}\ 10
+\item 
+\#define \hyperlink{repartition__BSFC_8C_a3}{MIN\_\-NUM\_\-2\_\-SEND}\ 10
+\item 
+\#define \hyperlink{repartition__BSFC_8C_a4}{NON\_\-EMPTY\_\-CELL}\ 1.40
+\item 
+\#define \hyperlink{repartition__BSFC_8C_a5}{EMPTY\_\-BUFFER\_\-CELL}\ 1.35
+\item 
+\#define \hyperlink{repartition__BSFC_8C_a6}{EMPTY\_\-CELL}\ 0.95
+\item 
+\#define \hyperlink{repartition__BSFC_8C_a7}{DEBUG\_\-REPART2}
+\item 
+\#define \hyperlink{repartition__BSFC_8C_a8}{DEBUG\_\-REPART2C}
+\item 
+\#define \hyperlink{repartition__BSFC_8C_a9}{DEBUG\_\-ITER}\ 1000000
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int \hyperlink{repartition__BSFC_8C_a10}{Sequential\-Send} (int numprocs, int myid, \hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, double $\ast$New\-Proc\-Double\-Key\-Boundaries, int iseqsend)
+\item 
+void \hyperlink{repartition__BSFC_8C_a11}{Non\-Sequential\-Send\-And\-Update\-Neigh} (int numprocs, int myid, \hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, double $\ast$New\-Proc\-Double\-Key\-Boundaries)
+\item 
+void \hyperlink{repartition__BSFC_8C_a12}{BSFC\_\-create\_\-refinement\_\-info} (int $\ast$number\_\-of\_\-cuts, float $\ast$global\_\-actual\_\-work\_\-allocated, float total\_\-weight, float $\ast$work\_\-percent\_\-array, \hyperlink{structunstructured__communication}{unstructured\_\-communication} verts\_\-in\_\-cuts\_\-info, float $\ast$$\ast$, int myid, int numprocs)
+\item 
+void \hyperlink{repartition__BSFC_8C_a13}{BSFC\_\-create\_\-bins} (int num\_\-local\_\-objects, \hyperlink{structsfc__vertex}{BSFC\_\-VERTEX\_\-PTR} sfc\_\-vert\_\-ptr, int $\ast$amount\_\-of\_\-bits\_\-used, int size\_\-of\_\-unsigned, float $\ast$global\_\-actual\_\-work\_\-allocated, float $\ast$work\_\-percent\_\-array, float $\ast$total\_\-weight\_\-ptr, int $\ast$balanced\_\-flag, \hyperlink{structunstructured__communication}{unstructured\_\-communication} $\ast$verts\_\-in\_\-cuts\_\-info, int $\ast$number\_\-of\_\-cuts, int bins\_\-per\_\-proc, int myid, int numprocs)
+\item 
+void \hyperlink{repartition__BSFC_8C_a14}{BSFC\_\-update\_\-element\_\-proc} (int myid, int numprocs, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, \hyperlink{structsfc__vertex}{BSFC\_\-VERTEX\_\-PTR} sfc\_\-vert\_\-ptr)
+\item 
+void \hyperlink{repartition__BSFC_8C_a15}{repartition} (\hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Elem\_\-Ptr, \hyperlink{classHashTable}{Hash\-Table} $\ast$HT\_\-Node\_\-Ptr, int time\_\-step)
+\begin{CompactList}\small\item\em this function repartitions (redistributes) the number of elements on each processor so they all have approximately the same ammount of work to do. it is called in \hyperlink{constant_8h_a21}{hpfem.C} and \hyperlink{constant_8h_a21}{init\_\-piles.C} \item\end{CompactList}\item 
+void \hyperlink{repartition__BSFC_8C_a16}{repartition2} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr)
+\begin{CompactList}\small\item\em the replacement for \hyperlink{extfun_8h_a27}{repartition()}, this function repartitions (redistributes) the number of elements on each processor so they all have approximately the same ammount of work to do \item\end{CompactList}\item 
+void \hyperlink{repartition__BSFC_8C_a17}{checkelemnode} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid, FILE $\ast$fpdebug, double loc)
+\item 
+void \hyperlink{repartition__BSFC_8C_a18}{Incorporate\-New\-Elements} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid, int num\_\-recv, \hyperlink{structElemPack}{Elem\-Pack} $\ast$recv\_\-array, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr)
+\begin{CompactList}\small\item\em this function creates the elements listed in recv\_\-array and adds them to the \hyperlink{classElement}{Element} \hyperlink{classHashTable}{Hash\-Table}, it will fail an assertion if you tell it to create an \hyperlink{classElement}{Element} that already exists, it is called by repartion2(), which requires the deletion of ghost elements first. \item\end{CompactList}\item 
+void \hyperlink{repartition__BSFC_8C_a19}{q\_\-sort\_\-data} (double $\ast$numbers, void $\ast$$\ast$\hyperlink{hdfdefs_8h_a10}{data}, int left, int right)
+\begin{CompactList}\small\item\em quicksort into ascending order, according to matching double precision numbers, the array of pointers to data \item\end{CompactList}\item 
+void \hyperlink{repartition__BSFC_8C_a20}{q\_\-sort} (double $\ast$numbers, int left, int right)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{repartition__BSFC_8C_a0}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!BINS_PER_PROC@{BINS\_\-PER\_\-PROC}}
+\index{BINS_PER_PROC@{BINS\_\-PER\_\-PROC}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[BINS\_\-PER\_\-PROC]{\setlength{\rightskip}{0pt plus 5cm}\#define BINS\_\-PER\_\-PROC\ 50}}
+\label{repartition__BSFC_8C_a0}
+
+
+\hypertarget{repartition__BSFC_8C_a9}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!DEBUG_ITER@{DEBUG\_\-ITER}}
+\index{DEBUG_ITER@{DEBUG\_\-ITER}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[DEBUG\_\-ITER]{\setlength{\rightskip}{0pt plus 5cm}\#define DEBUG\_\-ITER\ 1000000}}
+\label{repartition__BSFC_8C_a9}
+
+
+\hypertarget{repartition__BSFC_8C_a7}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!DEBUG_REPART2@{DEBUG\_\-REPART2}}
+\index{DEBUG_REPART2@{DEBUG\_\-REPART2}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[DEBUG\_\-REPART2]{\setlength{\rightskip}{0pt plus 5cm}\#define DEBUG\_\-REPART2}}
+\label{repartition__BSFC_8C_a7}
+
+
+\hypertarget{repartition__BSFC_8C_a8}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!DEBUG_REPART2C@{DEBUG\_\-REPART2C}}
+\index{DEBUG_REPART2C@{DEBUG\_\-REPART2C}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[DEBUG\_\-REPART2C]{\setlength{\rightskip}{0pt plus 5cm}\#define DEBUG\_\-REPART2C}}
+\label{repartition__BSFC_8C_a8}
+
+
+\hypertarget{repartition__BSFC_8C_a5}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!EMPTY_BUFFER_CELL@{EMPTY\_\-BUFFER\_\-CELL}}
+\index{EMPTY_BUFFER_CELL@{EMPTY\_\-BUFFER\_\-CELL}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[EMPTY\_\-BUFFER\_\-CELL]{\setlength{\rightskip}{0pt plus 5cm}\#define EMPTY\_\-BUFFER\_\-CELL\ 1.35}}
+\label{repartition__BSFC_8C_a5}
+
+
+\hypertarget{repartition__BSFC_8C_a6}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!EMPTY_CELL@{EMPTY\_\-CELL}}
+\index{EMPTY_CELL@{EMPTY\_\-CELL}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[EMPTY\_\-CELL]{\setlength{\rightskip}{0pt plus 5cm}\#define EMPTY\_\-CELL\ 0.95}}
+\label{repartition__BSFC_8C_a6}
+
+
+\hypertarget{repartition__BSFC_8C_a2}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!MAX_REFINEMENT_LEVEL@{MAX\_\-REFINEMENT\_\-LEVEL}}
+\index{MAX_REFINEMENT_LEVEL@{MAX\_\-REFINEMENT\_\-LEVEL}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[MAX\_\-REFINEMENT\_\-LEVEL]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-REFINEMENT\_\-LEVEL\ 10}}
+\label{repartition__BSFC_8C_a2}
+
+
+\hypertarget{repartition__BSFC_8C_a3}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!MIN_NUM_2_SEND@{MIN\_\-NUM\_\-2\_\-SEND}}
+\index{MIN_NUM_2_SEND@{MIN\_\-NUM\_\-2\_\-SEND}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[MIN\_\-NUM\_\-2\_\-SEND]{\setlength{\rightskip}{0pt plus 5cm}\#define MIN\_\-NUM\_\-2\_\-SEND\ 10}}
+\label{repartition__BSFC_8C_a3}
+
+
+\hypertarget{repartition__BSFC_8C_a4}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!NON_EMPTY_CELL@{NON\_\-EMPTY\_\-CELL}}
+\index{NON_EMPTY_CELL@{NON\_\-EMPTY\_\-CELL}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[NON\_\-EMPTY\_\-CELL]{\setlength{\rightskip}{0pt plus 5cm}\#define NON\_\-EMPTY\_\-CELL\ 1.40}}
+\label{repartition__BSFC_8C_a4}
+
+
+\hypertarget{repartition__BSFC_8C_a1}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!SUBBINS_PER_BIN@{SUBBINS\_\-PER\_\-BIN}}
+\index{SUBBINS_PER_BIN@{SUBBINS\_\-PER\_\-BIN}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[SUBBINS\_\-PER\_\-BIN]{\setlength{\rightskip}{0pt plus 5cm}\#define SUBBINS\_\-PER\_\-BIN\ 50}}
+\label{repartition__BSFC_8C_a1}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{repartition__BSFC_8C_a13}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!BSFC_create_bins@{BSFC\_\-create\_\-bins}}
+\index{BSFC_create_bins@{BSFC\_\-create\_\-bins}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[BSFC\_\-create\_\-bins]{\setlength{\rightskip}{0pt plus 5cm}void BSFC\_\-create\_\-bins (int {\em num\_\-local\_\-objects}, \hyperlink{structsfc__vertex}{BSFC\_\-VERTEX\_\-PTR} {\em sfc\_\-vert\_\-ptr}, int $\ast$ {\em amount\_\-of\_\-bits\_\-used}, int {\em size\_\-of\_\-unsigned}, float $\ast$ {\em global\_\-actual\_\-work\_\-allocated}, float $\ast$ {\em work\_\-percent\_\-array}, float $\ast$ {\em total\_\-weight\_\-ptr}, int $\ast$ {\em balanced\_\-flag}, \hyperlink{structunstructured__communication}{unstructured\_\-communication} $\ast$ {\em verts\_\-in\_\-cuts\_\-info}, int $\ast$ {\em number\_\-of\_\-cuts}, int {\em bins\_\-per\_\-proc}, int {\em myid}, int {\em numprocs})}}
+\label{repartition__BSFC_8C_a13}
+
+
+\hypertarget{repartition__BSFC_8C_a12}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!BSFC_create_refinement_info@{BSFC\_\-create\_\-refinement\_\-info}}
+\index{BSFC_create_refinement_info@{BSFC\_\-create\_\-refinement\_\-info}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[BSFC\_\-create\_\-refinement\_\-info]{\setlength{\rightskip}{0pt plus 5cm}void BSFC\_\-create\_\-refinement\_\-info (int $\ast$ {\em number\_\-of\_\-cuts}, float $\ast$ {\em global\_\-actual\_\-work\_\-allocated}, float {\em total\_\-weight}, float $\ast$ {\em work\_\-percent\_\-array}, \hyperlink{structunstructured__communication}{unstructured\_\-communication} {\em verts\_\-in\_\-cuts\_\-info}, float $\ast$$\ast$, int {\em myid}, int {\em numprocs})}}
+\label{repartition__BSFC_8C_a12}
+
+
+\hypertarget{repartition__BSFC_8C_a14}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!BSFC_update_element_proc@{BSFC\_\-update\_\-element\_\-proc}}
+\index{BSFC_update_element_proc@{BSFC\_\-update\_\-element\_\-proc}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[BSFC\_\-update\_\-element\_\-proc]{\setlength{\rightskip}{0pt plus 5cm}void BSFC\_\-update\_\-element\_\-proc (int {\em myid}, int {\em numprocs}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, \hyperlink{structsfc__vertex}{BSFC\_\-VERTEX\_\-PTR} {\em sfc\_\-vert\_\-ptr})}}
+\label{repartition__BSFC_8C_a14}
+
+
+\hypertarget{repartition__BSFC_8C_a17}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!checkelemnode@{checkelemnode}}
+\index{checkelemnode@{checkelemnode}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[checkelemnode]{\setlength{\rightskip}{0pt plus 5cm}void checkelemnode (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, FILE $\ast$ {\em fpdebug}, double {\em loc})}}
+\label{repartition__BSFC_8C_a17}
+
+
+\hypertarget{repartition__BSFC_8C_a18}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!IncorporateNewElements@{IncorporateNewElements}}
+\index{IncorporateNewElements@{IncorporateNewElements}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[IncorporateNewElements]{\setlength{\rightskip}{0pt plus 5cm}void Incorporate\-New\-Elements (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, int {\em num\_\-recv}, \hyperlink{structElemPack}{Elem\-Pack} $\ast$ {\em recv\_\-array}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr})}}
+\label{repartition__BSFC_8C_a18}
+
+
+this function creates the elements listed in recv\_\-array and adds them to the \hyperlink{classElement}{Element} \hyperlink{classHashTable}{Hash\-Table}, it will fail an assertion if you tell it to create an \hyperlink{classElement}{Element} that already exists, it is called by repartion2(), which requires the deletion of ghost elements first. 
+
+\hypertarget{repartition__BSFC_8C_a11}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!NonSequentialSendAndUpdateNeigh@{NonSequentialSendAndUpdateNeigh}}
+\index{NonSequentialSendAndUpdateNeigh@{NonSequentialSendAndUpdateNeigh}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[NonSequentialSendAndUpdateNeigh]{\setlength{\rightskip}{0pt plus 5cm}void Non\-Sequential\-Send\-And\-Update\-Neigh (int {\em numprocs}, int {\em myid}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, double $\ast$ {\em New\-Proc\-Double\-Key\-Boundaries})}}
+\label{repartition__BSFC_8C_a11}
+
+
+I've done everything possible to kill time while I waited $\ast$
+
+for second-send to complete. Now I will wait some more $\ast$
+
+and deallocate space as soon as I'm allowed to. $\ast$ \hypertarget{repartition__BSFC_8C_a20}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!q_sort@{q\_\-sort}}
+\index{q_sort@{q\_\-sort}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[q\_\-sort]{\setlength{\rightskip}{0pt plus 5cm}void q\_\-sort (double $\ast$ {\em numbers}, int {\em left}, int {\em right})}}
+\label{repartition__BSFC_8C_a20}
+
+
+\hypertarget{repartition__BSFC_8C_a19}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!q_sort_data@{q\_\-sort\_\-data}}
+\index{q_sort_data@{q\_\-sort\_\-data}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[q\_\-sort\_\-data]{\setlength{\rightskip}{0pt plus 5cm}void q\_\-sort\_\-data (double $\ast$ {\em numbers}, void $\ast$$\ast$ {\em data}, int {\em left}, int {\em right})}}
+\label{repartition__BSFC_8C_a19}
+
+
+quicksort into ascending order, according to matching double precision numbers, the array of pointers to data 
+
+\hypertarget{repartition__BSFC_8C_a15}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!repartition@{repartition}}
+\index{repartition@{repartition}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[repartition]{\setlength{\rightskip}{0pt plus 5cm}void repartition (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Elem\_\-Ptr}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em HT\_\-Node\_\-Ptr}, int {\em time\_\-step})}}
+\label{repartition__BSFC_8C_a15}
+
+
+this function repartitions (redistributes) the number of elements on each processor so they all have approximately the same ammount of work to do. it is called in \hyperlink{constant_8h_a21}{hpfem.C} and \hyperlink{constant_8h_a21}{init\_\-piles.C} 
+
+\hypertarget{repartition__BSFC_8C_a16}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!repartition2@{repartition2}}
+\index{repartition2@{repartition2}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[repartition2]{\setlength{\rightskip}{0pt plus 5cm}void repartition2 (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr})}}
+\label{repartition__BSFC_8C_a16}
+
+
+the replacement for \hyperlink{extfun_8h_a27}{repartition()}, this function repartitions (redistributes) the number of elements on each processor so they all have approximately the same ammount of work to do 
+
+Keith wrote this repartitioning function to make it work with any hash function, to not bother with constraining nodes (which is only useful in Continuous Galerkin method, titan uses a finite-difference/ finite-volume predictor/corrector scheme), and to not bother with keeping one brother of every element on the processor, now the unrefinement \hyperlink{classElement}{Element} constructor computes the key of the opposite brother and that's all you need.
+
+The 2 purposes of \hyperlink{extfun_8h_a28}{repartition2()} are to 1) balance the work between processors 2) remove any overlap of key ranges caused by refinement. with this implementation the second purpose is the more critical, but to understand why you first have to understand the problem.
+
+In Titan elements and nodes are \char`\"{}stored\char`\"{} in hash tables, which is just a one dimensional array of buckets and in each bucket is a linked list of elements or nodes. the \char`\"{}hash function\char`\"{} turns a \char`\"{}key\char`\"{} into the indice of the bucket the element or node resides in and then you search the bucket's linked-list for the element/node with the key you are looking for. Array access is fast, linked list access is slow. and there is an entire art form to minimizing the length of each linked list, i.e. making sure the elements/nodes are as equally distributed among the buckets as possible, in order to decrease the average time it takes to retrieve and element/node, that is the true goal.
+
+another complimentary way to achieve this goal is to ensure that elements/nodes are \char`\"{}preloaded\char`\"{} in to cache, which can be achieved if elements/nodes close to each other in physical space are stored close to each other in memory. The way titan accomplishes this is to organize data according to its position on (distance from the beginning of) a space filling curve. Essentially the keys are nothing more than the position of the node (or center node of the element) on the space filling curve. A space filling curve is simply a curve that travels to EVERY \_\-\_\-POINT\_\-\_\- (not just every element or node) in physical space, and visits all the points close to each other before moving on and then never comes back to the same region.
+
+basically it's a \char`\"{}power of 2\char`\"{} thing. The normalized map is a unit square ranging from (0,0) to (1,1). if you divide this square into 4 sub squares (by dividing each dimension in half), the space filling curve will visit all the points in one sub square before moving on to the next sub square. if you divide a sub square into 4 sub sub squares the same holds true, and this relationship is infinitely recursive all the way down to a single point in theory and down to the last bit in the (currently) 8 byte key in practice.
+
+however the physical dimensions of the map make it a rectangle not a square and we want elements/cells to be squares in PHYSICAL space which means that each dimension of the map will be divided into a different, and usually not a power of 2, integer number of elements. the problem arises when a \char`\"{}father\char`\"{} element is divided into it's 4 \char`\"{}son\char`\"{} elements and some of the son elements are on a different \char`\"{}sub square\char`\"{} or different \char`\"{}sub sub square\char`\"{} or different \char`\"{}sub sub sub (you get the idea) square.\char`\"{} Since each processor owns one continuous segment of the space filling curve, this means that refinement can result in some of the \char`\"{}sons\char`\"{} having keys that should be on another processor.
+
+why does it matter which processor an element belongs to? Each element needs its neighbor's information to update itself, which during multiprocessor simulations means processors have to communicate with each other, which means they have to know which processors they need to send information to and receive information from. So if an element is on the wrong processor it's game over. Luckily, elements \char`\"{}remember\char`\"{} which processors it's neighbors belong to so this grants a \_\-temporary\_\- reprieve but during repartitioning, when elements are being moved from one processor to another, this information needs to be correctly reset. And it is a whole lot easier and cheaper in terms of communication (which is slow and hence you want to minimize it) for all the elements to belong to the processors that owns the section of the space filling curve they're on.
+
+that is why it is absolutely essential to fix key range overlap during repartitioning (at least for the way that I have implemented repartitioning). A slight load imbalance can be tolerated but key range overlap can not be.
+
+repartition2 has 2 steps a sequential send (sending/receiving elements to/from the processor(s) immediately before and/or after you on the space filling curve) and a non sequential send that fixes any remaining key range overlap and then updates the neighbor information of every element it owns.
+
+I (Keith) implemented the sequential send in an \char`\"{}intelligent\char`\"{} way or at least intelligent enough that it can actually be \char`\"{}confused\char`\"{} by a pathological case. The \char`\"{}sequential send\char`\"{} determines how many elements it would need to send and receive from its 2 neighbors on the space filling curve to 1) achieve load (computational work) balance 2) to eliminate it's key range overlap with its neighbor since communication is expensive it is preferable to do a one way only send/receive, that is to send OR receive enough elements to fix BOTH load balance and key range overlap in just one send OR receive. If you have to sacrifice a little load balance to ensure the key range overlap is fixed that's okay because the slight load imbalance will be corrected by the next repartitioning so it's not a big deal.
+
+the pathological case is when a processor has to send away \_\-all\_\- of its elements to fix the key range overlap, and possibly give away the same element(s) to BOTH of its neighbor on the space filling curve. Yes that actually happened and it caused titan to crash, which is why I had to rewrite repartition2 to build in a failsafe to protect against that. The failsafe is to make each processor refuse to send away more than half (actually total number of elements minus one divided by 2) of its elements to either neighbor, and if then if it is necessary, repeat the sequential send until each processor's \char`\"{}maximum key\char`\"{} is greater than its \char`\"{}minimum key\char`\"{}. This is the reason the sequential send is inside a while loop. Once the maximum key is greater than than the minimum key, the non sequential send can fix the remaining key range overlap without any difficulty.
+
+note because of some tricks I've played with the initial grid generator (to exploit the space filling curve's \char`\"{}power of 2\char`\"{} effect) the sequential send will usually occur only once per repartitioning and the non sequential send will usually not occur at all. In fact these will only occur when there are far too few elements per processor OR when the exceedingly vast majority of the elements are very close together on the space filling curve and very few exist elsewhere. This means communication will usually be minimal and thus the code will be fast.
+
+I (Keith) spent a minor amount of work to make this fast (or at least not \char`\"{}as dumb as a post\char`\"{} slow), by doing the intelligent (usually one way) sequential send and overlapping computation and communication to keep the CPU busy while it's waiting to exchange elements with other processors so no time will be wasted then.
+
+The sequential send and non sequential send do all of their own communication (do not rely on other non MPI functions to do it) but a \hyperlink{move__data_8C_a0}{move\_\-data()} is required immediately after repartitioning to create the layer of \char`\"{}ghost\char`\"{} cells/elements around the processor's collection of elements. \hypertarget{repartition__BSFC_8C_a10}{
+\index{repartition_BSFC.C@{repartition\_\-BSFC.C}!SequentialSend@{SequentialSend}}
+\index{SequentialSend@{SequentialSend}!repartition_BSFC.C@{repartition\_\-BSFC.C}}
+\subsubsection[SequentialSend]{\setlength{\rightskip}{0pt plus 5cm}int Sequential\-Send (int {\em numprocs}, int {\em myid}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, double $\ast$ {\em New\-Proc\-Double\-Key\-Boundaries}, int {\em iseqsend})}}
+\label{repartition__BSFC_8C_a10}
+
+

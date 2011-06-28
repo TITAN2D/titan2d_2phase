@@ -1,0 +1,2983 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="GisImageApi_files/filelist.xml">
+<title>GisImageApi Reference</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>namikawa</o:Author>
+  <o:LastAuthor>namikawa</o:LastAuthor>
+  <o:Revision>7</o:Revision>
+  <o:TotalTime>184</o:TotalTime>
+  <o:Created>2004-05-16T22:55:00Z</o:Created>
+  <o:LastSaved>2004-05-17T16:12:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1166</o:Words>
+  <o:Characters>6650</o:Characters>
+  <o:Company> </o:Company>
+  <o:Lines>55</o:Lines>
+  <o:Paragraphs>15</o:Paragraphs>
+  <o:CharactersWithSpaces>7801</o:CharactersWithSpaces>
+  <o:Version>10.3311</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>75</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:Compatibility>
+   <w:ApplyBreakingRules/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<link rel=Stylesheet type="text/css" media=all
+href="http://terralib.dpi.inpe.br/doxygen_documentation_v20/doxygen.css">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Times;
+	panose-1:2 2 6 3 5 4 5 2 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:536902279 -2147483648 8 0 511 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+code
+	{font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	color:black;}
+p.SourceCode, li.SourceCode, div.SourceCode
+	{mso-style-name:SourceCode;
+	mso-style-parent:"Normal \(Web\)";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:Times;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Courier New";
+	color:black;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:289438735;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-226834170 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="5122"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h1><span class=SpellE><!-- Generated by Doxygen 1.2.16 -->GisImageApi</span>
+Reference</h1>
+
+<p class=MsoNormal>Implements access to GIS related Texture (Remote Sensing
+image).</p>
+
+<h2>Access to Texture Image data</h2>
+
+<p class=MsoNormal>Texture data is stored as a Raster image data. Possible
+sources of material information are remote sensing images.</p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="104%"
+ style='width:104.96%;mso-cellspacing:0in;mso-padding-alt:1.5pt 1.5pt 1.5pt 1.5pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td style='background:#F2F2FF;padding:1.5pt 1.5pt 1.5pt 1.5pt'>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+   style='mso-cellspacing:0in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><b><span style='font-size:10.0pt;
+    font-family:"Courier New";color:blue'>int</span></b></span><b><span
+    style='font-size:10.0pt;font-family:"Courier New"'> </span></b><span
+    class=SpellE><span style='font-size:10.0pt;font-family:"Courier New"'>Initialize_Image_data</span></span><b><o:p></o:p></b></p>
+    </td>
+    <td valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>(&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>char </span></b><b><span style='font-size:10.0pt;font-family:
+    "Courier New"'>* </span><o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp;</span></b><span
+    class=SpellE><b><i><span style='font-size:10.0pt;font-family:"Courier New";
+    color:maroon'>GISDbase</span></i></b></span><b><span style='color:#602020'>,
+    <o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>char </span></b><b><span style='font-size:10.0pt;font-family:
+    "Courier New"'>*</span><o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp; </span><em><span
+    style='color:maroon'>location</span></em><span style='color:#602020'>, <o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>char </span></b><b><span style='font-size:10.0pt;font-family:
+    "Courier New"'>*</span><o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp; </span><span
+    class=SpellE><em><span style='color:maroon'>mapset</span></em></span><span
+    style='color:#602020'>, <o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>char </span></b><b><span style='font-size:10.0pt;font-family:
+    "Courier New"'>*</span><o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp; </span><span
+    class=SpellE><em><span style='color:maroon'>rasterfile</span></em></span><span
+    style='color:#602020'><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:4;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>)&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td width=600 nowrap valign=top style='width:6.25in;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'><o:p>&nbsp;</o:p></span></b></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b><o:p></o:p></b></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0 width=583
+ style='width:437.4pt;mso-cellspacing:3.7pt;margin-left:3.7pt;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=10 style='width:.1in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p>Initialize using the Texture<em><b><span style='color:maroon'> <span
+  class=SpellE>rasterfile</span></span></b></em>. </p>
+  <p class=MsoNormal><b>Parameters: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>Input:<o:p></o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp;<span class=SpellE><i><span style='font-size:10.0pt;
+    font-family:"Courier New"'>GISDbase</span></i></span>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Full path of database</span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp; <em>location</em>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Location, first subdirectory below </span><span
+    class=SpellE><b><i><span style='font-size:10.0pt;font-family:"Courier New";
+    color:maroon'>GISDbase</span></i></b></span><span style='mso-bidi-font-size:
+    10.0pt;mso-bidi-font-family:"Courier New"'> </span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp; <span class=SpellE><em>mapset</em></span>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><span style='mso-bidi-font-size:10.0pt;
+    mso-bidi-font-family:"Courier New"'>Mapset</span></span><span
+    style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:"Courier New"'>,
+    second subdirectory below </span><span class=SpellE><b><i><span
+    style='font-size:10.0pt;font-family:"Courier New";color:maroon'>GISDbase</span></i></b></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp; <span class=SpellE><em>rasterfile</em></span></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>Texture file name </p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b>Returns: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp;<i><span style='mso-bidi-font-size:10.0pt;
+    font-family:"Courier New"'>0</span></i>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Some error</span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp; <em>1</em>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Successful initialization<span style='mso-spacerun:yes'> 
+    </span></span></p>
+    </td>
+   </tr>
+  </table>
+  <p>Texture file resides in the directory <span class=SpellE><i><span
+  style='font-size:10.0pt;font-family:"Courier New"'>GISDbase</span></i></span>/<em>
+  location</em>/<span class=SpellE><em>mapset</em></span><em>/cell</em><em><span
+  style='font-style:normal'>.</span></em> A header file must reside in the
+  directory <span class=SpellE><i><span style='font-size:10.0pt;font-family:
+  "Courier New"'>GISDbase</span></i></span>/<em> location</em>/<span
+  class=SpellE><em>mapset/cellhd</em></span><em><span style='font-style:normal'>.
+  A color definition file must reside </span></em>in the directory <span
+  class=SpellE><i><span style='font-size:10.0pt;font-family:"Courier New"'>GISDbase</span></i></span>/<em>
+  location</em>/<span class=SpellE><em>mapset/colr</em></span><em><span
+  style='font-style:normal'>. All three files have the same </span><span
+  class=SpellE>rasterfile</span></em><em><span style='font-style:normal'> name.<o:p></o:p></span></em></p>
+  <p><span style='mso-spacerun:yes'> </span><i><o:p></o:p></i></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:0in;mso-padding-alt:1.5pt 1.5pt 1.5pt 1.5pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td style='background:#F2F2FF;padding:1.5pt 1.5pt 1.5pt 1.5pt'>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+   style='mso-cellspacing:0in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><b><span style='font-size:10.0pt;
+    font-family:"Courier New";color:blue'>int</span></b></span><b><span
+    style='font-size:10.0pt;font-family:"Courier New"'> <span class=SpellE>Delete_Image_data</span></span><o:p></o:p></b></p>
+    </td>
+    <td valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>()<o:p></o:p></b></p>
+    </td>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'><o:p>&nbsp;</o:p></span></b></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b><o:p></o:p></b></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0
+ style='mso-cellspacing:3.7pt;margin-left:3.7pt;mso-padding-alt:0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=10 style='width:.1in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p>Removes all allocated space. </p>
+  <p class=MsoNormal><b>Returns: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp;<i><span style='mso-bidi-font-size:10.0pt;
+    font-family:"Courier New"'>0</span></i>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Some error</span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp; <em>1</em>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Successful initialization<span style='mso-spacerun:yes'> 
+    </span></span></p>
+    </td>
+   </tr>
+  </table>
+  <p><span style='mso-spacerun:yes'> </span></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:0in;mso-padding-alt:1.5pt 1.5pt 1.5pt 1.5pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td style='background:#F2F2FF;padding:1.5pt 1.5pt 1.5pt 1.5pt'>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+   style='mso-cellspacing:0in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><b><span style='font-size:10.0pt;
+    font-family:"Courier New";color:blue'>int</span></b></span><b><span
+    style='font-size:10.0pt;font-family:"Courier New"'> <span class=SpellE>Get_image_xmax</span></span><o:p></o:p></b></p>
+    </td>
+    <td valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>(&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double</span><o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp; <em>resolution</em></span></b>,<b><span
+    style='color:#602020'><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span>*&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp; <span
+    class=SpellE><em>xmax</em></span><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>)&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td width=600 nowrap valign=top style='width:6.25in;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'><o:p>&nbsp;</o:p></span></b></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b><o:p></o:p></b></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0
+ style='mso-cellspacing:3.7pt;margin-left:3.7pt;mso-padding-alt:0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=10 style='width:.1in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p>Returns maximum extent in X direction. </p>
+  <p class=MsoNormal><b>Parameters: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'>Input:</span></b><o:p></o:p></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>resolution</em>&nbsp;</p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>resolution of Texture </p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'>Output:<o:p></o:p></span></b></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><em>xmax</em></span>&nbsp;</p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>maximum X coordinate of original grid </p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b>Returns: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp;<i><span style='mso-bidi-font-size:10.0pt;
+    font-family:"Courier New"'>0</span></i>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Some error</span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp; <em>1</em>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Successful initialization<span style='mso-spacerun:yes'> 
+    </span></span></p>
+    </td>
+   </tr>
+  </table>
+  <p><span style='mso-spacerun:yes'> </span></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=783
+ style='width:587.15pt;mso-cellspacing:0in;margin-left:1.5pt;mso-padding-alt:
+ 1.5pt 1.5pt 1.5pt 1.5pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=783 style='width:587.15pt;background:#F2F2FF;padding:1.5pt 1.5pt 1.5pt 1.5pt'>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+   style='mso-cellspacing:0in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><b><span style='font-size:10.0pt;
+    font-family:"Courier New";color:blue'>int</span></b></span><b><span
+    style='font-size:10.0pt;font-family:"Courier New"'> <span class=SpellE>Get_image_xmin</span></span><o:p></o:p></b></p>
+    </td>
+    <td valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>(&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double</span><o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp; <em>resolution</em></span></b>,<b><span
+    style='color:#602020'><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span>*&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp; <span
+    class=SpellE><em>xmin</em></span><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>)&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td width=600 nowrap valign=top style='width:6.25in;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'><o:p>&nbsp;</o:p></span></b></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b><o:p></o:p></b></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0
+ style='mso-cellspacing:3.7pt;margin-left:3.7pt;mso-padding-alt:0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-row-margin-right:3.2pt'>
+  <td width=10 style='width:.1in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=552 style='width:414.25pt;padding:0in 0in 0in 0in'>
+  <p>Returns minimum extent in X direction. </p>
+  <p class=MsoNormal><b>Parameters: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>resolution</em>&nbsp;</p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>resolution of Texture </p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><em>xmin</em></span></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>minimum X coordinate of original grid </p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b>Returns: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp;<i><span style='mso-bidi-font-size:10.0pt;
+    font-family:"Courier New"'>0</span></i>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Some error</span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp; <em>1</em>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Successful initialization<span style='mso-spacerun:yes'> 
+    </span></span></p>
+    </td>
+   </tr>
+  </table>
+  <p><span style='mso-spacerun:yes'> </span></p>
+  </td>
+  <td style='mso-cell-special:placeholder;border:none;padding:0in 0in 0in 0in'
+  width=4><p class='MsoNormal'>&nbsp;</td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width=571 colspan=3 style='width:428.3pt;background:#F2F2FF;padding:1.5pt 1.5pt 1.5pt 1.5pt'>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+   style='mso-cellspacing:0in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><b><span style='font-size:10.0pt;
+    font-family:"Courier New";color:blue'>int</span></b></span><b><span
+    style='font-size:10.0pt;font-family:"Courier New"'> <span class=SpellE>Get_image_ymax</span></span><o:p></o:p></b></p>
+    </td>
+    <td valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>(&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double</span><o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp; <em>resolution</em></span></b>,<b><span
+    style='color:#602020'><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span>*&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp; <span
+    class=SpellE>y<em>max</em></span><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>)&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td width=600 nowrap valign=top style='width:6.25in;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'><o:p>&nbsp;</o:p></span></b></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b><o:p></o:p></b></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0 width=787
+ style='width:590.5pt;mso-cellspacing:3.7pt;margin-left:3.7pt;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-row-margin-right:15.65pt'>
+  <td width=10 style='width:.1in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td width=742 style='width:556.6pt;padding:0in 0in 0in 0in'>
+  <p>Returns maximum extent in Y direction. </p>
+  <p class=MsoNormal><b>Parameters: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'>Input:</span></b><o:p></o:p></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>resolution</em>&nbsp;</p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>resolution of Texture </p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'>Output:<o:p></o:p></span></b></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><em>ymax</em></span>&nbsp;</p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>maximum Y coordinate of original grid </p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b>Returns: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp;<i><span style='mso-bidi-font-size:10.0pt;
+    font-family:"Courier New"'>0</span></i>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Some error</span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp; <em>1</em>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Successful initialization<span style='mso-spacerun:yes'> 
+    </span></span></p>
+    </td>
+   </tr>
+  </table>
+  <p><span style='mso-spacerun:yes'> </span></p>
+  </td>
+  <td style='mso-cell-special:placeholder;border:none;padding:0in 0in 0in 0in'
+  width=21><p class='MsoNormal'>&nbsp;</td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width=777 colspan=3 style='width:583.1pt;background:#F2F2FF;padding:1.5pt 1.5pt 1.5pt 1.5pt'>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+   style='mso-cellspacing:0in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><b><span style='font-size:10.0pt;
+    font-family:"Courier New";color:blue'>int</span></b></span><b><span
+    style='font-size:10.0pt;font-family:"Courier New"'> <span class=SpellE>Get_image_ymin</span></span><o:p></o:p></b></p>
+    </td>
+    <td valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>(&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double</span><o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp; <em>resolution</em></span></b>,<b><span
+    style='color:#602020'><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span>*&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp; <span
+    class=SpellE><em>ymin</em></span><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>)&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td width=600 nowrap valign=top style='width:6.25in;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'><o:p>&nbsp;</o:p></span></b></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b><o:p></o:p></b></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0 width=788
+ style='width:590.8pt;mso-cellspacing:3.7pt;margin-left:3.7pt;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=10 style='width:.1in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td width=763 style='width:572.55pt;padding:0in 0in 0in 0in'>
+  <p>Returns minimum extent in Y direction. </p>
+  <p class=MsoNormal><b>Parameters: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'>Input:</span></b><o:p></o:p></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>resolution</em>&nbsp;</p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>resolution of Texture </p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'>Output:<o:p></o:p></span></b></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><em>ymin</em></span></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>minimum Y coordinate of original grid </p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b>Returns: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp;<i><span style='mso-bidi-font-size:10.0pt;
+    font-family:"Courier New"'>0</span></i>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Some error</span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp; <em>1</em>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Successful initialization<span style='mso-spacerun:yes'> 
+    </span></span></p>
+    </td>
+   </tr>
+  </table>
+  <p><span style='mso-spacerun:yes'> </span></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0 width=803
+ style='width:602.5pt;mso-cellspacing:3.7pt;margin-left:8.2pt;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=793 style='width:595.1pt;background:#F2F2FF;padding:1.5pt 1.5pt 1.5pt 1.5pt'>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+   style='mso-cellspacing:0in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><b><span style='font-size:10.0pt;
+    font-family:"Courier New";color:blue'>int</span></b></span><b><span
+    style='font-size:10.0pt;font-family:"Courier New"'> <span class=SpellE>Get_image_window</span></span><o:p></o:p></b></p>
+    </td>
+    <td valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>(&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span>*<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><i><span style='color:#602020'><span
+    style='mso-spacerun:yes'> </span><span class=SpellE><em>xmin</em></span><em>,</em></span></i><span
+    style='color:#602020'><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span>*&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp;<span class=SpellE><em>xmax</em></span><em>,</em><i><o:p></o:p></i></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span>*<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><i><span style='color:#602020'><span
+    style='mso-spacerun:yes'> </span><span class=SpellE>ymin</span><em>,</em></span></i><span
+    style='color:#602020'><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span>*&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp;<span class=SpellE><em>ymax</em></span><i><o:p></o:p></i></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:4;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>)&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td width=600 nowrap valign=top style='width:6.25in;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'><o:p>&nbsp;</o:p></span></b></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b><o:p></o:p></b></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0 width=863
+ style='width:647.5pt;mso-cellspacing:3.7pt;margin-left:.1in;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-row-margin-right:19.5pt'>
+  <td width=10 style='width:.1in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td width=816 style='width:612.2pt;padding:0in 0in 0in 0in'>
+  <p>Returns extents of active Texture window.</p>
+  <p class=MsoNormal><b>Parameters: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'>Input:</span></b><o:p></o:p></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><em>xmin</em></span></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>minimum X coordinate of active window </p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'><o:p>&nbsp;</o:p></span></b></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><em>xmax</em></span></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>maximum X coordinate of active window</p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><o:p>&nbsp;</o:p></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><em>ymin</em></span></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>minimum Y coordinate of active window </p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><o:p>&nbsp;</o:p></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><em>ymax</em></span></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>maximum Y coordinate of active window</p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b>Returns: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp;<i><span style='mso-bidi-font-size:10.0pt;
+    font-family:"Courier New"'>0</span></i>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Some error</span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp; <em>1</em>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Successful initialization<span style='mso-spacerun:yes'> 
+    </span></span></p>
+    </td>
+   </tr>
+  </table>
+  <p><span style='mso-spacerun:yes'> </span></p>
+  </td>
+  <td style='mso-cell-special:placeholder;border:none;padding:0in 0in 0in 0in'
+  width=26><p class='MsoNormal'>&nbsp;</td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width=853 colspan=3 style='width:640.1pt;background:#F2F2FF;padding:1.5pt 1.5pt 1.5pt 1.5pt'>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+   style='mso-cellspacing:0in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><b><span style='font-size:10.0pt;
+    font-family:"Courier New";color:blue'>int</span></b></span><b><span
+    style='font-size:10.0pt;font-family:"Courier New"'> <span class=SpellE>Get_image_resolution</span></span><o:p></o:p></b></p>
+    </td>
+    <td valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>(&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span></b><b><span style='font-size:10.0pt;font-family:
+    "Courier New"'>*</span><o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp; <em>resolution</em><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>)&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td width=600 nowrap valign=top style='width:6.25in;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'><o:p>&nbsp;</o:p></span></b></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b><o:p></o:p></b></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0 width=847
+ style='width:635.5pt;mso-cellspacing:3.7pt;margin-left:8.2pt;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-row-margin-right:43.65pt'>
+  <td width=10 style='width:.1in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td width=765 style='width:573.6pt;padding:0in 0in 0in 0in'>
+  <p>Returns original resolution of the Texture. </p>
+  <p class=MsoNormal><b>Parameters: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'>Output:<o:p></o:p></span></b></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>resolution</em>&nbsp;</p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>original resolution of Texture </p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b>Returns: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp;<i><span style='mso-bidi-font-size:10.0pt;
+    font-family:"Courier New"'>0</span></i>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Some error</span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp; <em>1</em>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Successful initialization<span style='mso-spacerun:yes'> 
+    </span></span></p>
+    </td>
+   </tr>
+  </table>
+  <p><span style='mso-spacerun:yes'> </span></p>
+  </td>
+  <td style='mso-cell-special:placeholder;border:none;padding:0in 0in 0in 0in'
+  width=58><p class='MsoNormal'>&nbsp;</td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width=837 colspan=3 style='width:628.1pt;background:#F2F2FF;padding:1.5pt 1.5pt 1.5pt 1.5pt'>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+   style='mso-cellspacing:0in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'><span style='mso-spacerun:yes'> </span><span class=SpellE>int</span></span></b><b><span
+    style='font-size:10.0pt;font-family:"Courier New"'> <span class=SpellE>Get_image_nrows</span></span><o:p></o:p></b></p>
+    </td>
+    <td valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>(&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><b><span style='font-size:10.0pt;
+    font-family:"Courier New";color:blue'>int</span></b></span><b><span
+    style='font-size:10.0pt;font-family:"Courier New";color:blue'> </span></b><b><span
+    style='font-size:10.0pt;font-family:"Courier New"'>*</span><o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp; <em>rows</em><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>)&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td width=600 nowrap valign=top style='width:6.25in;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'><o:p>&nbsp;</o:p></span></b></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b><o:p></o:p></b></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0 width=863
+ style='width:647.5pt;mso-cellspacing:3.7pt;margin-left:8.2pt;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=10 style='width:.1in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td width=707 style='width:530.4pt;padding:0in 0in 0in 0in'>
+  <p>Returns number of rows of the original Texture. </p>
+  <p class=MsoNormal><b>Parameters: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'>Output:<o:p></o:p></span></b></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>rows</em>&nbsp;</p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>Number of rows of the original Texture </p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b>Returns: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp;<i><span style='mso-bidi-font-size:10.0pt;
+    font-family:"Courier New"'>0</span></i>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Some error</span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp; <em>1</em>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Successful initialization<span style='mso-spacerun:yes'> 
+    </span></span></p>
+    </td>
+   </tr>
+  </table>
+  <p><span style='mso-spacerun:yes'> </span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0 width=839
+ style='width:629.3pt;mso-cellspacing:3.7pt;margin-left:8.2pt;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-row-margin-right:5.55pt'>
+  <td width=817 colspan=2 style='width:612.65pt;background:#F2F2FF;padding:
+  1.5pt 1.5pt 1.5pt 1.5pt'>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+   style='mso-cellspacing:0in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><b><span style='font-size:10.0pt;
+    font-family:"Courier New";color:blue'>int</span></b></span><b><span
+    style='font-size:10.0pt;font-family:"Courier New"'> <span class=SpellE>Get_image_ncols</span></span><o:p></o:p></b></p>
+    </td>
+    <td valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>(&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><b><span style='font-size:10.0pt;
+    font-family:"Courier New";color:blue'>int</span></b></span><b><span
+    style='font-size:10.0pt;font-family:"Courier New";color:blue'> </span></b><b><span
+    style='font-size:10.0pt;font-family:"Courier New"'>*</span><o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp; <em>columns</em><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>)&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td width=600 nowrap valign=top style='width:6.25in;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'><o:p>&nbsp;</o:p></span></b></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b><o:p></o:p></b></p>
+  </td>
+  <td style='mso-cell-special:placeholder;border:none;padding:0in 0in 0in 0in'
+  width=7><p class='MsoNormal'>&nbsp;</td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width=10 style='width:7.15pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td width=815 colspan=2 style='width:611.05pt;padding:0in 0in 0in 0in'>
+  <p>Returns number of columns of the original Texture. </p>
+  <p class=MsoNormal><b>Parameters: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'>Output:<o:p></o:p></span></b></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>columns</em>&nbsp;</p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>Number of columns of the original Texture </p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b>Returns: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp;<i><span style='mso-bidi-font-size:10.0pt;
+    font-family:"Courier New"'>0</span></i>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Some error</span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp; <em>1</em>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Successful initialization<span style='mso-spacerun:yes'> 
+    </span></span></p>
+    </td>
+   </tr>
+  </table>
+  <p><span style='mso-spacerun:yes'> </span></p>
+  </td>
+ </tr>
+ <![if !supportMisalignedColumns]>
+ <tr height=0>
+  <td width=13 style='border:none'></td>
+  <td width=606 style='border:none'></td>
+  <td width=11 style='border:none'></td>
+ </tr>
+ <![endif]>
+</table>
+
+<p class=MsoNormal><span style='display:none;mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0 width=849
+ style='width:636.55pt;mso-cellspacing:3.7pt;margin-left:6.85pt;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=839 style='width:629.15pt;background:#F2F2FF;padding:1.5pt 1.5pt 1.5pt 1.5pt'>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=837
+   style='width:628.0pt;mso-cellspacing:0in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><b><span style='font-size:10.0pt;
+    font-family:"Courier New";color:blue'>int</span></b></span><b><span
+    style='font-size:10.0pt;font-family:"Courier New"'> <span class=SpellE>Get_image</span></span><o:p></o:p></b></p>
+    </td>
+    <td valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>(&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span><o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><i><span style='color:#602020'><span
+    style='mso-spacerun:yes'> </span><em>resolution,</em></span></i><span
+    style='color:#602020'><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span><o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp;<em>x,</em><i><o:p></o:p></i></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span><o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><i><span style='color:#602020'><span
+    style='mso-spacerun:yes'> </span>y,</span></i><span style='color:#602020'><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>unsigned char </span>*&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp;<em>r</em><i><o:p></o:p></i></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:4'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>unsigned char </span>*&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp;<em>g</em><i><o:p></o:p></i></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:5'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>unsigned char </span>*&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp;<em>b</em><i><o:p></o:p></i></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:6;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>)&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td width=600 nowrap valign=top style='width:6.25in;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'><o:p>&nbsp;</o:p></span></b></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b><o:p></o:p></b></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0 width=877
+ style='width:657.6pt;mso-cellspacing:3.7pt;margin-left:4.5pt;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=10 style='width:.1in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td width=852 style='width:639.35pt;padding:0in 0in 0in 0in'>
+  <p>Returns Red, Green, and Blue intensities at point XY of original Texture,
+  get nearest point if resolution is smaller or greater than original <span
+  class=GramE>Texture .</span></p>
+  <p class=MsoNormal><b>Parameters: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'>Input:</span></b><o:p></o:p></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>resolution</em><o:p></o:p></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>Resolution of the output slope <o:p></o:p></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'><o:p>&nbsp;</o:p></span></b></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>x</em><o:p></o:p></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>X coordinate of point<o:p></o:p></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><o:p>&nbsp;</o:p></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>y</em><o:p></o:p></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>Y coordinate of point<o:p></o:p></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'>Output:</span></b><o:p></o:p></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>r</em><o:p></o:p></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>Red intensity of point</p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:4'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'><o:p>&nbsp;</o:p></span></b></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>g</em><o:p></o:p></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>Green intensity of point<o:p></o:p></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:5;mso-yfti-lastrow:yes'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'><o:p>&nbsp;</o:p></span></b></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>b</em><o:p></o:p></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>Blue intensity of point<o:p></o:p></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b>Returns: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp;<i><span style='mso-bidi-font-size:10.0pt;
+    font-family:"Courier New"'>0</span></i>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Some error</span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp; <em>1</em>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Successful initialization<span style='mso-spacerun:yes'> 
+    </span></span></p>
+    </td>
+   </tr>
+  </table>
+  <p><span style='mso-spacerun:yes'> </span></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0 width=860
+ style='width:645.0pt;mso-cellspacing:3.7pt;margin-left:4.5pt;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=850 style='width:637.6pt;background:#F2F2FF;padding:1.5pt 1.5pt 1.5pt 1.5pt'>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+   style='mso-cellspacing:0in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><b><span style='font-size:10.0pt;
+    font-family:"Courier New";color:blue'>int</span></b></span><b><span
+    style='font-size:10.0pt;font-family:"Courier New"'> <span class=SpellE>Get_image__array</span></span><o:p></o:p></b></p>
+    </td>
+    <td valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>(&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span><o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><i><span style='color:#602020'><span
+    style='mso-spacerun:yes'> </span><em>resolution,</em></span></i><span
+    style='color:#602020'><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span>*<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp;<em>x,</em><i><o:p></o:p></i></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span>*<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><i><span style='color:#602020'><span
+    style='mso-spacerun:yes'> </span>y,</span></i><span style='color:#602020'><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>unsigned char </span>*&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp;<em>r</em><i><o:p></o:p></i></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:4'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>unsigned char </span>*&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp;<em>g</em><i><o:p></o:p></i></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:5'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>unsigned char </span>*&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp;<em>b</em><i><o:p></o:p></i></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:6'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span>*&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp;<span class=SpellE><em>number_of_locations</em></span><i><o:p></o:p></i></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:7;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>)&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td width=600 nowrap valign=top style='width:6.25in;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'><o:p>&nbsp;</o:p></span></b></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b><o:p></o:p></b></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0 width=902
+ style='width:676.35pt;mso-cellspacing:3.7pt;margin-left:-.5pt;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=10 style='width:.1in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p>Returns Red, Green, and Blue intensities at <span class=SpellE>pointsXY</span>
+  of original Texture.</p>
+  <p class=MsoNormal><b>Parameters: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'>Input:</span></b><o:p></o:p></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>resolution</em></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>Resolution of the output slope </p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'><o:p>&nbsp;</o:p></span></b></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>x</em></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>X coordinate of points</p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><o:p>&nbsp;</o:p></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>y</em></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>Y coordinate of points </p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'><o:p>&nbsp;</o:p></span></b></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><em>number_of_locations</em></span></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>number of points </p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:4'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'>Output:</span></b><o:p></o:p></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>r</em><o:p></o:p></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>Red intensity of points<o:p></o:p></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:5'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'><o:p>&nbsp;</o:p></span></b></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>g</em><o:p></o:p></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>Green intensity of points<o:p></o:p></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:6;mso-yfti-lastrow:yes'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'><o:p>&nbsp;</o:p></span></b></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>b</em><o:p></o:p></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>Blue intensity of points<o:p></o:p></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b>Returns: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp;<i><span style='mso-bidi-font-size:10.0pt;
+    font-family:"Courier New"'>0</span></i>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Some error</span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp; <em>1</em>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Successful initialization<span style='mso-spacerun:yes'> 
+    </span></span></p>
+    </td>
+   </tr>
+  </table>
+  <p><span style='mso-spacerun:yes'> </span></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0 width=1059
+ style='width:794.6pt;mso-cellspacing:3.7pt;margin-left:-.35pt;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=857 style='width:643.0pt;background:#F2F2FF;padding:1.5pt 1.5pt 1.5pt 1.5pt'>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+   style='mso-cellspacing:0in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><b><span style='font-size:10.0pt;
+    font-family:"Courier New";color:blue'>int</span></b></span><b><span
+    style='font-size:10.0pt;font-family:"Courier New"'> <span class=SpellE>Get_image_grid</span></span><o:p></o:p></b></p>
+    </td>
+    <td valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>(&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span><o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><i><span style='color:#602020'><span
+    style='mso-spacerun:yes'> </span><em>resolution,</em></span></i><span
+    style='color:#602020'><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span>*<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><i><span style='color:#602020'><span
+    style='mso-spacerun:yes'> </span><span class=SpellE><em>xmin</em></span><em>,</em></span></i><span
+    style='color:#602020'><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span>*&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp;<span class=SpellE><em>xmax</em></span><em>,</em><i><o:p></o:p></i></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap valign=top style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span>*<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><i><span style='color:#602020'><span
+    style='mso-spacerun:yes'> </span><span class=SpellE>ymin</span><em>,</em></span></i><span
+    style='color:#602020'><o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:4'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>double </span>*&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp;<span class=SpellE><em>ymax</em></span><em>,</em><i><o:p></o:p></i></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:5'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>unsigned char </span>*&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp;<em>r</em><i><o:p></o:p></i></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:6'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>unsigned char </span>*&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp;<em>g</em><i><o:p></o:p></i></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:7'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Courier New";
+    color:blue'>unsigned char </span>*&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td width=600 nowrap style='width:6.25in;background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'>&nbsp;<em>b</em><i><o:p></o:p></i></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:8;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+    </td>
+    <td style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b>)&nbsp;<o:p></o:p></b></p>
+    </td>
+    <td nowrap style='background:#F2F2FF;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+    </td>
+    <td width=600 nowrap valign=top style='width:6.25in;padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><b><span style='color:#602020'><o:p>&nbsp;</o:p></span></b></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b><o:p></o:p></b></p>
+  </td>
+  <td width=103 style='width:77.1pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0 width=873
+ style='width:655.05pt;mso-cellspacing:3.7pt;margin-left:-.35pt;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td width=10 style='width:7.8pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+  <td width=848 style='width:636.15pt;padding:0in 0in 0in 0in'>
+  <p>Returns category ids at points XY inside the window of original Texture.</p>
+  <p class=MsoNormal><b>Parameters: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'>Input:</span></b><o:p></o:p></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>resolution</em></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>Resolution of the output curvature </p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'><o:p>&nbsp;</o:p></span></b></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><em>xmin</em></span></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>minimum X coordinate of window </p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><o:p>&nbsp;</o:p></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><em>xmax</em></span></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>maximum X coordinate of window</p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'><o:p>&nbsp;</o:p></span></b></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><em>ymin</em></span></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>minimum Y coordinate of window </p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:4'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><o:p>&nbsp;</o:p></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span class=SpellE><em>ymax</em></span></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>maximum Y coordinate of window</p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:5'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'>Output:</span></b><o:p></o:p></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>r</em><o:p></o:p></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>Red intensity of points<o:p></o:p></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:6'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'><o:p>&nbsp;</o:p></span></b></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>g</em><o:p></o:p></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>Green intensity of points<o:p></o:p></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:7;mso-yfti-lastrow:yes'>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em><b><span style='font-style:normal'><o:p>&nbsp;</o:p></span></b></em></p>
+    </td>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><em>b</em><o:p></o:p></p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>Blue intensity of points<o:p></o:p></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><b>Returns: </b></p>
+  <table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:
+   1.5pt;margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+   <tr style='mso-yfti-irow:0'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp;<i><span style='mso-bidi-font-size:10.0pt;
+    font-family:"Courier New"'>0</span></i>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Some error</span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal>&nbsp; <em>1</em>, </p>
+    </td>
+    <td style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;mso-bidi-font-family:
+    "Courier New"'>Successful initialization<span style='mso-spacerun:yes'> 
+    </span></span></p>
+    </td>
+   </tr>
+  </table>
+  <p><span style='mso-spacerun:yes'> </span></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='display:none;
+mso-hide:all'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+style='mso-bidi-font-size:13.0pt;mso-fareast-font-family:"Courier New";
+color:black'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name=TextureFileFormat><b><span style='mso-bidi-font-size:13.0pt;mso-fareast-font-family:
+"Courier New";color:black'>Texture File Format<o:p></o:p></span></b></a></p>
+
+<span style='mso-bookmark:TextureFileFormat'></span>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+style='mso-bidi-font-size:13.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span></span></b><span
+style='mso-bidi-font-size:13.0pt;mso-fareast-font-family:"Courier New";
+color:black'>Texture is loaded from three files, the header file, the data
+file, and the colors file. The format of the files is similar to GRASS format.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-27.0pt;margin-bottom:
+0in;margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-bidi-font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:
+Symbol;mso-bidi-font-family:Symbol;color:black'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='mso-bidi-font-size:
+13.0pt;mso-fareast-font-family:"Courier New";color:black'>Header file:</span></span><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span>Is a text
+(ASCII) file located in <span class=SpellE><i>cellhd</i></span> directory, with
+the <span class=GramE>format:</span><o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:1.5pt;
+ margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0'>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><o:p>&nbsp;</o:p></em></p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><b>Notes:<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td valign=top style='border-top:solid windowtext 1.0pt;border-left:solid windowtext 1.0pt;
+  border-bottom:none;border-right:none;mso-border-top-alt:solid windowtext .5pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span class=SpellE><em><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:"Courier New";mso-bidi-font-family:
+  "Times New Roman";font-style:normal'>proj</span></em></span><em><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+  mso-bidi-font-family:"Times New Roman";font-style:normal'>:</span></em><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+  mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='border-top:solid windowtext 1.0pt;border-left:none;border-bottom:
+  none;border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt;
+  mso-border-right-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>&lt;projection
+  identification code&gt;<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>API does not check this code.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td valign=top style='border:none;border-left:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>zone:</span></em><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='border:none;border-right:solid windowtext 1.0pt;mso-border-right-alt:
+  solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>&lt;UTM
+  zone number&gt; <o:p></o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>API does not check this code.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td valign=top style='border:none;border-left:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>north:</span></em><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='border:none;border-right:solid windowtext 1.0pt;mso-border-right-alt:
+  solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>&lt;maximum
+  Y coordinate&gt;<o:p></o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td valign=top style='border:none;border-left:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>south:</span></em><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='border:none;border-right:solid windowtext 1.0pt;mso-border-right-alt:
+  solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>&lt;minimum
+  Y coordinate&gt;<o:p></o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td valign=top style='border:none;border-left:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>east:</span></em><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='border:none;border-right:solid windowtext 1.0pt;mso-border-right-alt:
+  solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>&lt;maximum
+  X coordinate&gt;<o:p></o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6'>
+  <td valign=top style='border:none;border-left:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>west:</span></em><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='border:none;border-right:solid windowtext 1.0pt;mso-border-right-alt:
+  solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>&lt;minimum
+  Y coordinate&gt;<o:p></o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7'>
+  <td valign=top style='border:none;border-left:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>cols:</span></em><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='border:none;border-right:solid windowtext 1.0pt;mso-border-right-alt:
+  solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>&lt;number
+  of columns&gt; <o:p></o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8'>
+  <td valign=top style='border:none;border-left:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>rows:</span></em><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='border:none;border-right:solid windowtext 1.0pt;mso-border-right-alt:
+  solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>&lt;number
+  of rows&gt;<o:p></o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:9'>
+  <td valign=top style='border:none;border-left:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>e-w <span class=SpellE>resol</span>:</span></em><em><span
+  style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+  font-style:normal'><o:p></o:p></span></em></p>
+  </td>
+  <td style='border:none;border-right:solid windowtext 1.0pt;mso-border-right-alt:
+  solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>&lt;resolution
+  of a cell in X-direction&gt;<o:p></o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>e-w and n-s must be equal</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:10'>
+  <td valign=top style='border:none;border-left:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>n-s <span class=SpellE>resol</span>:</span></em><em><span
+  style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+  font-style:normal'><o:p></o:p></span></em></p>
+  </td>
+  <td style='border:none;border-right:solid windowtext 1.0pt;mso-border-right-alt:
+  solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>&lt;resolution
+  of a cell in Y-direction&gt;<o:p></o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:11'>
+  <td valign=top style='border:none;border-left:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>format:</span></em><em><span style='font-family:"Courier New";
+  mso-bidi-font-family:"Times New Roman";font-style:normal'><o:p></o:p></span></em></p>
+  </td>
+  <td style='border:none;border-right:solid windowtext 1.0pt;mso-border-right-alt:
+  solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>0<o:p></o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Indicates byte value at the cell</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:12;mso-yfti-lastrow:yes'>
+  <td valign=top style='border-top:none;border-left:solid windowtext 1.0pt;
+  border-bottom:solid windowtext 1.0pt;border-right:none;mso-border-left-alt:
+  solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;padding:
+  0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>compressed:</span></em><em><span style='font-family:"Courier New";
+  mso-bidi-font-family:"Times New Roman";font-style:normal'><o:p></o:p></span></em></p>
+  </td>
+  <td style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-bottom-alt:solid windowtext .5pt;
+  mso-border-right-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>&lt;compression
+  flag&gt;<o:p></o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>0 &#8211; uncompressed; 1 - compressed</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-27.0pt;margin-bottom:
+0in;margin-left:.25in;margin-bottom:.0001pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-27.0pt;margin-bottom:
+0in;margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-bidi-font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:
+Symbol;mso-bidi-font-family:Symbol;color:black'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='mso-bidi-font-size:
+13.0pt;mso-fareast-font-family:"Courier New";color:black'>Data file:</span></span><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span>Is a binary
+file located in <i>cell</i> directory, with the number of rows <span
+class=GramE>times</span> number of columns byte values. The data sequence is
+west to east (left to right), north to south (top to bottom). Byte values are
+indices to color table stored in Colors file.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-27.0pt;margin-bottom:
+0in;margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-bidi-font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:
+Symbol;mso-bidi-font-family:Symbol;color:black'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='mso-bidi-font-size:
+13.0pt;mso-fareast-font-family:"Courier New";color:black'>Colors file:</span></span><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span>Is a text
+(ASCII) file located in <i>colr</i> directory, with the <span class=GramE>format:</span><o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:1.5pt;
+ margin-left:.5in;mso-padding-alt:0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0'>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><o:p>&nbsp;</o:p></em></p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><b>Notes:<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td valign=top style='border-top:solid windowtext 1.0pt;border-left:solid windowtext 1.0pt;
+  border-bottom:none;border-right:none;mso-border-top-alt:solid windowtext .5pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>% &lt;first color id&gt; &lt;last color id&gt;</span></em><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+  mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='border-top:solid windowtext 1.0pt;border-left:none;border-bottom:
+  none;border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt;
+  mso-border-right-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td valign=top style='border:none;border-left:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>0:&lt;r0&gt;:&lt;g0&gt;:&lt;b0&gt;</span></em><span style='font-size:
+  10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";mso-bidi-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='border:none;border-right:solid windowtext 1.0pt;mso-border-right-alt:
+  solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>R, G, and B for color 0</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td valign=top style='border:none;border-left:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>1:&lt;r1&gt;:&lt;g1&gt;:&lt;b1&gt;</span></em><span style='font-size:
+  10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";mso-bidi-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='border:none;border-right:solid windowtext 1.0pt;mso-border-right-alt:
+  solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>R, G, and B for color 1</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td valign=top style='border:none;border-left:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>2:&lt;r2&gt;:&lt;g2&gt;:&lt;b2&gt;</span></em><span style='font-size:
+  10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";mso-bidi-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='border:none;border-right:solid windowtext 1.0pt;mso-border-right-alt:
+  solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>R, G, and B for color 2</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td valign=top style='border:none;border-left:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>3:&lt;r3&gt;:&lt;g3&gt;:&lt;b3&gt;</span></em><span style='font-size:
+  10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";mso-bidi-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='border:none;border-right:solid windowtext 1.0pt;mso-border-right-alt:
+  solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>R, G, and B for color 3</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6'>
+  <td valign=top style='border:none;border-left:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>4:&lt;r4&gt;:&lt;g4&gt;:&lt;b4&gt;</span></em><span style='font-size:
+  10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";mso-bidi-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='border:none;border-right:solid windowtext 1.0pt;mso-border-right-alt:
+  solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>R, G, and B for color 4</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7'>
+  <td valign=top style='border:none;border-left:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>&#8230;..</span></em><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='border:none;border-right:solid windowtext 1.0pt;mso-border-right-alt:
+  solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8'>
+  <td valign=top style='border:none;border-left:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>&#8230;..</span></em><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='border:none;border-right:solid windowtext 1.0pt;mso-border-right-alt:
+  solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:9;mso-yfti-lastrow:yes'>
+  <td valign=top style='border-top:none;border-left:solid windowtext 1.0pt;
+  border-bottom:solid windowtext 1.0pt;border-right:none;mso-border-left-alt:
+  solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;padding:
+  0in 0in 0in 0in'>
+  <p class=MsoNormal><em><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman";font-style:
+  normal'>&lt;last color id&gt;:&lt;r&gt;:&lt;g&gt;:&lt;b&gt;</span></em><em><span
+  style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+  font-style:normal'><o:p></o:p></span></em></p>
+  </td>
+  <td style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-bottom-alt:solid windowtext .5pt;
+  mso-border-right-alt:solid windowtext .5pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td valign=top style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>R, G, and B for last color</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+style='mso-bidi-font-size:13.0pt;mso-fareast-font-family:"Courier New";
+color:black'>Usage Notes<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+style='mso-bidi-font-size:13.0pt;mso-fareast-font-family:"Courier New";
+color:black'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-27.0pt;margin-bottom:
+0in;margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-bidi-font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:
+Symbol;mso-bidi-font-family:Symbol;color:black'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='mso-bidi-font-size:
+13.0pt;mso-fareast-font-family:"Courier New";color:black'>Memory management:</span></span><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span>All space is
+managed by calling functions and must allocate and <span class=SpellE>deallocate</span>
+memory. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-27.0pt;margin-bottom:
+0in;margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-bidi-font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:
+Symbol;mso-bidi-font-family:Symbol;color:black'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='mso-bidi-font-size:
+13.0pt;mso-fareast-font-family:"Courier New";color:black'>X and Y extents:</span></span><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span>X and Y
+maximum and minimum coordinates does not refer to a grid cell center but to the
+extremes of the cell.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span>The difference
+between X maximum and X minimum will always be equal to the number of columns
+multiplied by the resolution. The same applies to Y direction and the number of
+rows.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span>Therefore
+number of rows and columns are given by:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:149.7pt;mso-para-margin-left:16.04gd;
+tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+class=SpellE><span class=GramE><span style='font-size:10.0pt;color:black'>ncols</span></span></span><span
+style='font-size:10.0pt;color:black'> = (<span class=SpellE>ymax-ymin</span>) /
+<span class=SpellE>res</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:149.7pt;mso-para-margin-left:16.04gd;
+tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+class=SpellE><span class=GramE><span style='font-size:10.0pt;color:black'>nrows</span></span></span><span
+style='font-size:10.0pt;color:black'> =(<span class=SpellE>xmax-xmin</span>) / <span
+class=SpellE>res</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:149.7pt;mso-para-margin-left:16.04gd;
+tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-27.0pt;margin-bottom:
+0in;margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-bidi-font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:
+Symbol;mso-bidi-font-family:Symbol;color:black'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='mso-bidi-font-size:
+13.0pt;mso-fareast-font-family:"Courier New";color:black'>Grid row and column
+coordinates and XY coordinates:</span></span><span style='mso-bidi-font-size:
+10.0pt;mso-fareast-font-family:"Courier New";color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span>The grid cell
+at row zero and column zero has coordinates <span class=SpellE>Xmin</span> and <span
+class=SpellE>Ymax</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span>The grid cell
+at row <i>nrows-1</i> and column <i>ncols-1</i> has coordinates <span
+class=SpellE>Xmax</span> and <span class=SpellE>Ymin</span>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:-27.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-27.0pt;margin-bottom:
+0in;margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-bidi-font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:
+Symbol;mso-bidi-font-family:Symbol;color:black'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><span style='mso-bidi-font-size:
+13.0pt;mso-fareast-font-family:"Courier New";color:black'>Required source
+files:</span></span><span style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:
+"Courier New";color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span><span
+class=SpellE><span class=GramE>GisApi.h</span></span><span class=GramE> :</span>
+The API include file<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span><span
+class=SpellE>GisApi.C</span>: Implementation of the API functions<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span><span
+class=SpellE>GisAscFile.C</span>; <span class=SpellE>GisAscFile.h</span>:
+Auxiliary to API, <span class=GramE>handle</span> ASCII format files<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span><span
+class=SpellE>GisBinFile.C</span>; <span class=SpellE>GisBinFile.h</span>:
+Auxiliary to API, <span class=GramE>handle</span> binary format files<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span><span
+class=SpellE>GisRasterHdr.C</span>; <span class=SpellE>GisRasterHdr.h</span>:
+Auxiliary to API, <span class=GramE>handle</span> header files</span><span
+style='font-size:10.0pt;mso-fareast-font-family:"Courier New";mso-bidi-font-family:
+"Courier New";color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span><span
+class=SpellE>GisColors.C</span>; <span class=SpellE>GisColors.h</span>:
+Auxiliary to API, handle categories files<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bidi-font-size:10.0pt;mso-fareast-font-family:"Courier New";
+color:black'><span style='mso-tab-count:1'>               </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>

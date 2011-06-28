@@ -1,0 +1,43 @@
+\hypertarget{flux__srcs_8h}{
+\section{flux\_\-srcs.h File Reference}
+\label{flux__srcs_8h}\index{flux_srcs.h@{flux\_\-srcs.h}}
+}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{flux__srcs_8h_a0}{mark\_\-flux\_\-region} (\hyperlink{classHashTable}{Hash\-Table} $\ast$Elm\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structFluxProps}{Flux\-Props} $\ast$fluxprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops)
+\begin{CompactList}\small\item\em this fuction flags cells with active and passive flux sources (not to be confuesed with inter-cell numerical flux). It is initally called along with init\_\-piles, then it is called everytime after adaptation is triggered by a begining of a flux-source. \item\end{CompactList}\item 
+void \hyperlink{flux__srcs_8h_a1}{adapt\_\-fluxsrc\_\-region} (\hyperlink{classHashTable}{Hash\-Table} $\ast$Elem\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops, \hyperlink{structPileProps}{Pile\-Props} $\ast$pileprops, \hyperlink{structFluxProps}{Flux\-Props} $\ast$fluxprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops, double dt, int myid, int adaptflag)
+\begin{CompactList}\small\item\em this function triggers refinement when a flux sources starts adding material. TODO currently this is crudely implemented. Needs improvement, keith's idea of using binary flag is a good idea. \item\end{CompactList}\item 
+double \hyperlink{flux__srcs_8h_a2}{calc\_\-flux} (\hyperlink{classElement}{Element} $\ast$Em\-Temp, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structFluxProps}{Flux\-Props} $\ast$fluxprops, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops)
+\begin{CompactList}\small\item\em this fuction calculates the flux contribution of the current cell based on its position relative to the source center and outflow-profie. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{flux__srcs_8h_a1}{
+\index{flux_srcs.h@{flux\_\-srcs.h}!adapt_fluxsrc_region@{adapt\_\-fluxsrc\_\-region}}
+\index{adapt_fluxsrc_region@{adapt\_\-fluxsrc\_\-region}!flux_srcs.h@{flux\_\-srcs.h}}
+\subsubsection[adapt\_\-fluxsrc\_\-region]{\setlength{\rightskip}{0pt plus 5cm}void adapt\_\-fluxsrc\_\-region (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Elem\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structPileProps}{Pile\-Props} $\ast$ {\em pileprops}, \hyperlink{structFluxProps}{Flux\-Props} $\ast$ {\em fluxprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops}, double {\em dt}, int {\em myid}, int {\em adaptflag})}}
+\label{flux__srcs_8h_a1}
+
+
+this function triggers refinement when a flux sources starts adding material. TODO currently this is crudely implemented. Needs improvement, keith's idea of using binary flag is a good idea. 
+
+\hypertarget{flux__srcs_8h_a2}{
+\index{flux_srcs.h@{flux\_\-srcs.h}!calc_flux@{calc\_\-flux}}
+\index{calc_flux@{calc\_\-flux}!flux_srcs.h@{flux\_\-srcs.h}}
+\subsubsection[calc\_\-flux]{\setlength{\rightskip}{0pt plus 5cm}double calc\_\-flux (\hyperlink{classElement}{Element} $\ast$ {\em Em\-Temp}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structFluxProps}{Flux\-Props} $\ast$ {\em fluxprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops})}}
+\label{flux__srcs_8h_a2}
+
+
+this fuction calculates the flux contribution of the current cell based on its position relative to the source center and outflow-profie. 
+
+\hypertarget{flux__srcs_8h_a0}{
+\index{flux_srcs.h@{flux\_\-srcs.h}!mark_flux_region@{mark\_\-flux\_\-region}}
+\index{mark_flux_region@{mark\_\-flux\_\-region}!flux_srcs.h@{flux\_\-srcs.h}}
+\subsubsection[mark\_\-flux\_\-region]{\setlength{\rightskip}{0pt plus 5cm}void mark\_\-flux\_\-region (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Elm\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops}, \hyperlink{structFluxProps}{Flux\-Props} $\ast$ {\em fluxprops}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops})}}
+\label{flux__srcs_8h_a0}
+
+
+this fuction flags cells with active and passive flux sources (not to be confuesed with inter-cell numerical flux). It is initally called along with init\_\-piles, then it is called everytime after adaptation is triggered by a begining of a flux-source. 
+

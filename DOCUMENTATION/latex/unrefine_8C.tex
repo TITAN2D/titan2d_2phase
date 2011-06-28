@@ -1,0 +1,75 @@
+\hypertarget{unrefine_8C}{
+\section{unrefine.C File Reference}
+\label{unrefine_8C}\index{unrefine.C@{unrefine.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{unrefine_8C_a0}{TARGET\_\-PROC}\ -1
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int \hyperlink{unrefine_8C_a1}{If\-Missing\-Elem} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, int myid, int iter, int isearch)
+\begin{CompactList}\small\item\em only used in debugging \item\end{CompactList}\item 
+void \hyperlink{unrefine_8C_a2}{unrefine} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, double target, int myid, int nump, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr)
+\begin{CompactList}\small\item\em this function loops through all the elements on this processor and (by calling other functions) checks which elements satisfy criteria for being okay to unrefine, if they can be it unrefines them. \item\end{CompactList}\item 
+void \hyperlink{unrefine_8C_a3}{delete\_\-oldsons} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid, void $\ast$Em\-Father\_\-in)
+\item 
+void \hyperlink{unrefine_8C_a4}{unrefine\_\-neigh\_\-update} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int myid, void $\ast$NFL)
+\item 
+void \hyperlink{unrefine_8C_a5}{unrefine\_\-interp\_\-neigh\_\-update} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, int nump, int myid, void $\ast$OPU)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{unrefine_8C_a0}{
+\index{unrefine.C@{unrefine.C}!TARGET_PROC@{TARGET\_\-PROC}}
+\index{TARGET_PROC@{TARGET\_\-PROC}!unrefine.C@{unrefine.C}}
+\subsubsection[TARGET\_\-PROC]{\setlength{\rightskip}{0pt plus 5cm}\#define TARGET\_\-PROC\ -1}}
+\label{unrefine_8C_a0}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{unrefine_8C_a3}{
+\index{unrefine.C@{unrefine.C}!delete_oldsons@{delete\_\-oldsons}}
+\index{delete_oldsons@{delete\_\-oldsons}!unrefine.C@{unrefine.C}}
+\subsubsection[delete\_\-oldsons]{\setlength{\rightskip}{0pt plus 5cm}void delete\_\-oldsons (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, void $\ast$ {\em Em\-Father\_\-in})}}
+\label{unrefine_8C_a3}
+
+
+\hypertarget{unrefine_8C_a1}{
+\index{unrefine.C@{unrefine.C}!IfMissingElem@{IfMissingElem}}
+\index{IfMissingElem@{IfMissingElem}!unrefine.C@{unrefine.C}}
+\subsubsection[IfMissingElem]{\setlength{\rightskip}{0pt plus 5cm}int If\-Missing\-Elem (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, int {\em myid}, int {\em iter}, int {\em isearch})}}
+\label{unrefine_8C_a1}
+
+
+only used in debugging 
+
+\hypertarget{unrefine_8C_a2}{
+\index{unrefine.C@{unrefine.C}!unrefine@{unrefine}}
+\index{unrefine@{unrefine}!unrefine.C@{unrefine.C}}
+\subsubsection[unrefine]{\setlength{\rightskip}{0pt plus 5cm}void unrefine (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, double {\em target}, int {\em myid}, int {\em nump}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr})}}
+\label{unrefine_8C_a2}
+
+
+this function loops through all the elements on this processor and (by calling other functions) checks which elements satisfy criteria for being okay to unrefine, if they can be it unrefines them. 
+
+\hypertarget{unrefine_8C_a5}{
+\index{unrefine.C@{unrefine.C}!unrefine_interp_neigh_update@{unrefine\_\-interp\_\-neigh\_\-update}}
+\index{unrefine_interp_neigh_update@{unrefine\_\-interp\_\-neigh\_\-update}!unrefine.C@{unrefine.C}}
+\subsubsection[unrefine\_\-interp\_\-neigh\_\-update]{\setlength{\rightskip}{0pt plus 5cm}void unrefine\_\-interp\_\-neigh\_\-update (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em nump}, int {\em myid}, void $\ast$ {\em OPU})}}
+\label{unrefine_8C_a5}
+
+
+\hypertarget{unrefine_8C_a4}{
+\index{unrefine.C@{unrefine.C}!unrefine_neigh_update@{unrefine\_\-neigh\_\-update}}
+\index{unrefine_neigh_update@{unrefine\_\-neigh\_\-update}!unrefine.C@{unrefine.C}}
+\subsubsection[unrefine\_\-neigh\_\-update]{\setlength{\rightskip}{0pt plus 5cm}void unrefine\_\-neigh\_\-update (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, int {\em myid}, void $\ast$ {\em NFL})}}
+\label{unrefine_8C_a4}
+
+

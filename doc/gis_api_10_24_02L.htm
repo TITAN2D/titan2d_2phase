@@ -1,0 +1,377 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta name="Generator" content="KWord HTML Export Filter Version = 2.35.2.1">
+   <meta name="GENERATOR" content="Mozilla/4.78 [en] (X11; U; Linux 2.4.9-34 i686) [Netscape]">
+   <title>gis_api_10_24_02L.htm</title>
+</head>
+<body bgcolor="#FFFFFF">
+<font face="times"><font color="#FF0000"><font size=-1>SELECTION
+OF DATA</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1>int ierror Initialize_GIS_data(
+char* GISDbase, char* location, char* mapset, char* file_level); //Select
+a file from a mapset at location in database</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1>int ierror Delete_GIS_data(
+); //Clears all GIS_data: close open file, removes temporary storage</font></font></font>
+<p><font face="times"><font color="#000000"> </font></font>
+<p><font face="times"><font color="#FF0000"><font size=-1>BASIC INFORMATION
+RECOVERY</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1>int ierror Get_xmax(double
+resolution, double* xmax); //Return maximum extents of original grid in
+X direction</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1>int ierror Get_xmin(double
+resolution, double* xmin); //Return minimum extents of original grid in
+X direction</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1>int ierror Get_ymax(double
+resolution, double* ymax); //Return maximum extents of original grid in
+Y direction</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1>int ierror Get_ymin(double
+resolution, double* ymin); //Return minimum extents of original grid in
+Y direction</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1><i>int ierror
+Get_elev_min(double resolution, double* elevmax);</i> //Return minimum
+elevation of original grid</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1>int ierror Get_elev_max(double
+resolution, double* elevmax); //Return maximum elevation of original grid</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1><i>int ierror
+Get_window(double* xmin, double* xmax, double* ymin, double* ymax);</i>
+//Return extents of original grid</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1><i>int ierror
+Get_max_resolution(double* resolution);</i> //Return original resolution
+of grid</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1><i>int ierror
+Get_number_of_rows(int *rows); </i>//Return number of rows of original
+grid</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1><i>int ierror
+Get_number_of_columns(int *rows); </i>//Return number of columns of original
+grid</font></font></font>
+<p><font face="helvetica"><font color="#000000"> </font></font>
+<p><font face="times"><font color="#FF0000"><font size=-1>GETTING VALUES
+FOR SINGLE POINTS</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1>int ierror Get_elevation(double
+resolution, double x, double y, double* elev); //Return elevation at given
+XYpoint of original grid</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1>int ierror Get_slope(double
+resolution, double x, double y, double* xslope, double* yslope); //Return
+slope at given XYpoint of original grid, in X and Y directions</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1>int ierror Get_curvature(double
+resolution, double x, double y, double* xcurv, double* ycurv); //Return
+curvature at given XYpoint of original grid, in X and Y directions</font></font></font>
+<p><font face="times"><font color="#000000"> </font></font>
+<p><font face="times"><font color="#FF0000"><font size=-1>GETTING VALUES
+FOR MULTIPLE POINTS</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1>int ierror Get_elevation_array(double*
+resolution, double* x, double* y, double* elev, int number_of_locations);
+//Return elevations at given XYpoints of original grid</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1>int ierror Get_slope_array(double*
+resolution, double* x, double* y, double* xslope, double* yslope, int number_of_locations);
+//Return slopes at given XYpoints of original grid</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1>int ierror Get_curvature_array(double*
+resolution, double* x, double* y, double* xcurv, double* ycurv, int number_of_locations);
+//Return curvatures at given XYpoints of original grid</font></font></font>
+<p><font face="times"><font color="#000000"> </font></font>
+<p><font face="times"><font color="#000000"><font size=-1><i>int ierror
+Get_elevation_grid(double resolution, double xmin, double xmax, double
+ymin, double ymax, double* elev); </i>//Return elevations at XYpoints of
+given grid</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1><i>int ierror
+Get_slope_grid(double resolution, double xmin, double xmax, double ymin,
+double ymax, double* xslope, double* xslope); </i>//Return slopes at XYpoints
+of given grid</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1><i>int ierror
+Get_curvature_grid(double resolution, double xmin, double xmax, double
+ymin, double ymax, double* xcurv, double* xcurv); </i>//Return curvatures
+at XYpoints of given grid</font></font></font>
+<p><font face="times"><font color="#FF0000"><font size=-1>error codes:</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1>0 - everything
+okay</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1>-1 - resolution
+finer than available information</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1>-2 - requested
+(x,y) location is not in the data set</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1>-3 - memory problem</font></font></font>
+<p><font face="times"><font color="#000000"><font size=-1>-4 - something
+else wrong</font></font></font>
+<p><font face="times"><font color="#FF0000">NOTE: all space will be allocated
+by calling functions</font></font>
+<p><font face="times"><font color="#FF0000">number_of_locations = length
+of arrays</font></font>
+<br><font face="times"><font color="#000000">ncols=(ymax-ymin)/res</font></font>
+<br><font face="times"><font color="#000000">nrows=(xmax-xmin)/res)</font></font>
+<table BORDER=0 WIDTH="300" >
+<caption><tbody>
+<br></tbody></caption>
+
+<tr>
+<td VALIGN=TOP></td>
+
+<td VALIGN=TOP></td>
+
+<td VALIGN=TOP></td>
+
+<td VALIGN=TOP></td>
+
+<td VALIGN=TOP></td>
+
+<td VALIGN=TOP></td>
+
+<td VALIGN=TOP>xmax,ymax</td>
+</tr>
+
+<tr>
+<td VALIGN=TOP></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier"><font color="#000000">grid[0][0]</font></font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier"><font color="#000000">grid[0][1]</font></font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier">...................</font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier"><font color="#000000">grid[0][ncols-2]</font></font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier"><font color="#000000">grid[0][ncols-1]&nbsp;</font></font></td>
+
+<td VALIGN=TOP></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier"><font color="#000000">grid[1][0]</font></font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier"><font color="#000000">grid[1][1]</font></font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier">...................</font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier"><font color="#000000">grid[1][ncols-2]</font></font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier"><font color="#000000">grid[1][ncols-1]</font></font></td>
+
+<td VALIGN=TOP></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier">....................</font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier">....................</font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier">...................</font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier">......................</font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier">......................</font></td>
+
+<td VALIGN=TOP></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier"><font color="#000000">grid[nrows-2][0]</font></font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier"><font color="#000000">grid[nrows-2][1]</font></font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier">...................</font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier"><font color="#000000">grid[nrows-2][ncols-2]</font></font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier"><font color="#000000">grid[nrows-2][ncols-1]</font></font></td>
+
+<td VALIGN=TOP></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier"><font color="#000000">grid[nrows-1][0]</font></font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier"><font color="#000000">grid[nrows-1][1]</font></font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier">...................</font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier"><font color="#000000">grid[nrows-1][ncols-2]</font></font></td>
+
+<td VALIGN=TOP BGCOLOR="#CCCCCC"><font face="Courier New,Courier"><font color="#000000">grid[nrows-1][ncols-1]</font></font></td>
+
+<td VALIGN=TOP></td>
+</tr>
+
+<tr>
+<td VALIGN=TOP><font face="Courier New,Courier">xmin,ymin</font></td>
+
+<td VALIGN=TOP></td>
+
+<td VALIGN=TOP></td>
+
+<td VALIGN=TOP></td>
+
+<td VALIGN=TOP></td>
+
+<td VALIGN=TOP></td>
+
+<td VALIGN=TOP></td>
+</tr>
+</table>
+
+<p>How to read elevation grid - Example:
+<p><font face="helvetica"><font color="#000000"><font size=-1>#include
+"GrassApi.h"</font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>{</font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>    char
+GISDbase[ ]="/data/grass.data/";</font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>    char
+location[ ]="Colima";</font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>    char
+mapset[ ]="ColimaR";</font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>    char
+mapfile[ ]="ColimaR";</font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>    int
+i, row,col,nrows,ncols;</font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>    double
+res,xmin,xmax,ymin,ymax;</font></font></font>
+<p><font face="helvetica"><font color="#000000"><font size=-1>    Initialize_GIS_data(
+char* GISDbase, char* location, char* mapset, char* mapfile);</font></font></font>
+<p><font face="helvetica"><font size=-1>    Get_max_resolution (&amp;res);</font></font>
+<br><font face="helvetica"><font size=-1>    Get_xmax (res, &amp;xmax);</font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>    Get_xmin
+(res, &amp;xmin);</font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>    Get_ymax
+(res, &amp;ymax);</font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>    Get_ymin
+(res, &amp;ymin);</font></font></font>
+<p><font face="helvetica"><font color="#000000"><font size=-1>    nrows
+= (xmax - xmin) / res;</font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>    ncols
+= (ymax - ymin) / res;</font></font></font>
+<p><font face="helvetica"><font color="#000000"><font size=-1>    grid
+= (double*)calloc( nrows * ncols, sizeof(double) ); </font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>    if
+( grid )</font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>    {</font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>       
+Get_elevation_grid( res, xmin, xmax, ymin, ymax, grid );</font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>       
+i = 0;</font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>       
+for ( row = 0; row &lt; nrows; row++ )</font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>       
+    for ( col = 0; col &lt; ncols; col++ )</font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>       
+        fprintf (stdout, "%8.4f ", grid[i++] );</font></font></font>
+<p><font face="helvetica"><font color="#000000"><font size=-1>       
+Delete_GIS_data( );</font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>      
+ free (grid);</font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>   }</font></font></font>
+<br><font face="helvetica"><font color="#000000"><font size=-1>}</font></font></font>
+<p>The Makefile to build this would be:
+<p><font face="Arial,Helvetica"><font size=-1>SHELL = /bin/sh</font></font>
+<p><font face="Arial,Helvetica"><font size=-1>libgrasslibdir = /home/gsinha/libgrass/libgrass5-1.0.0/gis</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>libgrassincdir = /home/gsinha/libgrass/libgrass5-1.0.0/gis</font></font>
+<p><font face="Arial,Helvetica"><font size=-1>top_builddir = ..</font></font>
+<p><font face="Arial,Helvetica"><font size=-1>CC = gcc</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>LIBTOOL = /usr/bin/libtool</font></font>
+<p><font face="Arial,Helvetica"><font size=-1>INCLUDES = -I. -I$(libgrassincdir)</font></font>
+<p><font face="Arial,Helvetica"><font size=-1>GrassApi_SOURCES = GrassApi.c
+ReadTest.c</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>GrassApi_LDADD = $(libgrasslibdir)/libgrass5.la</font></font>
+<p><font face="Arial,Helvetica"><font size=-1>DEFS = -DHAVE_CONFIG_H</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>CPPFLAGS =</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>LDFLAGS =</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>LIBS = -lnsl -lz -lm</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>GrassApi_OBJECTS = ReadTest.o
+GrassApi.o</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>GrassApi_DEPENDENCIES =
+$(libgrasslibdir)/libgrass5.la</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>GrassApi_LDFLAGS =</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>CFLAGS = -g -O2</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>COMPILE = $(CC) $(DEFS)
+$(INCLUDES) $(CPPFLAGS) $(CFLAGS)</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>LTCOMPILE = $(LIBTOOL) --mode=compile
+$(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>CCLD = $(CC)</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>LINK = $(LIBTOOL) --mode=link
+$(CCLD) $(AM_CFLAGS) $(CFLAGS) $(LDFLAGS) -o $@</font></font>
+<p><font face="Arial,Helvetica"><font size=-1>SOURCES = $(GrassApi_SOURCES)</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>OBJECTS = $(GrassApi_OBJECTS)</font></font>
+<p><font face="Arial,Helvetica"><font size=-1>.c.o:</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$(COMPILE) -c $&lt;</font></font>
+<p><font face="Arial,Helvetica"><font size=-1>ReadTest: $(GrassApi_OBJECTS)
+$(GrassApi_DEPENDENCIES)</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+@rm -f ReadTest</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$(LINK) $(GrassApi_LDFLAGS) $(GrassApi_OBJECTS) $(GrassApi_LDADD) $(LIBS)</font></font>
+<p><font face="Arial,Helvetica"><font size=-1>GrassApi.o: GrassApi.c GrassApi.h</font></font>
+<p><font face="Arial,Helvetica"><font size=-1>ReadTest.o: ReadTest.c GrassApi.o
+GrassApi.h</font></font>
+<p>From the Makefile, one should include GrassApi.h and link with libgrass
+library and GrassApi.o object file.
+<p>Data for Colima is available at fire.ccr.buffalo.edu in the /Projects/gmfg/grass.data
+directory.
+<p>Libgrass should be installed and is available for download at:
+<br><font face="Arial,Helvetica"><font size=-1>http://gdal.velocet.ca/projects/grass/</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>libgrass5-1.0.0.tar.gz</font></font>
+<p>General remarks:
+<p>About Slope:
+<br>Slope is calculated in the original resolution, using an estimative
+given by:
+<br><font face="Arial,Helvetica"><font size=-1>grass_grid.xslope[row][col]
+= (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( grass_grid.elev[row-1][col+1] - grass_grid.elev[row-1
+][col-1] ) +</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 * ( grass_grid.elev[row&nbsp;&nbsp; ][col+1] - grass_grid.elev[row&nbsp;&nbsp;&nbsp;
+][col-1] ) +</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+( grass_grid.elev[row+1][col+1] - grass_grid.elev[row+1][col-1] )&nbsp;&nbsp;
+) /</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 * grass_grid.resolution;</font></font>
+<p><font face="Arial,Helvetica"><font size=-1>grass_grid.yslope[row][col]
+= (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( grass_grid.elev[row-1][col-1] - grass_grid.elev[row+1][col-1]
+) +</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 * ( grass_grid.elev[row-1][col&nbsp;&nbsp;&nbsp; ] - grass_grid.elev[row+1][col&nbsp;&nbsp;
+] ) +</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+( grass_grid.elev[row-1][col+1] - grass_grid.elev[row+1][col+1] )&nbsp;
+) /</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 * grass_grid.resolution;</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>grass_grid.slope[row][col]
+= sqrt ( grass_grid.xslope[row][col]*grass_grid.xslope[row][col] +</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+grass_grid.yslope[row][col]*grass_grid.yslope[row][col] );</font></font>
+<p>Curvature is calculated using the slope, and a similar estimative:
+<br><font face="Arial,Helvetica"><font size=-1>grass_grid.xcurv[row][col]
+= (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( grass_grid.slope[row-1][col+1] - grass_grid.slope[row-1
+][col-1] ) +</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 * ( grass_grid.slope[row&nbsp;&nbsp; ][col+1] - grass_grid.slope[row&nbsp;&nbsp;&nbsp;
+][col-1] ) +</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+( grass_grid.slope[row+1][col+1] - grass_grid.slope[row+1][col-1] )&nbsp;&nbsp;
+) /</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 * grass_grid.resolution;</font></font>
+<p><font face="Arial,Helvetica"><font size=-1>grass_grid.ycurv[row][col]
+= (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( grass_grid.slope[row-1][col-1] - grass_grid.slope[row+1][col-1]
+) +</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 * ( grass_grid.slope[row-1][col&nbsp;&nbsp;&nbsp; ] - grass_grid.slope[row+1][col&nbsp;&nbsp;
+] ) +</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+( grass_grid.slope[row-1][col+1] - grass_grid.slope[row+1][col+1] )&nbsp;
+) /</font></font>
+<br><font face="Arial,Helvetica"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8 * grass_grid.resolution;</font></font>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

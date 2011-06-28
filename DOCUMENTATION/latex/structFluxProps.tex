@@ -1,0 +1,208 @@
+\hypertarget{structFluxProps}{
+\section{Flux\-Props Struct Reference}
+\label{structFluxProps}\index{FluxProps@{FluxProps}}
+}
+The Flux\-Props Structure holds all the data about extrusion flux sources (material flowing out of the ground) they can become active and later deactivate at any time during the simulation. There must be at least 1 initial pile or one flux source that is active at time zero, otherwise the timestep will be set to zero and the simulation will never advance.  
+
+
+{\tt \#include $<$properties.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{structFluxProps_a0}{Flux\-Props} ()
+\item 
+void \hyperlink{structFluxProps_a1}{allocsrcs} (int nsrcs)
+\begin{CompactList}\small\item\em this function allocates space for all the extrusion rate fluxes, Dinesh Kumar added it, Keith modified it slightly \item\end{CompactList}\item 
+int \hyperlink{structFluxProps_a2}{If\-Any\-Start} (\hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr)
+\begin{CompactList}\small\item\em this function returns 1 if any flux sources become active during the current timestep, this is used to trigger \char`\"{}initial adaptation\char`\"{} of the flux source area, Keith wrote this function \item\end{CompactList}\item 
+double \hyperlink{structFluxProps_a3}{Max\-Influx\-Now} (\hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr)
+\begin{CompactList}\small\item\em this function returns the maximum of all currently active extrusion fluxes, Keith wrote this function \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int \hyperlink{structFluxProps_o0}{no\_\-of\_\-sources}
+\begin{CompactList}\small\item\em number of extrusion flux sources \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structFluxProps_o1}{influx}
+\begin{CompactList}\small\item\em array holding the influx rates for all extrusion flux sources, if calculation is not scaled this quantity has units of \mbox{[}m/s\mbox{]} \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structFluxProps_o2}{start\_\-time}
+\begin{CompactList}\small\item\em array holding the activation time for all extrusion flux sources \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structFluxProps_o3}{end\_\-time}
+\begin{CompactList}\small\item\em array holding the deactivation time for all extrusion flux sources \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structFluxProps_o4}{x\-Cen}
+\begin{CompactList}\small\item\em array holding the x coordinate of the center of each the extrusion flux source \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structFluxProps_o5}{y\-Cen}
+\begin{CompactList}\small\item\em array holding the y coordinate of the center of each the extrusion flux source \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structFluxProps_o6}{majorrad}
+\begin{CompactList}\small\item\em array holding the radius along the major axis of each the extrusion flux source, the 2D pile shape is elliptical, in 3D it's a paraboloid \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structFluxProps_o7}{minorrad}
+\begin{CompactList}\small\item\em array holding the radius along the minor axis of each the extrusion flux source, the 2D pile shape is elliptical, in 3D it's a paraboloid \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structFluxProps_o8}{cosrot}
+\begin{CompactList}\small\item\em array holding the cosine of the rotation angle of each the extrusion flux source, the 2D pile shape is elliptical, and the ellipse's major axis does not have to be aligned with the x axis. \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structFluxProps_o9}{sinrot}
+\begin{CompactList}\small\item\em array holding the sine of the rotation angle of each the extrusion flux source, the 2D pile shape is elliptical, and the ellipse's major axis does not have to be aligned with the x axis. \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structFluxProps_o10}{x\-Vel}
+\begin{CompactList}\small\item\em array holding the x component of velocity of material extruding from each flux source \item\end{CompactList}\item 
+double $\ast$ \hyperlink{structFluxProps_o11}{y\-Vel}
+\begin{CompactList}\small\item\em array holding the y component of velocity of material extruding from each flux source \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The Flux\-Props Structure holds all the data about extrusion flux sources (material flowing out of the ground) they can become active and later deactivate at any time during the simulation. There must be at least 1 initial pile or one flux source that is active at time zero, otherwise the timestep will be set to zero and the simulation will never advance. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structFluxProps_a0}{
+\index{FluxProps@{Flux\-Props}!FluxProps@{FluxProps}}
+\index{FluxProps@{FluxProps}!FluxProps@{Flux\-Props}}
+\subsubsection[FluxProps]{\setlength{\rightskip}{0pt plus 5cm}Flux\-Props::Flux\-Props ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structFluxProps_a0}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structFluxProps_a1}{
+\index{FluxProps@{Flux\-Props}!allocsrcs@{allocsrcs}}
+\index{allocsrcs@{allocsrcs}!FluxProps@{Flux\-Props}}
+\subsubsection[allocsrcs]{\setlength{\rightskip}{0pt plus 5cm}void Flux\-Props::allocsrcs (int {\em nsrcs})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structFluxProps_a1}
+
+
+this function allocates space for all the extrusion rate fluxes, Dinesh Kumar added it, Keith modified it slightly 
+
+\hypertarget{structFluxProps_a2}{
+\index{FluxProps@{Flux\-Props}!IfAnyStart@{IfAnyStart}}
+\index{IfAnyStart@{IfAnyStart}!FluxProps@{Flux\-Props}}
+\subsubsection[IfAnyStart]{\setlength{\rightskip}{0pt plus 5cm}int Flux\-Props::If\-Any\-Start (\hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structFluxProps_a2}
+
+
+this function returns 1 if any flux sources become active during the current timestep, this is used to trigger \char`\"{}initial adaptation\char`\"{} of the flux source area, Keith wrote this function 
+
+\hypertarget{structFluxProps_a3}{
+\index{FluxProps@{Flux\-Props}!MaxInfluxNow@{MaxInfluxNow}}
+\index{MaxInfluxNow@{MaxInfluxNow}!FluxProps@{Flux\-Props}}
+\subsubsection[MaxInfluxNow]{\setlength{\rightskip}{0pt plus 5cm}double Flux\-Props::Max\-Influx\-Now (\hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{structFluxProps_a3}
+
+
+this function returns the maximum of all currently active extrusion fluxes, Keith wrote this function 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structFluxProps_o8}{
+\index{FluxProps@{Flux\-Props}!cosrot@{cosrot}}
+\index{cosrot@{cosrot}!FluxProps@{Flux\-Props}}
+\subsubsection[cosrot]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structFluxProps_o8}{Flux\-Props::cosrot}}}
+\label{structFluxProps_o8}
+
+
+array holding the cosine of the rotation angle of each the extrusion flux source, the 2D pile shape is elliptical, and the ellipse's major axis does not have to be aligned with the x axis. 
+
+\hypertarget{structFluxProps_o3}{
+\index{FluxProps@{Flux\-Props}!end_time@{end\_\-time}}
+\index{end_time@{end\_\-time}!FluxProps@{Flux\-Props}}
+\subsubsection[end\_\-time]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structFluxProps_o3}{Flux\-Props::end\_\-time}}}
+\label{structFluxProps_o3}
+
+
+array holding the deactivation time for all extrusion flux sources 
+
+\hypertarget{structFluxProps_o1}{
+\index{FluxProps@{Flux\-Props}!influx@{influx}}
+\index{influx@{influx}!FluxProps@{Flux\-Props}}
+\subsubsection[influx]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structFluxProps_o1}{Flux\-Props::influx}}}
+\label{structFluxProps_o1}
+
+
+array holding the influx rates for all extrusion flux sources, if calculation is not scaled this quantity has units of \mbox{[}m/s\mbox{]} 
+
+\hypertarget{structFluxProps_o6}{
+\index{FluxProps@{Flux\-Props}!majorrad@{majorrad}}
+\index{majorrad@{majorrad}!FluxProps@{Flux\-Props}}
+\subsubsection[majorrad]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structFluxProps_o6}{Flux\-Props::majorrad}}}
+\label{structFluxProps_o6}
+
+
+array holding the radius along the major axis of each the extrusion flux source, the 2D pile shape is elliptical, in 3D it's a paraboloid 
+
+\hypertarget{structFluxProps_o7}{
+\index{FluxProps@{Flux\-Props}!minorrad@{minorrad}}
+\index{minorrad@{minorrad}!FluxProps@{Flux\-Props}}
+\subsubsection[minorrad]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structFluxProps_o7}{Flux\-Props::minorrad}}}
+\label{structFluxProps_o7}
+
+
+array holding the radius along the minor axis of each the extrusion flux source, the 2D pile shape is elliptical, in 3D it's a paraboloid 
+
+\hypertarget{structFluxProps_o0}{
+\index{FluxProps@{Flux\-Props}!no_of_sources@{no\_\-of\_\-sources}}
+\index{no_of_sources@{no\_\-of\_\-sources}!FluxProps@{Flux\-Props}}
+\subsubsection[no\_\-of\_\-sources]{\setlength{\rightskip}{0pt plus 5cm}int \hyperlink{structFluxProps_o0}{Flux\-Props::no\_\-of\_\-sources}}}
+\label{structFluxProps_o0}
+
+
+number of extrusion flux sources 
+
+\hypertarget{structFluxProps_o9}{
+\index{FluxProps@{Flux\-Props}!sinrot@{sinrot}}
+\index{sinrot@{sinrot}!FluxProps@{Flux\-Props}}
+\subsubsection[sinrot]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structFluxProps_o9}{Flux\-Props::sinrot}}}
+\label{structFluxProps_o9}
+
+
+array holding the sine of the rotation angle of each the extrusion flux source, the 2D pile shape is elliptical, and the ellipse's major axis does not have to be aligned with the x axis. 
+
+\hypertarget{structFluxProps_o2}{
+\index{FluxProps@{Flux\-Props}!start_time@{start\_\-time}}
+\index{start_time@{start\_\-time}!FluxProps@{Flux\-Props}}
+\subsubsection[start\_\-time]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structFluxProps_o2}{Flux\-Props::start\_\-time}}}
+\label{structFluxProps_o2}
+
+
+array holding the activation time for all extrusion flux sources 
+
+\hypertarget{structFluxProps_o4}{
+\index{FluxProps@{Flux\-Props}!xCen@{xCen}}
+\index{xCen@{xCen}!FluxProps@{Flux\-Props}}
+\subsubsection[xCen]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structFluxProps_o4}{Flux\-Props::x\-Cen}}}
+\label{structFluxProps_o4}
+
+
+array holding the x coordinate of the center of each the extrusion flux source 
+
+\hypertarget{structFluxProps_o10}{
+\index{FluxProps@{Flux\-Props}!xVel@{xVel}}
+\index{xVel@{xVel}!FluxProps@{Flux\-Props}}
+\subsubsection[xVel]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structFluxProps_o10}{Flux\-Props::x\-Vel}}}
+\label{structFluxProps_o10}
+
+
+array holding the x component of velocity of material extruding from each flux source 
+
+\hypertarget{structFluxProps_o5}{
+\index{FluxProps@{Flux\-Props}!yCen@{yCen}}
+\index{yCen@{yCen}!FluxProps@{Flux\-Props}}
+\subsubsection[yCen]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structFluxProps_o5}{Flux\-Props::y\-Cen}}}
+\label{structFluxProps_o5}
+
+
+array holding the y coordinate of the center of each the extrusion flux source 
+
+\hypertarget{structFluxProps_o11}{
+\index{FluxProps@{Flux\-Props}!yVel@{yVel}}
+\index{yVel@{yVel}!FluxProps@{Flux\-Props}}
+\subsubsection[yVel]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ \hyperlink{structFluxProps_o11}{Flux\-Props::y\-Vel}}}
+\label{structFluxProps_o11}
+
+
+array holding the y component of velocity of material extruding from each flux source 
+
+
+
+The documentation for this struct was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{properties_8h}{properties.h}\end{CompactItemize}

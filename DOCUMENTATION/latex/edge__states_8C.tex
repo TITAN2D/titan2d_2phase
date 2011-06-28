@@ -1,0 +1,23 @@
+\hypertarget{edge__states_8C}{
+\section{edge\_\-states.C File Reference}
+\label{edge__states_8C}\index{edge_states.C@{edge\_\-states.C}}
+}
+{\tt \#include \char`\"{}../header/hpfem.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{edge__states_8C_a0}{calc\_\-edge\_\-states} (\hyperlink{classHashTable}{Hash\-Table} $\ast$El\_\-Table, \hyperlink{classHashTable}{Hash\-Table} $\ast$Node\-Table, \hyperlink{structMatProps}{Mat\-Props} $\ast$matprops\_\-ptr, \hyperlink{structTimeProps}{Time\-Props} $\ast$timeprops\_\-ptr, int myid, int $\ast$order\_\-flag, double $\ast$outflow)
+\begin{CompactList}\small\item\em This function loops through all the non-ghost current elements and calls the \hyperlink{classElement}{Element} member function \hyperlink{classElement_a78}{Element::calc\_\-edge\_\-states()} which calculates the Riemann fluxes between elements and stores the Riemann fluxes in the edge nodes. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{edge__states_8C_a0}{
+\index{edge_states.C@{edge\_\-states.C}!calc_edge_states@{calc\_\-edge\_\-states}}
+\index{calc_edge_states@{calc\_\-edge\_\-states}!edge_states.C@{edge\_\-states.C}}
+\subsubsection[calc\_\-edge\_\-states]{\setlength{\rightskip}{0pt plus 5cm}void calc\_\-edge\_\-states (\hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em El\_\-Table}, \hyperlink{classHashTable}{Hash\-Table} $\ast$ {\em Node\-Table}, \hyperlink{structMatProps}{Mat\-Props} $\ast$ {\em matprops\_\-ptr}, \hyperlink{structTimeProps}{Time\-Props} $\ast$ {\em timeprops\_\-ptr}, int {\em myid}, int $\ast$ {\em order\_\-flag}, double $\ast$ {\em outflow})}}
+\label{edge__states_8C_a0}
+
+
+This function loops through all the non-ghost current elements and calls the \hyperlink{classElement}{Element} member function \hyperlink{classElement_a78}{Element::calc\_\-edge\_\-states()} which calculates the Riemann fluxes between elements and stores the Riemann fluxes in the edge nodes. 
+
+\hyperlink{edge__states_8C_a0}{calc\_\-edge\_\-states()} cycles through the element Hashtable (listing of all elements) and for each element (that has not been refined this iteration and is not a ghost\_\-element) calls \hyperlink{classElement}{Element} member function \hyperlink{classElement_a78}{Element::calc\_\-edge\_\-states()} (which calculates the Riemann fluxes across the element's boundaries), and adds local boundary-element outflow to GIS map's cummulative outflow (defined as the mass flow off of the GIS map). Also, the elements are checked for multiple pile-height values 
