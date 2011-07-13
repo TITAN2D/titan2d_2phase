@@ -187,6 +187,32 @@ class QuestionTemplate5:
             file.write( str(influx) + '\n' + str(start_time) + '\n' + str(end_time) + '\n' + str(xcenter) + '\n' + str(ycenter) + '\n' + str(majradius) + '\n' +str(minradius) + '\n' + str(orientation) + '\n' + str(Vmagnitude) + '\n' + str(Vdirection) + '\n')
             file.close
 
+            #approx: h=influx*t-0.5*a*t^2
+            #if no s => t1=N*(2*h/g)^0.5  N is a empirical constant,
+            #for cylindrical piles of aspect ratio (height/radius) of approx 1
+            #2<=N<=3 (closer to 2) but there are 3 reasons we should increase N
+            #(1) cylindrical pile does not collapse the whole way, shorter
+            #distance means decreased acceleration means increased time, N
+            #(2) paraboloid piles are closer to conical than cylinder so it
+            #should collapse even less, so increase N
+            #(3) "influx" is a constant source "velocity" not an initial
+            #velocity which should increase h in "approx: h=..." equation, so
+            #as a fudge factor increase N some more
+            #calibrated on a single starting condition at tungaruhau says
+            #N=3.21   N=X
+            #anyway a=2*h/t1^2 = g/N^2
+            #approx: v=influx-a*t2 at hmax v=0 => t2=influx/a = N^2*influx/g
+            #t3=min(t2,end_time-start_time)
+            #plug int first equation
+            #approx hmax=influx*t3-0.5*a*t3^2
+            #if t3==t2=> hmax= N^2/2*s^2/g
+            #DEM: tungfla2
+            #influx 12 m/s (vel 50 m/s at +35 degrees cc from +x direction
+            #starts in filled crater which means this velocity points up hill
+            #so pile is mostly stationary while flux source is active, 50 m/s
+            #is just short of what is needed to top the crater)
+            #end_time-start_time=20 gives actual hmax=75.6 m
+            #g=9.8 m/s^2, N=3.21, t3=t2=12.62<20 s => computed hmax=75.7 m
             X = 3.21
             g = 9.8
             a = g/X/X

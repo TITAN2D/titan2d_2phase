@@ -116,6 +116,7 @@ double get_coef_and_eigen(HashTable* El_Table, HashTable* NodeTable,
 		       &(matprops_ptr->intfrict), EmTemp->get_kactxy(),
 		       (EmTemp->get_kactxy()+1), &tiny, 
 		       &(matprops_ptr->epsilon));
+
 	  EmTemp->calc_stop_crit(matprops_ptr);
 	  intswap=EmTemp->get_stoppedflags();
 	  

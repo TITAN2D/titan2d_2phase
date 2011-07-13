@@ -80,6 +80,7 @@ int main(int argc, char *argv[])
 
   start = MPI_Wtime();
   
+<<<<<<< HEAD
 #ifdef DEBUG
   if (myid==0){
     int w;
@@ -89,6 +90,8 @@ int main(int argc, char *argv[])
   MPI_Barrier(MPI_COMM_WORLD);
 #endif 
   
+=======
+>>>>>>> 6a783e8c0a1a29fb66e313c3846015ca7e2f2ee2
   /* create new MPI datastructures for class objects */
   MPI_New_Datatype();
 
@@ -195,6 +198,16 @@ int main(int argc, char *argv[])
   if(viz_flag&2)
     meshplotter(BT_Elem_Ptr, BT_Node_Ptr, &matprops, &timeprops, &mapnames, statprops.vstar);
 
+<<<<<<< HEAD
+=======
+  if(viz_flag&4) {
+    viz_output(BT_Elem_Ptr, BT_Node_Ptr, myid, numprocs, &matprops, &timeprops,
+	       &mapnames);
+    incr_tri_output(BT_Elem_Ptr, BT_Node_Ptr, myid, numprocs, &matprops, 
+		    &timeprops, statprops.vstar);
+  }
+
+>>>>>>> 6a783e8c0a1a29fb66e313c3846015ca7e2f2ee2
   if(viz_flag&8)
     xdmerr=write_xdmf(BT_Elem_Ptr,BT_Node_Ptr,&timeprops,&matprops,&mapnames,XDMF_NEW);
 
@@ -306,6 +319,14 @@ int main(int argc, char *argv[])
 	if(viz_flag&2)
 	  meshplotter(BT_Elem_Ptr, BT_Node_Ptr, &matprops, &timeprops, &mapnames,statprops.vstar);
 
+<<<<<<< HEAD
+=======
+	if(viz_flag&4) {
+	  viz_output(BT_Elem_Ptr, BT_Node_Ptr, myid, numprocs, &matprops, &timeprops, &mapnames);
+	  incr_tri_output(BT_Elem_Ptr, BT_Node_Ptr, myid, numprocs,&matprops, &timeprops, statprops.vstar);
+	}
+
+>>>>>>> 6a783e8c0a1a29fb66e313c3846015ca7e2f2ee2
 	if(viz_flag&8)
 	   xdmerr=write_xdmf(BT_Elem_Ptr,BT_Node_Ptr,&timeprops,&matprops,&mapnames,XDMF_OLD);
 
@@ -377,6 +398,17 @@ int main(int argc, char *argv[])
 		statprops.vstar);
   MPI_Barrier(MPI_COMM_WORLD);
 
+<<<<<<< HEAD
+=======
+  if(viz_flag&4) {
+    viz_output(BT_Elem_Ptr, BT_Node_Ptr, myid, numprocs,&matprops, &timeprops,
+	       &mapnames);
+    incr_tri_output(BT_Elem_Ptr, BT_Node_Ptr, myid, numprocs,&matprops,
+		    &timeprops, statprops.vstar);
+  }
+  MPI_Barrier(MPI_COMM_WORLD);
+
+>>>>>>> 6a783e8c0a1a29fb66e313c3846015ca7e2f2ee2
   if(viz_flag&8)
     xdmerr=write_xdmf(BT_Elem_Ptr,BT_Node_Ptr,&timeprops,&matprops,&mapnames,XDMF_CLOSE);
   MPI_Barrier(MPI_COMM_WORLD);
@@ -386,6 +418,15 @@ int main(int argc, char *argv[])
     grass_sites_proc_output(BT_Elem_Ptr, BT_Node_Ptr, myid, &matprops, 
 			    &timeprops);}
   MPI_Barrier(MPI_COMM_WORLD);
+<<<<<<< HEAD
+=======
+  if(viz_flag&32){
+    web_output(BT_Elem_Ptr, BT_Node_Ptr, myid,timeprops.time*timeprops.TIME_SCALE ,numprocs, &matprops, 
+	       &timeprops);
+    //web_simplify(&timeprops);
+  }
+  MPI_Barrier(MPI_COMM_WORLD);
+>>>>>>> 6a783e8c0a1a29fb66e313c3846015ca7e2f2ee2
 
 
   //printf("hpfem.C 3: xcen=%g\n",statprops.xcen);
@@ -444,6 +485,19 @@ int main(int argc, char *argv[])
 #endif
 
   MPI_Finalize();    
+<<<<<<< HEAD
+=======
+  if(viz_flag&32){
+    cout<<"\nWebViz:Postprocessing for web visualization starts..."<<endl;
+    web_simplify(&timeprops);
+    cout<<"\nWebViz:Correcting heights with GIS"<<endl;
+    web_correct(&timeprops);
+    system("rm -f ./webviz/data/web*.out");
+    system("rm -f ./webviz/data/web*.pp1");
+    cout<<"WebViz:Postprocessing complete"<<endl;
+    cout<<"WebViz:Orig Files removed"<<endl;
+ }
+>>>>>>> 6a783e8c0a1a29fb66e313c3846015ca7e2f2ee2
 
 //(mdj) makes openmpi unhappy return(MPI_ERRORS_RETURN);  
  return(0);  

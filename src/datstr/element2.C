@@ -3141,23 +3141,16 @@ void Element::calc_stop_crit(MatProps *matprops_ptr)
 {
 
   double stopcrit;
-
   effect_kactxy[0]=kactxy[0];
   effect_kactxy[1]=kactxy[1];
   effect_bedfrict=matprops_ptr->bedfrict[material];
   effect_tanbedfrict=matprops_ptr->tanbedfrict[material];
   
-#ifdef STOPCRIT_CHANGE_BED
-  if(stoppedflags==2) 
-  { 
-    effect_kactxy[0]=effect_kactxy[1]=matprops_ptr->epsilon;
-    effect_bedfrict=matprops_ptr->intfrict;
-    effect_tanbedfrict=matprops_ptr->tanintfrict;
-  }
-#endif
-
   stoppedflags=0;
-  if(state_vars[0]<=GEOFLOW_TINY) stopcrit=HUGE_VAL;
+  return;
+
+  if(state_vars[0] < GEOFLOW_TINY)
+    stopcrit=HUGE_VAL;
   else 
   {
     double dirx,diry,Vtemp,bedslope,slopetemp;
@@ -3167,7 +3160,8 @@ void Element::calc_stop_crit(MatProps *matprops_ptr)
     Vtemp=sqrt(VxVy[0]*VxVy[0]+VxVy[1]*VxVy[1]);
       
     //these are the element force balance test, will the pile slide
-    if(Vtemp>0) {
+    if( Vtemp > 0) 
+    {
       dirx=VxVy[0]/Vtemp;
       diry=VxVy[1]/Vtemp;
 
@@ -3181,7 +3175,8 @@ void Element::calc_stop_crit(MatProps *matprops_ptr)
                 sqrt(2.0*9.8/matprops_ptr->GRAVITY_SCALE*
                 state_vars[0]/(1+bedslope*bedslope));     
     }
-    else{
+    else
+    {
       stoppedflags=1; //erosion off
       bedslope=-sqrt(zeta[0]*zeta[0]+zeta[1]*zeta[1]);
       if(bedslope<0) {
@@ -3195,7 +3190,8 @@ void Element::calc_stop_crit(MatProps *matprops_ptr)
     }
 
     //this is the internal friction test, will the pile slump
-    if(stopcrit>=1.0) {
+    if(stopcrit>=1.0) 
+    {
       stoppedflags=1;
       slopetemp=-sqrt((zeta[0]+effect_kactxy[0]*d_state_vars[0])*
 		      (zeta[0]+effect_kactxy[0]*d_state_vars[0])*
@@ -3204,31 +3200,7 @@ void Element::calc_stop_crit(MatProps *matprops_ptr)
       if(slopetemp+tan(matprops_ptr->intfrict)>0) stoppedflags=2;
     }
   }
-
-
-  //stoppedflags=2;
-
-  /* 
-     do you choose to set bed friction to internal friction in stopped cells?
-     because friction at bed can only support up to the bed friction angle for
-     an angle of repose 
-  */
-#ifdef STOPCRIT_CHANGE_BED
-  if(stoppedflags==2) {
-    effect_kactxy[0]=effect_kactxy[1]=matprops_ptr->epsilon;
-    effect_bedfrict=matprops_ptr->intfrict;
-    effect_tanbedfrict=matprops_ptr->tanintfrict;
-  }
-  else{
-    effect_kactxy[0]=kactxy[0];
-    effect_kactxy[1]=kactxy[1];
-    effect_bedfrict=matprops_ptr->bedfrict[material];
-    effect_tanbedfrict=matprops_ptr->tanbedfrict[material];
-  }
-#endif
-
   return;
-
 }
 
 

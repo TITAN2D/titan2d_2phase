@@ -2,26 +2,6 @@
 #include <stdio.h>
 #include <math.h>
 #include "lhslib.h"
-//#define DEBUG
-#ifdef DEBUG
-//#define DEBUGUNI
-#endif
-
-#ifdef DEBUG2
-int main(){
-  int Nstart, Nref, Nsample, *refnum;
-  double *samples;
-
-  printf("enter Nstart and Nref: ");
-  scanf("%d%d",&Nstart,&Nref);
-  
-  Nsample=normallhs(Nstart, Nref, &refnum, &samples);
-  CDeAllocI1(refnum);
-  CDeAllocD1(samples);
-
-  return(0);
-}
-#endif
 
 int uniformlhs(int Nstart, int Nref, int **refnum, double **samples){
 

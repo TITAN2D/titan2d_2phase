@@ -728,7 +728,8 @@ void Read_grid(int myid, int numprocs,
 	     )/
 	 log(2.0));
 
-  if(REFINE_LEVEL<2) REFINE_LEVEL=2;
+
+  if(REFINE_LEVEL<0) REFINE_LEVEL=0;
   printf("REFINE_LEVEL=%d\n",REFINE_LEVEL);
 
 

@@ -108,10 +108,11 @@ void init_piles(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr,
 
   move_data(numprocs, myid, HT_Elem_Ptr, HT_Node_Ptr,timeprops_ptr);
   slopes(HT_Elem_Ptr, HT_Node_Ptr, matprops);
-  
+
   /* initial calculation of actual volume on the map */
 
   double realvolume=0.0, depositedvol=0.0, forcebed=0.0, meanslope=0.0;
+  double epsilon[2]={matprops->epsilon, matprops->epsilon};
 
   HashEntryPtr* buck = HT_Elem_Ptr->getbucketptr();
   for(int ibucket=0; ibucket<HT_Elem_Ptr->get_no_of_buckets(); ibucket++)
@@ -121,16 +122,18 @@ void init_piles(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr,
       while(currentPtr) {
 
 	Element* Curr_El=(Element*)(currentPtr->value);
+        assert(Curr_El);
+
 	if(Curr_El->get_adapted_flag()>0) { //if this is a refined element don't involve!!!
 	  double *dxy=Curr_El->get_dx();
 	  double dvol=dxy[0]*dxy[1]**(Curr_El->get_state_vars());
 	  realvolume+=dvol;
 	
-	  *(Curr_El->get_kactxy()+0)=*(Curr_El->get_kactxy()+1)=
-	    matprops->epsilon;
+	  Curr_El->put_kactxy(epsilon);
 	  Curr_El->calc_stop_crit(matprops);
-	  if(Curr_El->get_stoppedflags()==2) depositedvol+=dvol;
-
+          if (Curr_El->get_stoppedflags()==2)
+            depositedvol += dvol;
+          
 	  double resolution=0, xslope=0, yslope=0;
 	  Get_max_resolution(&resolution);
 	  Get_slope(resolution,
@@ -150,7 +153,6 @@ void init_piles(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr,
   tempin[0]=realvolume;
   tempin[1]=forcebed;
   tempin[2]=depositedvol;
-  //tempin[2]=meanslope;
 
   MPI_Reduce(tempin,tempout,3,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
 

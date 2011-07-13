@@ -2,9 +2,9 @@
 
 ## check for MPI installation
 MPCC=
-MPCC=`which mpicc`  
+MPCC=$(which mpicc 2> /dev/null)  
 MPCPP=
-MPCPP=`which mpiCC` || MPCPP=`which mpicxx` 
+MPCPP=`which mpiCC 2> /dev/null` || MPCPP=`which mpicxx 2> /dev/null` 
 mpi_home=
 if [ "x$MPCPP" == x ]; then
     echo '-----------------------------------------------------------'
@@ -16,11 +16,16 @@ if [ "x$MPCPP" == x ]; then
 fi
 
 ## check for HDF5
-header='include/hdf5.h'
 hdf5_dir=
-
+hcc=`which h5cc`
+tempdir=`$hcc -showconfig | fgrep 'Installation point' | awk '{print $3}'`
+echo $tempdir
+header='include/hdf5.h'
+if [ -f $tempdir/$header ]; then
+    hdf5_dir=$tempdir
 #look for hdf5 in some usual places
-if [ -f /usr/$header ]; then
+elif [ -f /usr/$header ]; then
+
     hdf5_dir=/usr
 elif [ -f /usr/local/$header ]; then
     hdf5_dir=/usr/local
@@ -30,7 +35,7 @@ elif [ -f ${HOME}/$header ]; then
 # /opt
 elif [ -f /opt/$header ]; then
     hdf5_dir=/opt
-fi
+elif
 
 if [[ "x$hdf5_dir" == x ]]; then
     echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
@@ -49,6 +54,7 @@ if [[ "x$hdf5_dir" == x ]]; then
             echo "ERROR: Could not find hdf5.h in $hdf5_dir"
             exit 1;
         fi
+    hdf5_flags='-D H5_USE_16_API'
     else
         hdf5_dir=no
     fi
@@ -62,5 +68,5 @@ else
    MPI="--with-mpi=$mpi_home"
 fi
    
-./configure $MPI --with-hdf5=$hdf5_dir
+./configure $MPI --with-hdf5=$hdf5_dir CPPFLAGS=$hdf5_flags
 make && make install
