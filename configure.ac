@@ -75,6 +75,33 @@ if test -n "$with_grass"; then
 fi
 AC_CHECK_LIB([gis],[G_gisinit])
               
+#=============================================================
+# enable debug
+AC_ARG_ENABLE(debug,
+              AS_HELP_STRING([--enable-debug],
+                             [enable debugging (disabled by default)]),
+              [HAVE_DEBUG=$enableval], [HAVE_DEBUG=yes])
+
+if test "x$enable_debug" = "xyes" ; then
+
+# Try to strip out optimization.
+  CXXFLAGS=`echo "$CXXFLAGS " | sed "s/-O2 //g"`
+  CFLAGS=`echo "$CFLAGS " | sed "s/-O2 //g"`
+  CXXFLAGS=`echo "$CXXFLAGS" | sed "s/-O //g"`
+  CFLAGS=`echo "$CFLAGS" | sed "s/-O //g"`
+
+# remove existing -g to avoid duplicates.
+  CXXFLAGS=`echo "$CXXFLAGS" | sed "s/-g //"`
+  CFLAGS=`echo "$CFLAGS" | sed "s/-g //"`
+
+#  -g and -DDEBUG
+  CXXFLAGS="$CXXFLAGS -O0 -g"
+  CFLAGS="$CFLAGS -O0 -g"
+
+  AC_MSG_RESULT([yes, modified CFLAGS="$CFLAGS"])
+else
+  AC_MSG_RESULT([no, CFLAGS="$CFLAGS"])
+fi
 
 #-------------------------------------------------------------------------------------
 AC_CHECK_LIB(m,matherr)

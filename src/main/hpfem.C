@@ -195,13 +195,6 @@ int main(int argc, char *argv[])
   if(viz_flag&2)
     meshplotter(BT_Elem_Ptr, BT_Node_Ptr, &matprops, &timeprops, &mapnames, statprops.vstar);
 
-  if(viz_flag&4) {
-    viz_output(BT_Elem_Ptr, BT_Node_Ptr, myid, numprocs, &matprops, &timeprops,
-	       &mapnames);
-    incr_tri_output(BT_Elem_Ptr, BT_Node_Ptr, myid, numprocs, &matprops, 
-		    &timeprops, statprops.vstar);
-  }
-
   if(viz_flag&8)
     xdmerr=write_xdmf(BT_Elem_Ptr,BT_Node_Ptr,&timeprops,&matprops,&mapnames,XDMF_NEW);
 
@@ -313,11 +306,6 @@ int main(int argc, char *argv[])
 	if(viz_flag&2)
 	  meshplotter(BT_Elem_Ptr, BT_Node_Ptr, &matprops, &timeprops, &mapnames,statprops.vstar);
 
-	if(viz_flag&4) {
-	  viz_output(BT_Elem_Ptr, BT_Node_Ptr, myid, numprocs, &matprops, &timeprops, &mapnames);
-	  incr_tri_output(BT_Elem_Ptr, BT_Node_Ptr, myid, numprocs,&matprops, &timeprops, statprops.vstar);
-	}
-
 	if(viz_flag&8)
 	   xdmerr=write_xdmf(BT_Elem_Ptr,BT_Node_Ptr,&timeprops,&matprops,&mapnames,XDMF_OLD);
 
@@ -389,14 +377,6 @@ int main(int argc, char *argv[])
 		statprops.vstar);
   MPI_Barrier(MPI_COMM_WORLD);
 
-  if(viz_flag&4) {
-    viz_output(BT_Elem_Ptr, BT_Node_Ptr, myid, numprocs,&matprops, &timeprops,
-	       &mapnames);
-    incr_tri_output(BT_Elem_Ptr, BT_Node_Ptr, myid, numprocs,&matprops,
-		    &timeprops, statprops.vstar);
-  }
-  MPI_Barrier(MPI_COMM_WORLD);
-
   if(viz_flag&8)
     xdmerr=write_xdmf(BT_Elem_Ptr,BT_Node_Ptr,&timeprops,&matprops,&mapnames,XDMF_CLOSE);
   MPI_Barrier(MPI_COMM_WORLD);
@@ -405,12 +385,6 @@ int main(int argc, char *argv[])
     if(myid==0) grass_sites_header_output(&timeprops);
     grass_sites_proc_output(BT_Elem_Ptr, BT_Node_Ptr, myid, &matprops, 
 			    &timeprops);}
-  MPI_Barrier(MPI_COMM_WORLD);
-  if(viz_flag&32){
-    web_output(BT_Elem_Ptr, BT_Node_Ptr, myid,timeprops.time*timeprops.TIME_SCALE ,numprocs, &matprops, 
-	       &timeprops);
-    //web_simplify(&timeprops);
-  }
   MPI_Barrier(MPI_COMM_WORLD);
 
 
@@ -470,16 +444,6 @@ int main(int argc, char *argv[])
 #endif
 
   MPI_Finalize();    
-  if(viz_flag&32){
-    cout<<"\nWebViz:Postprocessing for web visualization starts..."<<endl;
-    web_simplify(&timeprops);
-    cout<<"\nWebViz:Correcting heights with GIS"<<endl;
-    web_correct(&timeprops);
-    system("rm -f ./webviz/data/web*.out");
-    system("rm -f ./webviz/data/web*.pp1");
-    cout<<"WebViz:Postprocessing complete"<<endl;
-    cout<<"WebViz:Orig Files removed"<<endl;
- }
 
 //(mdj) makes openmpi unhappy return(MPI_ERRORS_RETURN);  
  return(0);  

@@ -7,7 +7,7 @@
 //#define DEBUGUNI
 #endif
 
-#ifdef DEBUG
+#ifdef DEBUG2
 int main(){
   int Nstart, Nref, Nsample, *refnum;
   double *samples;
