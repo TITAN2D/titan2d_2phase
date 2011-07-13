@@ -42,8 +42,7 @@ void MPI_New_Datatype()
   MPI_Datatype NSOLTYPE;
   MPI_Datatype LB_VERT_TYPE;*/
 
-  //int           blockcounts[5]={29, 44*KEYLENGTH, 4*EQUATIONS+36, 41, 16};
-  int           blockcounts[3]={58, 25*KEYLENGTH, 85};
+  int           blockcounts[3]={58, 25*KEYLENGTH, 97};
   MPI_Datatype  types[3];
   MPI_Aint      displs[3];
   int d;

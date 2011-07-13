@@ -15,7 +15,7 @@
  * $Id: element2.C 143 2007-06-25 17:58:08Z dkumar $ 
  */
 //#define DEBUG_SAVE_ELEM
-#define SHORTSPEED
+//#define SHORTSPEED
 #define DISABLE_DRY_FLUX_ZEROING   //this disables the zeroing of fluxes through dry sides facet of thin layer control
 
 #ifdef HAVE_CONFIG_H
@@ -169,6 +169,11 @@ Element::Element(unsigned nodekeys[][KEYLENGTH], unsigned neigh[][KEYLENGTH],
     Influx[i]=0.0;
   //printf("creating an original element\n");
   stoppedflags=2;
+
+  // initialize kactxy
+  kactxy[0]=kactxy[1]=0.;
+  effect_kactxy[0]=effect_kactxy[0]=0.;
+  effect_bedfrict=effect_tanbedfrict=0.;
 }
 
 //used for refinement
@@ -306,13 +311,19 @@ Element::Element(unsigned nodekeys[][KEYLENGTH], unsigned neigh[][KEYLENGTH],
  
   stoppedflags=fthTemp->stoppedflags;
 
+  // initialize kactxy
+  kactxy[0]=kactxy[1]=0.;
+  effect_kactxy[0]=effect_kactxy[0]=0.;
+  effect_bedfrict=effect_tanbedfrict=0.;
+
   return;
 }
 /*********************************
  making a father element from its sons
 *****************************************/
 Element::Element(Element* sons[], HashTable* NodeTable, HashTable* El_Table, 
-		 MatProps* matprops_ptr) {
+		 MatProps* matprops_ptr) 
+{
   counted=0; //for debugging only
 
   adapted=NEWFATHER;
@@ -663,6 +674,11 @@ Element::Element(Element* sons[], HashTable* NodeTable, HashTable* El_Table,
   shortspeed=0.0;
   for(j=0;j<4;j++) shortspeed+=*(sons[j]->get_state_vars())*sons[j]->get_shortspeed();
   if(state_vars[0]>0.0) shortspeed/=(4.0*state_vars[0]);
+
+  // initialize kactxy
+  kactxy[0]=kactxy[1]=0.;
+  effect_kactxy[0]=effect_kactxy[0]=0.;
+  effect_bedfrict=effect_tanbedfrict=0.;
 
   return;
 }
@@ -1745,8 +1761,9 @@ void Element::xdirflux(MatProps* matprops_ptr, double dz, double wetnessfactor,
 {
   int i,j;
   double a, Vel[4]; // Vel[0:1]: solid-vel, Vel[2:3]: fluid-vel
+  double volf = 0.;
   double epsilon = matprops_ptr->epsilon;
-  double den_frac = matprops_ptr->den_solid/matprops_ptr->den_fluid;
+  double den_frac = matprops_ptr->den_fluid/matprops_ptr->den_solid;
 
   //the "update flux" values (hfv) are the fluxes used to update the solution,
   // they may or may not be "reset" from their standard values based on whether 
@@ -1811,10 +1828,12 @@ void Element::xdirflux(MatProps* matprops_ptr, double dz, double wetnessfactor,
     // get du/dy
     double dudy=(d_state_vars[NUM_STATE_VARS+2]-
                  d_state_vars[NUM_STATE_VARS+1]*Vel[0])/state_vars[1];
-    double alphaxy=-sgn(dudy)*sin(matprops_ptr->intfrict)*effect_kactxy[0];
+    double alphaxy=-c_sgn(dudy)*sin(matprops_ptr->intfrict)*effect_kactxy[0];
     double temp2=alphaxy*hfv[0][0]*hfv[0][1]*gravity[2];
+    if ( hfv[0][0] > GEOFLOW_TINY )
+      volf = hfv[0][1]/hfv[0][0];
     //fluxes
-    hfv[1][0]=hfv[0][2]+hfv[0][4];
+    hfv[1][0]=hfv[0][2]+hfv[0][4]*(1.-volf);
     hfv[1][1]=hfv[0][2];
     hfv[1][2]=hfv[0][2]*Vel[0] + 0.5*(1.-den_frac)*temp*hfv[0][0];
     hfv[1][3]=hfv[0][3]*Vel[0] + 0.5*(1.-den_frac)*temp2;
@@ -1859,11 +1878,12 @@ void Element::xdirflux(MatProps* matprops_ptr, double dz, double wetnessfactor,
     // get du/dy
     double dudy=(d_state_vars[NUM_STATE_VARS+2]-
                  d_state_vars[NUM_STATE_VARS+1]*Vel[0])/state_vars[1];
-    double alphaxy=-sgn(dudy)*sin(matprops_ptr->intfrictang)*effect_kactxy[0];
+    double alphaxy=-c_sgn(dudy)*sin(matprops_ptr->intfrictang)*effect_kactxy[0];
     double temp2=alphaxy*hrfv[0][0]*hrfv[0][1]*gravity[2];
-
+    if ( hrfv[0][0] > GEOFLOW_TINY )
+      volf = hrfv[0][1]/hrfv[0][0];
     //fluxes
-    hrfv[1][0]=hrfv[0][2]+hrfv[0][4];
+    hrfv[1][0]=hrfv[0][2]+hrfv[0][4]*(1.-volf);
     hrfv[1][1]=hrfv[0][2];
     hrfv[1][2]=hrfv[0][2]*Vel[0] + 0.5*(1.-den_frac)*temp*hrfv[0][0];
     hrfv[1][3]=hrfv[0][3]*Vel[0] + 0.5*(1.-den_frac)*temp2;
@@ -1893,8 +1913,9 @@ void Element::ydirflux(MatProps* matprops_ptr, double dz, double wetnessfactor,
 {
   int i,j;
   double Vel[4], a;
+  double volf = 0.;
   double epsilon = matprops_ptr->epsilon;
-  double den_frac = matprops_ptr->den_solid/matprops_ptr->den_fluid;
+  double den_frac = matprops_ptr->den_fluid/matprops_ptr->den_solid;
 
   //the "update flux" values (hfv) are the fluxes used to update the solution,
   // they may or may not be "reset" from their standard values based on whether
@@ -1955,11 +1976,13 @@ void Element::ydirflux(MatProps* matprops_ptr, double dz, double wetnessfactor,
 
     // hydostatic terms
     double dvdx=(d_state_vars[3]-d_state_vars[1]*Vel[1])/state_vars[1];
-    double alphayx=-sgn(dvdx)*sin(matprops_ptr->intfrict)*effect_kactxy[0];
+    double alphayx=-c_sgn(dvdx)*sin(matprops_ptr->intfrict)*effect_kactxy[1];
     double temp2=alphayx*hfv[0][0]*hfv[0][1]*gravity[2];
+    if ( hfv[0][0] > GEOFLOW_TINY )
+      volf = hfv[0][1]/hfv[0][0];
 
     //fluxes
-    hfv[1][0]=hfv[0][3]+hfv[0][5];
+    hfv[1][0]=hfv[0][3]+hfv[0][5]*(1.-volf);
     hfv[1][1]=hfv[0][3];
     hfv[1][2]=hfv[0][2]*Vel[1] + 0.5*(1.-den_frac)*temp2;
     hfv[1][3]=hfv[0][3]*Vel[1] + 0.5*(1.-den_frac)*temp*hfv[0][0];
@@ -2002,11 +2025,12 @@ void Element::ydirflux(MatProps* matprops_ptr, double dz, double wetnessfactor,
 
     // hydostatic terms
     double dvdx=(d_state_vars[3]-d_state_vars[1]*Vel[1])/state_vars[1];
-    double alphayx=-sgn(dudy)*sin(matprops_ptr->intfrictang)*effect_kactxy[1];
+    double alphayx=-c_sgn(dudy)*sin(matprops_ptr->intfrictang)*effect_kactxy[1];
     double temp2=alphayx*hrfv[0][0]*hrfv[0][1]*gravity[2];
-
+    if ( hrfv[0][0] > GEOFLOW_TINY )
+      volf = hrfv[0][1]/hrfv[0][0];
     //fluxes
-    hrfv[1][0]=hrfv[0][3]+hrfv[0][5];
+    hrfv[1][0]=hrfv[0][3]+hrfv[0][5]*(1.-volf);
     hrfv[1][1]=hrfv[0][3];
     hrfv[1][2]=hrfv[0][2]*Vel[1] + 0.5*(1.-den_frac)*temp2;
     hrfv[1][3]=hrfv[0][3]*Vel[1] + 0.5*(1.-den_frac)*temp*hrfv[0][0];
@@ -2063,8 +2087,6 @@ void Element::ydirflux(MatProps* matprops_ptr, double dz, double wetnessfactor,
     printf("zdirflux: direction %d not known\n",dir);
     exit(1);
   }
-
-  return;
 }
 
 //need move this to step.C
@@ -2598,7 +2620,7 @@ void Element::eval_velocity(double xoffset, double yoffset, double Vel[])
   if(!(temp_state_vars[0]>0)) 
   {
     for (i=0; i<4; i++)
-      Vel[0]=0;  
+      Vel[i]=0;  
     return;
   }
 
@@ -2615,7 +2637,7 @@ void Element::eval_velocity(double xoffset, double yoffset, double Vel[])
     return;
   }
 
-  if((temp_state_vars[0]<GEOFLOW_SHORT) &&
+  if((temp_state_vars[1]<GEOFLOW_SHORT) &&
      (doubleswap>shortspeed*shortspeed*temp_state_vars[1]*temp_state_vars[1]))
   {
     doubleswap=sqrt(doubleswap);
@@ -3119,23 +3141,15 @@ void Element::calc_stop_crit(MatProps *matprops_ptr)
 {
 
   double stopcrit;
-
   effect_kactxy[0]=kactxy[0];
   effect_kactxy[1]=kactxy[1];
   effect_bedfrict=matprops_ptr->bedfrict[material];
   effect_tanbedfrict=matprops_ptr->tanbedfrict[material];
   
-#ifdef STOPCRIT_CHANGE_BED
-  if(stoppedflags==2) 
-  { 
-    effect_kactxy[0]=effect_kactxy[1]=matprops_ptr->epsilon;
-    effect_bedfrict=matprops_ptr->intfrict;
-    effect_tanbedfrict=matprops_ptr->tanintfrict;
-  }
-#endif
-
   stoppedflags=0;
-  if(state_vars[0]<=GEOFLOW_TINY) stopcrit=HUGE_VAL;
+  return;
+  if(state_vars[0] < GEOFLOW_TINY)
+    stopcrit=HUGE_VAL;
   else 
   {
     double dirx,diry,Vtemp,bedslope,slopetemp;
@@ -3145,7 +3159,8 @@ void Element::calc_stop_crit(MatProps *matprops_ptr)
     Vtemp=sqrt(VxVy[0]*VxVy[0]+VxVy[1]*VxVy[1]);
       
     //these are the element force balance test, will the pile slide
-    if(Vtemp>0) {
+    if( Vtemp > 0) 
+    {
       dirx=VxVy[0]/Vtemp;
       diry=VxVy[1]/Vtemp;
 
@@ -3159,7 +3174,8 @@ void Element::calc_stop_crit(MatProps *matprops_ptr)
                 sqrt(2.0*9.8/matprops_ptr->GRAVITY_SCALE*
                 state_vars[0]/(1+bedslope*bedslope));     
     }
-    else{
+    else
+    {
       stoppedflags=1; //erosion off
       bedslope=-sqrt(zeta[0]*zeta[0]+zeta[1]*zeta[1]);
       if(bedslope<0) {
@@ -3173,7 +3189,8 @@ void Element::calc_stop_crit(MatProps *matprops_ptr)
     }
 
     //this is the internal friction test, will the pile slump
-    if(stopcrit>=1.0) {
+    if(stopcrit>=1.0) 
+    {
       stoppedflags=1;
       slopetemp=-sqrt((zeta[0]+effect_kactxy[0]*d_state_vars[0])*
 		      (zeta[0]+effect_kactxy[0]*d_state_vars[0])*
@@ -3182,31 +3199,7 @@ void Element::calc_stop_crit(MatProps *matprops_ptr)
       if(slopetemp+tan(matprops_ptr->intfrict)>0) stoppedflags=2;
     }
   }
-
-
-  //stoppedflags=2;
-
-  /* 
-     do you choose to set bed friction to internal friction in stopped cells?
-     because friction at bed can only support up to the bed friction angle for
-     an angle of repose 
-  */
-#ifdef STOPCRIT_CHANGE_BED
-  if(stoppedflags==2) {
-    effect_kactxy[0]=effect_kactxy[1]=matprops_ptr->epsilon;
-    effect_bedfrict=matprops_ptr->intfrict;
-    effect_tanbedfrict=matprops_ptr->tanintfrict;
-  }
-  else{
-    effect_kactxy[0]=kactxy[0];
-    effect_kactxy[1]=kactxy[1];
-    effect_bedfrict=matprops_ptr->bedfrict[material];
-    effect_tanbedfrict=matprops_ptr->tanbedfrict[material];
-  }
-#endif
-
   return;
-
 }
 
 

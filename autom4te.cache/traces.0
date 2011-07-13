@@ -9460,8 +9460,7 @@ m4trace:configure.ac:99: -1- AH_OUTPUT([HAVE_STRCHR], [/* Define to 1 if you hav
 #undef HAVE_STRCHR])
 m4trace:configure.ac:99: -1- AH_OUTPUT([HAVE_STRDUP], [/* Define to 1 if you have the `strdup\' function. */
 #undef HAVE_STRDUP])
-m4trace:configure.ac:116: -1- AC_CONFIG_FILES([Makefile
-                 doc/Makefile
+m4trace:configure.ac:115: -1- AC_CONFIG_FILES([Makefile
                  scripts/Makefile
                  src/Makefile
                  src/adapt/Makefile
@@ -9476,7 +9475,7 @@ m4trace:configure.ac:116: -1- AC_CONFIG_FILES([Makefile
                  src/tecplot/Makefile
                  src/useful/Makefile
                  src/vectordatapreproc/Makefile])
-m4trace:configure.ac:117: -1- AC_SUBST([LIB@&t@OBJS], [$ac_libobjs])
-m4trace:configure.ac:117: -1- AC_SUBST([LTLIBOBJS], [$ac_ltlibobjs])
-m4trace:configure.ac:117: -1- _AC_AM_CONFIG_HEADER_HOOK([$ac_file])
-m4trace:configure.ac:117: -1- _AM_OUTPUT_DEPENDENCY_COMMANDS
+m4trace:configure.ac:116: -1- AC_SUBST([LIB@&t@OBJS], [$ac_libobjs])
+m4trace:configure.ac:116: -1- AC_SUBST([LTLIBOBJS], [$ac_ltlibobjs])
+m4trace:configure.ac:116: -1- _AC_AM_CONFIG_HEADER_HOOK([$ac_file])
+m4trace:configure.ac:116: -1- _AM_OUTPUT_DEPENDENCY_COMMANDS

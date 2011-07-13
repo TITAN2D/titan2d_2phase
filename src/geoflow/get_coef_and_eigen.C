@@ -40,11 +40,6 @@ double get_coef_and_eigen(HashTable* El_Table, HashTable* NodeTable,
 
 
 
-#ifdef DEBUGINHERE
-  FILE *fp=fopen("junk.debug","w");
-#endif
-
-
   HashEntryPtr* elem_bucket_zero = El_Table->getbucketptr();
   HashEntryPtr entryp;
   int num_elem_buckets=El_Table->get_no_of_buckets();
@@ -90,18 +85,22 @@ double get_coef_and_eigen(HashTable* El_Table, HashTable* NodeTable,
   double *curve, maxcurve;
   int ifanynonzeroheight=0;
   double Vsolid[2], Vfluid[2];
-  for(ibuck=0; ibuck<num_elem_buckets; ibuck++) {
+  for(ibuck=0; ibuck<num_elem_buckets; ibuck++) 
+  {
     entryp = *(elem_bucket_zero+ibuck);
-    while(entryp) {
+    while(entryp) 
+    {
       EmTemp=(Element*)(entryp->value);
       entryp=entryp->next;
       
       if((EmTemp->get_adapted_flag()>0)||
 	 ((EmTemp->get_adapted_flag()<0)&&
-	  (ghost_flag == 1))){
+	  (ghost_flag == 1)))
+      {
 	//if this element does not belong on this processor don't involve!!!
 	
-	if(*(EmTemp->get_state_vars())>GEOFLOW_TINY) {
+	if(*(EmTemp->get_state_vars())>GEOFLOW_TINY) 
+        {
 	  ifanynonzeroheight=1;
 	  
 	  /* calculate hmax */
@@ -117,12 +116,12 @@ double get_coef_and_eigen(HashTable* El_Table, HashTable* NodeTable,
 		       &(matprops_ptr->intfrict), EmTemp->get_kactxy(),
 		       (EmTemp->get_kactxy()+1), &tiny, 
 		       &(matprops_ptr->epsilon));
+
 	  EmTemp->calc_stop_crit(matprops_ptr);
 	  intswap=EmTemp->get_stoppedflags();
-#ifdef DEBUGINHERE
-	  fprintf(fp,"%d\n",intswap);
-#endif
-	  if((intswap<0)||(intswap>2)) printf("get_coef_and_eigen stopped flag=%d\n",intswap);
+	  
+	  if((intswap<0)||(intswap>2))
+            printf("get_coef_and_eigen stopped flag=%d\n",intswap);
 	  
 	  //must use hVx/h and hVy/h rather than eval_velocity (L'Hopital's 
 	  //rule speed if it is smaller) because underestimating speed (which 
@@ -141,8 +140,6 @@ double get_coef_and_eigen(HashTable* El_Table, HashTable* NodeTable,
 		 Vsolid, Vfluid, &(matprops_ptr->epsilon),
                  &(matprops_ptr->flow_type));
 #endif
-	  
-	  //printf("evalue=%g\n",evalue);
 	  
 	  // ***********************************************************
 	  // !!!!!!!!!!!!!!!!!!!!!check dx & dy!!!!!!!!!!!!!!!!!!!!!!!!
@@ -173,12 +170,7 @@ double get_coef_and_eigen(HashTable* El_Table, HashTable* NodeTable,
 				     min_dx_dy_evalue);
 	}
 	else
-        {
 	  EmTemp->put_stoppedflags(2);
-#ifdef DEBUGINHERE
-	  fprintf(fp,"%d\n",EmTemp->get_stoppedflags()); 
-#endif
-	}
       } //(EmTemp->get_adapted_flag()>0)||...
     }//while(entryp)
   }

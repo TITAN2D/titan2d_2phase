@@ -17,9 +17,8 @@ AC_PROG_CPP
 AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
-#AC_PROG_RANLIB
+AC_PROG_RANLIB
 AC_F77_LIBRARY_LDFLAGS
-AC_PROG_LIBTOOL
 AC_SYS_LARGEFILE
 
 ## checks for libraries
@@ -99,7 +98,6 @@ AC_HEADER_MAJOR
 AC_CHECK_FUNCS([floor pow sqrt strchr strdup])
 #======================================================================================
 AC_CONFIG_FILES([Makefile
-                 doc/Makefile
                  scripts/Makefile
                  src/Makefile
                  src/adapt/Makefile

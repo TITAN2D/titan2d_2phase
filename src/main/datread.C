@@ -219,8 +219,7 @@ void Read_data(int myid, MatProps* matprops_ptr, PileProps* pileprops_ptr,
   ifstream inscale("scale.data",ios::in);
   if(inscale.fail() == 0) {  
     inscale>>matprops_ptr->LENGTH_SCALE;
-    inscale>>matprops_ptr->HEIGHT_SCALE; //legacy, not used, all height 
-    //scaling now based on cube root of predicted volume, see below
+    inscale>>matprops_ptr->HEIGHT_SCALE; 
     inscale>>matprops_ptr->GRAVITY_SCALE;
   }
   else{  // if this file doesn't exist, assume no scaling
@@ -230,46 +229,14 @@ void Read_data(int myid, MatProps* matprops_ptr, PileProps* pileprops_ptr,
     matprops_ptr->GRAVITY_SCALE = 1;
   }
   inscale.close();
-  
-  double totalvolume=0.0;
-  
-  if(pileprops_ptr->numpiles>0)
-    for(isrc=0;isrc<pileprops_ptr->numpiles;isrc++)
-      totalvolume+=0.5*PI*
-	pileprops_ptr->pileheight[isrc]*
-	pileprops_ptr->majorrad[  isrc]*
-	pileprops_ptr->minorrad[  isrc];
-
-
-
-  if(fluxprops->no_of_sources>0)
-    for(isrc=0;isrc<fluxprops->no_of_sources;isrc++)
-      totalvolume+=0.5*PI*
-	fluxprops->influx[  isrc]*
-	fluxprops->majorrad[isrc]*
-	fluxprops->minorrad[isrc]*
-	0.5*(fluxprops->end_time[  isrc]-//0.5 for linear decrease
-	     fluxprops->start_time[isrc]);
-  
-
-
-  double doubleswap=pow(totalvolume,1.0/3.0);
-  
-  if((matprops_ptr->GRAVITY_SCALE!=1.0)||
-     (matprops_ptr->LENGTH_SCALE!=1.0)
-     )
-    matprops_ptr->HEIGHT_SCALE=doubleswap;
-  else
-    matprops_ptr->HEIGHT_SCALE=1.0;
-
   matprops_ptr->epsilon = matprops_ptr->HEIGHT_SCALE/matprops_ptr->LENGTH_SCALE;
 
   //this is used in ../geoflow/stats.C ... might want to set 
   //MAX_NEGLIGIBLE_HEIGHT to zero now that we have "good" thin 
   //layer control, need to reevaluate this, we should also 
   //reevaluate after we implement a "good" local stopping criteria
-  matprops_ptr->MAX_NEGLIGIBLE_HEIGHT=
-    doubleswap/matprops_ptr->HEIGHT_SCALE/10000.0;
+
+  matprops_ptr->MAX_NEGLIGIBLE_HEIGHT=matprops_ptr->HEIGHT_SCALE/10000.0;
 
   double TIME_SCALE=
     sqrt(matprops_ptr->LENGTH_SCALE/matprops_ptr->GRAVITY_SCALE);
@@ -282,7 +249,7 @@ void Read_data(int myid, MatProps* matprops_ptr, PileProps* pileprops_ptr,
   double vterm = pow(diameter,2.)*(matprops_ptr->den_solid -
                  matprops_ptr->den_fluid)*matprops_ptr->GRAVITY_SCALE/
                  (18.*matprops_ptr->viscosity);
-  matprops_ptr->v_terminal = vterm/VELOCITY_SCALE;
+  matprops_ptr->v_terminal = vterm;
   double smallestpileradius=HUGE_VAL;
 
   for(isrc=0;isrc<pileprops_ptr->numpiles;isrc++) { 
@@ -460,6 +427,7 @@ void Read_data(int myid, MatProps* matprops_ptr, PileProps* pileprops_ptr,
   matprops_ptr->tanbedfrict=CAllocD1(matprops_ptr->material_count+1);
   char stringswap[512];
   int imat; 
+  double doubleswap;
   for(imat=1;imat<=matprops_ptr->material_count;imat++) {
     fgets(stringswap,512,fp);
     matprops_ptr->matnames[imat]=allocstrcpy(stringswap);
@@ -760,10 +728,9 @@ void Read_grid(int myid, int numprocs,
 	     )/
 	 log(2.0));
 
-  //printf("REFINE_LEVEL=%d\n",REFINE_LEVEL);
-
-  //(mdj)2007-04-12 if(REFINE_LEVEL<3) REFINE_LEVEL=3;
   if(REFINE_LEVEL<0) REFINE_LEVEL=0;
+  printf("REFINE_LEVEL=%d\n",REFINE_LEVEL);
+
 
 
   //set the nodal type information

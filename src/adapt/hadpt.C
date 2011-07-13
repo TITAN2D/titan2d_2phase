@@ -501,7 +501,7 @@ void refinewrapper(HashTable*HT_Elem_Ptr, HashTable*HT_Node_Ptr, MatProps* matpr
 }
 
 //from init_piles.C
-void elliptical_pile_height(HashTable* HT_Node_Ptr, Element *EmTemp, 
+extern void elliptical_pile_height(HashTable* HT_Node_Ptr, Element *EmTemp, 
 			    MatProps* matprops_ptr, PileProps* pileprops_ptr);
 
 
@@ -1412,8 +1412,6 @@ void  H_adapt_to_level(HashTable* El_Table, HashTable* NodeTable,
   MPI_Comm_rank(MPI_COMM_WORLD, &myid);
   MPI_Comm_size(MPI_COMM_WORLD, &numprocs);
 
-  
-
   int minrefinelevel;
   Element* EmTemp;
   ElemPtrList RefinedList(2048);
@@ -1465,14 +1463,6 @@ void  H_adapt_to_level(HashTable* El_Table, HashTable* NodeTable,
 	}
       }
 
-    /*
-    printf("RefinedList.get_num_elem()=%d\n",RefinedList.get_num_elem());
-    for(i=0;i<RefinedList.get_num_elem();i++) {
-      printf("ielem=%d===============================\n",i);
-      ElemBackgroundCheck(El_Table,NodeTable,RefinedList.get_key(i),stdout);
-    }
-    */
-    
     refine_neigh_update(El_Table,NodeTable,numprocs,myid,
 			(void*) &RefinedList,timeprops_ptr);
 
@@ -1481,11 +1471,13 @@ void  H_adapt_to_level(HashTable* El_Table, HashTable* NodeTable,
   }while(minrefinelevel<refinelevel);
 
 
-  if(timeprops_ptr->iter==0) {
+  if(timeprops_ptr->iter==0) 
+  {
     if(pileprops_ptr->numpiles>0)
+    {
       for(i=0; i<num_buck; i++)
-	if(*(buck+i)) {
-	  
+	if(*(buck+i))
+	{
 	  currentPtr = *(buck+i);
 	  while(currentPtr){
 	    
@@ -1493,7 +1485,8 @@ void  H_adapt_to_level(HashTable* El_Table, HashTable* NodeTable,
 	    currentPtr=currentPtr->next;     
 	    assert(EmTemp);
 	    
-	    if(EmTemp->get_adapted_flag()>=NOTRECADAPTED) {
+	    if(EmTemp->get_adapted_flag()>=NOTRECADAPTED)
+            {
 	      EmTemp->put_adapted_flag(NOTRECADAPTED);
 	      elliptical_pile_height(NodeTable,EmTemp,matprops_ptr, 
 				     pileprops_ptr);
@@ -1505,7 +1498,9 @@ void  H_adapt_to_level(HashTable* El_Table, HashTable* NodeTable,
 	    }	    
 	  }
 	}
+    }
     else
+    {
       for(i=0; i<num_buck; i++)
 	if(*(buck+i)) {
 	  
@@ -1527,6 +1522,7 @@ void  H_adapt_to_level(HashTable* El_Table, HashTable* NodeTable,
 	    }	    
 	  }
 	}
+    }
   }
 
   mark_flux_region(El_Table,NodeTable,matprops_ptr,fluxprops_ptr, 

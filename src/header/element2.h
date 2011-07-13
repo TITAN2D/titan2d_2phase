@@ -328,6 +328,9 @@ class Element{
   //! this function returns a vector containing the previous state variables, previous mean beginning of timestep before the finite difference predictor halfstep
   double*   get_prev_state_vars();
 
+  //! updates prev_states variables to current states, for first order-calculations
+  void      update_prev_state_vars();
+
   //! this function calculates the lengths of the element in the (global) x and y directions
   void      calculate_dx(HashTable* NodeTable);
 
@@ -453,6 +456,9 @@ class Element{
 
   //! this function is used to assign a value to stopped flags, for when you don't want to compute the criteria to decide whether it's stopped or not, useful during developement
   void put_stoppedflags(int stoppedflagsin);
+
+  //! interface to change value of earth-pressure cofficients
+  void put_kactxy (double kap[]){ kactxy[0]=kap[0]; kactxy[1]=kap[1]; }
 
   //! this function returns the value of "stoppedflags"
   int  get_stoppedflags();
@@ -760,6 +766,12 @@ inline int Element::get_positive_x_side() {return positive_x_side;};
 
 inline double* Element::get_prev_state_vars() {return prev_state_vars;};
 
+inline void Element::update_prev_state_vars()
+{
+  for (int i=0; i<NUM_STATE_VARS; i++)
+    prev_state_vars[i]=state_vars[i];
+}
+
 inline double* Element::get_eigenvxymax() {return eigenvxymax;};
 
 inline double Element::get_shortspeed() {return shortspeed;};
@@ -792,6 +804,11 @@ inline int Element::get_stoppedflags() {return stoppedflags;};
 
 
 //above this line Keith made inline 20061128
+/* REALLY? member functions defined in class body are 
+ * automatically inlined by the complier. When they are
+ * not, "inline" keyword is not going to help the cause.
+ * This was a huge waste of time
+ */
 
 inline int* Element::getassoc(){ return neigh_proc;}
 

@@ -5,10 +5,10 @@
 #
 
 bin_SCRIPTS = titan_pilehelper titan_regionhelper r.gmfg.titan s.in.titan \
-	titan_gui.py
+	titan_gui.py titan_reset.sh
 
 EXTRA_DIST = titan_pilehelper titan_regionhelper r.gmfg.titan s.in.titan \
-	titan_gui.py
+	titan_gui.py titan_reset.sh
 
 #python_PYTHON = titan_gui.py
 

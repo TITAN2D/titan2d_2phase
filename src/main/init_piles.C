@@ -74,85 +74,32 @@ void init_piles(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr,
 		MapNames* mapnames, PileProps* pileprops, 
 		FluxProps *fluxprops, StatProps* statprops) { 
 
-  //print_grid(HT_Elem_Ptr, HT_Node_Ptr, matprops);
-
-  //printf("init_piles() got to 1\n"); fflush(stdout);
-
   unsigned nodes[9][KEYLENGTH], *node_key;
   int num_buckets=HT_Elem_Ptr->get_no_of_buckets();
 
   if(!adaptflag)
     H_adapt_to_level(HT_Elem_Ptr,HT_Node_Ptr,matprops,pileprops,
 		     fluxprops,timeprops_ptr,REFINE_LEVEL);
-
 #if defined PARABALOID || defined CYLINDER 
   if(adaptflag)
     initial_H_adapt(HT_Elem_Ptr, HT_Node_Ptr, 0, matprops, 
 		    pileprops,fluxprops,timeprops_ptr,4); 
 #else
-
-  for(int ibucket=0; ibucket<num_buckets; ibucket++){
-    
+  for(int ibucket=0; ibucket<num_buckets; ibucket++)
+  {
     HashEntry *entryp = *(HT_Elem_Ptr->getbucketptr() + ibucket);
-    
     //check every element in bucket
     while(entryp){	
       Element *EmTemp = (Element*)entryp->value;
       assert(EmTemp);
-      
-      if(EmTemp->get_adapted_flag()>0){
-
-	//printf("init_piles() got to 2\n"); fflush(stdout);
-	
+      if(EmTemp->get_adapted_flag()>0)
+      {
 	//put in the pile height right here...
 	double* ndcoord = EmTemp->get_coord();
 	double pile_height=0.0;
 	double radius_sq;
-	
-#ifdef PLANE
-	radius_sq = pow(ndcoord[0]-76.,2)+pow(ndcoord[1]-80.,2);
-	if(radius_sq < 35.)
-	  pile_height = 10*(1.-radius_sq/35.);
-	
-#elif defined CASITA
-	radius_sq = pow(ndcoord[0]-504600.,2)+pow(ndcoord[1]-1402320.,2);
-	if(radius_sq < 30000.)
-	  pile_height = 15*(1.-radius_sq/30000.);
-	
-#elif defined POPO //popo topo
-	radius_sq =  pow(ndcoord[0]- 537758./matprops->LENGTH_SCALE,2)+
-	             pow(ndcoord[1]-2100910./matprops->LENGTH_SCALE,2);
-	if(radius_sq < (10000./matprops->LENGTH_SCALE))
-	  pile_height = 1.-radius_sq/(10000./matprops->LENGTH_SCALE);
-	
-#elif defined ID1 // iverson and denlinger experiments I -- as pictured
-	
-	if(ndcoord[0] < 53.345 && ndcoord[0] > 45.265 &&
-	   ndcoord[1] > -10.   && ndcoord[1] < 300.) {
-	  if(ndcoord[0] < 51.148) 
-	    pile_height = 3.5912*(1.0-(51.148-ndcoord[0])/5.8832);
-	  else 
-	    pile_height = 3.59*(53.345-ndcoord[0])/2.1967;
-	  if(pile_height < 0)
-	    pile_height = 0;
-	}
-
-#elif defined ID2 //iverson and denlinger experiments II -- 90 angle with plane
-	if(ndcoord[0] < 53.345/matprops->LENGTH_SCALE && 
-	   ndcoord[0] > 46.45 /matprops->LENGTH_SCALE)
-	  pile_height = 4.207255*
-	    (1.0-(53.345/matprops->LENGTH_SCALE-ndcoord[0])/6.895*
-	     matprops->LENGTH_SCALE);
-	
-	//I don't think it needs this next line but I'm leaving it here
-	//pile_height = pile_height/matprops->HEIGHT_SCALE;	
-#else
-	printf("Danger no recognized pile type defined in init_piles.C\n");
-	exit(0);
-#endif 
 	EmTemp->put_height(pileheight);
-
-      } //if(EmTemp->get_adapted_flag()>0)
+      } 
       entryp = entryp->next;
     }
   }
@@ -161,11 +108,12 @@ void init_piles(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr,
 
   move_data(numprocs, myid, HT_Elem_Ptr, HT_Node_Ptr,timeprops_ptr);
   slopes(HT_Elem_Ptr, HT_Node_Ptr, matprops);
-  
+  int foo=0;
+  int bar=0;
   /* initial calculation of actual volume on the map */
 
   double realvolume=0.0, depositedvol=0.0, forcebed=0.0, meanslope=0.0;
-
+  double epsilon[2]={matprops->epsilon, matprops->epsilon};
   HashEntryPtr* buck = HT_Elem_Ptr->getbucketptr();
   for(int ibucket=0; ibucket<HT_Elem_Ptr->get_no_of_buckets(); ibucket++)
     if(*(buck+ibucket)) {
@@ -174,16 +122,18 @@ void init_piles(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr,
       while(currentPtr) {
 
 	Element* Curr_El=(Element*)(currentPtr->value);
+        assert(Curr_El);
+
 	if(Curr_El->get_adapted_flag()>0) { //if this is a refined element don't involve!!!
 	  double *dxy=Curr_El->get_dx();
 	  double dvol=dxy[0]*dxy[1]**(Curr_El->get_state_vars());
 	  realvolume+=dvol;
-	  //Curr_El->find_brothers(HT_Elem_Ptr,HT_Node_Ptr,0.0,myid,matprops);
-	  *(Curr_El->get_kactxy()+0)=*(Curr_El->get_kactxy()+1)=
-	    matprops->epsilon;
+	
+	  Curr_El->put_kactxy(epsilon);
 	  Curr_El->calc_stop_crit(matprops);
-	  if(Curr_El->get_stoppedflags()==2) depositedvol+=dvol;
-
+          if (Curr_El->get_stoppedflags()==2)
+            depositedvol += dvol;
+          
 	  double resolution=0, xslope=0, yslope=0;
 	  Get_max_resolution(&resolution);
 	  Get_slope(resolution,
@@ -191,22 +141,18 @@ void init_piles(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr,
 		    *((Curr_El->get_coord())+1)*matprops->LENGTH_SCALE,
 		    &xslope,&yslope);
 	  double slope=sqrt(xslope*xslope+yslope*yslope); 
-	  //meanslope+=dvol*slope;
 
 	  forcebed+=dvol*9.8/sqrt(1.0+slope*slope)*
 	    tan(matprops->bedfrict[Curr_El->get_material()]);
-
-
 	}
-
-	    currentPtr=currentPtr->next;      	    
+	currentPtr=currentPtr->next;      	    
       }
     }
 
   double tempin[3], tempout[3];
   tempin[0]=realvolume;
   tempin[1]=forcebed;
-  tempin[2]=depositedvol;
+  tempin[2]=realvolume;
   //tempin[2]=meanslope;
 
   MPI_Reduce(tempin,tempout,3,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
@@ -220,10 +166,6 @@ void init_piles(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr,
 
   statprops->forceint=0.0;
   statprops->forcebed=tempout[1]/tempout[0];
-  //statprops->slopemean=tempout[2]/tempout[0];
-  //printf("meanslope=%g\n",statprops->slopemean);
-  //  exit(0);
-  //scanf("%f",&meanslope);
   return;
 }
 
@@ -361,7 +303,6 @@ void elliptical_pile_height(HashTable* HT_Node_Ptr, Element *EmTemp,
 	       //center node
 	       4.0*sum_node_ymom[8]
 	       )/16.0;
-
   EmTemp->put_height_mom(pileheight,vfract,xmom,ymom);
   return;
 }

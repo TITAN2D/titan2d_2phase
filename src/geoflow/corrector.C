@@ -39,7 +39,7 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
   int xp=EmTemp->get_positive_x_side();
   int yp=(xp+1)%4, xm=(xp+2)%4, ym=(xp+3)%4; 
 
-  int ivar, j, k;
+  int ivar,i, j, k;
   double fluxxp[NUM_STATE_VARS], fluxyp[NUM_STATE_VARS]; 
   double fluxxm[NUM_STATE_VARS], fluxym[NUM_STATE_VARS];
 
@@ -75,8 +75,8 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
   double *d_gravity=EmTemp->get_d_gravity();
   double *zeta=EmTemp->get_zeta();
   double *curvature=EmTemp->get_curvature();
-  double effect_bedfrict=EmTemp->get_effect_bedfrict();
-  double *effect_kactxy=EmTemp->get_effect_kactxy(); 
+  double bedfrict=EmTemp->get_effect_bedfrict();
+  double *kactxy=EmTemp->get_effect_kactxy();
   double *Influx=EmTemp->get_influx();
   double solid_den=matprops_ptr->den_solid;
   double fluid_den=matprops_ptr->den_fluid;
@@ -109,17 +109,38 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
   correct_(state_vars, prev_state_vars, fluxxp, fluxyp, fluxxm, fluxym,
 	   &tiny, &dtdx, &dtdy, &dt, d_state_vars, (d_state_vars+NUM_STATE_VARS), 
 	   &(zeta[0]), &(zeta[1]), curvature,
-	   &(matprops_ptr->intfrict), &effect_bedfrict,
-	   gravity, effect_kactxy, &(matprops_ptr->frict_tiny),
+	   &(matprops_ptr->intfrict), &bedfrict,
+	   gravity, kactxy, &(matprops_ptr->frict_tiny),
 	   forceint, forcebed, &do_erosion, eroded, Vsolid, Vfluid,
 	   &solid_den, &fluid_den, &terminal_vel,
            &(matprops_ptr->epsilon), &IF_STOPPED, Influx);
-   printf("%e, %e, %e, %e, %e, %e\n", state_vars[0], state_vars[1],
-           state_vars[2], state_vars[3], state_vars[4], state_vars[5]);
 
   *forceint*=dx[0]*dx[1];
   *forcebed*=dx[0]*dx[1];
   *eroded*=dx[0]*dx[1];
+
+   bool print_vars=false;
+   for (i=0; i<NUM_STATE_VARS; i++)
+     if ( isnan(state_vars[i]) )
+        print_vars=true;
+
+  if ( print_vars )
+  {
+    printf("ElemKey: %u\n", *EmTemp->pass_key());
+    printf("Kactxy = %10.5f%10.5f\n", kactxy[0], kactxy[1]);
+    printf("state_vars: \n");
+    for (i=0; i<NUM_STATE_VARS; i++)
+      printf("%10.5f", state_vars[i]);
+    printf("\n");
+    printf("prev_state_vars: \n");
+    for (i=0; i<NUM_STATE_VARS; i++)
+      printf("%10.5f", prev_state_vars[i]);
+    printf("\n");
+    printf("fluxes: \n");
+    for (i=0; i<NUM_STATE_VARS; i++)
+      printf("%10.5f%10.5f%10.5f%10.5f\n",
+             fluxxp[i],fluxxm[i],fluxyp[i],fluxym[i]);
+  }
 
   if(EmTemp->get_stoppedflags()==2) 
     *deposited=state_vars[0]*dx[0]*dx[1];

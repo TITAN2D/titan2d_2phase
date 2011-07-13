@@ -182,10 +182,10 @@ void tecplotter(HashTable* El_Table, HashTable* NodeTable,
 
   fprintf ( fp, "TITLE= \" %s: time %d:%02d:%g (hrs:min:sec), V*=%g\"\n",
 	    mapnames->gis_map,hrs,mins,secs,v_star);
-  fprintf ( fp, "VARIABLES = \"X\", \"Y\", \"Z\", \"PILE_HEIGHT\", \
-                 \"SOLID_X_MOMENTUM\", \"SOLID_Y_MOMENTUM\", \
-                 \"FLUID_X_MOMENTUM\", \"FLUID_Y_MOMENTUM\", \
-                 \"ELEVATION\", \"SOLID_SPEED\", \"FLUID_SPEED\" \n");
+  fprintf ( fp, "VARIABLES = \"X\", \"Y\", \"Z\", \"PILE_HEIGHT\","
+                 "\"VOL_FRACT\", \"SOLID_X_MOMENTUM\", \"SOLID_Y_MOMENTUM\","
+                 "\"FLUID_X_MOMENTUM\", \"FLUID_Y_MOMENTUM\","
+                 "\"ELEVATION\", \"SOLID_SPEED\", \"FLUID_SPEED\" \n");
   
   fprintf(fp,"\n");
   fprintf(fp,"ZONE N=%d, E=%d, F=FEPOINT, ET=QUADRILATERAL\n",
@@ -599,12 +599,18 @@ int print_bubble_node(FILE *fp, HashTable* NodeTable, MatProps* matprops,
     get_elem_elev(NodeTable,matprops,EmTemp,&elevation);
 
   double Vel[4];
+  double volf ;
+  if (*(EmTemp->get_state_vars()) > GEOFLOW_TINY)
+    volf=(*(EmTemp->get_state_vars()+1)/(*(EmTemp->get_state_vars())));
+  else
+    volf=0;
   EmTemp->eval_velocity(0.0,0.0,Vel);
-  fprintf(fp, "%e %e %e %e %e %e %e %e %e %e %e\n",
+  fprintf(fp, "%e %e %e %e %e %e %e %e %e %e %e %e\n",
 	  (*(EmTemp->get_coord()))*(matprops)->LENGTH_SCALE,
 	  (*(EmTemp->get_coord()+1))*(matprops)->LENGTH_SCALE,
 	  elevation+(*(EmTemp->get_state_vars()))*(matprops)->HEIGHT_SCALE, 
 	  *(EmTemp->get_state_vars())*(matprops)->HEIGHT_SCALE,
+          volf,
 	  *(EmTemp->get_state_vars()+2)*momentum_scale, 
 	  *(EmTemp->get_state_vars()+3)*momentum_scale, 
 	  *(EmTemp->get_state_vars()+4)*momentum_scale, 

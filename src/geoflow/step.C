@@ -184,6 +184,10 @@ private(currentPtr,Curr_El,IF_STOPPED,influx,j,k,curr_time,flux_src_coef,VxVy)
  	    if(Curr_El->get_adapted_flag()>0) { //if this is a refined element don't involve!!!
 	      
 	      double *dxy=Curr_El->get_dx();
+              // if calculations are first-order, predict is never called
+              // ... so we need to update prev_states
+              if ( *order_flag == 1 )
+                Curr_El->update_prev_state_vars();
 
 	      void *Curr_El_out= (void *) Curr_El;
 	      correct(NodeTable, El_Table, dt, matprops_ptr,

@@ -30,49 +30,8 @@ class FinalInstructions:
 
         Button(master, text="Quit", command=master.quit).grid(row=3,column=1)
 
-class MixtureProps:
-     def __init__ (self):
-         self.solid_rho = 2800.
-         self.fluid_rho = 1200.
-         self.viscosity = 0.1
-         self.diameter = 0.005
-
-class QuestionTemplate6:
-    def __init__ (self, master, mixprops):
-        Label(master, text="Solid-fluid mixture properties.").grid(row=0, column=0, sticky=W, columnspan=2)
-        Label(master, text="Solid Density (Kg/m^3)").grid(row=1, column=0, sticky=W)
-        Label(master, text="Fluid Density (Kg/m^3)").grid(row=2, column=0, sticky=W)
-        Label(master, text="Fluid Viscosity (N-s/m^2)").grid(row=3, column=0, sticky=W)
-        Label(master, text="Mean grain diameter (m)").grid(row=4, column=0, sticky=W)
-
-        self.solid_rho = Entry(master)
-        self.fluid_rho = Entry(master)
-        self.viscosity = Entry(master)
-        self.diameter  = Entry(master)
-
-        self.solid_rho.grid(row=1, column=1)
-        self.fluid_rho.grid(row=2, column=1)
-        self.viscosity.grid(row=3, column=1)
-        self.diameter.grid(row=4, column=1)
-
-        Button(master, text="Done", command=self.done).grid(row=5,column=0)
-        Button(master, text="Quit", command=master.quit).grid(row=5,column=1)
-
-    def done(self):
-        if ( self.solid_rho.get() != '' ):
-            mixprops.solid_rho = float(self.solid_rho.get())
-
-        if ( self.fluid_rho.get() != '' ):
-            mixprops.fluid_rho = float(self.fluid_rho.get())
-
-        if ( self.viscosity.get() != '' ):
-            mixprops.viscosity = float(self.viscosity.get())
-
-        if ( self.diameter.get() != '' ):
-            mixprops.diameter = float(self.diameter.get())
-
-
 class QuestionTemplate5:
+
     def __init__(self,master,src_number,filename,directory,heightscale):
         Label(master, text="Information for Flux Source Number "+str(src_number+1)).grid(row=0,column=0,sticky=W,columnspan=2)
         Label(master, text="Extrusion flux rate [m/s]:").grid(row=1,column=0,sticky=W)
@@ -82,6 +41,9 @@ class QuestionTemplate5:
         Label(master, text="Orientation (angle [degrees] from X axis to major axis):").grid(row=5,column=0,sticky=W)
         Label(master, text="Initial speed [m/s]:").grid(row=6,column=0,sticky=W)
         Label(master, text="Initial direction ([degrees] from X axis):").grid(row=7,column=0,sticky=W)
+
+
+
 
         self.influx = Entry(master)
         self.start_time = Entry(master)
@@ -186,7 +148,32 @@ class QuestionTemplate5:
             file = open(self.filename, "a+", 0)
             file.write( str(influx) + '\n' + str(start_time) + '\n' + str(end_time) + '\n' + str(xcenter) + '\n' + str(ycenter) + '\n' + str(majradius) + '\n' +str(minradius) + '\n' + str(orientation) + '\n' + str(Vmagnitude) + '\n' + str(Vdirection) + '\n')
             file.close
-
+            #approx: h=influx*t-0.5*a*t^2
+            #if no s => t1=N*(2*h/g)^0.5  N is a empirical constant,
+            #for cylindrical piles of aspect ratio (height/radius) of approx 1
+            #2<=N<=3 (closer to 2) but there are 3 reasons we should increase N
+            #(1) cylindrical pile does not collapse the whole way, shorter
+            #distance means decreased acceleration means increased time, N
+            #(2) paraboloid piles are closer to conical than cylinder so it
+            #should collapse even less, so increase N
+            #(3) "influx" is a constant source "velocity" not an initial
+            #velocity which should increase h in "approx: h=..." equation, so
+            #as a fudge factor increase N some more
+            #calibrated on a single starting condition at tungaruhau says
+            #N=3.21   N=X
+            #anyway a=2*h/t1^2 = g/N^2
+            #approx: v=influx-a*t2 at hmax v=0 => t2=influx/a = N^2*influx/g
+            #t3=min(t2,end_time-start_time)
+            #plug int first equation
+            #approx hmax=influx*t3-0.5*a*t3^2
+            #if t3==t2=> hmax= N^2/2*s^2/g
+            #DEM: tungfla2
+            #influx 12 m/s (vel 50 m/s at +35 degrees cc from +x direction
+            #starts in filled crater which means this velocity points up hill
+            #so pile is mostly stationary while flux source is active, 50 m/s
+            #is just short of what is needed to top the crater)
+            #end_time-start_time=20 gives actual hmax=75.6 m
+            #g=9.8 m/s^2, N=3.21, t3=t2=12.62<20 s => computed hmax=75.7 m
             X = 3.21
             g = 9.8
             a = g/X/X
@@ -198,7 +185,6 @@ class QuestionTemplate5:
                 self.heightscale = effectheight
 
             self.input_flag = 1
-
             #write to the python_input.data file
             file = open(self.directory+'python_input.data', "a+", 0)
             python_data = """ Mean Flux  (kg/(m^2-s)): """+ str(influx) +"""
@@ -298,15 +284,16 @@ class QuestionTemplate2:
         Label(master, text="Thickness of Initial Volume, h(x,y):").grid(row=1,column=0,sticky=W)
         Label(master, text="P*(1-((x-xc)/xr)^2 - ((y-yc)/yr)^2)").grid(row=1,column=1,sticky=W)
         Label(master, text="Maximum Initial Thickness, P (m):").grid(row=2,column=0,sticky=W)
-        Label(master, text="Initial solid-volume fraction,(0:1.):").grid(row=3,column=0,sticky=W)
-        Label(master, text="Center of Initial Volume, xc, yc (UTM E, UTM N):").grid(row=4,column=0,sticky=W)
-        Label(master, text="Major and Minor Extent, majorR, minorR (m, m):").grid(row=5,column=0,sticky=W)        
-        Label(master, text="Orientation (angle [degrees] from X axis to major axis):").grid(row=6,column=0,sticky=W)
-        Label(master, text="Initial speed [m/s]:").grid(row=7,column=0,sticky=W)
-        Label(master, text="Initial direction ([degrees] from X axis):").grid(row=8,column=0,sticky=W)
+        Label(master, text="Center of Initial Volume, xc, yc (UTM E, UTM N):").grid(row=3,column=0,sticky=W)
+        Label(master, text="Major and Minor Extent, majorR, minorR (m, m):").grid(row=4,column=0,sticky=W)        
+        Label(master, text="Orientation (angle [degrees] from X axis to major axis):").grid(row=5,column=0,sticky=W)
+        Label(master, text="Initial speed [m/s]:").grid(row=6,column=0,sticky=W)
+        Label(master, text="Initial direction ([degrees] from X axis):").grid(row=7,column=0,sticky=W)
+
+
+
 
         self.pileheight = Entry(master)
-        self.volfract   = Entry(master)
         self.xpilecenter = Entry(master)
 	self.ypilecenter = Entry(master)
         self.majradius = Entry(master)
@@ -316,18 +303,17 @@ class QuestionTemplate2:
         self.Vdirection = Entry(master)
 
         self.pileheight.grid(row=2,column=1)
-        self.volfract.grid(row=3,column=1)
-        self.xpilecenter.grid(row=4,column=1)
-	self.ypilecenter.grid(row=4,column=2)
-        self.majradius.grid(row=5,column=1)
-        self.minradius.grid(row=5,column=2)
-        self.orientation.grid(row=6,column=1)
-        self.Vmagnitude.grid(row=7,column=1)
-        self.Vdirection.grid(row=8,column=1)
+        self.xpilecenter.grid(row=3,column=1)
+	self.ypilecenter.grid(row=3,column=2)
+        self.majradius.grid(row=4,column=1)
+        self.minradius.grid(row=4,column=2)
+        self.orientation.grid(row=5,column=1)
+        self.Vmagnitude.grid(row=6,column=1)
+        self.Vdirection.grid(row=7,column=1)
 
-        Button(master, text="Done", command=self.done).grid(row=9,column=0)
-        Button(master, text="Quit", command=master.quit).grid(row=9,column=1)
-        Button(master, text="Calculate\n Volume", command=self.showVolume).grid(row=9,column=2)
+        Button(master, text="Done", command=self.done).grid(row=8,column=0)
+        Button(master, text="Quit", command=master.quit).grid(row=8,column=1)
+        Button(master, text="Calculate\n Volume", command=self.showVolume).grid(row=8,column=2)
 
         # create Map button if started from within grass
         mapbutt = Button(master, text="Map", command=self.showMap )
@@ -425,15 +411,6 @@ class QuestionTemplate2:
 	    if pileheight <= float(0.):
 		pileheight = 0.
 
-        if self.volfract.get() =='':
-            volfract = 1.0
-        else:
-            volfract = float(self.volfract.get())
-            if volfract < 0:
-                volfract = 0.
-            elif volfract > 1.:
-                volfract = 1. 
-
 	if self.xpilecenter.get() == '':
 	    xpilecenter = 1.0
 	else:
@@ -478,7 +455,7 @@ class QuestionTemplate2:
         if self.write_flag == 0:
             self.write_flag = 1
             file = open(self.filename, "a+", 0)
-            file.write( str(pileheight) + '\n' +  str(volfract) + '\n' + str(xpilecenter) + '\n' + str(ypilecenter) + '\n' + str(majradius) + '\n' +str(minradius) + '\n' + str(orientation) + '\n' + str(Vmagnitude) + '\n' + str(Vdirection) + '\n')
+            file.write( str(pileheight) + '\n' + str(xpilecenter) + '\n' + str(ypilecenter) + '\n' + str(majradius) + '\n' +str(minradius) + '\n' + str(orientation) + '\n' + str(Vmagnitude) + '\n' + str(Vdirection) + '\n')
             file.close
             if pileheight > self.max_height:
                 self.max_height = pileheight
@@ -486,7 +463,8 @@ class QuestionTemplate2:
             self.input_flag = 1
             #write to the python_input.data file
             file = open(self.directory+'python_input.data', "a+", 0)
-            python_data = """Maximum Initial Thickness, P (m): """ + str(pileheight) + """Initial solid-volume fraction: """ + str(volfract) + """ Center of Initial Volume, xc, yc (UTM E, UTM N): """ + str(xpilecenter) + """ """+str(ypilecenter)+"""
+            python_data = """Maximum Initial Thickness, P (m): """+ str(pileheight) +"""
+Center of Initial Volume, xc, yc (UTM E, UTM N): """ + str(xpilecenter) + """ """+str(ypilecenter)+"""
 Major and Minor Extent, majorR, minorR (m, m): """ + str(majradius)+ """ """ +str(minradius)+"""
 Angle from X axis to major axis (degrees): """ +str(orientation)+"""
 Initial speed [m/s]: """ + str(Vmagnitude) + """
@@ -498,7 +476,6 @@ Initial direction ([degrees] from X axis): """ + str(Vdirection)+"""
         # now feed the data back to the environment
         if self.pile_number == 1: # but only for the 1st pile
             os.environ['GMFG_PILEH']  = self.pileheight.get()
-            os.environ['GMFG_VOLFRAC']  = self.volfract.get()
             os.environ['GMFG_PILEX']  = self.xpilecenter.get()
             os.environ['GMFG_PILEY']  = self.ypilecenter.get()
             os.environ['GMFG_PILEMAJE'] = self.majradius.get()
@@ -621,7 +598,9 @@ class QuestionTemplate:
         
         self.vizoutput.menu.add_checkbutton(label="tecplotxxxx.plt",variable=self.tecplotVar)
         self.vizoutput.menu.add_checkbutton(label="mshplotxxxx.plt",variable=self.mshplotVar)
+        self.vizoutput.menu.add_checkbutton(label="GMFG Viz",variable=self.padyVar)
         self.vizoutput.menu.add_checkbutton(label="XDMF/Paraview",variable=self.xdmfVar)
+        self.vizoutput.menu.add_checkbutton(label="Web Viz",variable=self.quickviewVar)
         self.vizoutput.menu.add_checkbutton(label="grass_sites",variable=self.grasssitesVar)
         
 
@@ -827,6 +806,37 @@ class QuestionTemplate:
                 "Unable to parse d.where output,\ne-mail sorokine@buffalo.edu"
                 )
 
+#    def selRegion(self):
+#        if self.topomap.get() != '':
+#            helper = os.path.dirname(os.path.abspath(sys.argv[0])) + '/titan_regionhelper'
+#            os.system('sh ' + helper + ' ' +
+#                      self.topomap.get() + ' ' +
+#                      str(self.newmon.get()) + ' ' +
+#                      '/tmp/region.coord' )
+#            
+#            # parse coordinate file
+#            m = re.compile('^(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)').match( open('/tmp/region.coord').readline() )
+#            if m:
+#                self.min_location_x.delete(0, END)
+#                self.min_location_y.delete(0, END)
+#                self.max_location_x.delete(0, END)
+#                self.max_location_y.delete(0, END)
+#
+#                self.min_location_x.insert(END, m.group(3)) 
+#                self.min_location_y.insert(END, m.group(2)) 
+#                self.max_location_x.insert(END, m.group(4)) 
+#                self.max_location_y.insert(END, m.group(1)) 
+#            else:
+#                tkMessageBox.showerror(
+#                    "Region Selection",
+#                    "Unable to parse region,\ne-mail sorokine@buffalo.edu"
+#                    )
+#        else:
+#            tkMessageBox.showwarning(
+#                "GRASS Region",
+#                "Specify GIS map name first!"
+#                )
+            
     def getHelp(self):
         a=open('../README').read()
         tk = Tkinter.Tk()

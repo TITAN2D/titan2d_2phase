@@ -16,7 +16,7 @@ C* $Id: correct.f 143 2007-06-25 17:58:08Z dkumar $
 C*
 
 C***********************************************************************
-      subroutine correct(Uvec, Uprev, fluxxp, fluxyp, fluxxm, fluxym,
+      subroutine correct(uvec, uprev, fluxxp, fluxyp, fluxxm, fluxym,
      1     tiny, dtdx, dtdy, dt, dUdx, dUdy, xslope, yslope,
      2     curv, intfrictang, bedfrictang, g, kactxy, frict_tiny,
      3     forceint, forcebed, DO_EROSION, eroded, v_solid, v_fluid,
@@ -33,7 +33,7 @@ C***********************************************************************
       double precision alphaxx, alphayy, alphaxy, alphaxz, alphayz
       double precision tanbed, terminal_vel
 
-      double precision fluxxp(6),fluxyp(6),tiny, Uprev(6), Ustore(6)
+      double precision fluxxp(6),fluxyp(6),tiny, uprev(6), ustore(6)
       double precision fluxxm(6), fluxym(6)
       double precision uvec(6), dUdx(6), dUdy(6)
       double precision h_inv, hphi_inv, curv(2), frict_tiny
@@ -64,15 +64,15 @@ c     initialize to zero
       slope=dsqrt(xslope*xslope+yslope*yslope)
       den_frac = den_fluid/den_solid
       do 10 i = 1,6
-10    Ustore(i)=Uprev(i)+dt*fluxsrc(i)
+10    ustore(i)=uprev(i)+dt*fluxsrc(i)
      1     -dtdx*(fluxxp(i)-fluxxm(i))
      2     -dtdy*(fluxyp(i)-fluxym(i))
 
-      if(Uvec(1). gt. tiny) then
-c     S terms
+      if(ustore(1).gt.tiny) then
+c     Source terms ...
 c     here speed is speed squared
          speed=v_solid(1)**2+v_solid(2)**2
-         if(speed.GT.0.0) then
+         if(speed.gt.0.0) then
 c     here speed is speed
             speed=dsqrt(speed)
             unitvx=v_solid(1)/speed
@@ -82,8 +82,8 @@ c     here speed is speed
             unitvy=0.0
          endif
          tanbed=dtan(bedfrictang)
-         h_inv = 1.d0/Uvec(1)
-         hphi_inv = 1.0/Uvec(2)
+         h_inv = 1.d0/uvec(1)
+         hphi_inv = 1.0/uvec(2)
          alphaxx = kactxy
          alphayy = kactxy
          den_frac = den_fluid/den_solid
@@ -114,7 +114,7 @@ c        evaluate drag
          t5 = drag(1)
 
 c        update ustore
-         Ustore(3) = Ustore(3) + dt*(t1-t2-t3+t4+t5)
+         ustore(3) = ustore(3) + dt*(t1-t2-t3+t4+t5)
 
 cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c     solid fraction y-direction source terms
@@ -138,7 +138,7 @@ c        evaluate t4 ( gravity along y-dir )
          t4 = uvec(2)*g(2)
 c        drag term
          t5 = drag(2)
-         Ustore(4) = Ustore(4) + dt*(t1-t2-t3+t4+t5)
+         ustore(4) = ustore(4) + dt*(t1-t2-t3+t4+t5)
 
 ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c    fluid fraction x-direction source terms
@@ -147,7 +147,7 @@ c        gravity on fluid
          t4 = uvec(1)*g(1)
 c        drag force on fluid
          t5 = drag(3)
-         Ustore(5) = Ustore(5) + dt*(t4 - t5)
+         ustore(5) = ustore(5) + dt*(t4 - t5)
 
 ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c    fluid fraction y-direction source terms
@@ -156,7 +156,7 @@ c        gravity on fluid
          t4 = uvec(1)*g(2)
 c        drag force on fluid
          t5 = drag(4)
-         Ustore(6) = Ustore(6) + dt*(t4 - t5)
+         ustore(6) = ustore(6) + dt*(t4 - t5)
       endif
 
 c     computation of magnitude of friction forces for statistics
@@ -165,7 +165,7 @@ c     computation of magnitude of friction forces for statistics
 
 c     update the state variables
       do 20 i=1,6
-20       Uvec(i) = Ustore(i)
+20       uvec(i) = ustore(i)
 
       return
       end

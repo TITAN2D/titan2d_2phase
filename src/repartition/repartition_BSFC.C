@@ -1693,12 +1693,6 @@ int SequentialSend(int numprocs, int myid,
     fclose(fpdb2);
 
   }
-
-    //for(iproc=1;iproc<numprocs;iproc++)
-    //if(myid<iproc) MPI_Barrier(MPI_COMM_WORLD);
-    //MPI_Barrier(MPI_COMM_WORLD);
-
-    //printf("myid=%d repart2 at 14.0\n",myid); fflush(stdout);
 #endif
 
   // **************************************************
@@ -1743,8 +1737,6 @@ int SequentialSend(int numprocs, int myid,
     }
 #endif
 
-    //checkelemnode(El_Table, NodeTable, myid, fpdb2, 13.0);
-    
     //send the "first-send" elements to the processor before me
     ierr=MPI_Isend((void*) send_array0,num_send[0],ELEMTYPE,myid-1,send_tag2+myid  ,
 		   MPI_COMM_WORLD,requestsent+0);

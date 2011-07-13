@@ -11,5 +11,5 @@ EXTRA_DIST = install-titan.sh README.GRASS README.AUTOCONF
 #  OPT_DIRS = doc
 #endif
 
-SUBDIRS = src scripts doc
+SUBDIRS = src scripts
 #$(OPT_DIRS)
