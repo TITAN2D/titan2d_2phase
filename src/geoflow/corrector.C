@@ -33,7 +33,7 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
   double *dx=EmTemp->get_dx();
   double dtdx = dt/dx[0];
   double dtdy = dt/dx[1];
-  
+  double kactxy[DIMENSION]; 
 
   double tiny = GEOFLOW_TINY;
   int xp=EmTemp->get_positive_x_side();
@@ -76,13 +76,38 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
   double *zeta=EmTemp->get_zeta();
   double *curvature=EmTemp->get_curvature();
   double bedfrict=EmTemp->get_effect_bedfrict();
-  double *kactxy=EmTemp->get_effect_kactxy();
   double *Influx=EmTemp->get_influx();
   double solid_den=matprops_ptr->den_solid;
   double fluid_den=matprops_ptr->den_fluid;
   double terminal_vel=matprops_ptr->v_terminal;
 
-  double Vsolid[2];
+
+  double Vfluid[DIMENSION];
+  double volf;
+  if ( state_vars[0] > GEOFLOW_TINY)
+  {
+    for (i=0; i<DIMENSION; i++)
+     kactxy[i]=*(EmTemp->get_effect_kactxy()+i);
+
+    // fluid velocities
+    Vfluid[0]=state_vars[4]/state_vars[0];
+    Vfluid[1]=state_vars[5]/state_vars[0];
+
+    // volume fractions
+    volf = state_vars[1]/state_vars[0];
+  }
+  else
+  {
+    for (i=0; i<DIMENSION; i++)
+    {
+      kactxy[i]=matprops_ptr->epsilon;
+      Vfluid[i]=0.;
+    }
+    volf=1.;
+    bedfrict=matprops_ptr->bedfrict[EmTemp->get_material()];
+  }
+
+  double Vsolid[DIMENSION];
   if(state_vars[1]>GEOFLOW_TINY) 
   {
     Vsolid[0]=state_vars[2]/state_vars[1];
@@ -93,18 +118,10 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
     Vsolid[0]=Vsolid[1]=0.0;
   }
 
-  double Vfluid[2];
-  if (state_vars[0]>GEOFLOW_TINY)
-  {
-    Vfluid[0]=state_vars[4]/state_vars[0];
-    Vfluid[1]=state_vars[5]/state_vars[0];
-  }
-  else
-  {
-    Vfluid[0] = Vfluid[1] = 0.;
-  }
-
-  EmTemp->convect_dryline(Vsolid,dt); //this is necessary
+  double V_avg[DIMENSION];
+  V_avg[0] = Vsolid[0]*volf + Vfluid[0]*(1.-volf);
+  V_avg[1] = Vsolid[1]*volf + Vfluid[1]*(1.-volf);
+  EmTemp->convect_dryline(V_avg,dt); //this is necessary
 
   correct_(state_vars, prev_state_vars, fluxxp, fluxyp, fluxxm, fluxym,
 	   &tiny, &dtdx, &dtdy, &dt, d_state_vars, (d_state_vars+NUM_STATE_VARS), 
@@ -128,6 +145,7 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
   {
     printf("ElemKey: %u\n", *EmTemp->pass_key());
     printf("Kactxy = %10.5f%10.5f\n", kactxy[0], kactxy[1]);
+    printf("BedFrict: %10.5f: IntFrict: %10.5f\n", bedfrict, matprops_ptr->intfrict);
     printf("state_vars: \n");
     for (i=0; i<NUM_STATE_VARS; i++)
       printf("%10.5f", state_vars[i]);

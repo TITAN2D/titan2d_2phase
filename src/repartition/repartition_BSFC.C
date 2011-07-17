@@ -149,19 +149,7 @@ void repartition(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr, int time_step)
 	  if(!EmTemp->get_refined_flag() && EmTemp->get_new_old() == BSFC_NEW) {
 	    //check for constrained nodes on the vertex nodes
 	    j = 4;
-	    /*
-	    while(j<8)  {
-	      Node* ndtemp = (Node*) HT_Node_Ptr->lookup((EmTemp->getNode()+j*KEYLENGTH));
-	      if(ndtemp->getinfo() == S_S_CON) {
-		BSFC_combine_elements(j-4, EmTemp, HT_Elem_Ptr, HT_Node_Ptr, -1);
-		j = 10;  //exit out of the loop because we found a constrained node...
-	      }
-	      j++;
-	    }
-	    if(j==8)  // no constrained nodes...*/
-	      EmTemp->copy_key_to_lb_key();
-		
-	    
+	    EmTemp->copy_key_to_lb_key();
 	    num_local_objects++;
 	  }
 	  entryp = entryp->next;
@@ -2765,35 +2753,6 @@ void NonSequentialSendAndUpdateNeigh(int numprocs, int myid,
   printf("myid=%d repart2 at 25.0\n",myid); fflush(stdout);
 #endif
 
-  /*
-  //Note it is now legal for First keys to be less than myfirst  
-  if(myid==2){
-    printf("myid=%d num_elem=%d myfirst={%10u,%10u} mylast={%10u,%10u}\n",
-	   myid,num_elem,
-	   MyFirstAndLastKey[0],MyFirstAndLastKey[1],
-	   MyFirstAndLastKey[2],MyFirstAndLastKey[3]);
-    
-    ielem=0;
-    for(ibuck=0; ibuck<num_buck; ibuck++) {
-      currentPtr = *(buck+ibuck);
-      
-      while(currentPtr){
-	
-	EmTemp=(Element*)(currentPtr->value);
-	currentPtr=currentPtr->next;     
-	assert(EmTemp);
-	printf("\n___ielem=%d___\n",ielem);
-	ElemBackgroundCheck(El_Table,NodeTable,EmTemp->pass_key(),stdout);
-	ielem++;
-      }
-    }
-  }
-
-  printf("myid=%d repart2 at 26.0\n",myid); fflush(stdout);
-  */
-
-  //assert(0); //just here to stop code, useful in debugging
-
   return;
 }
 
@@ -2807,22 +2766,6 @@ void IncorporateNewElements(HashTable* El_Table, HashTable* NodeTable,
 
   unsigned nullkey[2]={0,0};
   
-
-  /*
-  printf("myid=%d, num_recv=%d\n",myid,num_recv);
-
-  for(ielem=0;ielem<num_recv;ielem++) 
-    if(compare_key(recv_array[ielem].key,nullkey)) {
-      printf("INE: empty ElemPack ielem=%d num_recv=%d\n",
-	     ielem,num_recv);
-      assert(0);
-    }
-    else printf("ielem=%d num_recv=%d key={%10u,%10u}\n",
-		ielem,num_recv,
-		recv_array[ielem].key[0],recv_array[ielem].key[1]);
-  */  
-
-
   for(ielem=0;ielem<num_recv;ielem++) {
     if(compare_key(recv_array[ielem].key,nullkey)){
       printf("myid=%d num_recv=%d recv_array[%d].key=={0,0}\n",

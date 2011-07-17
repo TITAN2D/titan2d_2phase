@@ -95,66 +95,28 @@ void  H_adapt(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr, int h_count,
   unsigned elemdebugkey2a[2]={2114123639,2004318068};
   Element* Curr_El=(Element*) HT_Elem_Ptr->lookup(elemdebugkey2a);
 
-  /*
-  printf("myid=%d iter=%d\n",myid,timeprops_ptr->iter);
-  if(timeprops_ptr->iter==49) {
-    if(Curr_El){
-      if((Curr_El->get_adapted_flag()>=NOTRECADAPTED)||(myid==2)) {
-	printf("myid=%d H_adapt A\n",myid);
-	ElemBackgroundCheck(HT_Elem_Ptr,HT_Node_Ptr,elemdebugkey2a,stdout);
-      }
-    }
-    else if(myid==2) {
-      printf("myid=%d H_adapt B\n",myid);
-      ElemBackgroundCheck(HT_Elem_Ptr,HT_Node_Ptr,elemdebugkey2a,stdout);
-    }
-  }
-  */
-  //printf("myid=%d entering H_adapt\n",myid);
-
-  //printf("num_buffer_layer=%d\n",num_buffer_layer);
-  //int iteriter=0;
-  //if(timeprops_ptr->iter>4) iteriter=timeprops_ptr->iter;
-
-  //assert(!IfMissingElem(HT_Elem_Ptr, myid, iteriter, 8));  
-
   int k, i, j;
   HashEntryPtr   entryp;
   Element*       EmTemp;
 
-  //Element*       refined[297200];//maybe with linked list or creating new arrays while running
   ElemPtrList    RefinedList, TempList;
   int            count=0;
   int            ifg;//--
   int            refine_flag;
-  //unsigned       sent_buf[4*KEYLENGTH];//-- 1 source; 2 target; 3 refined flag; 4 generation
-  //unsigned       recv_buf[4*KEYLENGTH];//-- same
   int            htype = 101;//-- 101 is arbitary
   
   htflush(HT_Elem_Ptr, HT_Node_Ptr, 1); 
 
-  //for(k=0;k<297200;k++) refined[k] = 0;
   int h_begin = 1;
   int h_begin_type = 102;
 
-  //assert(!IfMissingElem(HT_Elem_Ptr, myid, iteriter, 9));  
-
   delete_unused_elements_nodes(HT_Elem_Ptr, HT_Node_Ptr, myid);
-
-  //assert(!IfMissingElem(HT_Elem_Ptr, myid, iteriter, 91));  
 
   // must be included to make sure that elements share same side/S_C_CON nodes with neighbors
   move_data(numprocs, myid, HT_Elem_Ptr, HT_Node_Ptr,timeprops_ptr);
 
-  //assert(!IfMissingElem(HT_Elem_Ptr, myid, iteriter, 10));  
-
-
   // determine which elements to refine and flag them for refinement
   double geo_target = element_weight(HT_Elem_Ptr, HT_Node_Ptr, myid, numprocs);
-
-  //test_h_refine(HT_Elem_Ptr, myid, h_count);//--debugging
-
-  //MPI_Barrier(MPI_COMM_WORLD); //-- every process arrive here
 
   int hash_size=HT_Elem_Ptr->get_no_of_buckets();
   int debug_ref_flag = 0;
@@ -172,8 +134,6 @@ void  H_adapt(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr, int h_count,
       entryp=entryp->next;
     }
   }
-
-  //assert(!IfMissingElem(HT_Elem_Ptr, myid, iteriter, 11));  
 
   move_data(numprocs, myid, HT_Elem_Ptr, HT_Node_Ptr,timeprops_ptr);
 
@@ -195,17 +155,15 @@ void  H_adapt(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr, int h_count,
 	  (EmTemp->if_source_boundary(HT_Elem_Ptr)>0)||
 	  (*(EmTemp->get_el_error())>geo_target)
 	  )
-	 ){
-	refinewrapper(HT_Elem_Ptr,HT_Node_Ptr,matprops_ptr,&RefinedList,EmTemp);
+	 )
+      {
+        refinewrapper(HT_Elem_Ptr,HT_Node_Ptr,matprops_ptr,&RefinedList,EmTemp);
 	debug_ref_flag++;
       }
       entryp=entryp->next;
     }
   }
   
-  //assert(!IfMissingElem(HT_Elem_Ptr, myid, iteriter, 12));  
-
-
   // -h_count for debugging
   //update_neighbor_info(HT_Elem_Ptr, &RefinedList,myid, numprocs, HT_Node_Ptr, h_count);
   refine_neigh_update(HT_Elem_Ptr,HT_Node_Ptr,numprocs,myid,
@@ -225,8 +183,6 @@ void  H_adapt(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr, int h_count,
     
     move_data(numprocs, myid, HT_Elem_Ptr, HT_Node_Ptr,timeprops_ptr);
 
-    //assert(!IfMissingElem(HT_Elem_Ptr, myid, iteriter, 14));  
-
     //refine where necessary before placing the innermost buffer layer
     for(i=0; i<hash_size; i++){
       entryp = *(HT_Elem_Ptr->getbucketptr() + i);
@@ -245,21 +201,11 @@ void  H_adapt(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr, int h_count,
       }
     }
 
-    //assert(!IfMissingElem(HT_Elem_Ptr, myid, iteriter, 16));  
-
     
-    //update_neighbor_info(HT_Elem_Ptr, &RefinedList, myid, numprocs, HT_Node_Ptr, h_count);
     refine_neigh_update(HT_Elem_Ptr,HT_Node_Ptr,numprocs,myid,
 			(void*) &RefinedList,timeprops_ptr);
 
-    //assert(!IfMissingElem(HT_Elem_Ptr, myid, iteriter, 17));  
-    
-
     move_data(numprocs, myid, HT_Elem_Ptr, HT_Node_Ptr,timeprops_ptr);
-    //if(myid==TARGETPROC) AssertMeshErrorFree(HT_Elem_Ptr,HT_Node_Ptr,numprocs,myid,0.0);
-    
-    //assert(!IfMissingElem(HT_Elem_Ptr, myid, iteriter, 18));  
-
 
     //mark the elements in the innermost buffer layer as the BUFFER layer
     for(i=0; i<hash_size; i++){//-- every process begin to scan their own hashtable	
@@ -277,23 +223,16 @@ void  H_adapt(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr, int h_count,
       }
     }
 
-    //assert(!IfMissingElem(HT_Elem_Ptr, myid, iteriter, 19));  
-
-    //increase the width of the buffer layer by one element at a time
-    //until it's num_buffer_layer Elements wide
-    for(int ibufferlayer=2;ibufferlayer<=num_buffer_layer;ibufferlayer++) {    
-
-      //if((timeprops_ptr->iter==49)&&(myid==2))
-      //printf("before move_data() A\n");
+    for(int ibufferlayer=2;ibufferlayer<=num_buffer_layer;ibufferlayer++)
+    {
       move_data(numprocs, myid, HT_Elem_Ptr, HT_Node_Ptr,timeprops_ptr);
 
-      //assert(!IfMissingElem(HT_Elem_Ptr, myid, iteriter, 20));  
-
-
       //refine where necessary before placing the next buffer layer
-      for(i=0; i<hash_size; i++){
+      for(i=0; i<hash_size; i++)
+      {
 	entryp = *(HT_Elem_Ptr->getbucketptr() + i);
-	while(entryp){
+	while(entryp)
+        {
 	  EmTemp = (Element*)(entryp->value);
 	  assert(EmTemp);
 	  if(EmTemp->if_next_buffer_boundary(HT_Elem_Ptr,HT_Node_Ptr,REFINE_THRESHOLD)==1){
@@ -304,22 +243,16 @@ void  H_adapt(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr, int h_count,
 	}
       }
       
-      //assert(!IfMissingElem(HT_Elem_Ptr, myid, iteriter, 21));  
-
       // -h_count for debugging
-      //update_neighbor_info(HT_Elem_Ptr, &RefinedList, myid, numprocs, HT_Node_Ptr, h_count);
 
       //refine_neigh_update() needs to know new sons are NEWSONs, 
       //can't call them BUFFER until after refine_neigh_update()
       refine_neigh_update(HT_Elem_Ptr,HT_Node_Ptr,numprocs,myid,
 			  (void*) &RefinedList,timeprops_ptr);
 
-      //if((timeprops_ptr->iter==49)&&(myid==2))
-      //printf("before move_data() B\n");
       move_data(numprocs, myid, HT_Elem_Ptr, HT_Node_Ptr,timeprops_ptr);
 
       
-      //move_data(numprocs, myid, HT_Elem_Ptr, HT_Node_Ptr,timeprops_ptr);
       if((myid==TARGETPROC)) {//&&(timeprops_ptr->iter==354)){
 	AssertMeshErrorFree(HT_Elem_Ptr,HT_Node_Ptr,numprocs,myid,0.0);
 	printf("After fourth AssertMeshErrorFree\n");
@@ -343,10 +276,7 @@ void  H_adapt(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr, int h_count,
 	}
       }
 
-      //assert(!IfMissingElem(HT_Elem_Ptr, myid, iteriter, 24));  
-
       //remark the NEWBUFFER elements as BUFFER element (move them from NEWBUFFER to BUFFER)
-
       for(i=0;i<TempList.get_num_elem();i++) {
 	EmTemp=TempList.get(i);
 	assert(EmTemp);
@@ -354,32 +284,11 @@ void  H_adapt(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr, int h_count,
       }
       TempList.trashlist();
 
-      /*
-      for(i=0; i<hash_size; i++){
-	entryp = *(HT_Elem_Ptr->getbucketptr() + i);
-	while(entryp){
-	  EmTemp = (Element*)(entryp->value);
-	  assert(EmTemp);
-	  if(EmTemp->get_adapted_flag()==NEWBUFFER)
-	    EmTemp->put_adapted_flag(BUFFER);
-	  entryp=entryp->next;
-	}
-      }
-      */
-      //assert(!IfMissingElem(HT_Elem_Ptr, myid, iteriter, 25));  
-
     }
-    //assert(!IfMissingElem(HT_Elem_Ptr, myid, iteriter, 26));  
   }
   
-  //if((timeprops_ptr->iter==49)&&(myid==2))
-  //printf("before move_data() C\n");
-
   move_data(numprocs, myid, HT_Elem_Ptr, HT_Node_Ptr,timeprops_ptr);
-
   htflush(HT_Elem_Ptr, HT_Node_Ptr, 2); 
-
-  //printf("myid=%d H_adapt before final scan\n",myid);
 
   for(i=0; i<hash_size; i++) {
     entryp = *(HT_Elem_Ptr->getbucketptr() + i);
@@ -429,8 +338,6 @@ void  H_adapt(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr, int h_count,
     }
   }
   
-  //printf("myid=%d exiting H_adapt\n",myid);
-
   return;
 }
 
@@ -441,29 +348,27 @@ void refinewrapper(HashTable*HT_Elem_Ptr, HashTable*HT_Node_Ptr, MatProps* matpr
 
   int j, sur = 0; int mii = 0;
 
-  while(refined[mii]){
-    
+  while(refined[mii])
+  {
     sur = 1;
     for(j=0;j<KEYLENGTH;j++)
       if(*(refined[mii]->pass_key()+j) != *(EmTemp->pass_key()+j))
 	sur = 0;
     if(sur == 1)
       break;
-    
     mii++;
   }
 	  
-  if(!sur){
-	  
+  if(!sur)
+  {
     int ifg = 1; 
     j = 0;
     //-- check out the triggered refinement
     depchk(EmTemp, HT_Elem_Ptr, HT_Node_Ptr, &ifg, refined, count);
-    if(ifg){
-      
-      //printf("%u %u is getting refined on proc %d\n",*(EmTemp->pass_key()), *(EmTemp->pass_key()+1), myid);
-      while(refined[j]){
-	
+    if(ifg)
+    {
+      while(refined[j])
+      {
 	if(!refined[j]->get_refined_flag())
 	  refine(refined[j], HT_Elem_Ptr, HT_Node_Ptr, matprops_ptr); 
 	j++; 
@@ -476,7 +381,8 @@ void refinewrapper(HashTable*HT_Elem_Ptr, HashTable*HT_Node_Ptr, MatProps* matpr
 #endif
 //Keith wrote this because the code block was repeated so many times
 void refinewrapper(HashTable*HT_Elem_Ptr, HashTable*HT_Node_Ptr, MatProps* matprops_ptr, 
-		   ElemPtrList *RefinedList, Element *EmTemp){
+		   ElemPtrList *RefinedList, Element *EmTemp)
+{
 
   int sur = 0, ifg=1, ielem;
 

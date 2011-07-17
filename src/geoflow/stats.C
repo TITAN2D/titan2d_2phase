@@ -76,22 +76,10 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid, MatProps* m
 
   MPI_Comm_size(MPI_COMM_WORLD, &numproc);
 
+  double VELOCITY_SCALE=sqrt(matprops->LENGTH_SCALE* 
+                              matprops->GRAVITY_SCALE);
   char filename[50];
   sprintf(filename,"debug.%04d",myid);
-
-  /*******************************************************************/
-  /*** calc_stats has underwent a "major" rewrite on June 16, 2004 ***/
-  /*** the calculation of stats was previously based on only those ***/
-  /*** cells whose pile heights were greater than a fixed          ***/
-  /*** percentage of the initial maximum pile height               ***/
-  /*** after the rewrite it is based on only those with a pile     ***/
-  /*** height greater than a variable cut off height.  That cut    ***/
-  /*** off height is chosen each iteration so as a fixed fraction  ***/
-  /*** of the total volume is reprepresented.                      ***/
-  /*** the code that calculates the statistics was left largely    ***/
-  /*** untouched but a large section of code to determine the cut  ***/
-  /*** off height was added.  that section begins here.            ***/
-  /*******************************************************************/
 
   /* need to allocate space to store nonzero pile heights and 
      volumes, to do that we first have to count the number of 
@@ -115,14 +103,6 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid, MatProps* m
 	currentPtr=currentPtr->next;      	    
       }
     }
-
-  /**************************************************/
-  /****** TADA!!!!!!!!! we have finally found  ******/
-  /****** this iteration's cut off height (and ******/
-  /****** the global volumes too) now we can   ******/
-  /****** calculate the rest of the stats in a ******/
-  /****** straight forward manner              ******/
-  /**************************************************/
 
   double Vsolid[2];
   double Vfluid[2];
@@ -213,14 +193,13 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid, MatProps* m
 	    v_ave+=sqrt(state_vars[2]*state_vars[2]+state_vars[3]*state_vars[3])*dA;
 	    Curr_El->eval_velocity(0.0,0.0,Vsolid);
 
-
 	    if((!((v_ave<=0.0)||(0.0<=v_ave)))||
 	       (!((state_vars[0]<=0.0)||(0.0<=state_vars[0])))||
 	       (!((state_vars[1]<=0.0)||(0.0<=state_vars[1])))||
 	       (!((state_vars[2]<=0.0)||(0.0<=state_vars[2])))||
 	       (!((state_vars[3]<=0.0)||(0.0<=state_vars[3])))||
 	       (!((state_vars[4]<=0.0)||(0.0<=state_vars[4])))||
-	       (!((state_vars[5]<=0.0)||(0.0<=state_vars[5])))) 
+	       (!((state_vars[5]<=0.0)||(0.0<=state_vars[5]))))
             {
 	      //v_ave is NaN
 	      printf("calc_stats(): NaN detected in element={%10u,%10u} at iter=%d\n",
@@ -323,8 +302,6 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid, MatProps* m
     if(testpointreach&&(statprops->timereached<0.0))
       statprops->timereached=timeprops->timesec();
 
-    double VELOCITY_SCALE=sqrt(matprops->LENGTH_SCALE* 
-			       matprops->GRAVITY_SCALE);
     //dimensionalize
     statprops->xcen=tempout[0]*(matprops->LENGTH_SCALE)/tempout[10];
     statprops->ycen=tempout[1]*(matprops->LENGTH_SCALE)/tempout[10];
@@ -371,13 +348,14 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid, MatProps* m
 
     /* output Center Of Mass and x and y components of mean velocity to
        assist the dynamic gis update daemon */
+    /*
     FILE* fp2=fopen("com.up","w");
     fprintf(fp2,"%d %g %g %g %g %g %g\n",
 	    timeprops->iter,timeprops->timesec(),
 	    statprops->xcen,statprops->ycen,
 	    statprops->vxmean,statprops->vymean,statprops->piler);
     fclose(fp2);
-
+    */
 
 
     /* standard to screen output */
