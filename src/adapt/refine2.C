@@ -897,7 +897,6 @@ void refine(Element* EmTemp, HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr, Mat
 		     HT_Elem_Ptr, HT_Node_Ptr, myid, matprops_ptr,
 		     iwetnodefather, Awetfather, dpson);
   state_vars=Quad9P->get_state_vars();
-  //printf("state_vars= %g   %g   %g\n",state_vars[0],state_vars[1],state_vars[2]);
 
   Quad9P->put_which_son(2);//--by jp
 
@@ -988,7 +987,6 @@ void refine(Element* EmTemp, HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr, Mat
 		     HT_Elem_Ptr, HT_Node_Ptr, myid, matprops_ptr,
 		     iwetnodefather, Awetfather, dpson);
   state_vars=Quad9P->get_state_vars();
-  //printf("state_vars= %g   %g   %g\n\n",state_vars[0],state_vars[1],state_vars[2]);
 
   Quad9P->put_which_son(3);//--by jp
 

@@ -311,11 +311,6 @@ Element::Element(unsigned nodekeys[][KEYLENGTH], unsigned neigh[][KEYLENGTH],
  
   stoppedflags=fthTemp->stoppedflags;
 
-  // initialize kactxy
-  kactxy[0]=kactxy[1]=0.;
-  effect_kactxy[0]=effect_kactxy[0]=0.;
-  effect_bedfrict=effect_tanbedfrict=0.;
-
   return;
 }
 /*********************************
@@ -451,34 +446,6 @@ Element::Element(Element* sons[], HashTable* NodeTable, HashTable* El_Table,
     else
       neigh_proc[ineigh]=*(sons[ison]->get_neigh_proc()+isonneigh);
   }
-
-
-
-  /*
-  // neighbor information
-  for(i=0;i<4;i++) {
-    neigh_gen[i+4] = neigh_gen[i] = *(sons[i]->get_neigh_gen()+i);
-    neigh_proc[i] = *(sons[i]->get_neigh_proc()+i);
-    if(neigh_gen[i] > generation && neigh_proc[i] != -1) {
-      neigh_proc[i+4] = neigh_proc[i];
-      if(neigh_gen[i] <= generation-1)
-	assert(neigh_gen[i] <= generation-1);
-    }
-    else
-      neigh_proc[i+4] = -2;
-  }
-  for(i=0;i<4;i++) 
-    for(j=0;j<KEYLENGTH;j++) 
-      neighbor[i][j] = *(sons[i]->get_neighbors()+i*KEYLENGTH+j);
-
-  for(j=0;j<KEYLENGTH;j++)
-    neighbor[7][j] = *(sons[0]->get_neighbors()+7*KEYLENGTH+j);
-
-  for(i=0;i<3;i++) 
-    for(j=0;j<KEYLENGTH;j++) 
-      neighbor[i+4][j] = *(sons[i+1]->get_neighbors()+i*KEYLENGTH+j);
-  */   
-
 
   /* brother information -- requires that atleast one of this
      element's neighboring brothers is on this process in 
@@ -674,11 +641,6 @@ Element::Element(Element* sons[], HashTable* NodeTable, HashTable* El_Table,
   shortspeed=0.0;
   for(j=0;j<4;j++) shortspeed+=*(sons[j]->get_state_vars())*sons[j]->get_shortspeed();
   if(state_vars[0]>0.0) shortspeed/=(4.0*state_vars[0]);
-
-  // initialize kactxy
-  kactxy[0]=kactxy[1]=0.;
-  effect_kactxy[0]=effect_kactxy[0]=0.;
-  effect_bedfrict=effect_tanbedfrict=0.;
 
   return;
 }
@@ -2151,9 +2113,6 @@ void Element::calc_edge_states(HashTable* El_Table, HashTable* NodeTable,
 
   //ghost elements don't have nodes so you have to make temp storage for flux
   double ghostflux[NUM_STATE_VARS]; //, (*fluxptr)[NUM_STATE_VARS];
-
-  //double min(double x,double y), max(double x,double y);
-
   *outflow=0.0;
 
   for(side=0;side<2;side++) 

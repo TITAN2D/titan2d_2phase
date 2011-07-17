@@ -18,7 +18,6 @@
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
-//#define DEBUGINHERE
  
 #include "../header/hpfem.h"
 #include "../header/geoflow.h"
@@ -110,13 +109,15 @@ double get_coef_and_eigen(HashTable* El_Table, HashTable* NodeTable,
 	  d_uvec = EmTemp->get_d_state_vars();
 	  dx_ptr = EmTemp->get_dx();
 #ifdef SUNOS
+          double kactxy[DIMENSION];
 	  gmfggetcoef_(EmTemp->get_state_vars(), d_uvec, 
 		       (d_uvec+NUM_STATE_VARS), dx_ptr, 
 		       &(matprops_ptr->bedfrict[EmTemp->get_material()]), 
-		       &(matprops_ptr->intfrict), EmTemp->get_kactxy(),
+		       &(matprops_ptr->intfrict), kactxy,
 		       (EmTemp->get_kactxy()+1), &tiny, 
 		       &(matprops_ptr->epsilon));
 
+          EmTemp->put_kactxy(kactxy);
 	  EmTemp->calc_stop_crit(matprops_ptr);
 	  intswap=EmTemp->get_stoppedflags();
 	  
@@ -164,23 +165,18 @@ double get_coef_and_eigen(HashTable* El_Table, HashTable* NodeTable,
 		   *(EmTemp->get_state_vars()+5),
 		   *(EmTemp->get_state_vars()),maxcurve,
 		   *(EmTemp->get_coord()),*(EmTemp->get_coord()+1));
+            exit(1); 
 	  }
 	  
 	  min_dx_dy_evalue = c_dmin1(c_dmin1(dx_ptr[0],dx_ptr[1])/evalue,
 				     min_dx_dy_evalue);
 	}
 	else
-	  EmTemp->put_stoppedflags(2);
+	  EmTemp->calc_stop_crit(matprops_ptr); // ensure decent values of kactxy
       } //(EmTemp->get_adapted_flag()>0)||...
     }//while(entryp)
   }
   
-#ifdef DEBUGINHERE
-  fclose(fp);
-#endif
-
-  //if(!ifanynonzeroheight) min_dx_dy_evalue=0.0;
-
   dt[0] = 0.5*min_dx_dy_evalue;
 
   //find the negative of the max not the positive min
