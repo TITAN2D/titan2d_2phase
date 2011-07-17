@@ -1,7 +1,0 @@
-#include <stdarg.h>
-#ifdef PRINT_DEBUG_FILES
-#  define geo_printf fprintf
-#else 
-#  define geo_printf noprint
-#endif
-inline void noprint(FILE *fname,...) { return; };
