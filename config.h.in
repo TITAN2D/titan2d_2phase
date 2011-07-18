@@ -15,6 +15,9 @@
 /* Define to 1 if you have the `gis' library (-lgis). */
 #undef HAVE_LIBGIS
 
+/* Define to 1 if you have the `hdf5' library (-lhdf5). */
+#undef HAVE_LIBHDF5
+
 /* Define to 1 if you have the `m' library (-lm). */
 #undef HAVE_LIBM
 

@@ -53,7 +53,8 @@ if test "x$with_hdf5" != xno; then
         CFLAGS="$CFLAGS -I$with_hdf5/include"
         CXXFLAGS="$CXXFLAGS  -I$with_hdf5/include"
         CPPFLAGS="$CPPFLAGS  -I$with_hdf5/include -DH5_USE_16_API"
-        LDFLAGS="$LDFLAGS -L$with_hdf5/lib -lhdf5"
+        LDFLAGS="$LDFLAGS -L$with_hdf5/lib"
+        AC_CHECK_LIB([hdf5],[H5open])
     fi
     AC_CHECK_LIB([hdf5],[H5open],AC_DEFINE([HAVE_HDF5],[1],[Build XDMF output]),
                   AC_MSG_FAILURE([HDF5 is strongly recommended for paraview support.]
