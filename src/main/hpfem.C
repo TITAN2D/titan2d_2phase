@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
      stiffness routines info */
   int material_count=0;
   double epsilon = 1., intfrictang = 1, *bedfrictang = NULL, gamma = 1; 
-  double frict_tiny = 0.1, mu = 0.1, rho = 2700, rhof = 1200, porosity = 1;
+  double frict_tiny = 0.1, mu = 1.0e-03, rho = 1600, rhof = 1000, porosity = 1;
   char **matnames=NULL;
   int xdmerr;
   
@@ -173,7 +173,9 @@ int main(int argc, char *argv[])
 
 
   MPI_Barrier(MPI_COMM_WORLD);
-  calc_stats(BT_Elem_Ptr, BT_Node_Ptr, myid, &matprops, &timeprops, &statprops, &discharge, 0.0);
+  double dummy[2]={0., 0.};
+  calc_stats(BT_Elem_Ptr, BT_Node_Ptr, myid, &matprops, 
+             &timeprops, &statprops, &discharge, dummy, 0.0);
   output_discharge(&matprops, &timeprops, &discharge, myid);
 
   move_data(numprocs, myid, BT_Elem_Ptr, BT_Node_Ptr,&timeprops);

@@ -17,21 +17,22 @@ C*
 
 C***********************************************************************
       subroutine correct(uvec, uprev, fluxxp, fluxyp, fluxxm, fluxym,
-     1     tiny, dtdx, dtdy, dt, dUdx, dUdy, xslope, yslope,
-     2     curv, intfrictang, bedfrictang, g, kactxy, frict_tiny,
-     3     forceint, forcebed, DO_EROSION, eroded, v_solid, v_fluid,
-     4     den_solid, den_fluid, terminal_vel, eps, IF_STOPPED, fluxsrc)
+     1     tiny, dtdx, dtdy, dt, dUdx, dUdy, xslope, yslope, curv,
+     2     intfrictang, bedfrictang, g, kactxy, frict_tiny, forceint,
+     3     forcebed, dragfoce ,DO_EROSION, eroded, v_solid, v_fluid,
+     4     den_solid, den_fluid, terminal_vel, eps, IF_STOPPED, 
+     5     fluxsrc, navslip)
 C***********************************************************************
 
       implicit none
       double precision forceint, forcebed, eroded, speed
       double precision forceintx, forceinty
-      double precision forcebedx, forcebedy
+      double precision forcebedx, forcebedy, navslip
       double precision forcebedmax, forcebedequil, forcegrav
       double precision unitvx, unitvy, v_solid(2), v_fluid(2)
       double precision den_frac, den_solid, den_fluid
       double precision alphaxx, alphayy, alphaxy, alphaxz, alphayz
-      double precision tanbed, terminal_vel
+      double precision tanbed, terminal_vel, dragfoce(2)
 
       double precision fluxxp(6),fluxyp(6),tiny, uprev(6), ustore(6)
       double precision fluxxm(6), fluxym(6)
@@ -89,6 +90,8 @@ c     here speed is speed
          den_frac = den_fluid/den_solid
          call calc_drag_force (uvec, v_solid, v_fluid, den_solid, 
      &                         den_fluid, terminal_vel, drag, tiny)
+         dragfoce(1) = max(drag(3),drag(4))/uvec(1)/g(3)
+         dragfoce(2) = ustore(1)
  
 cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c        solid fraction x-direction source terms
@@ -143,20 +146,24 @@ c        drag term
 ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c    fluid fraction x-direction source terms
 ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+c        navier slip
+         t3 = -v_fluid(1)*navslip
 c        gravity on fluid
          t4 = uvec(1)*g(1)
 c        drag force on fluid
          t5 = drag(3)
-         ustore(5) = ustore(5) + dt*(t4 - t5)
+         ustore(5) = ustore(5) + dt*(t3+t4-t5)
 
 ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c    fluid fraction y-direction source terms
 ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+c        navier slip
+         t3 = -v_fluid(2)*navslip
 c        gravity on fluid
          t4 = uvec(1)*g(2)
 c        drag force on fluid
          t5 = drag(4)
-         ustore(6) = ustore(6) + dt*(t4 - t5)
+         ustore(6) = ustore(6) + dt*(t3+t4-t5)
       endif
 
 c     computation of magnitude of friction forces for statistics

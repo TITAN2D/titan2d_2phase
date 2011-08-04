@@ -37,9 +37,8 @@ extern int REFINE_LEVEL; //make REFINE_LEVEL a global variable that can be chang
 void correct(HashTable* NodeTable, HashTable* El_Table,
 	     double dt, MatProps* matprops_ptr, 
 	     FluxProps *fluxprops, TimeProps *timeprops,
-	     void *EmTemp,
-	     double *forceint, double *forcebed, 
-	     double *eroded, double *deposited);
+	     void *EmTemp, double *forceint, double *forcebed, 
+	     double *dragf, double *eroded, double *deposited);
 
 //! this function is legacy, the prototype exists but the function is not defined
 void checknodesol(HashTable*);
@@ -49,8 +48,8 @@ double element_weight(HashTable* El_Table, HashTable*, int myid, int nump);
 
 //! This function calculates the vast majority of statistics used for output, including most of what appears in output_summary.######, the friction body forces however are not calculated in here, Keith wrote this to replace calc_volume()
 void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid, 
-		MatProps* matprops, TimeProps* timeprops, 
-		StatProps* statprops, DISCHARGE* discharge, double d_time);
+		MatProps* matprops, TimeProps* timeprops, StatProps* statprops, 
+                DISCHARGE* discharge, double *dragf, double d_time);
 
 //! calc_volume() has been replaced by calc_stats(), calc_volume() is out of date legacy code, the function is still defined in step.C but it is not called.
 void calc_volume(HashTable* El_Table, int myid, MatProps* matprops_ptr, 
@@ -178,11 +177,11 @@ extern "C" void correct_(double *Uvec, double *Uprev, double *fluxxp,
 			 double *dUdx, double *dUdy, double *xslope, 
 			 double *yslope, double *curv, double *intfrictang, 
 			 double *bedfrictang, double *g, double *kactxy, 
-			 double *frict_tiny, double *forceint, 
+			 double *frict_tiny, double *forceint, double *dragf,
 			 double *forcebed, int *do_erosion, double *eroded, 
 			 double *Vsolid, double *Vfluid, double *den_solid, 
                          double *den_fluid, double *terminal_vel, double *eps, 
-                         int *if_stopped, double *fluxcoef);
+                         int *if_stopped, double *fluxcoef, double *navslip);
 #endif
 #ifdef IBMSP
 extern "C" void gmfggetcoef(double*, double*, double*, double*, double*, 

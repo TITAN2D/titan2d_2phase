@@ -27,7 +27,7 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
 	     double dt, MatProps* matprops_ptr, 
 	     FluxProps *fluxprops, TimeProps *timeprops,
 	     void *EmTemp_in,double *forceint, double *forcebed, 
-	     double *eroded, double *deposited)
+	     double *dragforce, double *eroded, double *deposited)
 {
   Element *EmTemp=(Element *) EmTemp_in;
   double *dx=EmTemp->get_dx();
@@ -80,7 +80,7 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
   double solid_den=matprops_ptr->den_solid;
   double fluid_den=matprops_ptr->den_fluid;
   double terminal_vel=matprops_ptr->v_terminal;
-
+  double navslip_coef=matprops_ptr->navslip_coef;
 
   double Vfluid[DIMENSION];
   double volf;
@@ -128,9 +128,9 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
 	   &(zeta[0]), &(zeta[1]), curvature,
 	   &(matprops_ptr->intfrict), &bedfrict,
 	   gravity, kactxy, &(matprops_ptr->frict_tiny),
-	   forceint, forcebed, &do_erosion, eroded, Vsolid, Vfluid,
+	   forceint, forcebed, dragforce, &do_erosion, eroded, Vsolid, Vfluid,
 	   &solid_den, &fluid_den, &terminal_vel,
-           &(matprops_ptr->epsilon), &IF_STOPPED, Influx);
+           &(matprops_ptr->epsilon), &IF_STOPPED, Influx, &navslip_coef);
 
   *forceint*=dx[0]*dx[1];
   *forcebed*=dx[0]*dx[1];

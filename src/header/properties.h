@@ -72,8 +72,11 @@ struct StatProps{
   //! area covered by pile of thickness greater than cutoffheight 
   double area;
 
-  //! mean speed
+  //! mean solid-phase speed
   double vmean;
+
+  //! mean fluid-phase speed
+  double umean;
 
   //! mean x velocity
   double vxmean;     
@@ -111,8 +114,11 @@ struct StatProps{
   //! current spatial maximum of pile height
   double hmax;
 
-  //! current spatial maximum of speed
+  //! current spatial maximum solid-phase speed
   double vmax;
+
+  //! current spatial maximum fluid-phase speed
+  double umax;
 
   //! the integrated magnitude of acceleration due to internal friction force (based on realvolume not statvolume)
   double forceint;
@@ -325,7 +331,6 @@ struct TimeProps{
   //! the non-dimensional time step
   double dtime;
 
-  //! velocity measure/Vslump used as a STOPPING CRITERIA,which is while it's stored under TimeProps (also members of MatProps are assigned once, are permanent for the run), see MatProps struct below for Vslump, see ../main/datread.C for initialization of Vslump     
   double vstarmax;
 
   //! wallclock time shortly after titan starts running
@@ -474,6 +479,9 @@ struct MatProps{
 
   //! to get the flow to start moving you have to decrease the friction angles, this variable is used to do that
   double  frict_tiny;     
+
+  //! coeficient of Navier-Slip with friction
+  double navslip_coef;
 
   /*! this constructor allocates initial properties unfortunately the properties 
    *  aren't known at the time this is called so dummy values are fed in instead 

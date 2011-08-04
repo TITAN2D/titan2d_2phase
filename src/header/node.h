@@ -30,8 +30,8 @@ class Node {
 
   friend void correct(HashTable* NodeTable, HashTable* El_Table,
 	     double dt, MatProps* matprops_ptr, 
-	     FluxProps *fluxprops, TimeProps *timeprops,
-	     void *EmTemp, double *forceint, double *forcebed, 
+	     FluxProps *fluxprops, TimeProps *timeprops, void *EmTemp,
+	     double *forceint, double *forcebed, double *dragforce,
 	     double *eroded, double *deposited);
 
   friend void AssertMeshErrorFree(HashTable *El_Table, HashTable* NodeTable,

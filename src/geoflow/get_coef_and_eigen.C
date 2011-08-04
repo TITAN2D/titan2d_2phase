@@ -78,7 +78,7 @@ double get_coef_and_eigen(HashTable* El_Table, HashTable* NodeTable,
 
 
 
-  double u_vec_alt[3];
+  double kactxy[DIMENSION];
   double* d_uvec, *dx_ptr;
   int intswap;
   double *curve, maxcurve;
@@ -97,8 +97,13 @@ double get_coef_and_eigen(HashTable* El_Table, HashTable* NodeTable,
 	  (ghost_flag == 1)))
       {
 	//if this element does not belong on this processor don't involve!!!
-	
-	if(*(EmTemp->get_state_vars())>GEOFLOW_TINY) 
+
+        double threshold = *(EmTemp->get_state_vars()+1);
+	// if this is pure fluid, check height(U[0]) > GEOFLOW_TINY
+	if ( matprops_ptr->flow_type == FLUID_FLOW )
+          threshold = *(EmTemp->get_state_vars());
+ 
+	if(threshold > GEOFLOW_TINY) 
         {
 	  ifanynonzeroheight=1;
 	  
@@ -109,7 +114,6 @@ double get_coef_and_eigen(HashTable* El_Table, HashTable* NodeTable,
 	  d_uvec = EmTemp->get_d_state_vars();
 	  dx_ptr = EmTemp->get_dx();
 #ifdef SUNOS
-          double kactxy[DIMENSION];
 	  gmfggetcoef_(EmTemp->get_state_vars(), d_uvec, 
 		       (d_uvec+NUM_STATE_VARS), dx_ptr, 
 		       &(matprops_ptr->bedfrict[EmTemp->get_material()]), 
@@ -133,7 +137,6 @@ double get_coef_and_eigen(HashTable* El_Table, HashTable* NodeTable,
           Vfluid[0]=(*(EmTemp->get_state_vars()+4))/(*(EmTemp->get_state_vars()));
           Vfluid[1]=(*(EmTemp->get_state_vars()+5))/(*(EmTemp->get_state_vars()));
 
-	  //eigen_(EmTemp->eval_state_vars(u_vec_alt),
 	  eigen_(EmTemp->get_state_vars(),
 		 (EmTemp->get_eigenvxymax()),
 		 (EmTemp->get_eigenvxymax()+1), &evalue, &tiny, 
@@ -172,7 +175,11 @@ double get_coef_and_eigen(HashTable* El_Table, HashTable* NodeTable,
 				     min_dx_dy_evalue);
 	}
 	else
-	  EmTemp->calc_stop_crit(matprops_ptr); // ensure decent values of kactxy
+        {
+	  EmTemp->calc_stop_crit(matprops_ptr); // ensure decent friction-values
+          kactxy[0]=kactxy[1]=matprops_ptr->epsilon;
+          EmTemp->put_kactxy(kactxy);
+        }
       } //(EmTemp->get_adapted_flag()>0)||...
     }//while(entryp)
   }

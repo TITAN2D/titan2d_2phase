@@ -422,6 +422,9 @@ void Read_data(int myid, MatProps* matprops_ptr, PileProps* pileprops_ptr,
   fp=fopen("frict.data","r");
   fscanf(fp,"%d\n",&(matprops_ptr->material_count));
   
+  // Navier slip-with-friction coefficient
+  matprops_ptr->navslip_coef=0.1;
+
   matprops_ptr->matnames=(char **) malloc((matprops_ptr->material_count+1)*sizeof(char *));
   matprops_ptr->bedfrict=CAllocD1(matprops_ptr->material_count+1);  
   matprops_ptr->tanbedfrict=CAllocD1(matprops_ptr->material_count+1);

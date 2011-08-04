@@ -168,8 +168,9 @@ private(currentPtr,Curr_El,IF_STOPPED,influx,j,k,curr_time,flux_src_coef,VxVy)
   double forcebed=0.0, elemforcebed;
   double eroded=0.0, elemeroded;
   double deposited=0.0, elemdeposited;
+  double dragforce[2], elemdrag[2];
   double realvolume=0.0;
-
+  dragforce[0]=0.;
   buck = El_Table->getbucketptr();
   // mdj 2007-04 this loop has pretty much defeated me - there is
   //             a dependency in the Element class that causes incorrect
@@ -189,11 +190,12 @@ private(currentPtr,Curr_El,IF_STOPPED,influx,j,k,curr_time,flux_src_coef,VxVy)
               if ( *order_flag == 1 )
                 Curr_El->update_prev_state_vars();
 
+              elemdrag[0]=elemdrag[1]=0.;
 	      void *Curr_El_out= (void *) Curr_El;
 	      correct(NodeTable, El_Table, dt, matprops_ptr,
 		      fluxprops, timeprops_ptr,
 		      Curr_El_out,
-		      &elemforceint,&elemforcebed,
+		      &elemforceint,&elemforcebed, elemdrag,
 		      &elemeroded,&elemdeposited);
 
 	      forceint+=fabs(elemforceint);
@@ -201,15 +203,20 @@ private(currentPtr,Curr_El,IF_STOPPED,influx,j,k,curr_time,flux_src_coef,VxVy)
 	      realvolume+=dxy[0]*dxy[1]**(Curr_El->get_state_vars());
 	      eroded+=elemeroded;
 	      deposited+=elemdeposited;
+              if ( elemdrag[0] > dragforce[0] )
+              {
+                dragforce[0]=elemdrag[0];
+                dragforce[1]=elemdrag[1];
+              }
 
 	      double *coord=Curr_El->get_coord();	      
 	      //update the record of maximum pileheight in the area covered by this element
 	      double hheight=*(Curr_El->get_state_vars());
 	      if(hheight>0 && hheight<0);
-	      double pfheight[6];
 
 
 #ifdef MAX_DEPTH_MAP
+	      double pfheight[6];
 	      outline_ptr->update(coord[0]-0.5*dxy[0],coord[0]+0.5*dxy[0],
 				  coord[1]-0.5*dxy[1],coord[1]+0.5*dxy[1],
 				  hheight,pfheight);      
@@ -230,10 +237,11 @@ private(currentPtr,Curr_El,IF_STOPPED,influx,j,k,curr_time,flux_src_coef,VxVy)
   //update the orientation of the "dryline" (divides partially wetted cells
   //into wet and dry parts solely based on which neighbors currently have 
   //pileheight greater than GEOFLOW_TINY
-  for(i=0; i<El_Table->get_no_of_buckets(); i++) {
+  for(i=0; i<El_Table->get_no_of_buckets(); i++) 
+  {
     HashEntryPtr currentPtr = *(buck+i);
-
-    while(currentPtr) {      
+    while(currentPtr) 
+    {
       Element* Curr_El=(Element*)(currentPtr->value);
       currentPtr=currentPtr->next;      	    
       if(Curr_El->get_adapted_flag()>0) //if this is a refined element don't involve!!!
@@ -242,16 +250,8 @@ private(currentPtr,Curr_El,IF_STOPPED,influx,j,k,curr_time,flux_src_coef,VxVy)
   }
 
   /* finished corrector step */
-
-  //printf("EXIT at %s: %d",__FILE__, __LINE__);
-  //exit(1);
-
   calc_stats(El_Table, NodeTable, myid, matprops_ptr, timeprops_ptr, 
-	     statprops_ptr, discharge, dt);
-
-  //  if(statprops_ptr->timereached!=-1.0)
-  //    printf("timereached=%g after calc_stats()\n",statprops_ptr->timereached);
-
+	     statprops_ptr, discharge, dragforce, dt);
 
   double tempin[6], tempout[6];
   tempin[0]=outflow;    //volume that flew out the boundaries this iteration

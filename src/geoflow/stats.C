@@ -28,9 +28,10 @@
 #define STAT_VOL_FRAC 0.95
 
 
-void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid, MatProps* matprops, 
-		TimeProps* timeprops, StatProps* statprops, 
-		DISCHARGE* discharge, double d_time)
+void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid, 
+                MatProps* matprops, TimeProps* timeprops, 
+                StatProps* statprops, DISCHARGE* discharge, 
+                double dragforce[], double d_time)
 {
   int i, iproc;
   double area=0.0, max_height=0.0;
@@ -62,6 +63,7 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid, MatProps* m
   double testvolume=0.0;
   double slope_ave=0.0;
   double v_max=0.0, v_ave=0.0, vx_ave=0.0, vy_ave=0.0, g_ave;
+  double u_max=0.0, u_ave=0.0;
   double xC=0.0, yC=0.0, rC=0.0, piler2=0.0;
   double xVar=0.0, yVar=0.0;
   //assume that mean starting location is at (x,y) = (1,1)
@@ -104,8 +106,7 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid, MatProps* m
       }
     }
 
-  double Vsolid[2];
-  double Vfluid[2];
+  double Velocity[4];
   for(i=0; i<num_buck; i++)
     if(*(buck+i))
     {
@@ -191,7 +192,8 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid, MatProps* m
 	    
 	    
 	    v_ave+=sqrt(state_vars[2]*state_vars[2]+state_vars[3]*state_vars[3])*dA;
-	    Curr_El->eval_velocity(0.0,0.0,Vsolid);
+            u_ave+=sqrt(state_vars[4]*state_vars[4]+state_vars[5]*state_vars[5])*dA;
+	    Curr_El->eval_velocity(0.0,0.0,Velocity);
 
 	    if((!((v_ave<=0.0)||(0.0<=v_ave)))||
 	       (!((state_vars[0]<=0.0)||(0.0<=state_vars[0])))||
@@ -229,8 +231,10 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid, MatProps* m
 	      exit(1);
 	    }
 
-	    temp=sqrt(Vsolid[0]*Vsolid[0]+Vsolid[1]*Vsolid[1]);
-	    if(temp>v_max) v_max=temp;
+	    temp=sqrt(Velocity[0]*Velocity[0]+Velocity[1]*Velocity[1]);
+	    if(temp > v_max) v_max=temp;
+            temp=sqrt(Velocity[2]*Velocity[2]+Velocity[3]*Velocity[3]);
+            if(temp > u_max) u_max=temp;
 	    vx_ave+=state_vars[2]*dA;
 	    vy_ave+=state_vars[3]*dA;
 	    
@@ -265,7 +269,7 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid, MatProps* m
     }
   
   int inttempout;
-  double tempin[13], tempout[13], temp2in[2], temp2out[2]; 
+  double tempin[14], tempout[14]; 
 
   //find the minimum distance (squared) to the test point
   MPI_Allreduce(&testpointmindist2,tempout,1,MPI_DOUBLE,MPI_MIN,MPI_COMM_WORLD);
@@ -291,11 +295,16 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid, MatProps* m
   tempin[10]=testvolume;
   tempin[11]=xVar;
   tempin[12]=yVar;
-  i = MPI_Reduce(tempin, tempout, 13, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
+  tempin[13]=u_ave;
+  i = MPI_Reduce(tempin, tempout, 14, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
 
+  double temp2in[5], temp2out[5]; 
   temp2in[0]=max_height;
   temp2in[1]=v_max;
-  i = MPI_Reduce(temp2in, temp2out, 2, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
+  temp2in[2]=u_max;
+  temp2in[3]=dragforce[0];
+  temp2in[4]=dragforce[1];
+  i = MPI_Reduce(temp2in, temp2out, 5, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
       
   if(myid == 0) 
   {
@@ -311,6 +320,7 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid, MatProps* m
     statprops->area=tempout[3]*(matprops->LENGTH_SCALE)* 
       (matprops->LENGTH_SCALE);
     statprops->vmean=tempout[4]*VELOCITY_SCALE/tempout[10];
+    statprops->umean=tempout[13]*VELOCITY_SCALE/tempout[10];
     statprops->vxmean=tempout[5]*VELOCITY_SCALE/tempout[10];
     statprops->vymean=tempout[6]*VELOCITY_SCALE/tempout[10];
 
@@ -336,6 +346,7 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid, MatProps* m
 
     statprops->hmax=temp2out[0]*(matprops->HEIGHT_SCALE);
     statprops->vmax=temp2out[1]*VELOCITY_SCALE;
+    statprops->umax=temp2out[2]*VELOCITY_SCALE;
 
     /* v_star is the nondimensional global average velocity by v_slump
        once v_slump HAS BEEN CALIBRATED (not yet done see ../main/datread.C) 
@@ -366,11 +377,14 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid, MatProps* m
 
     printf("At the end of time step %d the time is %d:%02d:%g (hrs:min:sec),\n"
            "time step length is %g [sec], volume is %g [m^3],\n"
-           "max height is %g [m], max velocity is %g [m/s],\n" 
-           "ave velocity is %g [m/s], v* = %g\n\n",
+           "max height is %g [m],\n"
+           "max solid-velocity is %g [m/s], max fluid-velocity is %g\n" 
+           "ave solid-velocity is %g [m/s], ave fluid-velocity is %g\n"
+           "maximum drag is %g, height at max-drag = %g\n\n",
 	   timeprops->iter, hours, minutes, seconds, d_time,
 	   statprops->statvolume, statprops->hmax, statprops->vmax,
-	   statprops->vmean, statprops->vstar); //, statprops->cutoffheight,
+	   statprops->umax, statprops->vmean, statprops->umean,  
+           temp2out[3], temp2out[4]);
   }
   return;
 }

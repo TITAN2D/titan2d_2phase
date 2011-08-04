@@ -35,7 +35,8 @@ C***********************************************************************
 !     model in pitman-le paper
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       volf = uvec(2)/uvec(1)
-      temp = uvec(2)*(1.-volf)**(1.-exponant)/vterminal
+      if (volf.gt.0.85) volf=0.85
+      temp = uvec(1)*volf*(1.-volf)**(1.-exponant)
       denfrac = den_fluid/den_solid
 
        
@@ -43,9 +44,17 @@ C***********************************************************************
 10      drag(i)=0.
  
       ! fluid vel - solid vel
-      if ( uvec(2).gt.tiny ) then
+      if ( uvec(1).gt.tiny ) then
         do 20 j=1,2
-20        delv(j) = vfluid(j)-vsolid(j)
+          delv(j) = (vfluid(j)-vsolid(j))/vterminal
+20      continue
+
+!       cap (u-v)/Vt to 0.1 
+        do 30 j=1,2
+          if (delv(j).gt.0.1) then
+            delv(j)=0.1
+          endif
+30      continue
 
 !       compute individual drag-forces
         drag(1) = (1.-denfrac)*temp*delv(1)
