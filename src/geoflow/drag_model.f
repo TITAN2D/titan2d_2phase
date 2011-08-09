@@ -36,7 +36,7 @@ C***********************************************************************
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       volf = uvec(2)/uvec(1)
       if (volf.gt.0.85) volf=0.85
-      temp = uvec(1)*volf*(1.-volf)**(1.-exponant)
+      temp = uvec(1)*volf*(1.-volf)**(-exponant)
       denfrac = den_fluid/den_solid
 
        
@@ -57,8 +57,8 @@ C***********************************************************************
 30      continue
 
 !       compute individual drag-forces
-        drag(1) = (1.-denfrac)*temp*delv(1)
-        drag(2) = (1.-denfrac)*temp*delv(2)
+        drag(1) = (1.-denfrac)*temp*(1.-volf)*delv(1)
+        drag(2) = (1.-denfrac)*temp*(1.-volf)*delv(2)
         drag(3) = (1.-denfrac)*temp*delv(1)/denfrac
         drag(4) = (1.-denfrac)*temp*delv(2)/denfrac
       endif
