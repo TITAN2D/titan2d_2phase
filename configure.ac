@@ -63,6 +63,7 @@ if test "x$with_hdf5" != xno; then
 fi
 
 ## checks for GRASS
+AM_CONDITIONAL(HAVE_HDF5, test "x$with_hdf5" != "xno")
 #------------------------------------------------------------------------------------
 AC_ARG_WITH([grass],
             [AS_HELP_STRING([--with-grass],[grass is needed for grass sites output.
@@ -78,6 +79,7 @@ AC_CHECK_LIB([gis],[G_gisinit])
               
 #=============================================================
 # enable debug
+AC_MSG_CHECKING([for debug build flags])
 AC_ARG_ENABLE(debug,
               AS_HELP_STRING([--enable-debug],
                              [enable debugging (disabled by default)]),
