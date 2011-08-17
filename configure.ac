@@ -61,7 +61,7 @@ if test "x$with_hdf5" != xno; then
                   [Re-run configure --with-hdf5=/path/to/hdf5.]
                   [Re-run configure --without-hdf5 to get rid of this message]))
 fi
-
+AM_CONDITIONAL(HAVE_HDF5, test "x$with_hdf5" != "xno")
 ## checks for GRASS
 #------------------------------------------------------------------------------------
 AC_ARG_WITH([grass],
@@ -78,6 +78,7 @@ AC_CHECK_LIB([gis],[G_gisinit])
               
 #=============================================================
 # enable debug
+AC_MSG_CHECKING([for debug build])
 AC_ARG_ENABLE(debug,
               AS_HELP_STRING([--enable-debug],
                              [enable debugging (disabled by default)]),

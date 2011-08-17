@@ -188,9 +188,10 @@ int main(int argc, char *argv[])
   if(viz_flag&2)
     meshplotter(BT_Elem_Ptr, BT_Node_Ptr, &matprops, &timeprops, &mapnames, statprops.vstar);
 
+#ifdef HAVE_HDF5
   if(viz_flag&8)
     xdmerr=write_xdmf(BT_Elem_Ptr,BT_Node_Ptr,&timeprops,&matprops,&mapnames,XDMF_NEW);
-
+#endif
 
   if(viz_flag&16){
     if(myid==0) grass_sites_header_output(&timeprops);
@@ -299,8 +300,10 @@ int main(int argc, char *argv[])
 	if(viz_flag&2)
 	  meshplotter(BT_Elem_Ptr, BT_Node_Ptr, &matprops, &timeprops, &mapnames,statprops.vstar);
 
+#ifdef HAVE_HDF5
 	if(viz_flag&8)
 	   xdmerr=write_xdmf(BT_Elem_Ptr,BT_Node_Ptr,&timeprops,&matprops,&mapnames,XDMF_OLD);
+#endif
 
 	if(viz_flag&16){
 	  if(myid==0) grass_sites_header_output(&timeprops);
@@ -370,9 +373,11 @@ int main(int argc, char *argv[])
 		statprops.vstar);
   MPI_Barrier(MPI_COMM_WORLD);
 
+#if HAVE_HDF5
   if(viz_flag&8)
     xdmerr=write_xdmf(BT_Elem_Ptr,BT_Node_Ptr,&timeprops,&matprops,&mapnames,XDMF_CLOSE);
   MPI_Barrier(MPI_COMM_WORLD);
+#endif
 
   if(viz_flag&16){
     if(myid==0) grass_sites_header_output(&timeprops);

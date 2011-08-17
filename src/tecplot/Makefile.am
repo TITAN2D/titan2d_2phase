@@ -6,7 +6,10 @@
 
 noinst_LIBRARIES = libtecplot.a
 
-libtecplot_a_SOURCES = outsum.C tecplot.C grassout.C \
-                       xdfm_write.C GMFG_hdfconstants.h hd5calls.c
+libtecplot_a_SOURCES = outsum.C tecplot.C grassout.C
+
+if HAVE_HDF5
+   libtecplot_a_SOURCES += xdfm_write.C GMFG_hdfconstants.h hd5calls.c
+endif
 
 INCLUDES=-I../header/
