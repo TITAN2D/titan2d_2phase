@@ -2573,7 +2573,7 @@ void update_neighbor_info(HashTable* HT_Elem_Ptr, ElemPtrList* RefinedList,
 		      int b2=which_side+1;/*-- b1, b2: neighbor son's number--*/
 		      if(b2==4) b2=0;
 
-		      for(int k=0; k<KEYLENGTH; k++)
+		      for(k=0; k<KEYLENGTH; k++)
 			NewNeighbor[0][k]=NewNeighbor[1][k]=*(Sons+a*KEYLENGTH+k);
 		      reg = 6;//changed from 4
 		      
@@ -2597,7 +2597,7 @@ void update_neighbor_info(HashTable* HT_Elem_Ptr, ElemPtrList* RefinedList,
 		      b=which_side+1;
 		      if(b==4) b=0;
 
-		      for(int k=0; k<KEYLENGTH; k++)
+		      for(k=0; k<KEYLENGTH; k++)
 			NewNeighbor[0][k]=NewNeighbor[1][k]=*(NeighSons+which_side*KEYLENGTH+k);
 		      
 		      Element* EmSon= (Element*) HT_Elem_Ptr->lookup(Sons+a*KEYLENGTH);
