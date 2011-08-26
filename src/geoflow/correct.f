@@ -65,9 +65,10 @@ c     initialize to zero
       slope=dsqrt(xslope*xslope+yslope*yslope)
       den_frac = den_fluid/den_solid
       do 10 i = 1,6
-10    ustore(i)=uprev(i)+dt*fluxsrc(i)
+      ustore(i)=uprev(i)+dt*fluxsrc(i)
      1     -dtdx*(fluxxp(i)-fluxxm(i))
      2     -dtdy*(fluxyp(i)-fluxym(i))
+10    continue
 
       if(ustore(1).gt.tiny) then
 c     Source terms ...
@@ -90,8 +91,8 @@ c     here speed is speed
          den_frac = den_fluid/den_solid
          call calc_drag_force (uvec, v_solid, v_fluid, den_solid, 
      &                         den_fluid, terminal_vel, drag, tiny)
-         dragfoce(1) = max(drag(3),drag(4))/uvec(1)/g(3)
-         dragfoce(2) = ustore(1)
+         dragfoce(1) = drag(3)/uvec(1)
+         dragfoce(2) = drag(4)/uvec(1)
  
 cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c        solid fraction x-direction source terms
@@ -147,18 +148,17 @@ ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c    fluid fraction x-direction source terms
 ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c        navier slip
-         t3 = -v_fluid(1)*navslip
+         t3 = -navslip*v_fluid(1)
 c        gravity on fluid
          t4 = uvec(1)*g(1)
 c        drag force on fluid
          t5 = drag(3)
          ustore(5) = ustore(5) + dt*(t3+t4-t5)
-
 ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c    fluid fraction y-direction source terms
 ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c        navier slip
-         t3 = -v_fluid(2)*navslip
+         t3 = -navslip*v_fluid(2)
 c        gravity on fluid
          t4 = uvec(1)*g(2)
 c        drag force on fluid

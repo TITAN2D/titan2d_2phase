@@ -26,6 +26,9 @@ C***********************************************************************
       double precision den_fluid, den_solid
       double precision drag(4), vterminal, tiny
 
+!     function calls
+      double precision sgn
+
 !     local variables and constants
       double precision exponant, temp, volf, denfrac
       double precision delv(2)
@@ -35,13 +38,14 @@ C***********************************************************************
 !     model in pitman-le paper
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       volf = uvec(2)/uvec(1)
-      if (volf.gt.0.85) volf=0.85
+!      if (volf.gt.0.85) volf=0.85
       temp = uvec(1)*volf*(1.-volf)**(-exponant)
       denfrac = den_fluid/den_solid
 
        
       do 10 i=1,4
-10      drag(i)=0.
+        drag(i)=0.
+10    continue
  
       ! fluid vel - solid vel
       if ( uvec(1).gt.tiny ) then
@@ -50,11 +54,11 @@ C***********************************************************************
 20      continue
 
 !       cap (u-v)/Vt to 0.1 
-        do 30 j=1,2
-          if (delv(j).gt.0.1) then
-            delv(j)=0.1
-          endif
-30      continue
+!        do 30 j=1,2
+!          if (dabs(delv(j)).gt.0.1) then
+!            delv(j)=0.1*sgn(delv(i), tiny)
+!          endif
+!30      continue
 
 !       compute individual drag-forces
         drag(1) = (1.-denfrac)*temp*(1.-volf)*delv(1)

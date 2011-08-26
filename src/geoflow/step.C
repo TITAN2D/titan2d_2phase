@@ -168,9 +168,7 @@ private(currentPtr,Curr_El,IF_STOPPED,influx,j,k,curr_time,flux_src_coef,VxVy)
   double forcebed=0.0, elemforcebed;
   double eroded=0.0, elemeroded;
   double deposited=0.0, elemdeposited;
-  double dragforce[2], elemdrag[2];
   double realvolume=0.0;
-  dragforce[0]=0.;
   buck = El_Table->getbucketptr();
   // mdj 2007-04 this loop has pretty much defeated me - there is
   //             a dependency in the Element class that causes incorrect
@@ -190,12 +188,11 @@ private(currentPtr,Curr_El,IF_STOPPED,influx,j,k,curr_time,flux_src_coef,VxVy)
               if ( *order_flag == 1 )
                 Curr_El->update_prev_state_vars();
 
-              elemdrag[0]=elemdrag[1]=0.;
 	      void *Curr_El_out= (void *) Curr_El;
 	      correct(NodeTable, El_Table, dt, matprops_ptr,
 		      fluxprops, timeprops_ptr,
 		      Curr_El_out,
-		      &elemforceint,&elemforcebed, elemdrag,
+		      &elemforceint,&elemforcebed,
 		      &elemeroded,&elemdeposited);
 
 	      forceint+=fabs(elemforceint);
@@ -203,11 +200,6 @@ private(currentPtr,Curr_El,IF_STOPPED,influx,j,k,curr_time,flux_src_coef,VxVy)
 	      realvolume+=dxy[0]*dxy[1]**(Curr_El->get_state_vars());
 	      eroded+=elemeroded;
 	      deposited+=elemdeposited;
-              if ( elemdrag[0] > dragforce[0] )
-              {
-                dragforce[0]=elemdrag[0];
-                dragforce[1]=elemdrag[1];
-              }
 
 	      double *coord=Curr_El->get_coord();	      
 	      //update the record of maximum pileheight in the area covered by this element
@@ -251,7 +243,7 @@ private(currentPtr,Curr_El,IF_STOPPED,influx,j,k,curr_time,flux_src_coef,VxVy)
 
   /* finished corrector step */
   calc_stats(El_Table, NodeTable, myid, matprops_ptr, timeprops_ptr, 
-	     statprops_ptr, discharge, dragforce, dt);
+	     statprops_ptr, discharge, dt);
 
   double tempin[6], tempout[6];
   tempin[0]=outflow;    //volume that flew out the boundaries this iteration

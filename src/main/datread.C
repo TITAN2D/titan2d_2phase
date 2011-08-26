@@ -100,9 +100,9 @@ void Read_data(int myid, MatProps* matprops_ptr, PileProps* pileprops_ptr,
 
     // cut-off extremes
     assert(minphi <= maxphi);
-    if ( minphi < 0.2 )
+    if ( minphi < 0.1 )
       matprops_ptr->flow_type = FLUID_FLOW;
-    else if ( maxphi > 0.9 )
+    else if ( maxphi > 0.85 )
       matprops_ptr->flow_type = DRY_FLOW;
     else
       matprops_ptr->flow_type = TWOPHASE;

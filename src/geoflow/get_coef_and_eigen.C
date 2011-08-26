@@ -98,12 +98,7 @@ double get_coef_and_eigen(HashTable* El_Table, HashTable* NodeTable,
       {
 	//if this element does not belong on this processor don't involve!!!
 
-        double threshold = *(EmTemp->get_state_vars()+1);
-	// if this is pure fluid, check height(U[0]) > GEOFLOW_TINY
-	if ( matprops_ptr->flow_type == FLUID_FLOW )
-          threshold = *(EmTemp->get_state_vars());
- 
-	if(threshold > GEOFLOW_TINY) 
+	if(*(EmTemp->get_state_vars()) > GEOFLOW_TINY) 
         {
 	  ifanynonzeroheight=1;
 	  
@@ -117,9 +112,8 @@ double get_coef_and_eigen(HashTable* El_Table, HashTable* NodeTable,
 	  gmfggetcoef_(EmTemp->get_state_vars(), d_uvec, 
 		       (d_uvec+NUM_STATE_VARS), dx_ptr, 
 		       &(matprops_ptr->bedfrict[EmTemp->get_material()]), 
-		       &(matprops_ptr->intfrict), kactxy,
-		       (EmTemp->get_kactxy()+1), &tiny, 
-		       &(matprops_ptr->epsilon));
+		       &(matprops_ptr->intfrict), &kactxy[0], &kactxy[1],
+		       &tiny, &(matprops_ptr->epsilon));
 
           EmTemp->put_kactxy(kactxy);
 	  EmTemp->calc_stop_crit(matprops_ptr);
@@ -131,9 +125,9 @@ double get_coef_and_eigen(HashTable* El_Table, HashTable* NodeTable,
 	  //must use hVx/h and hVy/h rather than eval_velocity (L'Hopital's 
 	  //rule speed if it is smaller) because underestimating speed (which 
 	  //results in over estimating the timestep) is fatal to stability...
+
 	  Vsolid[0]=(*(EmTemp->get_state_vars()+2))/(*(EmTemp->get_state_vars()+1));
 	  Vsolid[1]=(*(EmTemp->get_state_vars()+3))/(*(EmTemp->get_state_vars()+1));
-
           Vfluid[0]=(*(EmTemp->get_state_vars()+4))/(*(EmTemp->get_state_vars()));
           Vfluid[1]=(*(EmTemp->get_state_vars()+5))/(*(EmTemp->get_state_vars()));
 

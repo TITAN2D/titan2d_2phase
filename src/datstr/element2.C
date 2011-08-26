@@ -1536,8 +1536,8 @@ double Element::calc_elem_edge_wetness_factor(int ineigh, double dt) {
   VxVy[0]=state_vars[2]/state_vars[1];
   if(VxVy[0]!=0.0) 
   {
-    a=sqrt(effect_kactxy[0]*gravity[2]*state_vars[1] + 
-           (state_vars[0]-state_vars[1])*gravity[2]);
+    a=sqrt((kactxy[0]*state_vars[1] + 
+           (state_vars[0]-state_vars[1]))*gravity[2]);
     VxVy[0]*=(1.0+2.0*a/fabs(VxVy[0]))/dx[0];
   }
 
@@ -1725,75 +1725,52 @@ void Element::xdirflux(MatProps* matprops_ptr, double dz, double wetnessfactor,
   double a, Vel[4]; // Vel[0:1]: solid-vel, Vel[2:3]: fluid-vel
   double volf = 0.;
   double epsilon = matprops_ptr->epsilon;
-  double den_frac = matprops_ptr->den_fluid/matprops_ptr->den_solid;
+  double den_frac;
 
-  //the "update flux" values (hfv) are the fluxes used to update the solution,
-  // they may or may not be "reset" from their standard values based on whether 
-  // or not the stopping criteria is triggering a change intended to cause the flow to stop.
+  if ( matprops_ptr->flow_type == FLUID_FLOW )
+    den_frac = 1.;
+  else if ( matprops_ptr->flow_type == DRY_FLOW )
+    den_frac = 0.;
+  else
+    den_frac = matprops_ptr->den_fluid/matprops_ptr->den_solid;
+
   if(state_vars[0]<GEOFLOW_TINY)
   {
     for (i=0; i<3; i++)
       for (j=0; j<NUM_STATE_VARS; j++)
         hfv[i][j]=0.0;
   }
-#ifdef STOPCRIT_CHANGE_FLUX
-  else if(stoppedflags==2)
-  {
-    //state variables
-    hfv[0][0]=state_vars[0]+d_state_vars[0]*dz;
-    hfv[0][1]=state_vars[1]+d_state_vars[1]*dz;
-    for (i=2; i<NUM_STATE_VARS; i++)
-      hfv[0][i]=0.0;
-    if((Awet>0.0)&&(Awet<1.0))
-    { 
-      hfv[0][0]*=wetnessfactor;
-      hfv[0][1]*=wetnessfactor;
-    }
-    
-    for (i=0; i<4; i++)
-      Vel[i] = 0.;
-
-    // a^2 = k_ap*h*ph*g(3) + h*(1-phi)*g(3)
-    a=sqrt(effect_kactxy[0]*gravity[2]*hfv[0][1]
-           +(hfv[0][0]-hfv[0][1])*gravity[2]);
-
-    //fluxes
-    for (i=0; i<NUM_STATE_VARS; i++)
-      hfv[1][i] = 0.;
-
-    //wave speeds
-    hfv[2][0]=Vel[0]-a;
-    hfv[2][1]=Vel[0];
-    hfv[2][2]=Vel[0]+a;
-    hfv[2][3]=Vel[2]-a;
-    hfv[2][4]=Vel[2];
-    hfv[2][5]=Vel[2]+a;
-  }
-#endif
   else
   {
     //state variables
     for (i=0; i<NUM_STATE_VARS; i++)
       hfv[0][i]=state_vars[i]+d_state_vars[i]*dz;
-    
+
     if((0.0<Awet)&&(Awet<1.0)) 
       for (i=0; i<NUM_STATE_VARS; i++)
         hfv[0][i]*=wetnessfactor;
+
+    // compute volume-fraction
+    if ( hfv[0][0] > GEOFLOW_TINY )
+      volf = hfv[0][1]/hfv[0][0];
+    
     Vel[1] = Vel[3] = 0.; // not really, but don't need it here
+
+    // Solid-phase velocity in x-dir
     Vel[0] = hfv[0][2]/hfv[0][1];
+
+    // Fluid-phase velocity in y-dir
     Vel[2] = hfv[0][4]/hfv[0][0];
 
-    // a^2 = k_ap*h*ph*g(3) + h*(1-phi)*g(3)
-    double temp=effect_kactxy[0]*hfv[0][1]*gravity[2];
-    a=sqrt(temp + (hfv[0][0]-hfv[0][1])*gravity[2]);
+    // sound-speed : a^2 = k_ap*h*ph*g(3) + h*(1-phi)*g(3)
+    double temp=kactxy[0]*hfv[0][1]*gravity[2];
+    a=sqrt(temp+hfv[0][0]*(1.-volf)*gravity[2]);
 
     // get du/dy
     double dudy=(d_state_vars[NUM_STATE_VARS+2]-
                  d_state_vars[NUM_STATE_VARS+1]*Vel[0])/state_vars[1];
-    double alphaxy=-c_sgn(dudy)*sin(matprops_ptr->intfrict)*effect_kactxy[0];
+    double alphaxy=-c_sgn(dudy)*sin(matprops_ptr->intfrict)*kactxy[0];
     double temp2=alphaxy*hfv[0][0]*hfv[0][1]*gravity[2];
-    if ( hfv[0][0] > GEOFLOW_TINY )
-      volf = hfv[0][1]/hfv[0][0];
     //fluxes
     hfv[1][0]=hfv[0][2]+hfv[0][4]*(1.-volf);
     hfv[1][1]=hfv[0][2];
@@ -1810,61 +1787,9 @@ void Element::xdirflux(MatProps* matprops_ptr, double dz, double wetnessfactor,
     hfv[2][4]=Vel[2];
     hfv[2][5]=Vel[2]+a;
   }
-
-  //the "refinement flux" values (hrfv) are what the flux would have 
-  //been if it had not been reset due to being "stopped," 
-  //they are needed since refinement is based on fluxes 
-  //(and also pileheight gradient but that's not relevant here)
-#if defined STOPCRIT_CHANGE_FLUX || defined STOPCRIT_CHANGE_BED
-  if(state_vars[0] < GEOFLOW_TINY) 
-  {
-    for (i=0; i<3; i++)
-      for (j=0; j<NUM_STATE_VARS; j++)
-        hrfv[i][j] = 0.;
-  }
-  else
-  {
-    for (i=0; i<NUM_STATE_VARS; i++)
-      hrfv[0][i]=state_vars[i]+d_state_vars[i]*dz;
-    
-    if((0.0<Awet)&&(Awet<1.0)) 
-      for (i=0; i<NUM_STATE_VARS; i++)
-        hrfv[0][i]*=wetnessfactor;
-
-    Vel[1]= Vel[3] = 0.; // not really, but don't need them here
-    Vel[0]=hfv[0][2]/hfv[0][1];
-    Vel[2]=hfv[0][4]/hfv[0][0];
-    double temp = effect_kactxy[0]*hrfv[0][1]*gravity[2];
-    a=sqrt(temp + (hrfv[0][0]-hrfv[0][1])*gravity[2]);
-
-    // get du/dy
-    double dudy=(d_state_vars[NUM_STATE_VARS+2]-
-                 d_state_vars[NUM_STATE_VARS+1]*Vel[0])/state_vars[1];
-    double alphaxy=-c_sgn(dudy)*sin(matprops_ptr->intfrictang)*effect_kactxy[0];
-    double temp2=alphaxy*hrfv[0][0]*hrfv[0][1]*gravity[2];
-    if ( hrfv[0][0] > GEOFLOW_TINY )
-      volf = hrfv[0][1]/hrfv[0][0];
-    //fluxes
-    hrfv[1][0]=hrfv[0][2]+hrfv[0][4]*(1.-volf);
-    hrfv[1][1]=hrfv[0][2];
-    hrfv[1][2]=hrfv[0][2]*Vel[0] + 0.5*(1.-den_frac)*temp*hrfv[0][0];
-    hrfv[1][3]=hrfv[0][3]*Vel[0] + 0.5*(1.-den_frac)*temp2;
-    hrfv[1][4]=hrfv[0][4]*Vel[2] + 0.5*epsilon*hrfv[0][0]*hrfv[0][0]*gravity[2];
-    hrfv[1][5]=hrfv[0][5]*Vel[2];
-
-    //wave speeds
-    hrfv[2][0]=Vel[0]-a;
-    hrfv[2][1]=Vel[0];
-    hrfv[2][2]=Vel[0]+a;
-    hrfv[2][0]=Vel[2]-a;
-    hrfv[2][1]=Vel[2];
-    hrfv[2][2]=Vel[2]+a;
-  }
-#else
   for (i=0; i<3; i++)
     for (j=0; j<NUM_STATE_VARS; j++)
       hrfv[i][j]=hfv[i][j];
-#endif
   return;
 }
 
@@ -1877,7 +1802,14 @@ void Element::ydirflux(MatProps* matprops_ptr, double dz, double wetnessfactor,
   double Vel[4], a;
   double volf = 0.;
   double epsilon = matprops_ptr->epsilon;
-  double den_frac = matprops_ptr->den_fluid/matprops_ptr->den_solid;
+  double den_frac;
+
+  if ( matprops_ptr->flow_type == FLUID_FLOW )
+    den_frac = 1.;
+  else if ( matprops_ptr->flow_type == DRY_FLOW )
+    den_frac = 0.;
+  else 
+    den_frac = matprops_ptr->den_fluid/matprops_ptr->den_solid;
 
   //the "update flux" values (hfv) are the fluxes used to update the solution,
   // they may or may not be "reset" from their standard values based on whether
@@ -1888,35 +1820,6 @@ void Element::ydirflux(MatProps* matprops_ptr, double dz, double wetnessfactor,
       for (j=0; j<NUM_STATE_VARS; j++)
         hfv[i][j]=0.0; //state variables
   }
-#ifdef STOPCRIT_CHANGE_FLUX
-  else if(stoppedflags==2)
-  {
-    //state variables
-    hfv[0][0]=state_vars[0]+d_state_vars[NUM_STATE_VARS+0]*dz;
-    hfv[0][1]=state_vars[1]+d_state_vars[NUM_STATE_VARS+1]*dz;
-
-    for (i=2; i<NUM_STATE_VARS; i++)
-      hfv[0][i]=0.;
-    if((0.0<Awet)&&(Awet<1.0)) hfv[0][0]*=wetnessfactor;
-    if((0.0<Awet)&&(Awet<1.0)) hfv[0][1]*=wetnessfactor;
-
-    double temp= effect_kactxy[1]*hfv[0][1]*gravity[2];
-    a=sqrt(temp + (hfv[0][0]-hfv[0][1])*gravity[2]);
-    Vel[0]=Vel[1]=Vel[2]=Vel[3]=0.;
-
-    //fluxes
-    for (i=0; i<NUM_STATE_VARS; i++)
-      hfv[1][i]=0.;
-
-    //wave speeds
-    hfv[2][0]=Vel[1]-a;
-    hfv[2][1]=Vel[1];
-    hfv[2][2]=Vel[1]+a;
-    hfv[2][3]=Vel[3]-a;
-    hfv[2][4]=Vel[3];
-    hfv[2][5]=Vel[3]+a;
-  }
-#endif
   else
   {
     //state variables
@@ -1927,21 +1830,26 @@ void Element::ydirflux(MatProps* matprops_ptr, double dz, double wetnessfactor,
       for (i=0; i<NUM_STATE_VARS; i++)
         hfv[0][i]*=wetnessfactor;
     
+    if ( hfv[0][0] > GEOFLOW_TINY )
+      volf = hfv[0][1]/hfv[0][0];
+
     // a = speed of sound through the medium
-    double temp=effect_kactxy[1]*hfv[0][1]*gravity[2];
-    a=sqrt(temp + (hfv[0][0]-hfv[0][1])*gravity[2]);
+    double temp=kactxy[1]*hfv[0][1]*gravity[2];
+    a=sqrt(temp + hfv[0][0]*(1.-volf)*gravity[2]);
 
     // velocities
     Vel[0]= Vel[2] = 0. ; // don't need them here
+
+    // Solid-phase velocity in y-dir
     Vel[1]=hfv[0][3]/hfv[0][1];
+
+    // Fluid-phase velocity in y-dir
     Vel[3]=hfv[0][5]/hfv[0][0];
 
     // hydostatic terms
     double dvdx=(d_state_vars[3]-d_state_vars[1]*Vel[1])/state_vars[1];
-    double alphayx=-c_sgn(dvdx)*sin(matprops_ptr->intfrict)*effect_kactxy[1];
+    double alphayx=-c_sgn(dvdx)*sin(matprops_ptr->intfrict)*kactxy[1];
     double temp2=alphayx*hfv[0][0]*hfv[0][1]*gravity[2];
-    if ( hfv[0][0] > GEOFLOW_TINY )
-      volf = hfv[0][1]/hfv[0][0];
 
     //fluxes
     hfv[1][0]=hfv[0][3]+hfv[0][5]*(1.-volf);
@@ -1959,59 +1867,9 @@ void Element::ydirflux(MatProps* matprops_ptr, double dz, double wetnessfactor,
     hfv[2][4]=Vel[3];
     hfv[2][5]=Vel[3]+a;
   }
-
-  //the "refinement flux" values (hrfv) are what the flux would have been if it
-  // had not been reset due to being "stopped," they are needed since refinement 
-  // is based on fluxes (and also pileheight gradient but that's not relevant here)
-#if defined STOPCRIT_CHANGE_FLUX || defined STOPCRIT_CHANGE_BED
-  if(state_vars[0] < GEOFLOW_TINY) 
-    for (i=0; i<3; i++)
-      for (j=0; j<NUM_STATE_VARS; j++)
-        hrfv[i][j]=0.;
-  else
-  {
-    for (i=0; i<NUM_STATE_VARS; i++)
-      hrfv[0][i]=state_vars[i]+d_state_vars[NUM_STATE_VARS+i]*dz;
-    
-    if((0.0<Awet)&&(Awet<1.0)) 
-      for (i=0; i<NUM_STATE_VARS; i++)
-        hrfv[0][i]*=wetnessfactor;
-    
-    double temp=effect_kactxy[1]*hrfv[0][1]*gravity[2];
-    a=sqrt(temp + (hrfv[0][0]-hrfv[0][1])*gravity[2]);
-
-    // velocities
-    Vel[0]=Vel[2]=0.;
-    Vel[1]=hrfv[0][3]/hrfv[0][1];
-    Vel[3]=hrfv[0][5]/hrfv[0][0];
-
-    // hydostatic terms
-    double dvdx=(d_state_vars[3]-d_state_vars[1]*Vel[1])/state_vars[1];
-    double alphayx=-c_sgn(dudy)*sin(matprops_ptr->intfrictang)*effect_kactxy[1];
-    double temp2=alphayx*hrfv[0][0]*hrfv[0][1]*gravity[2];
-    if ( hrfv[0][0] > GEOFLOW_TINY )
-      volf = hrfv[0][1]/hrfv[0][0];
-    //fluxes
-    hrfv[1][0]=hrfv[0][3]+hrfv[0][5]*(1.-volf);
-    hrfv[1][1]=hrfv[0][3];
-    hrfv[1][2]=hrfv[0][2]*Vel[1] + 0.5*(1.-den_frac)*temp2;
-    hrfv[1][3]=hrfv[0][3]*Vel[1] + 0.5*(1.-den_frac)*temp*hrfv[0][0];
-    hrfv[1][4]=hrfv[0][4]*Vel[3];
-    hrfv[1][5]=hrfv[0][5]*Vel[3] + 0.5*epsilon*hrfv[0][0]*hrfv[0][0]*gravity[2];
-
-    //wave speeds
-    hrfv[2][0]=Vel[1]-a;
-    hrfv[2][1]=Vel[1];
-    hrfv[2][2]=Vel[1]+a;
-    hrfv[2][3]=Vel[3]-a;
-    hrfv[2][4]=Vel[3];
-    hrfv[2][5]=Vel[3]+a;
-  }
-#else
   for (i=0; i<3; i++)
     for (j=0; j<NUM_STATE_VARS; j++)
       hrfv[i][j]=hfv[i][j];
-#endif
 
   return;
 }
@@ -2025,6 +1883,7 @@ void Element::ydirflux(MatProps* matprops_ptr, double dz, double wetnessfactor,
 {
   double dz=0.0;
   int ineigh=which_neighbor(EmNeigh->pass_key());
+
   if(!((-1<ineigh)&&(ineigh<8))) 
   {
        printf("zdirflux: ineigh=%d, dir=%d\n",ineigh,dir);
@@ -2574,13 +2433,10 @@ void Element::eval_velocity(double xoffset, double yoffset, double Vel[])
   for (i=0; i<4; i++)
     Vel[i]=0;
 
-  if(temp_state_vars[1] > GEOFLOW_TINY)
+  if (temp_state_vars[0] > GEOFLOW_TINY)
   {
     Vel[0]=temp_state_vars[2]/temp_state_vars[1];
     Vel[1]=temp_state_vars[3]/temp_state_vars[1];
-  }
-  if (temp_state_vars[0] > GEOFLOW_TINY)
-  {
     Vel[2]=temp_state_vars[4]/temp_state_vars[0];
     Vel[3]=temp_state_vars[5]/temp_state_vars[0];
   }
@@ -2601,9 +2457,6 @@ void Element::calc_gravity_vector(MatProps* matprops_ptr)
   if(dabs(down_slope_gravity) > GEOFLOW_TINY) {
     gravity[0] = -down_slope_gravity*zeta[0]/max_slope;
     gravity[1] = -down_slope_gravity*zeta[1]/max_slope;
-    //   gravity[0] = -down_slope_gravity*cos(atan(1.0));
-    //   gravity[1] = -down_slope_gravity*sin(atan(1.0));
-
     gravity[2] = 9.8*cos(max_angle);
   }
   else {

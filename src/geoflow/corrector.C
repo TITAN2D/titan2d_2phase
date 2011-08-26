@@ -27,7 +27,7 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
 	     double dt, MatProps* matprops_ptr, 
 	     FluxProps *fluxprops, TimeProps *timeprops,
 	     void *EmTemp_in,double *forceint, double *forcebed, 
-	     double *dragforce, double *eroded, double *deposited)
+	     double *eroded, double *deposited)
 {
   Element *EmTemp=(Element *) EmTemp_in;
   double *dx=EmTemp->get_dx();
@@ -82,8 +82,9 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
   double terminal_vel=matprops_ptr->v_terminal;
   double navslip_coef=matprops_ptr->navslip_coef;
 
-  double Vfluid[DIMENSION];
+  double Vfluid[DIMENSION], Vsolid[DIMENSION];
   double volf;
+
   if ( state_vars[0] > GEOFLOW_TINY)
   {
     for (i=0; i<DIMENSION; i++)
@@ -92,6 +93,8 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
     // fluid velocities
     Vfluid[0]=state_vars[4]/state_vars[0];
     Vfluid[1]=state_vars[5]/state_vars[0];
+    Vsolid[0]=state_vars[2]/state_vars[1];
+    Vsolid[1]=state_vars[3]/state_vars[1];
 
     // volume fractions
     volf = state_vars[1]/state_vars[0];
@@ -102,20 +105,10 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
     {
       kactxy[i]=matprops_ptr->epsilon;
       Vfluid[i]=0.;
+      Vsolid[i]=0.;
     }
     volf=1.;
     bedfrict=matprops_ptr->bedfrict[EmTemp->get_material()];
-  }
-
-  double Vsolid[DIMENSION];
-  if(state_vars[1]>GEOFLOW_TINY) 
-  {
-    Vsolid[0]=state_vars[2]/state_vars[1];
-    Vsolid[1]=state_vars[3]/state_vars[1];
-  }
-  else
-  {
-    Vsolid[0]=Vsolid[1]=0.0;
   }
 
   double V_avg[DIMENSION];
@@ -123,6 +116,10 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
   V_avg[1] = Vsolid[1]*volf + Vfluid[1]*(1.-volf);
   EmTemp->convect_dryline(V_avg,dt); //this is necessary
 
+  if (state_vars[0] < GEOFLOW_SHORT )
+    navslip_coef *= state_vars[0];
+
+  double dragforce[2] = {0., 0.};
   correct_(state_vars, prev_state_vars, fluxxp, fluxyp, fluxxm, fluxym,
 	   &tiny, &dtdx, &dtdy, &dt, d_state_vars, (d_state_vars+NUM_STATE_VARS), 
 	   &(zeta[0]), &(zeta[1]), curvature,
@@ -132,6 +129,7 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
 	   &solid_den, &fluid_den, &terminal_vel,
            &(matprops_ptr->epsilon), &IF_STOPPED, Influx, &navslip_coef);
 
+  EmTemp->put_drag(dragforce);
   *forceint*=dx[0]*dx[1];
   *forcebed*=dx[0]*dx[1];
   *eroded*=dx[0]*dx[1];
@@ -143,21 +141,30 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
 
   if ( print_vars )
   {
+    double tempU[NUM_STATE_VARS];
+    for (i=0; i<NUM_STATE_VARS; i++)
+      tempU[i] = prev_state_vars[i]-
+                 dtdx*(fluxxp[i]-fluxxm[i])-
+                 dtdy*(fluxyp[i]-fluxym[i]);
     printf("ElemKey: %u\n", *EmTemp->pass_key());
-    printf("Kactxy = %10.5f%10.5f\n", kactxy[0], kactxy[1]);
-    printf("BedFrict: %10.5f: IntFrict: %10.5f\n", bedfrict, matprops_ptr->intfrict);
+    printf("Kactxy = %10.5e, %10.5e\n", kactxy[0], kactxy[1]);
+    printf("BedFrict: %10.5e: IntFrict: %10.5e\n", bedfrict, matprops_ptr->intfrict);
+
     printf("state_vars: \n");
     for (i=0; i<NUM_STATE_VARS; i++)
-      printf("%10.5f", state_vars[i]);
+      printf("%10.5e, ", state_vars[i]);
     printf("\n");
+
     printf("prev_state_vars: \n");
     for (i=0; i<NUM_STATE_VARS; i++)
-      printf("%10.5f", prev_state_vars[i]);
+      printf("%10.5e, ", prev_state_vars[i]);
     printf("\n");
-    printf("fluxes: \n");
+
+    printf("Ustore: \n");
     for (i=0; i<NUM_STATE_VARS; i++)
-      printf("%10.5f%10.5f%10.5f%10.5f\n",
-             fluxxp[i],fluxxm[i],fluxyp[i],fluxym[i]);
+      printf("%10.5e, ", tempU[i]);
+    printf("\n");
+    exit(1);
   }
 
   if(EmTemp->get_stoppedflags()==2) 

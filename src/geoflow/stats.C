@@ -20,6 +20,8 @@
 #endif
  
 #include "../header/hpfem.h"
+#include <cmath>
+using namespace std;
 
 
 /* STAT_VOL_FRAC is only here temporarily until a good value for it
@@ -30,8 +32,7 @@
 
 void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid, 
                 MatProps* matprops, TimeProps* timeprops, 
-                StatProps* statprops, DISCHARGE* discharge, 
-                double dragforce[], double d_time)
+                StatProps* statprops, DISCHARGE* discharge, double d_time)
 {
   int i, iproc;
   double area=0.0, max_height=0.0;
@@ -55,6 +56,7 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid,
   double testpointheight=statprops->heightifreach;
   double testpointx = statprops->xyifreach[0];
   double testpointy = statprops->xyifreach[1];
+  double dragforce[DIMENSION];
   double testpointdist2;
   double testpointmindist2;
   testpointmindist2 =pow(2.0,30.0);//HUGE_VAL;
@@ -107,6 +109,10 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid,
     }
 
   double Velocity[4];
+  double temp1df[2], temp2df;
+  for (int j=0; j<DIMENSION; j++)
+    dragforce[j]=0.;
+
   for(i=0; i<num_buck; i++)
     if(*(buck+i))
     {
@@ -195,7 +201,17 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid,
             u_ave+=sqrt(state_vars[4]*state_vars[4]+state_vars[5]*state_vars[5])*dA;
 	    Curr_El->eval_velocity(0.0,0.0,Velocity);
 
+            for (int j=0; j<DIMENSION; j++)
+              temp1df[j]=*(Curr_El->get_drag()+j);
+            temp2df = max(abs(temp1df[0]), abs(temp1df[1]));
+            if (dragforce[0] < temp2df) 
+            {
+              dragforce[0]=temp2df;
+              dragforce[1]=*(Curr_El->get_state_vars());
+            }
+
 	    if((!((v_ave<=0.0)||(0.0<=v_ave)))||
+               (!((u_ave<=0.0)||(0.0<=u_ave)))||
 	       (!((state_vars[0]<=0.0)||(0.0<=state_vars[0])))||
 	       (!((state_vars[1]<=0.0)||(0.0<=state_vars[1])))||
 	       (!((state_vars[2]<=0.0)||(0.0<=state_vars[2])))||
@@ -298,13 +314,11 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid,
   tempin[13]=u_ave;
   i = MPI_Reduce(tempin, tempout, 14, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
 
-  double temp2in[5], temp2out[5]; 
+  double temp2in[3], temp2out[3]; 
   temp2in[0]=max_height;
   temp2in[1]=v_max;
   temp2in[2]=u_max;
-  temp2in[3]=dragforce[0];
-  temp2in[4]=dragforce[1];
-  i = MPI_Reduce(temp2in, temp2out, 5, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
+  i = MPI_Reduce(temp2in, temp2out, 3, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
       
   if(myid == 0) 
   {
@@ -334,7 +348,7 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid,
       (matprops->LENGTH_SCALE)*(matprops->HEIGHT_SCALE);
     
     statprops->cutoffheight=cutoffheight*(matprops->HEIGHT_SCALE);
-    testvolume=tempout[10]/statvolume;
+    testvolume=tempout[10]/statprops->statvolume;
 
     /* the factor of 3^0.5 is a safety factor, this value was chosen because
        it makes the "radius" of a uniformly distributed line equal to half
@@ -383,8 +397,7 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid,
            "maximum drag is %g, height at max-drag = %g\n\n",
 	   timeprops->iter, hours, minutes, seconds, d_time,
 	   statprops->statvolume, statprops->hmax, statprops->vmax,
-	   statprops->umax, statprops->vmean, statprops->umean,  
-           temp2out[3], temp2out[4]);
+	   statprops->umax, statprops->vmean, statprops->umean);
   }
   return;
 }

@@ -173,9 +173,8 @@ int main(int argc, char *argv[])
 
 
   MPI_Barrier(MPI_COMM_WORLD);
-  double dummy[2]={0., 0.};
   calc_stats(BT_Elem_Ptr, BT_Node_Ptr, myid, &matprops, 
-             &timeprops, &statprops, &discharge, dummy, 0.0);
+             &timeprops, &statprops, &discharge, 0.0);
   output_discharge(&matprops, &timeprops, &discharge, myid);
 
   move_data(numprocs, myid, BT_Elem_Ptr, BT_Node_Ptr,&timeprops);
@@ -385,30 +384,19 @@ int main(int argc, char *argv[])
 			    &timeprops);}
   MPI_Barrier(MPI_COMM_WORLD);
 
-
-  //printf("hpfem.C 3: xcen=%g\n",statprops.xcen);
-
   // write out ending warning, maybe flow hasn't finished moving
   sim_end_warning(BT_Elem_Ptr, &matprops, &timeprops, statprops.vstar);
   MPI_Barrier(MPI_COMM_WORLD);
-
-
-  //printf("hpfem.C 4: xcen=%g\n",statprops.xcen);
 
   //write out the final pile statistics (and run time)
   if(myid==0) out_final_stats(&timeprops, &statprops);
 
   MPI_Barrier(MPI_COMM_WORLD);
 
-  //printf("hpfem.C 5: xcen=%g\n",statprops.xcen);
-
   //write out stochastic simulation statistics
   //if(statprops.lhs.runid>=0)
   if(myid==0) output_stoch_stats(&matprops, &statprops);
   MPI_Barrier(MPI_COMM_WORLD);
-
-  //printf("hpfem.C 6: xcen=%g\n",statprops.xcen);
-
 
   //output maximum flow depth a.k.a. flow outline
   OutLine outline2;

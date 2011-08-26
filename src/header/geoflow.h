@@ -38,7 +38,7 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
 	     double dt, MatProps* matprops_ptr, 
 	     FluxProps *fluxprops, TimeProps *timeprops,
 	     void *EmTemp, double *forceint, double *forcebed, 
-	     double *dragf, double *eroded, double *deposited);
+	     double *eroded, double *deposited);
 
 //! this function is legacy, the prototype exists but the function is not defined
 void checknodesol(HashTable*);
@@ -49,7 +49,7 @@ double element_weight(HashTable* El_Table, HashTable*, int myid, int nump);
 //! This function calculates the vast majority of statistics used for output, including most of what appears in output_summary.######, the friction body forces however are not calculated in here, Keith wrote this to replace calc_volume()
 void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid, 
 		MatProps* matprops, TimeProps* timeprops, StatProps* statprops, 
-                DISCHARGE* discharge, double *dragf, double d_time);
+                DISCHARGE* discharge, double d_time);
 
 //! calc_volume() has been replaced by calc_stats(), calc_volume() is out of date legacy code, the function is still defined in step.C but it is not called.
 void calc_volume(HashTable* El_Table, int myid, MatProps* matprops_ptr, 

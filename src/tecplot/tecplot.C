@@ -799,9 +799,6 @@ void meshplotter(HashTable* El_Table, HashTable* NodeTable,
   unsigned* nodes;
   char filename[256];
 
-  if(myid==TARGETPROCB) {printf("at meshplotter 1.0\n"); fflush(stdout);}
-  MPI_Barrier(MPI_COMM_WORLD);
-
   sprintf(filename,"mshpl%02d%08d.tec",myid,timeprops->iter);
   int order;
   int e_buckets=El_Table->get_no_of_buckets();
@@ -810,13 +807,7 @@ void meshplotter(HashTable* El_Table, HashTable* NodeTable,
 
   FILE*    fp;
  
-  //  if ( myid == 0 )
-  // {
   fp = fopen ( filename, "w" );
-
-
-  if(myid==TARGETPROCB) {printf("at meshplotter 2.0\n"); fflush(stdout);}
-  MPI_Barrier(MPI_COMM_WORLD);
 
   int hours, minutes; double seconds;
   timeprops->chunktime(&hours,&minutes,&seconds);
@@ -826,7 +817,9 @@ void meshplotter(HashTable* El_Table, HashTable* NodeTable,
 
   //fprintf ( fp, "TITLE= \"MESH OUTPUT\"\n" );
 
-  fprintf ( fp, "VARIABLES = \"X\" \"Y\" \"NODAL_ELEVATION\" \"PROC\" \"PILE_HEIGHT\" \"XMOMENTUM\" \"YMOMENTUM\" \"KEY0\" \"KEY1\" \"GENERATION\" \"SON\" \"ELM_ELEVATION\" \"XSLOPE\" \"YSLOPE\" \"XCURVATURE\" \"YCURVATURE\" \"ELMLOC1\" \"ELMLOC2\"" );
+  fprintf ( fp, "VARIABLES = \"X\" \"Y\" \"Z\" \"PILE_HEIGHT\" \"SXMOMENTUM\" \"SYMOMENTUM\" "
+                 "\"FXMOMENTUM\" \"FYMOMENTUM\" \"Vx_s\" \"Vy_s\" \"Vx_f\" \"Vy_f\" "
+                 "\"VOL_FRACT\" \"DRAGX\" \"DRAGY\"");
 
   if(myid==TARGETPROCB) {printf("at meshplotter 3.0\n"); fflush(stdout);}
   MPI_Barrier(MPI_COMM_WORLD);
@@ -845,148 +838,117 @@ void meshplotter(HashTable* El_Table, HashTable* NodeTable,
 	}
     }
 
-  if(myid==TARGETPROCB) {printf("at meshplotter 4.0\n"); fflush(stdout);}
-  MPI_Barrier(MPI_COMM_WORLD);
-
   fprintf ( fp, "\n" );
   fprintf ( fp, "ZONE N=%d, E=%d, F=FEPOINT, ET=QUADRILATERAL\n", 
             element_counter*4, element_counter );
 
   int elements = El_Table->get_no_of_buckets();
-  if(myid==TARGETPROCB) {printf("at meshplotter 4.1\n"); fflush(stdout);}
-  MPI_Barrier(MPI_COMM_WORLD);
-
   for(i=0; i<elements; i++)
-    {
-      entryp = *(El_Table->getbucketptr() + i);
-      while(entryp)
-	{	
-	  EmTemp = (Element*)entryp->value;
-	  assert(EmTemp);
-	  if(EmTemp->get_adapted_flag()>0)
-	    {
-	      order = 1;
-	      for ( int k = 0; k < 5; k++ )
-		{
-		  int help_order=*(EmTemp->get_order()+k);
-		  if ( help_order > order ) order = help_order;
-		}
-	      nodes = EmTemp->getNode();
-	      double* state_vars=EmTemp->get_state_vars();
-	      double err = sqrt(*(EmTemp->get_el_error()));
-	      for(int j=0; j<4; j++)
-		{
-		  NodeTemp = (Node*) NodeTable->lookup(nodes+j*KEYLENGTH);
-		  assert(NodeTemp);
-		  //int* dof = NodeTemp->getdof();
-		  int jj = j;
-		  if(1) {//NodeTemp->getinfo() != S_C_CON) {
-		    fprintf ( fp, "%e %e %e %d %e %e %e %u %u %d %d %e %e %e %e %e %d %d\n", 
-			      (*(NodeTemp->get_coord()))*(matprops)->LENGTH_SCALE,
-			      (*(NodeTemp->get_coord()+1))*(matprops)->LENGTH_SCALE, 
-			      NodeTemp->get_elevation() * (matprops->LENGTH_SCALE), 
-			      myid, state_vars[0]*(matprops)->HEIGHT_SCALE,
-			      state_vars[2]*momentum_scale, state_vars[3]*momentum_scale,
-			      *(EmTemp->pass_key()), 
-			      *(EmTemp->pass_key()+1), 
-			      EmTemp->get_gen(), 
-			      EmTemp->get_which_son(), EmTemp->get_elevation() * (matprops->LENGTH_SCALE),
-			      *(EmTemp->get_zeta()), *(EmTemp->get_zeta()+1),
-			      *(EmTemp->get_curvature())/(matprops->LENGTH_SCALE), 
-			      *(EmTemp->get_curvature()+1)/(matprops->LENGTH_SCALE),
-			      *(EmTemp->get_elm_loc()), *(EmTemp->get_elm_loc()+1));
-		  }
-		  else { // S_C_CON will have a discontinuity in the elevation so fix that by interpolation
-		    double elev;
-		    int neighside, mynode;
-		    if(j == EmTemp->get_which_son() + 1) {
-		      mynode = j - 1;
-		      neighside = j;
-		    }
-		    else if(j == EmTemp->get_which_son() - 1) {
-		      mynode = j+1;
-		      neighside = j-1;
-		      if(neighside < 0)
-			neighside = 3;
-		    }
-		    else if(EmTemp->get_which_son() == 0) {
-		      mynode = 0;
-		      neighside = 2;
-		    }
-		    else if(EmTemp->get_which_son() == 3) {
-		      mynode = 3;
-		      neighside = 0;
-		    }
-		    else {
-			mynode = 1;
-			neighside = 1;
-		      //assert(0);
-		    }
-		    Node* NodeTemp2 = (Node*) NodeTable->lookup(nodes+mynode*KEYLENGTH);
-		    assert(NodeTemp2);
+  {
+    entryp = *(El_Table->getbucketptr() + i);
+    while(entryp)
+    {	
+      EmTemp = (Element*)entryp->value;
+      assert(EmTemp);
+      if(EmTemp->get_adapted_flag()>0)
+      {
+        order = 1;
+        for ( int k = 0; k < 5; k++ )
+        {
+          int help_order=*(EmTemp->get_order()+k);
+          if ( help_order > order ) order = help_order;
+        }
 
-		    elev = .5 * NodeTemp2->get_elevation();
-		    Element* EmTemp2 = (Element*) El_Table->lookup((EmTemp->get_neighbors()+KEYLENGTH*neighside));
-		    assert(EmTemp2);
+	nodes = EmTemp->getNode();
+	double* state_vars=EmTemp->get_state_vars();
+	double err = sqrt(*(EmTemp->get_el_error()));
+        double Vel[4];
+        double volf = 0;
+        if (state_vars[0]>GEOFLOW_TINY)
+          volf = state_vars[1]/state_vars[0];
 
-		    NodeTemp2 = (Node*) NodeTable->lookup(EmTemp2->getNode()+j*KEYLENGTH);
-		    elev += .5 * NodeTemp2->get_elevation();
-		    fprintf ( fp, "%e %e %e %d %e %e %e %u %u %d %d %e %e %e %e %e %d %d\n", 
-			      (*(NodeTemp->get_coord()))*(matprops)->LENGTH_SCALE,
-			      (*(NodeTemp->get_coord()+1))*(matprops)->LENGTH_SCALE, 
-			      elev * (matprops->LENGTH_SCALE), 
-			      myid, state_vars[0]*(matprops)->HEIGHT_SCALE,
-			      state_vars[2]*momentum_scale, state_vars[3]*momentum_scale,
-			      *(EmTemp->pass_key()), 
-			      *(EmTemp->pass_key()+1), 
-			      EmTemp->get_gen(), 
-			      EmTemp->get_which_son(), EmTemp->get_elevation() * (matprops->LENGTH_SCALE),
-			      *(EmTemp->get_zeta()), *(EmTemp->get_zeta()+1),
-			      *(EmTemp->get_curvature())/(matprops->LENGTH_SCALE), 
-			      *(EmTemp->get_curvature()+1)/(matprops->LENGTH_SCALE),
-			      *(EmTemp->get_elm_loc()), *(EmTemp->get_elm_loc()+1));
-		  }
-		    
-		}  
-	    } 
-	  
-	  entryp = entryp->next; 
-	  
+        EmTemp->eval_velocity(0., 0., Vel);
+        for(int j=0; j<4; j++)
+        {
+          NodeTemp = (Node*) NodeTable->lookup(nodes+j*KEYLENGTH);
+          assert(NodeTemp);
+          int jj = j;
+          if (NodeTemp->getinfo() != S_C_CON) 
+            fprintf ( fp, "%e %e %e %e %e %e %e %e %e %e %e %e %e %e %e\n", 
+                      (*(NodeTemp->get_coord()))*(matprops)->LENGTH_SCALE,
+                      (*(NodeTemp->get_coord()+1))*(matprops)->LENGTH_SCALE, 
+                      NodeTemp->get_elevation()*(matprops->LENGTH_SCALE), 
+                      state_vars[0]*(matprops)->HEIGHT_SCALE,
+                      state_vars[2]*momentum_scale, state_vars[3]*momentum_scale,
+                      state_vars[4]*momentum_scale, state_vars[5]*momentum_scale,
+                      Vel[0], Vel[1], Vel[2], Vel[3], volf,
+                      *(EmTemp->get_drag()), *(EmTemp->get_drag()+1));
+
+          else  // S_C_CON will have a discontinuity in the elevation so fix that by interpolation
+          {
+            double elev;
+            int neighside, mynode;
+            if(j == EmTemp->get_which_son() + 1) 
+            {
+              mynode = j - 1;
+              neighside = j;
+	    }
+            else if(j == EmTemp->get_which_son() - 1) 
+            {
+              mynode = j+1;
+              neighside = j-1;
+	      if(neighside < 0) neighside = 3;
+            }
+            else if(EmTemp->get_which_son() == 0) 
+            {
+              mynode = 0;
+              neighside = 2;
+            }
+            else if(EmTemp->get_which_son() == 3) 
+            {
+              mynode = 3;
+	      neighside = 0;
+	    }
+	    else 
+            {
+              mynode = 1;
+              neighside = 1;
+              //assert(0);
+            }   
+            Node* NodeTemp2 = (Node*) NodeTable->lookup(nodes+mynode*KEYLENGTH);
+	    assert(NodeTemp2);
+
+	    elev = .5 * NodeTemp2->get_elevation();
+	    Element* EmTemp2 = (Element*) El_Table->lookup(
+                                  (EmTemp->get_neighbors()+KEYLENGTH*neighside));
+	    assert(EmTemp2);
+
+	    NodeTemp2 = (Node*) NodeTable->lookup(EmTemp2->getNode()+j*KEYLENGTH);
+	    elev += .5 * NodeTemp2->get_elevation();
+            fprintf ( fp, "%e %e %e %e %e %e %e %e %e %e %e %e %e %e %e\n", 
+                      (*(NodeTemp->get_coord()))*(matprops)->LENGTH_SCALE,
+                      (*(NodeTemp->get_coord()+1))*(matprops)->LENGTH_SCALE, 
+                      elev*(matprops->LENGTH_SCALE), 
+                      state_vars[0]*(matprops)->HEIGHT_SCALE,
+                      state_vars[2]*momentum_scale, state_vars[3]*momentum_scale,
+                      state_vars[4]*momentum_scale, state_vars[5]*momentum_scale,
+                      Vel[0], Vel[1], Vel[2], Vel[3], volf,
+                      *(EmTemp->get_drag()), *(EmTemp->get_drag()+1));
+	  } 
 	} 
+      }
+      entryp = entryp->next; 
     } 
-
-  if(myid==TARGETPROCB) {printf("at meshplotter 5.0\n"); fflush(stdout);}
-  MPI_Barrier(MPI_COMM_WORLD);
-
-
-  //outData<<'\n'; 
-  fprintf ( fp, "\n" );
-
+  }
   for(i=0; i<element_counter;i++) 
-    { 
-      for(int j=0; j<4; j++) 
-	//outData<<i*4+j+1<<' '; 
-	fprintf (fp, "%d ", i*4+j+1);
-
-      //outData<<'\n'; 
+  { 
+    for(int j=0; j<4; j++) 
+      fprintf (fp, "%d ", i*4+j+1);
       fprintf ( fp, "\n" );
-    }
- 
-  if(myid==TARGETPROCB) {printf("at meshplotter 6.0\n"); fflush(stdout);}
-  MPI_Barrier(MPI_COMM_WORLD);
-
-
+  }
   fclose ( fp );
-
-  if(myid==TARGETPROCB) {printf("at meshplotter 7.0\n"); fflush(stdout);}
-  MPI_Barrier(MPI_COMM_WORLD);
-
-
-  //  if(myid != numprocs-1) MPI_Send(&done, 1, MPI_INT, myid+1, TECTAG, MPI_COMM_WORLD); 
-
-
   return;
-} 
+}
 
 /*************************************
 **************************************
@@ -995,7 +957,8 @@ void meshplotter(HashTable* El_Table, HashTable* NodeTable,
 **************************************
 **************************************
 *************************************/
-void vizplotter(HashTable* El_Table, HashTable* NodeTable, MatProps* matprops, TimeProps* timeprops)
+void vizplotter(HashTable* El_Table, HashTable* NodeTable, 
+                MatProps* matprops, TimeProps* timeprops)
 {
   int myid, i;
   int numprocs;
@@ -1012,118 +975,87 @@ void vizplotter(HashTable* El_Table, HashTable* NodeTable, MatProps* matprops, T
   unsigned* nodes;
   char filename[20]; //="vizplotxxxxxxxx.plt";
   sprintf(filename,"vizplot%08d.plt",timeprops->iter);
-
-  /*filename[14] = (which % 10) + 48;
-  filename[13] = (which % 100)/10 + 48;
-  filename[12] = (which % 1000)/100 + 48;
-  filename[11] = (which % 10000)/1000 + 48;
-  filename[10] = (which % 100000)/10000 + 48;
-  filename[9] = (which % 1000000)/100000 + 48;
-  filename[8] = (which % 10000000)/1000000 + 48;
-  filename[7] = (which % 100000000)/10000000 + 48; */
   int order;
   int e_buckets=El_Table->get_no_of_buckets();
   double momentum_scale = sqrt(matprops->LENGTH_SCALE * (matprops->GRAVITY_SCALE)); // scaling factor for the momentums
 
 
-  FILE*    fp;
+  FILE* fp;
  
   if ( myid == 0 )
-    {
-      fp = fopen ( filename, "w" );
-      fprintf ( fp, "TITLE= \"MESH OUTPUT\"\n" );
-      fprintf ( fp, "VARIABLES = \"X\", \"Y\", \"Z\", \"PROC\" \"PILE_HEIGHT\" \"XMOMENTUM\" \"YMOMENTUM\" \"KEY0\" \"KEY1\" \"GENERATION\" \"SON\"" );
-    }
+  {
+    fp = fopen ( filename, "w" );
+    fprintf ( fp, "TITLE= \"MESH OUTPUT\"\n" );
+    fprintf ( fp, "VARIABLES = \"X\", \"Y\", \"Z\", \"PROC\" \"PILE_HEIGHT\" \"XMOMENTUM\" \"YMOMENTUM\" \"KEY0\" \"KEY1\" \"GENERATION\" \"SON\"" );
+  }
   else 
-    {
-      MPI_Recv(&done, 1, MPI_INT, myid-1, TECTAG, MPI_COMM_WORLD, &status);
-      //outData.open(filename, ios::app);
-      fp = fopen ( filename, "a+" );
-    }
-
+  {
+    MPI_Recv(&done, 1, MPI_INT, myid-1, TECTAG, MPI_COMM_WORLD, &status);
+    fp = fopen ( filename, "a+" );
+  }
 
   for(i=0; i<e_buckets; i++)
-    {
-
-      entryp = *(El_Table->getbucketptr() + i);
-      while(entryp)
-	{	
-	  
-	  EmTemp = (Element*)entryp->value;
-	  assert(EmTemp);
-	  if(EmTemp->get_adapted_flag()>0)
-	    element_counter++;
-	  entryp = entryp->next;
-	  
-	}
+  {
+    entryp = *(El_Table->getbucketptr() + i);
+    while(entryp)
+    {	
+      EmTemp = (Element*)entryp->value;
+      assert(EmTemp);
+      if(EmTemp->get_adapted_flag()>0)
+        element_counter++;
+        entryp = entryp->next;
     }
+  }
 
-
-  //outData<<'\n';
   fprintf ( fp, "\n" );
-
-  //outData<<"ZONE N="<<element_counter*4<<", E="<<element_counter<<", F=FEPOINT, ET=QUADRILATERAL"<<'\n';
-  fprintf ( fp, "ZONE N=%d, E=%d, F=FEPOINT, ET=QUADRILATERAL\n", element_counter*4, element_counter );
+  fprintf ( fp, "ZONE N=%d, E=%d, F=FEPOINT, ET=QUADRILATERAL\n", 
+                element_counter*4, element_counter );
 
   int elements = El_Table->get_no_of_buckets();
 
   for(i=0; i<elements; i++)
-    {
+  {
+    entryp = *(El_Table->getbucketptr() + i);
+    while(entryp)
+    {	
+      EmTemp = (Element*)entryp->value;
+      assert(EmTemp);
+      if(EmTemp->get_adapted_flag()>0)
+      {
+        order = 1;
+        for ( int k = 0; k < 5; k++ )
+        {
+          int help_order=*(EmTemp->get_order()+k);
+          if ( help_order > order ) order = help_order;
+	}
+        nodes = EmTemp->getNode();
+        double* state_vars=EmTemp->get_state_vars();
+        double err = sqrt(*(EmTemp->get_el_error()));
+        for(int j=0; j<4; j++)
+	{
+	  NodeTemp = (Node*) NodeTable->lookup(nodes+j*KEYLENGTH);
+          fprintf ( fp, "%e %e %e %d %e %e %e %u %u %d %d\n", 
+  	    (*(NodeTemp->get_coord()))*(matprops)->LENGTH_SCALE,
+            (*(NodeTemp->get_coord()+1))*(matprops)->LENGTH_SCALE, 
+            (NodeTemp->get_elevation())*(matprops)->LENGTH_SCALE, 
+            myid, state_vars[0]*(matprops)->HEIGHT_SCALE,
+	    state_vars[2]*momentum_scale, state_vars[3]*momentum_scale,
+            *(EmTemp->pass_key()), *(EmTemp->pass_key()+1), 
+            EmTemp->get_gen(), EmTemp->get_which_son());
 
-      entryp = *(El_Table->getbucketptr() + i);
-      while(entryp)
-	{	
-	  
-	  EmTemp = (Element*)entryp->value;
-	  assert(EmTemp);
-	  if(EmTemp->get_adapted_flag()>0)
-	    {
-	      order = 1;
-	      for ( int k = 0; k < 5; k++ )
-		{
-		  int help_order=*(EmTemp->get_order()+k);
-		  if ( help_order > order ) order = help_order;
-		}
-
-	      nodes = EmTemp->getNode();
-	      double* state_vars=EmTemp->get_state_vars();
-	      double err = sqrt(*(EmTemp->get_el_error()));
-	      for(int j=0; j<4; j++)
-		{
-		  NodeTemp = (Node*) NodeTable->lookup(nodes+j*KEYLENGTH);
-		  //int* dof = NodeTemp->getdof();
-		  fprintf ( fp, "%e %e %e %d %e %e %e %u %u %d %d\n", 
-			    (*(NodeTemp->get_coord()))*(matprops)->LENGTH_SCALE,
-			    (*(NodeTemp->get_coord()+1))*(matprops)->LENGTH_SCALE, 
-			    (NodeTemp->get_elevation())*(matprops)->LENGTH_SCALE, 
-			    myid, state_vars[0]*(matprops)->HEIGHT_SCALE,
-			    state_vars[2]*momentum_scale, state_vars[3]*momentum_scale,
-			    *(EmTemp->pass_key()), 
-			    *(EmTemp->pass_key()+1), 
-			    EmTemp->get_gen(), 
-			    EmTemp->get_which_son());
-
-		}  
-	    } 
-	  
-	  entryp = entryp->next; 
-	  
-	} 
+        }  
+      } 
+      entryp = entryp->next; 
     } 
+  } 
 
-  //outData<<'\n'; 
   fprintf ( fp, "\n" );
-
   for(i=0; i<element_counter;i++) 
-    { 
-      for(int j=0; j<4; j++) 
-	//outData<<i*4+j+1<<' '; 
-	fprintf (fp, "%d ", i*4+j+1);
-
-      //outData<<'\n'; 
-      fprintf ( fp, "\n" );
-    }
- 
+  { 
+    for(int j=0; j<4; j++) 
+    fprintf (fp, "%d ", i*4+j+1);
+    fprintf ( fp, "\n" );
+  }
   fclose ( fp );
 
   if(myid != numprocs-1) MPI_Send(&done, 1, MPI_INT, myid+1, TECTAG, MPI_COMM_WORLD); 
