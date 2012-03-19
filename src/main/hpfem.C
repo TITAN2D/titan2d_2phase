@@ -33,27 +33,6 @@
 
 int REFINE_LEVEL=3;
 
-void checkelemnode2(HashTable *El_Table, HashTable *NodeTable, 
-		   int myid, FILE *fpdebug, double loc){
-  unsigned elemdebugkey2a[2]={ 695876266,2863311530};
-  unsigned nodedebugkey2a[2]={ 695852110,3303820997};
-
-  if(fpdebug==NULL) fpdebug=stdout;
-
-  if(myid==TARGETPROC){
-    fprintf(fpdebug,"**************************\nmyid=%d location=%g\n",
-	    myid,loc);
-    ElemBackgroundCheck(El_Table,NodeTable,elemdebugkey2a,fpdebug);
-    //NodeBackgroundCheck(El_Table,NodeTable,nodedebugkey2a,fpdebug);
-    
-    fflush(fpdebug);
-  }
-  
-  return;
-}
-
-
-
 int main(int argc, char *argv[]) 
 {
   int i;//-- counters
@@ -74,7 +53,6 @@ int main(int argc, char *argv[])
 
   char debugfilename[256];
   sprintf(debugfilename,"hpfem%04d.debug",myid);
-  //FILE *fpdebughpfem=fopen(debugfilename,"w");
 
   double start, end;
 
@@ -85,7 +63,7 @@ int main(int argc, char *argv[])
 
   char filename[50];
   sprintf(filename,"debug.main.%04d",myid);
-  //FILE *fp=fopen(filename,"w");
+
 
   /* read original data from serial preprocessing
      code and then initialize element 
@@ -152,13 +130,6 @@ int main(int argc, char *argv[])
 	       &statprops);
   }
 
-
-  /* for debug only, to check if exactly what's loaded will be saved again
-     by doing a diff on the files.
-  saverun(&BT_Node_Ptr, myid, numprocs, &BT_Elem_Ptr, 
-	  &matprops, &timeprops, &mapnames, adaptflag, order_flag, 
-	  &statprops, &discharge, &outline, &savefileflag);
-  */
 
   if (myid==0)
   {
@@ -271,16 +242,6 @@ int main(int argc, char *argv[])
 	   &discharge,adaptflag);
 
       /*
-       * save a restart file 
-       */
-      if(timeprops.ifsave())  
-      {
-	saverun(&BT_Node_Ptr, myid, numprocs, &BT_Elem_Ptr, 
-		&matprops, &timeprops, &mapnames, adaptflag, order_flag, 
-		&statprops, &discharge, &outline, &savefileflag);
-      }
-
-      /*
        * output results to file 
        */
       if(timeprops.ifoutput()) 
@@ -345,15 +306,6 @@ int main(int argc, char *argv[])
   move_data(numprocs, myid, BT_Elem_Ptr, BT_Node_Ptr,&timeprops);
   MPI_Barrier(MPI_COMM_WORLD);
 	
-  /*
-   * save a restart file 
-
-  saverun(&BT_Node_Ptr, myid, numprocs, &BT_Elem_Ptr, 
-	  &matprops, &timeprops, &mapnames, adaptflag, order_flag, 
-	  &statprops, &discharge, &outline, &savefileflag);
-  MPI_Barrier(MPI_COMM_WORLD);
-   */
-
   output_discharge(&matprops, &timeprops, &discharge, myid);
   MPI_Barrier(MPI_COMM_WORLD);
 	

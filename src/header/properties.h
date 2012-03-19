@@ -379,19 +379,28 @@ struct TimeProps{
   int  ifcheckstop() {return(time>ndmaxtime/10.0);}
 
   //! checks if the restart file should be saved now
-  int  ifsave() {
-    if(time>=ndnextsave) {
-      isave++; //using isave eliminates roundoff
-      ndnextsave=((isave+1)*timesave)/TIME_SCALE;
-      return(1);}
-    else return(0);}
+  int  ifsave() 
+  {
+    // don't save if nobody asked you to do it
+    if ( timesave < 1.0E-06 ) return 0;
+    if(time>=ndnextsave) 
+      {
+        isave++; //using isave eliminates roundoff
+        ndnextsave=((isave+1)*timesave)/TIME_SCALE;
+        return(1);
+      }
+    else return 0;
+  }
 
   //! checks if the output files should be written now
-  int  ifoutput() {
-    if(time>=ndnextoutput) {
-      ioutput++; //using ioutput eliminates roundoff
-      ndnextoutput=((ioutput+1)*timeoutput)/TIME_SCALE;
-      return(1);}
+  int  ifoutput() 
+  {
+    if(time>=ndnextoutput) 
+      {
+        ioutput++; //using ioutput eliminates roundoff
+        ndnextoutput=((ioutput+1)*timeoutput)/TIME_SCALE;
+        return(1);
+      }
     else return(0);}
 
   //! chunk simulated time into hours minutes and seconds

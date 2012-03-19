@@ -69,6 +69,8 @@ c     initialize to zero
      1     -dtdx*(fluxxp(i)-fluxxm(i))
      2     -dtdy*(fluxyp(i)-fluxym(i))
 10    continue
+      ustore(1) = dmax1(ustore(1),0.)
+      ustore(2) = dmax1(ustore(2),0.)
 
       if(ustore(1).gt.tiny) then
 c     Source terms ...
@@ -147,23 +149,26 @@ c        drag term
 ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c    fluid fraction x-direction source terms
 ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-c        navier slip
-         t3 = -navslip*v_fluid(1)
+c        friction on fluid
+         t3 = navslip*v_fluid(1)
 c        gravity on fluid
          t4 = uvec(1)*g(1)
 c        drag force on fluid
          t5 = drag(3)
-         ustore(5) = ustore(5) + dt*(t3+t4-t5)
+         ustore(5) = ustore(5) + dt*(t4-t5-t3)
+
 ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c    fluid fraction y-direction source terms
 ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-c        navier slip
-         t3 = -navslip*v_fluid(2)
+c        friction on fluid
+         t3 = navslip*v_fluid(2)
 c        gravity on fluid
          t4 = uvec(1)*g(2)
 c        drag force on fluid
          t5 = drag(4)
-         ustore(6) = ustore(6) + dt*(t3+t4-t5)
+         ustore(6) = ustore(6) + dt*(t4-t5-t3)
+
+
       endif
 
 c     computation of magnitude of friction forces for statistics

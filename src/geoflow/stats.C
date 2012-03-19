@@ -56,7 +56,6 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid,
   double testpointheight=statprops->heightifreach;
   double testpointx = statprops->xyifreach[0];
   double testpointy = statprops->xyifreach[1];
-  double dragforce[DIMENSION];
   double testpointdist2;
   double testpointmindist2;
   testpointmindist2 =pow(2.0,30.0);//HUGE_VAL;
@@ -110,8 +109,6 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid,
 
   double Velocity[4];
   double temp1df[2], temp2df;
-  for (int j=0; j<DIMENSION; j++)
-    dragforce[j]=0.;
 
   for(i=0; i<num_buck; i++)
     if(*(buck+i))
@@ -201,14 +198,6 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid,
             u_ave+=sqrt(state_vars[4]*state_vars[4]+state_vars[5]*state_vars[5])*dA;
 	    Curr_El->eval_velocity(0.0,0.0,Velocity);
 
-            for (int j=0; j<DIMENSION; j++)
-              temp1df[j]=*(Curr_El->get_drag()+j);
-            temp2df = max(abs(temp1df[0]), abs(temp1df[1]));
-            if (dragforce[0] < temp2df) 
-            {
-              dragforce[0]=temp2df;
-              dragforce[1]=*(Curr_El->get_state_vars());
-            }
 
 	    if((!((v_ave<=0.0)||(0.0<=v_ave)))||
                (!((u_ave<=0.0)||(0.0<=u_ave)))||
@@ -393,8 +382,7 @@ void calc_stats(HashTable* El_Table, HashTable* NodeTable, int myid,
            "time step length is %g [sec], volume is %g [m^3],\n"
            "max height is %g [m],\n"
            "max solid-velocity is %g [m/s], max fluid-velocity is %g\n" 
-           "ave solid-velocity is %g [m/s], ave fluid-velocity is %g\n"
-           "maximum drag is %g, height at max-drag = %g\n\n",
+           "ave solid-velocity is %g [m/s], ave fluid-velocity is %g\n\n",
 	   timeprops->iter, hours, minutes, seconds, d_time,
 	   statprops->statvolume, statprops->hmax, statprops->vmax,
 	   statprops->umax, statprops->vmean, statprops->umean);
