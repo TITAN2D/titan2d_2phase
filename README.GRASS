@@ -1,4 +1,4 @@
-README file for r.gmfg.titan
+README file for r.gmfg.hephaestus
 
 $Id: README.GRASS 7 2003-08-14 00:08:57Z acbauer $
 
@@ -12,27 +12,27 @@ grass5
 
 2.  Specify the location of the GRASS dataset
 
-3.  Change you working directory to titan/bin
+3.  Change you working directory to hephaestus/bin
 
 4.  Make sure that the following files are present in you current
 directory:
 
 _pilehelper
 _regionhelper
-r.gmfg.titan
+r.gmfg.hephaestus
 runit.py
 
 _Command-line operation_
 
 1. Specify simulation parameters on the command line for
-./r.gmfg.titan, to get a list of available options and parameters
-run r.gmfg.titan -h
+./r.gmfg.hephaestus, to get a list of available options and parameters
+run r.gmfg.hephaestus -h
 
 2.  After python GUI shows up continue using the model as usual
 
 Example of the model command line:
 
-./r.gmfg.titan -a -s map=Tahoma30 dir=tempe mp=1 mesh=100 iang=30 bang=15 length=8000 maxts=1000 maxtime=100 outts=100 outfmt=tecplot,mshplot,HDF piles=1 pileh=50
+./r.gmfg.hephaestus -a -s map=Tahoma30 dir=tempe mp=1 mesh=100 iang=30 bang=15 length=8000 maxts=1000 maxtime=100 outts=100 outfmt=tecplot,mshplot,HDF piles=1 pileh=50
 
 _Specifying the region for the simulation_
 
@@ -52,7 +52,7 @@ _Interactive Operation of The Model_
 
 1.  Start the model from within GRASS using the command:
 
-./r.gmfg.titan
+./r.gmfg.hephaestus
 
 Optionally you can specify any command line options for the model and
 they will be reflected in the GUI

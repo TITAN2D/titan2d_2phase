@@ -1,7 +1,7 @@
 The code currently simulates granular flows.  It runs in parallel with mesh refinement and unrefinement.  The maximum refinement level is set by the user when specifying the Number of Computational Cells Across Smallest Pile/Flux-Source.  Mesh repartitioning is also used to maintain a good load-balance.  A python script is included to organize the preprocessing and launching of jobs on different computers, including all available computers at the Center for Computational Research (CCR) at UB.  GRASS is now used as the GIS.  The python script can also be run directly from GRASS.  Instructions for this are in the README.GRASS file.
   
 The python script is located in the bin directory and is run by 
-the command: python titan_gui.py
+the command: python hephaestus_gui.py
   
 A GUI will come up and ask for certain info.  There are several pop-up
 windows that will open, depending on the information you provide.  The information 
@@ -41,7 +41,7 @@ Main Data Entry Window:
   
 16) Time [sec] Between Results Output -- This corresponds to how often results will be saved to file for later analysis.  These files can become very large and the user may not need to see results for every time step since some time steps may have little change in the results from the previous time step.  For example, a user may wish to only save a timestep every 5 seconds of simulated time.  If desired, the user may choose to use a fraction of a second. 
   
-17) Time [sec] Between Saves -- specify the frequency at which the configuration of the simulation is saved to a restart0000.x file.  To continue a given simulation, rename the most recent restart0000.x file to restart0000.this and run titan again as usual. (Note that additional restart0001.x, restart0002.x, etc. files will exist - and will also have to be renamed - for multi-processor runs)
+17) Time [sec] Between Saves -- specify the frequency at which the configuration of the simulation is saved to a restart0000.x file.  To continue a given simulation, rename the most recent restart0000.x file to restart0000.this and run hephaestus again as usual. (Note that additional restart0001.x, restart0002.x, etc. files will exist - and will also have to be renamed - for multi-processor runs)
 
 18) Adapt the Grid ? -- Activate the ``Yes'' button to adapt the grid during the simulation (activated button appears as a red color).  Adapting the grid should result in reduced computational cost while maintaining a high simulation accuracy, but can also introduce instabilities into the computation.
   

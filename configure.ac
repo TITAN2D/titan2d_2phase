@@ -1,7 +1,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.59])
-AC_INIT(titan, 2.0.2)
+AC_INIT(hephaestus, 2.0.0)
 AM_INIT_AUTOMAKE
 AC_CONFIG_MACRO_DIR([m4])
 
@@ -25,7 +25,7 @@ AC_SYS_LARGEFILE
 #======================================================================================
 # checks for mpich installation
 AC_CHECK_LIB([pthread],[pthread_create])
-AC_ARG_WITH([mpi],[AS_HELP_STRING([--with-mpi],[MPI is required to build titan])])
+AC_ARG_WITH([mpi],[AS_HELP_STRING([--with-mpi],[MPI is required to build hephaestus])])
 
 if test -n "$with_mpi"; then
     CFLAGS="$CFLAGS -I$with_mpi/include"
@@ -135,11 +135,9 @@ AC_CONFIG_FILES([Makefile
                  src/geoflow/Makefile
                  src/gisapi/Makefile
                  src/header/Makefile
-                 src/main/Makefile
                  src/preproc/Makefile
                  src/repartition/Makefile
-                 src/stochastic/Makefile
                  src/tecplot/Makefile
                  src/useful/Makefile
-                 src/vectordatapreproc/Makefile])
+                 src/main/Makefile])
 AC_OUTPUT

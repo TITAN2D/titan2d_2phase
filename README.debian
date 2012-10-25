@@ -1,4 +1,4 @@
-<titan root>/debian directory contains files required to create .deb package. Somehow it is not building the source package. Please follow the following steps
+<hephaestus root>/debian directory contains files required to create .deb package. Somehow it is not building the source package. Please follow the following steps
 to create a *.deb package
 
 PREPRATION:
@@ -13,4 +13,4 @@ don't run dpkg-buildpackage -rfakeroot. it will try to run all kinds of default 
  2 -- debian/rules build
  3 -- fakeroot debian/rules binary
 
-thats it. It should create a *.deb installer in a dir one level above <titan root>. If it doesn't work (you are out of luck). Read documentation "Debian New Maintainers' Guide" at <http://www.debian.org/doc/manuals/maint-guide/> chapters 4-5-6
+thats it. It should create a *.deb installer in a dir one level above <hephaestus root>. If it doesn't work (you are out of luck). Read documentation "Debian New Maintainers' Guide" at <http://www.debian.org/doc/manuals/maint-guide/> chapters 4-5-6

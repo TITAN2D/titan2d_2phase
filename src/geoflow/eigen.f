@@ -55,10 +55,6 @@ c     iverson and denlinger
       endif
       evalue=dmax1(eigenvxmax,eigenvymax)
 
-      if ( evalue .lt. 0. ) then
-         write (*,*) "ERROR: Eigen-values -ve"
-         write (*,*) sound_speed, v_solid, v_fluid
-      endif
 
       return
       end

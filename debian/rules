@@ -31,7 +31,7 @@ endif
 ifneq "$(wildcard /usr/share/misc/config.guess)" ""
 	cp -f /usr/share/misc/config.guess config.guess
 endif
-	./configure $(CROSS) --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info CFLAGS="$(CFLAGS)" LDFLAGS="-Wl,-z,defs" CPPFLAGS='-I/usr/lib/mpich/include/'
+	./configure $(CROSS) --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info CFLAGS="$(CFLAGS)" LDFLAGS="-Wl,-z,defs" CPPFLAGS='-I/usr/include/mpich2/'
 
 
 build: build-stamp
@@ -41,7 +41,7 @@ build-stamp:  config.status
 
 	# Add here commands to compile the package.
 	$(MAKE)
-	#docbook-to-man debian/titan.sgml > titan.1
+	#docbook-to-man debian/hephaestus.sgml > hephaestus.1
 
 	touch $@
 
@@ -62,8 +62,8 @@ install: build
 	dh_clean -k 
 	dh_installdirs
 
-	# Add here commands to install the package into debian/titan.
-	$(MAKE) DESTDIR=$(CURDIR)/debian/titan install
+	# Add here commands to install the package into debian/hephaestus
+	$(MAKE) DESTDIR=$(CURDIR)/debian/hephaestus install
 
 
 # Build architecture-independent files here.
