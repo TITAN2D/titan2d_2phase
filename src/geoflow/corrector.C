@@ -81,6 +81,9 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
   double fluid_den=matprops_ptr->den_fluid;
   double terminal_vel=matprops_ptr->v_terminal;
 
+  double lscale=matprops_ptr->LENGTH_SCALE;
+  double timescale=timeprops->TIME_SCALE;
+
 
   double Vfluid[DIMENSION];
   double volf;
@@ -123,6 +126,9 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
   V_avg[1] = Vsolid[1]*volf + Vfluid[1]*(1.-volf);
   EmTemp->convect_dryline(V_avg,dt); //this is necessary
 
+  double manning_scale=timescale/pow(lscale,1.0/3.0);
+  double manning_coef=0.025/manning_scale;
+
   correct_(state_vars, prev_state_vars, fluxxp, fluxyp, fluxxm, fluxym,
 	   &tiny, &dtdx, &dtdy, &dt, d_state_vars, (d_state_vars+NUM_STATE_VARS), 
 	   &(zeta[0]), &(zeta[1]), curvature,
@@ -130,7 +136,7 @@ void correct(HashTable* NodeTable, HashTable* El_Table,
 	   gravity, kactxy, &(matprops_ptr->frict_tiny),
 	   forceint, forcebed, &do_erosion, eroded, Vsolid, Vfluid,
 	   &solid_den, &fluid_den, &terminal_vel,
-           &(matprops_ptr->epsilon), &IF_STOPPED, Influx);
+           &(matprops_ptr->epsilon), &IF_STOPPED, Influx,&manning_coef);
 
   *forceint*=dx[0]*dx[1];
   *forcebed*=dx[0]*dx[1];

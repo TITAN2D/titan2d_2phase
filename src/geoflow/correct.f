@@ -20,7 +20,8 @@ C***********************************************************************
      1     tiny, dtdx, dtdy, dt, dUdx, dUdy, xslope, yslope,
      2     curv, intfrictang, bedfrictang, g, kactxy, frict_tiny,
      3     forceint, forcebed, DO_EROSION, eroded, v_solid, v_fluid,
-     4     den_solid, den_fluid, terminal_vel, eps, IF_STOPPED, fluxsrc)
+     4     den_solid, den_fluid, terminal_vel, eps, IF_STOPPED, fluxsrc, 
+     5     manning_coef)
 C***********************************************************************
 
       implicit none
@@ -41,9 +42,9 @@ C***********************************************************************
       double precision dtdx, dtdy, dt, g(3), sgn_dudy, sgn_dvdx, tmp
       double precision dnorm, fluxsrc(6)
       double precision xslope,yslope,slope
-      double precision t1, t2, t3, t4, t5
+      double precision t1, t2, t3, t4, t5,t6
       double precision erosion_rate,threshold,es,totalShear
-      double precision eps, drag(4)
+      double precision eps, drag(4),gama,manning_coef
 
 !     function calls
       double precision sgn
@@ -89,6 +90,8 @@ c     here speed is speed
          den_frac = den_fluid/den_solid
          call calc_drag_force (uvec, v_solid, v_fluid, den_solid, 
      &                         den_fluid, terminal_vel, drag, tiny)
+
+        gama = g(3)*(manning_coef**2)*speed/(uvec(1)**(7.d0/3.d0))
  
 cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c        solid fraction x-direction source terms
@@ -147,7 +150,9 @@ c        gravity on fluid
          t4 = uvec(1)*g(1)
 c        drag force on fluid
          t5 = drag(3)
-         ustore(5) = ustore(5) + dt*(t4 - t5)
+c        manning source term
+         t6 = gama*uvec(1)*uvec(5)
+         ustore(5) = ustore(5) + dt*(t4 - t5 - t6)
 
 ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c    fluid fraction y-direction source terms
@@ -156,7 +161,9 @@ c        gravity on fluid
          t4 = uvec(1)*g(2)
 c        drag force on fluid
          t5 = drag(4)
-         ustore(6) = ustore(6) + dt*(t4 - t5)
+c        manning source term
+         t6 = gama*uvec(1)*uvec(6)
+         ustore(6) = ustore(6) + dt*(t4 - t5 - t6)
       endif
 
 c     computation of magnitude of friction forces for statistics
