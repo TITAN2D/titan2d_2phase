@@ -68,7 +68,7 @@ c     initialize to zero
      1     -dtdx*(fluxxp(i)-fluxxm(i))
      2     -dtdy*(fluxyp(i)-fluxym(i))
 
-      if(ustore(1).gt.tiny) then
+      if(uvec(1).gt.tiny) then
 c     Source terms ...
 c     here speed is speed squared
          speed=v_solid(1)**2+v_solid(2)**2
